@@ -1,0 +1,9 @@
+---
+- name: Ansible Playbook to setup my laptop
+  hosts: laptop
+  vars:
+    home_dir: "{{ lookup('env', 'HOME') }}"
+  roles:
+    - { role: common, become: yes }
+    - { role: git, become: yes, tags: [ 'git' ] }
+    - { role: python, become: yes, tags: [ 'dev', 'python' ] }

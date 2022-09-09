@@ -1,0 +1,30 @@
+- name: Print out the hostname of target
+  command: hostname
+
+- name: Install a list of CLI packages to their latest version
+  tags: cli
+  apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+    - wget
+    - curl
+    - htop
+    - terminator
+    - liquidprompt
+
+- name: Upgrade installed packages
+  tags: package-manager
+  apt:
+    upgrade: yes
+
+- name: Remove useless packages from the cache
+  tags: package-manager
+  apt:
+    autoclean: yes
+
+- name: Remove dependencies that are no longer required
+  tags: package-manager
+  apt:
+    autoremove: yes
