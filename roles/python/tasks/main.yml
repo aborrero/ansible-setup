@@ -1,0 +1,6 @@
+- name: Install pip for python3
+  apt:
+    pkg:
+        - python3-pip
+        - python3-dev
+    state: latest
