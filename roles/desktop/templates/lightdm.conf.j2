@@ -1,0 +1,11 @@
+[LightDM]
+
+[Seat:*]
+greeter-hide-users=false
+{% if ansible_facts['nodename'] == 'nostromo' %}
+display-setup-script=sh -c "xrandr -s 1920x1080 && xrandr --setprovideroutputsource NVIDIA-G0 modesetting && xrandr --auto"
+{% endif %}
+
+[XDMCPServer]
+
+[VNCServer]
