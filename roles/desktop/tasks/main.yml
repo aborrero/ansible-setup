@@ -1,0 +1,7 @@
+- name: install /etc/lightdm/lightdm.conf
+  ansible.builtin.template:
+    src: lightdm.conf.j2
+    dest: /etc/lightdm/lightdm.conf
+    owner: root
+    group: root
+    mode: '0644'
