@@ -1,8 +1,6 @@
 ---
-- name: Ansible Playbook to setup my laptop
-  hosts: laptop
-  vars:
-    home_dir: "{{ lookup('env', 'HOME') }}"
+- name: setup for nostromo
+  hosts: nostromo
   roles:
     - { role: common, become: yes }
     - { role: git, become: yes, tags: [ 'git' ] }
