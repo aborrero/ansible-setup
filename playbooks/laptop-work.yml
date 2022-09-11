@@ -1,6 +1,7 @@
 ---
-- name: setup for nostromo
-  hosts: nostromo
+- name: setup for a laptop in a work environment
+  hosts:
+    localhost
   roles:
     - { role: common, become: yes }
     - { role: desktop, become: yes }
