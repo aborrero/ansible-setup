@@ -1,0 +1,11 @@
+- name: install common desktop packages
+  tags: desktop
+  apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+    - firefox-esr
+    - thunderbird
+    - gimp
+    - dia

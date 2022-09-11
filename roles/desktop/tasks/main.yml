@@ -1,1 +1,2 @@
+- include_tasks: common.yml
 - include_tasks: lightdm.yml
