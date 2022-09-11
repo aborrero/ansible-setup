@@ -4,6 +4,7 @@
     localhost
   roles:
     - { role: common, become: yes }
+    - { role: ssh, become: yes }
     - { role: desktop, become: yes }
     - { role: git, become: yes, tags: [ 'git' ] }
     - { role: python, become: yes, tags: [ 'dev', 'python' ] }

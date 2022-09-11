@@ -1,0 +1,136 @@
+Host *
+    ServerAliveInterval 10
+    TCPKeepAlive no
+
+Host *.eqiad.wmflabs
+    ProxyCommand ssh -a -W %h:%p aborrero@eqiad1-restricted.bastion.wmcloud.org
+
+Host *.eqiad1.wikimedia.cloud
+    ProxyCommand ssh -a -W %h:%p aborrero@eqiad1-restricted.bastion.wmcloud.org
+
+Host *.codfw1dev.wikimedia.cloud
+    ProxyCommand ssh -a -W %h:%p aborrero@bastion.bastioninfra-codfw1dev.codfw1dev.wmcloud.org
+
+Match user root host *.wmflabs 
+    User root
+    IdentityFile ~/.ssh/wmf_cloud_root_arturo
+    IdentitiesOnly yes
+    ForwardAgent no
+    IdentityAgent /run/user/1000/ssh-wmf-cloud-root.socket
+    AddKeysToAgent yes
+
+Match user root host *.wikimedia.cloud
+    User root
+    IdentityFile ~/.ssh/wmf_cloud_root_arturo
+    IdentitiesOnly yes
+    ForwardAgent no
+    IdentityAgent /run/user/1000/ssh-wmf-cloud-root.socket
+    AddKeysToAgent yes
+
+Host *.wikimedia.cloud
+    User aborrero
+    IdentityFile ~/.ssh/wmf_cloud_user_arturo
+    IdentitiesOnly yes
+    ForwardAgent no
+    IdentityAgent /run/user/1000/ssh-wmf-cloud-user.socket
+    AddKeysToAgent yes
+
+Host *.wmcloud.org
+    User aborrero
+    IdentityFile ~/.ssh/wmf_cloud_user_arturo
+    IdentitiesOnly yes
+    ForwardAgent no
+    IdentityAgent /run/user/1000/ssh-wmf-cloud-user.socket
+    AddKeysToAgent yes
+
+Host *.wmflabs*
+    User aborrero
+    IdentityFile ~/.ssh/wmf_cloud_user_arturo
+    IdentitiesOnly yes
+    ForwardAgent no
+    IdentityAgent /run/user/1000/ssh-wmf-cloud-user.socket
+    AddKeysToAgent yes
+
+Host *.toolforge.org
+    User aborrero
+    IdentityFile ~/.ssh/wmf_cloud_user_arturo
+    IdentitiesOnly yes
+    ForwardAgent no
+    IdentityAgent /run/user/1000/ssh-wmf-cloud-user.socket
+    AddKeysToAgent yes
+
+Host * !gerrit.wikimedia.org
+     Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+     KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
+
+Host gerrit.wikimedia.org
+    User aborrero
+    IdentityFile ~/.ssh/wmf_gerrit_arturo
+    IdentitiesOnly yes
+    ForwardAgent no
+    IdentityAgent /run/user/1000/ssh-wmf-gerrit.socket
+    AddKeysToAgent yes
+    
+
+## Production & External Zones
+Host iron.wikimedia.org bast1003.wikimedia.org bast2001.wikimedia.org bast3002.wikimedia.org bast4001.wikimedia.org
+    ProxyCommand none
+    ControlMaster auto
+
+Host *.wikimedia.org !gerrit.wikimedia.org
+    User aborrero
+    ForwardAgent no
+    IdentitiesOnly no
+    IdentityAgent /run/user/1000/ssh-wmf-prod.socket
+    IdentityFile ~/.ssh/wmf_prod_arturo
+    ProxyCommand ssh -a -W %h:%p bast1003.wikimedia.org
+    AddKeysToAgent yes
+
+## Internal Zones
+Host *.wmnet
+    User aborrero
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/wmf_prod_arturo
+    ForwardAgent no
+    IdentityAgent /run/user/1000/ssh-wmf-prod.socket
+    AddKeysToAgent yes
+
+Host *.eqiad.wmnet
+    ProxyCommand ssh -a -W %h:%p bast1003.wikimedia.org
+
+Host *.codfw.wmnet
+    ProxyCommand ssh -6 -a -W %h:%p bast2002.wikimedia.org
+
+Host *.esams.wmnet
+    ProxyCommand ssh -a -W %h:%p bast3002.wikimedia.org
+
+Host *.ulsfo.wmnet
+    ProxyCommand ssh -a -W %h:%p bast4001.wikimedia.org
+
+## Networking Equipment
+Host *-eqiad.wikimedia.org *-eqord.wikimedia.org
+    ProxyCommand ssh -a -W %h:%p bast1003.wikimedia.org
+
+Host *-codfw.wikimedia.org *-eqdfw.wikimedia.org
+    ProxyCommand ssh -a -W %h:%p bast2002.wikimedia.org
+
+Host *-esams.wikimedia.org *-knams.wikimedia.org
+    ProxyCommand ssh -a -W %h:%p bast3002.wikimedia.org
+
+Host *-ulsfo.wikimedia.org
+    ProxyCommand ssh -a -W %h:%p bast4001.wikimedia.org
+
+# Netfilter
+Host git.netfilter.org
+    User gitolite
+    IdentityFile ~/.ssh/id_rsa
+
+# openstack
+Host review.opendev.org review
+  Hostname review.opendev.org
+  Port 29418
+  User artur
+  IdentityFile ~/.ssh/id_rsa
+
+Host gitlab.wikimedia.org
+  IdentityFile ~/.ssh/id_rsa

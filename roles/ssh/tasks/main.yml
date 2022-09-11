@@ -1,0 +1,13 @@
+- name: install ssh packages
+  tags: ssh
+  apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+    - openssh-client
+    - openssh-server
+
+- name: install ~/.ssh/config
+  tags: ssh
+  copy: src=client_ssh_config dest=/home/{{user}}/.ssh/config
