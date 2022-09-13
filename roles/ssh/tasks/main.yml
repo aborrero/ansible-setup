@@ -11,3 +11,11 @@
 - name: install ~/.ssh/config
   tags: ssh
   copy: src=client_ssh_config dest=/home/{{user}}/.ssh/config
+
+- import_tasks:  systemd_ssh_agent.yml
+  vars:
+    names:
+      - ssh-wmf-cloud-root
+      - ssh-wmf-cloud-user
+      - ssh-wmf-gerrit
+      - ssh-wmf-prod

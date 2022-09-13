@@ -1,0 +1,11 @@
+[Unit]
+Description=SSH authentication agent for {{ item }}
+Before=default.target
+
+[Service]
+Type=forking
+Environment=SSH_AUTH_SOCK=%t/{{ item }}.socket
+ExecStart=/usr/bin/ssh-agent -a $SSH_AUTH_SOCK
+
+[Install]
+WantedBy=default.target
