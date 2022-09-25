@@ -1,3 +1,14 @@
+- name: install lightdm-related packages
+  tags:
+    desktop
+    lightdm
+  apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+    - light-locker
+
 - name: install /etc/lightdm/lightdm.conf
   tags:
     desktop
