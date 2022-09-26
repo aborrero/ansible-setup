@@ -1,0 +1,12 @@
+- name: install custom WMF scripts
+  tags: wmf
+  ansible.builtin.copy:
+    src: "{{item}}"
+    dest: /usr/local/bin/{{item}}
+    owner: root
+    group: root
+    mode: '0755'
+  loop:
+    - wmf-puppetmaster-merge.sh
+    - wmf-cleanup-puppetmaster.sh
+    - wmf-tools-merge.sh
