@@ -8,9 +8,11 @@
     - openssh-client
     - openssh-server
 
-- name: install ~/.ssh/config
-  tags: ssh
-  copy: src=client_ssh_config dest=/home/{{user}}/.ssh/config
+- name: install ssh config dotfile
+  include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+  vars:
+    dotfiles:
+      - ssh/config
 
 - import_tasks:  systemd_ssh_agent.yml
   vars:
