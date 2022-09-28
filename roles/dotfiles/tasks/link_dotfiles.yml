@@ -6,6 +6,12 @@
     state: directory
   loop: "{{dotfiles}}"
 
+- name: backup previous dotfile
+  include_tasks: "{{ role_path }}/../dotfiles/tasks/backup_previous_dotfile.yml"
+  vars:
+    reference: "{{item}}"
+  loop: "{{dotfiles}}"
+
 - name: create links for dotfiles
   tags: dotfiles
   become: no
