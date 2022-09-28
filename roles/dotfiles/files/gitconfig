@@ -1,0 +1,9 @@
+[gitreview]
+    username = aborrero
+[user]
+    email = arturo@debian.org
+    name = Arturo Borrero Gonzalez
+[pull]
+    rebase = true
+[protocol]
+    version = 2
