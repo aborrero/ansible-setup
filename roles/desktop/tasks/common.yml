@@ -10,3 +10,10 @@
     - gimp
     - dia
     - pdfsam
+    - terminator
+
+- name: install terminator configuration
+  include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+  vars:
+    dotfiles:
+      - config/terminator/config
