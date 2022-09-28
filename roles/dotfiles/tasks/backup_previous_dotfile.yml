@@ -1,0 +1,22 @@
+- name: check if previous file exist /home/{{user}}/.{{reference}}
+  tags: dotfiles
+  become: no
+  ansible.builtin.stat:
+    path: /home/{{user}}/.{{reference}}
+  register: filecheck
+
+- name: backup old file /home/{{user}}/.{{reference}}
+  tags: dotfiles
+  become: no
+  ansible.builtin.copy:
+    src: /home/{{user}}/.{{reference}}
+    dest: /home/{{user}}/.{{reference}}_ansible_backup_{{ansible_date_time.iso8601_basic_short}}
+  # path is not a symlink, so a real file!
+  when: filecheck.stat.islnk is defined and filecheck.stat.islnk == False
+
+- name: make room for the new link for /home/{{user}}/.{{reference}}
+  ansible.builtin.file:
+    state: absent
+    path: /home/{{user}}/.{{reference}}
+  # path is not a symlink, so a real file!
+  when: filecheck.stat.islnk is defined and filecheck.stat.islnk == False
