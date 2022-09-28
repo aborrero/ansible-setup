@@ -3,5 +3,8 @@ eval "$(dircolors)"
 alias ls='ls $LS_OPTIONS'
 alias ll='ls $LS_OPTIONS -l'
 
+alias sudo='sudo '
+alias tailf='tail -f'
+
 alias gldoc='git log --decorate --oneline --color'
 alias gry='git review -y'
