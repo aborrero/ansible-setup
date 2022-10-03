@@ -11,6 +11,7 @@
     - dia
     - pdfsam
     - terminator
+    - gnome-calculator
 
 - name: install terminator configuration
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
