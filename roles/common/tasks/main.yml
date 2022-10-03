@@ -9,6 +9,8 @@
     - curl
     - htop
     - liquidprompt
+    - aptitude
+    - cmatrix
 
 - name: upgrade installed packages
   tags: package-manager
