@@ -11,3 +11,4 @@
     - wmf-cleanup-puppetmaster.sh
     - wmf-tools-merge.sh
     - wmf-export-puppet-patch.sh
+    - wmf-git-review.sh
