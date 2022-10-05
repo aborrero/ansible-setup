@@ -1,0 +1,18 @@
+- name: install xfce4 configuration
+  include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+  vars:
+    dotfiles:
+      - config/xfce4/panel/diskperf-22.rc
+      - config/xfce4/panel/launcher-10/15415045292.desktop
+      - config/xfce4/panel/launcher-11/15415045293.desktop
+      - config/xfce4/panel/launcher-20/15415266241.desktop
+      - config/xfce4/panel/launcher-20/15415268052.desktop
+      - config/xfce4/panel/launcher-9/15415045281.desktop
+      - config/xfce4/panel/netload-19.rc
+      - config/xfce4/panel/netload-2.rc
+      - config/xfce4/panel/screenshooter-21.rc
+      - config/xfce4/panel/systemload-23.rc
+      - config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
+      - config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+      - config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
+
