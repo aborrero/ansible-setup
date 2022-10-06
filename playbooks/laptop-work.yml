@@ -9,4 +9,5 @@
     - { role: desktop, become: yes }
     - { role: git, become: yes, tags: [ 'git' ] }
     - { role: python, become: yes, tags: [ 'dev', 'python' ] }
+    - { role: debian, become: yes }
     - { role: wmf, become: yes }
