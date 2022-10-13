@@ -11,3 +11,4 @@
     - { role: python, become: yes, tags: [ 'dev', 'python' ] }
     - { role: debian, become: yes }
     - { role: wmf, become: yes }
+    - { role: k8s, become: yes }
