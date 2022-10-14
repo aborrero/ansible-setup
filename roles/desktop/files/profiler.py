@@ -35,6 +35,12 @@ def parse_args():
         help="YAML config file. Defaults to '%(default)s'",
     )
 
+    parser.add_argument(
+        "-d", "--debug",
+        action='store_true',
+        help="activate debug mode",
+    )
+
     subparser = parser.add_subparsers(
         help="possible operations",
         dest="op",
@@ -48,7 +54,7 @@ def parse_args():
 
     execparser = subparser.add_parser(
         "exec",
-        help="list profiles",
+        help="exec profile",
     )
     execparser.add_argument("profile_name")
 
@@ -63,6 +69,7 @@ def op_list(config: dict):
 
 
 def run(command: str):
+    logging.debug(f"running command: {command}")
     r = subprocess.run(command, shell=True, capture_output=True)
     if r.returncode != 0:
         logging.warning(f"command failed: {command}")
@@ -86,6 +93,13 @@ def op_exec(config: dict, profile_name: str):
 
 def main():
     args = parse_args()
+
+    if args.debug:
+        level = logging.DEBUG
+    else:
+        level = logging.INFO
+
+    logging.basicConfig(format="%(message)s", level=level)
 
     config = read_yaml(args.cfg)
 
