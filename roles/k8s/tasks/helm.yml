@@ -1,4 +1,4 @@
-- name: install helm repository
+- name: install helm
   tags:
     k8s
     helm
@@ -18,3 +18,9 @@
         name: helm
         state: latest
         update_cache: yes
+
+- name: install helm cm-push plugin
+  tags:
+    k8s
+    helm
+  ansible.builtin.shell: helm plugin install https://github.com/chartmuseum/helm-push || true
