@@ -7,9 +7,6 @@ esac
 # zoom install some weird thing that messes with the keyboard
 ibus exit 2>/dev/null >/dev/null || true
 
-# fancy init
-cmatrix -bas -u3
-
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
