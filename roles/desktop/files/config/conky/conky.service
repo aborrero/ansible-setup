@@ -1,0 +1,9 @@
+[Unit]
+Description=conky daemon
+Before=default.target
+
+[Service]
+ExecStart=conky
+
+[Install]
+WantedBy=default.target
