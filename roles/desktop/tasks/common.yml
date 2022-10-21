@@ -12,9 +12,31 @@
     - pdfsam
     - terminator
     - gnome-calculator
+    - conky
 
-- name: install terminator configuration
+- name: install some dotfiles
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
   vars:
     dotfiles:
       - config/terminator/config
+      - config/conky/conky.conf
+
+- name: create systemd service files for conky
+  tags:
+    desktop
+    conky
+  ansible.builtin.copy:
+    src: config/conky/conky.service
+    dest: /etc/systemd/user/conky.service
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: enable systemd service for conky
+  systemd:
+    name: conky.service
+    enabled: yes
+    state: started
+    scope: user
+    daemon_reload: yes
+  become: no
