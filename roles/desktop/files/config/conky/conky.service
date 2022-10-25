@@ -2,6 +2,8 @@
 Description=conky daemon
 
 [Service]
+Environment=DISPLAY=:0.0
+Environmnet=XAUTHORITY=/home/arturo/.Xauthority
 ExecStart=conky
 
 [Install]
