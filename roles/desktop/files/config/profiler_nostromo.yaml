@@ -37,4 +37,4 @@
     - pactl suspend-sink alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 false
     # unmute and set volume
     - pactl set-sink-mute alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 0
-    - pactl set-sink-volume @DEFAULT_SINK@ 40%
+    - pactl set-sink-volume @DEFAULT_SINK@ 35%
