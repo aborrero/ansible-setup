@@ -1,7 +1,0 @@
-- name: install xfce4 configuration
-  tags: dotfiles
-  become: no
-  ansible.builtin.copy:
-    src: config/xfce4
-    dest: /home/{{user}}/.config/xfce4
-    backup: yes
