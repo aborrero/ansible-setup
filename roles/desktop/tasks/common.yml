@@ -13,6 +13,7 @@
     - terminator
     - gnome-calculator
     - conky
+    - blueman
 
 - name: install some dotfiles
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
