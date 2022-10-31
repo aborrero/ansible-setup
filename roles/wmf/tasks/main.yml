@@ -12,3 +12,22 @@
     - wmf-tools-merge.sh
     - wmf-export-puppet-patch.sh
     - wmf-git-review.sh
+
+- name: WMF repository key
+  tags: wmf
+  ansible.builtin.get_url:
+    url: https://wikitech.wikimedia.org/w/index.php?title=APT_repository/Stretch-Key&action=raw
+    dest: /etc/apt/trusted.gpg.d/wikimedia-apt-key.asc
+
+- name: WMF repository source
+  tags: wmf
+  ansible.builtin.apt_repository:
+    repo: "deb http://apt.wikimedia.org/wikimedia buster-wikimedia component/wmf-sre-laptop"
+    state: present
+
+- name: install wmf-sre-laptop
+  tags: wmf
+  apt:
+    name: wmf-sre-laptop
+    state: latest
+    update_cache: yes
