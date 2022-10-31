@@ -70,6 +70,7 @@ Host gerrit.wikimedia.org
     ForwardAgent no
     IdentityAgent /run/user/1000/ssh-wmf-gerrit.socket
     AddKeysToAgent yes
+    UserKnownHostsFile /home/arturo/.ssh/known_hosts.d/wmf-prod
     
 
 ## Production & External Zones
@@ -85,6 +86,7 @@ Host *.wikimedia.org !gerrit.wikimedia.org
     IdentityFile ~/.ssh/wmf_prod_arturo
     ProxyCommand ssh -a -W %h:%p bast1003.wikimedia.org
     AddKeysToAgent yes
+    UserKnownHostsFile /home/arturo/.ssh/known_hosts.d/wmf-prod
 
 ## Internal Zones
 Host *.wmnet
@@ -94,6 +96,7 @@ Host *.wmnet
     ForwardAgent no
     IdentityAgent /run/user/1000/ssh-wmf-prod.socket
     AddKeysToAgent yes
+    UserKnownHostsFile /home/arturo/.ssh/known_hosts.d/wmf-prod
 
 Host *.eqiad.wmnet
     ProxyCommand ssh -a -W %h:%p bast1003.wikimedia.org
