@@ -1,0 +1,24 @@
+- name: install docker
+  tags:
+    k8s
+    docker
+  block:
+    - name: docker repository key
+      ansible.builtin.get_url:
+        url: https://download.docker.com/linux/debian/gpg
+        dest: /etc/apt/trusted.gpg.d/docker.asc
+
+    - name: docker repository source
+      ansible.builtin.apt_repository:
+        # they don't have bookworm yet https://download.docker.com/linux/debian/dists/
+        repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/docker.asc] https://download.docker.com/linux/debian bullseye stable"
+        state: present
+
+    - name: docker packages are installed
+      apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+        state: latest
+        update_cache: yes
