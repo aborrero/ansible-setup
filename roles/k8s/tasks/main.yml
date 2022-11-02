@@ -1,1 +1,2 @@
+- include_tasks: kind.yml
 - include_tasks: helm.yml
