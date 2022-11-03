@@ -1,7 +1,7 @@
 [gitreview]
     username = aborrero
 [user]
-    email = arturo@debian.org
+    email = arturo.bg@arturo.bg
     name = Arturo Borrero Gonzalez
 [pull]
     rebase = true
