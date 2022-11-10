@@ -1,19 +1,20 @@
+---
 - name: create systemd service files for ssh agents
   tags: ssh
   ansible.builtin.template:
     src: systemd_ssh_agent.service.j2
-    dest: "/etc/systemd/user/{{item}}.service"
+    dest: /etc/systemd/user/{{item}}.service
     owner: root
     group: root
-    mode: '0644'
+    mode: "0644"
   loop: "{{names}}"
 
 - name: enable systemd service for ssh agents
   systemd:
     name: "{{item}}.service"
-    enabled: yes
+    enabled: true
     state: started
     scope: user
-    daemon_reload: yes
-  become: no
+    daemon_reload: true
+  become: false
   loop: "{{names}}"

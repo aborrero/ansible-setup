@@ -1,3 +1,4 @@
+---
 - name: install a list of CLI packages to their latest version
   tags: cli
   apt:
@@ -5,25 +6,25 @@
     state: latest
   vars:
     packages:
-    - wget
-    - curl
-    - htop
-    - liquidprompt
-    - aptitude
-    - cmatrix
-    - ansible-lint
+      - wget
+      - curl
+      - htop
+      - liquidprompt
+      - aptitude
+      - cmatrix
+      - ansible-lint
 
 - name: upgrade installed packages
   tags: package-manager
   apt:
-    upgrade: yes
+    upgrade: true
 
 - name: remove useless packages from the cache
   tags: package-manager
   apt:
-    autoclean: yes
+    autoclean: true
 
 - name: remove dependencies that are no longer required
   tags: package-manager
   apt:
-    autoremove: yes
+    autoremove: true

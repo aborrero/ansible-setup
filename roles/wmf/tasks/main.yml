@@ -1,3 +1,4 @@
+---
 - name: install custom WMF scripts
   tags: wmf
   ansible.builtin.copy:
@@ -5,7 +6,7 @@
     dest: /usr/local/bin/{{item}}
     owner: root
     group: root
-    mode: '0755'
+    mode: "0755"
   loop:
     - wmf-puppetmaster-merge.sh
     - wmf-cleanup-puppetmaster.sh
@@ -22,7 +23,7 @@
 - name: WMF repository source
   tags: wmf
   ansible.builtin.apt_repository:
-    repo: "deb http://apt.wikimedia.org/wikimedia buster-wikimedia component/wmf-sre-laptop"
+    repo: deb http://apt.wikimedia.org/wikimedia buster-wikimedia component/wmf-sre-laptop
     state: present
 
 - name: install wmf-sre-laptop
@@ -30,4 +31,4 @@
   apt:
     name: wmf-sre-laptop
     state: latest
-    update_cache: yes
+    update_cache: true

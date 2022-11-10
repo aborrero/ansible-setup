@@ -1,3 +1,4 @@
+---
 - name: install common desktop packages
   tags: desktop
   apt:
@@ -5,15 +6,15 @@
     state: latest
   vars:
     packages:
-    - firefox-esr
-    - thunderbird
-    - gimp
-    - dia
-    - pdfsam
-    - terminator
-    - gnome-calculator
-    - conky
-    - blueman
+      - firefox-esr
+      - thunderbird
+      - gimp
+      - dia
+      - pdfsam
+      - terminator
+      - gnome-calculator
+      - conky
+      - blueman
 
 - name: install some dotfiles
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
@@ -23,21 +24,19 @@
       - config/conky/conky.conf
 
 - name: create systemd service files for conky
-  tags:
-    desktop
-    conky
+  tags: desktop conky
   ansible.builtin.copy:
     src: config/conky/conky.service
     dest: /etc/systemd/user/conky.service
     owner: root
     group: root
-    mode: '0644'
+    mode: "0644"
 
 - name: enable systemd service for conky
   systemd:
     name: conky.service
-    enabled: yes
+    enabled: true
     state: started
     scope: user
-    daemon_reload: yes
-  become: no
+    daemon_reload: true
+  become: false

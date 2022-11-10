@@ -1,30 +1,25 @@
+---
 - name: verify if kind is installed
-  tags:
-    k8s
-    kind
-  become: no
+  tags: k8s kind
+  become: false
   ansible.builtin.stat:
     path: /usr/local/bin/kind
   register: filecheck
 
 - name: verify kind version
-  tags:
-    k8s
-    kind
-  become: no
+  tags: k8s kind
+  become: false
   ansible.builtin.shell: kind --version
   when: filecheck.stat.executable is defined and filecheck.stat.executable == True
   register: kindversion
 
 - name: download and install kind
-  tags:
-    k8s
-    kind
+  tags: k8s kind
   # refresh versions from https://github.com/kubernetes-sigs/kind/releases
   ansible.builtin.get_url:
     url: https://kind.sigs.k8s.io/dl/v0.17.0/kind-linux-amd64
     dest: /usr/local/bin/kind
-    mode: '0755'
+    mode: "0755"
     checksum: sha256:a8c045856db33f839908b6acb90dc8ec397253ffdaef7baf058f5a542e009b9c
   when: filecheck.stat.executable is not defined or filecheck.stat.executable == False or kindversion.stdout != "kind version 0.17.0"
 
@@ -33,4 +28,3 @@
   vars:
     dotfiles:
       - kind.yaml
-

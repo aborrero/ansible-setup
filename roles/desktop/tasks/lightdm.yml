@@ -1,21 +1,18 @@
+---
 - name: install lightdm-related packages
-  tags:
-    desktop
-    lightdm
+  tags: desktop lightdm
   apt:
     name: "{{ packages }}"
     state: latest
   vars:
     packages:
-    - light-locker
+      - light-locker
 
 - name: install /etc/lightdm/lightdm.conf
-  tags:
-    desktop
-    lightdm
+  tags: desktop lightdm
   ansible.builtin.template:
     src: lightdm.conf.j2
     dest: /etc/lightdm/lightdm.conf
     owner: root
     group: root
-    mode: '0644'
+    mode: "0644"

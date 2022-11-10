@@ -1,3 +1,4 @@
+---
 - import_tasks: link_dotfiles.yml
   vars:
     dotfiles:
