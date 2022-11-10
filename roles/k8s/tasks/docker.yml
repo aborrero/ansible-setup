@@ -22,3 +22,12 @@
           - containerd.io
         state: latest
         update_cache: yes
+
+- name: docker group membership
+  ansible.builtin.user:
+    name: "{{user}}"
+    groups: docker
+    append: yes
+
+- name: docker directory permissions
+  ansible.builtin.shell: chown "{{user}}":"{{user}}" /home/"{{user}}"/.docker -R
