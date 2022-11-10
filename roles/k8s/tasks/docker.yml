@@ -1,7 +1,6 @@
+---
 - name: install docker
-  tags:
-    k8s
-    docker
+  tags: k8s docker
   block:
     - name: docker repository key
       ansible.builtin.get_url:
@@ -11,7 +10,7 @@
     - name: docker repository source
       ansible.builtin.apt_repository:
         # they don't have bookworm yet https://download.docker.com/linux/debian/dists/
-        repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/docker.asc] https://download.docker.com/linux/debian bullseye stable"
+        repo: deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/docker.asc] https://download.docker.com/linux/debian bullseye stable
         state: present
 
     - name: docker packages are installed
@@ -21,13 +20,13 @@
           - docker-ce-cli
           - containerd.io
         state: latest
-        update_cache: yes
+        update_cache: true
 
 - name: docker group membership
   ansible.builtin.user:
     name: "{{user}}"
     groups: docker
-    append: yes
+    append: true
 
 - name: docker directory permissions
   ansible.builtin.shell: chown "{{user}}":"{{user}}" /home/"{{user}}"/.docker -R

@@ -1,3 +1,4 @@
+---
 - name: install ssh packages
   tags: ssh
   apt:
@@ -5,8 +6,8 @@
     state: latest
   vars:
     packages:
-    - openssh-client
-    - openssh-server
+      - openssh-client
+      - openssh-server
 
 - name: install ssh config dotfile
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
@@ -14,7 +15,7 @@
     dotfiles:
       - ssh/config
 
-- import_tasks:  systemd_ssh_agent.yml
+- import_tasks: systemd_ssh_agent.yml
   vars:
     names:
       - ssh-wmf-cloud-root

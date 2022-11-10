@@ -1,14 +1,13 @@
 ---
 - name: setup for a laptop in a work environment
-  hosts:
-    localhost
+  hosts: localhost
   roles:
-    - { role: common, become: yes }
-    - { role: dotfiles, become: yes }
-    - { role: ssh, become: yes }
-    - { role: desktop, become: yes }
-    - { role: git, become: yes, tags: [ 'git' ] }
-    - { role: python, become: yes, tags: [ 'dev', 'python' ] }
-    - { role: debian, become: yes }
-    - { role: wmf, become: yes }
-    - { role: k8s, become: yes }
+    - { role: common, become: true }
+    - { role: dotfiles, become: true }
+    - { role: ssh, become: true }
+    - { role: desktop, become: true }
+    - { role: git, become: true, tags: [git] }
+    - { role: python, become: true, tags: [dev, python] }
+    - { role: debian, become: true }
+    - { role: wmf, become: true }
+    - { role: k8s, become: true }

@@ -1,24 +1,19 @@
+---
 - name: install profiler script
-  tags:
-    profiler
-    desktop
+  tags: profiler desktop
   ansible.builtin.copy:
     src: profiler.py
     dest: /usr/local/bin/profiler
     mode: 0755
 
 - name: install profile.yaml
-  tags:
-    profiler
-    desktop
+  tags: profiler desktop
   ansible.builtin.copy:
     src: config/profiler_{{ansible_facts['nodename']}}.yaml
     dest: /home/{{user}}/.config/profiler.yaml
 
 - name: install shortcuts
-  tags:
-    profiler
-    desktop
+  tags: profiler desktop
   ansible.builtin.copy:
     src: config/profiler_shortcuts_{{ansible_facts['nodename']}}.sh
     dest: /home/{{user}}/.config/profiler_shortcuts.sh

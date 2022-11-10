@@ -1,6 +1,7 @@
+---
 - name: ensure dotfiles required dirs exist
   tags: dotfiles
-  become: no
+  become: false
   ansible.builtin.file:
     dest: /home/{{user}}/.{{item|dirname}}
     state: directory
@@ -14,7 +15,7 @@
 
 - name: create links for dotfiles
   tags: dotfiles
-  become: no
+  become: false
   ansible.builtin.file:
     src: "{{role_path}}/files/{{item}}"
     dest: /home/{{user}}/.{{item}}

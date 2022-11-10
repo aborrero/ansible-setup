@@ -1,13 +1,14 @@
+---
 - name: check if previous file exist /home/{{user}}/.{{reference}}
   tags: dotfiles
-  become: no
+  become: false
   ansible.builtin.stat:
     path: /home/{{user}}/.{{reference}}
   register: filecheck
 
 - name: backup old file /home/{{user}}/.{{reference}}
   tags: dotfiles
-  become: no
+  become: false
   ansible.builtin.copy:
     src: /home/{{user}}/.{{reference}}
     dest: /home/{{user}}/.{{reference}}_ansible_backup_{{ansible_date_time.iso8601_basic_short}}

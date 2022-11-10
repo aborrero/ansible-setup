@@ -1,17 +1,16 @@
+---
 - name: install debian devel packages
-  tags:
-    cli
-    debian
+  tags: cli debian
   apt:
     name: "{{ package }}"
     state: latest
   vars:
     package:
-    - debmake
-    - sbuild
-    - schroot
-    - git-buildpackage
-    - pristine-tar
+      - debmake
+      - sbuild
+      - schroot
+      - git-buildpackage
+      - pristine-tar
 
 - name: install some debian-related dotfiles
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
