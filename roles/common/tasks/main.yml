@@ -11,6 +11,7 @@
     - liquidprompt
     - aptitude
     - cmatrix
+    - ansible-lint
 
 - name: upgrade installed packages
   tags: package-manager
