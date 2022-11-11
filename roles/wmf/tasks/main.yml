@@ -32,3 +32,8 @@
     name: wmf-sre-laptop
     state: latest
     update_cache: true
+
+- name: refresh ssh known hosts
+  tags: wmf ssh
+  become: false
+  ansible.builtin.shell: wmf-update-known-hosts-production
