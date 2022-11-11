@@ -12,9 +12,17 @@
   become: true
   ansible.builtin.lineinfile:
     create: true
-    dest: /etc/sudoers.d/ansible-setup
+    dest: /etc/sudoers.d/ansible-setup-nopasswd
     state: present
     line: "%ansible-setup ALL = (ALL) NOPASSWD: ALL"
+
+- name: enable passwordless sudo to run ansible-setup
+  become: true
+  ansible.builtin.lineinfile:
+    create: true
+    dest: /etc/sudoers.d/arturo-runs-ansible-setup
+    state: present
+    line: "%arturo ansible-setup = (ALL) NOPASSWD: /usr/bin/ansible-playbook"
 
 - name: make sure ~/.ansible-setup/ exists
   become: true
