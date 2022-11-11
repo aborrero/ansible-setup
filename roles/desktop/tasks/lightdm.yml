@@ -1,6 +1,7 @@
 ---
 - name: install lightdm-related packages
   tags: desktop lightdm
+  become: true
   apt:
     name: "{{ packages }}"
     state: latest
@@ -10,6 +11,7 @@
 
 - name: install /etc/lightdm/lightdm.conf
   tags: desktop lightdm
+  become: true
   ansible.builtin.template:
     src: lightdm.conf.j2
     dest: /etc/lightdm/lightdm.conf

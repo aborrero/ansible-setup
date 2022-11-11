@@ -1,6 +1,7 @@
 ---
 - name: install common desktop packages
   tags: desktop
+  become: true
   apt:
     name: "{{ packages }}"
     state: latest
@@ -25,6 +26,7 @@
 
 - name: create systemd service files for conky
   tags: desktop conky
+  become: true
   ansible.builtin.copy:
     src: config/conky/conky.service
     dest: /etc/systemd/user/conky.service
@@ -33,10 +35,11 @@
     mode: "0644"
 
 - name: enable systemd service for conky
+  become: true
+  become_user: "{{user}}"
   systemd:
     name: conky.service
     enabled: true
     state: started
     scope: user
     daemon_reload: true
-  become: false

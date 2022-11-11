@@ -1,6 +1,7 @@
 ---
 - name: install custom WMF scripts
   tags: wmf
+  become: true
   ansible.builtin.copy:
     src: "{{item}}"
     dest: /usr/local/bin/{{item}}
@@ -16,18 +17,21 @@
 
 - name: WMF repository key
   tags: wmf
+  become: true
   ansible.builtin.get_url:
     url: https://wikitech.wikimedia.org/w/index.php?title=APT_repository/Stretch-Key&action=raw
     dest: /etc/apt/trusted.gpg.d/wikimedia-apt-key.asc
 
 - name: WMF repository source
   tags: wmf
+  become: true
   ansible.builtin.apt_repository:
     repo: deb http://apt.wikimedia.org/wikimedia buster-wikimedia component/wmf-sre-laptop
     state: present
 
 - name: install wmf-sre-laptop
   tags: wmf
+  become: true
   apt:
     name: wmf-sre-laptop
     state: latest
@@ -35,5 +39,6 @@
 
 - name: refresh ssh known hosts
   tags: wmf ssh
-  become: false
+  become: true
+  become_user: "{{user}}"
   ansible.builtin.shell: wmf-update-known-hosts-production

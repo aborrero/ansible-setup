@@ -1,5 +1,6 @@
 ---
 - name: Install git-related software
+  become: true
   apt:
     name: "{{ packages }}"
     state: latest
