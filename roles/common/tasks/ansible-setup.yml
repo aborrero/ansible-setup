@@ -1,0 +1,11 @@
+---
+- name: make sure ~/.ansible-setup/ exists
+  become: false
+  ansible.builtin.file:
+    dest: /home/{{user}}/.ansible-setup/
+    state: directory
+
+- name: write hash of the repo to a ~/.ansible-setup/last_run_hash
+  become: false
+  ansible.builtin.shell: git --git-dir=/home/{{user}}/git/github/ansible-setup/.git rev-parse HEAD > /home/{{user}}/.ansible-setup/last_run_hash
+

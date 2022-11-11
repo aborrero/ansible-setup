@@ -1,4 +1,6 @@
 ---
+- include_tasks: ansible-setup.yml
+
 - name: install a list of CLI packages to their latest version
   tags: cli
   apt:
