@@ -3,6 +3,7 @@
 
 - name: install a list of CLI packages to their latest version
   tags: cli
+  become: true
   apt:
     name: "{{ packages }}"
     state: latest
@@ -18,15 +19,18 @@
 
 - name: upgrade installed packages
   tags: package-manager
+  become: true
   apt:
     upgrade: true
 
 - name: remove useless packages from the cache
   tags: package-manager
+  become: true
   apt:
     autoclean: true
 
 - name: remove dependencies that are no longer required
   tags: package-manager
+  become: true
   apt:
     autoremove: true

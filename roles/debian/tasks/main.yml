@@ -1,6 +1,7 @@
 ---
 - name: install debian devel packages
   tags: cli debian
+  become: true
   apt:
     name: "{{ package }}"
     state: latest

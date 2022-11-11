@@ -1,6 +1,7 @@
 ---
 - name: install helm
   tags: k8s helm
+  become: true
   block:
     - name: helm repository key
       ansible.builtin.get_url:
@@ -20,4 +21,6 @@
 
 - name: install helm cm-push plugin
   tags: k8s helm
+  become: true
+  become_user: "{{user}}"
   ansible.builtin.shell: helm plugin install https://github.com/chartmuseum/helm-push || true
