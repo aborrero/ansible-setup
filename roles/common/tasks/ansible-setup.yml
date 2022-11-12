@@ -31,4 +31,4 @@
   become: true
   become_user: "{{user}}"
   ansible.builtin.shell: git --git-dir=/home/{{user}}/git/github/ansible-setup/.git rev-parse HEAD > /home/{{user}}/.ansible-setup/last_run_hash
-
+  changed_when: false

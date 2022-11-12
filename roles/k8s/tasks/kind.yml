@@ -10,6 +10,7 @@
   ansible.builtin.shell: kind --version
   when: filecheck.stat.executable is defined and filecheck.stat.executable == True
   register: kindversion
+  changed_when: false
 
 - name: download and install kind
   tags: k8s kind

@@ -28,3 +28,5 @@
   become: true
   become_user: "{{user}}"
   ansible.builtin.shell: helm plugin install https://github.com/chartmuseum/helm-push || true
+  register: result
+  changed_when: "'Error: plugin already exists' not in result.stderr"
