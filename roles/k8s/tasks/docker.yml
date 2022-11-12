@@ -30,6 +30,12 @@
     groups: docker
     append: true
 
+- name: docker directory
+  become: true
+  ansible.builtin.file:
+    dest: "/home/{{user}}/.docker"
+    state: directory
+
 - name: docker directory permissions
   become: true
-  ansible.builtin.shell: chown "{{user}}":"{{user}}" /home/"{{user}}"/.docker -R
+  ansible.builtin.shell: chown "{{user}}":"{{user}}" "/home/{{user}}/.docker" -R
