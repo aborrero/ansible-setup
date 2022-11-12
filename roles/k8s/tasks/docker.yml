@@ -43,6 +43,7 @@
 - name: docker data root permissions
   become: true
   ansible.builtin.shell: chown "{{user}}":"{{user}}" "/home/{{user}}/.docker" -R
+  changed_when: false
 
 - name: docker daemon configuration directory
   become: true

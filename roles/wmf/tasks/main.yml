@@ -46,3 +46,4 @@
   become: true
   become_user: "{{user}}"
   ansible.builtin.shell: wmf-update-known-hosts-production
+  changed_when: false
