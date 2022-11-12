@@ -1,0 +1,37 @@
+- name: ensure config directory exists
+  become: true
+  ansible.builtin.file:
+    dest: /etc/nftables.d/
+    state: directory
+
+- name: install config file
+  become: true
+  ansible.builtin.copy:
+    src: ruleset.nft
+    dest: /etc/nftables.d/ruleset.nft
+  register: config
+
+- name: install service file
+  become: true
+  ansible.builtin.copy:
+    dest: /etc/systemd/system/nftables.service
+    content: |
+      [Service]
+      ExecStart=
+      ExecStart=/usr/sbin/nft -f /etc/nftables.d/ruleset.nft
+      ExecReload=
+      ExecReload=/usr/sbin/nft -f /etc/nftables.d/ruleset.nft
+  register: service
+
+- name: reload systemd on service changes
+  become: true
+  ansible.builtin.shell: systemctl daemon-reload
+  when: service.changed
+
+- name: restart nftables service
+  become: true
+  ansible.builtin.systemd:
+    name: nftables.service
+    state: restarted
+    enabled: true
+  when: config.changed or service.changed

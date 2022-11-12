@@ -3,6 +3,7 @@
   hosts: localhost
   roles:
     - { role: common }
+    - { role: nftables }
     - { role: dotfiles }
     - { role: ssh }
     - { role: desktop }

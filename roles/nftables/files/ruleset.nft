@@ -1,0 +1,25 @@
+#!/usr/sbin/nft -f
+flush ruleset
+
+table inet filter {
+	chain input {
+		type filter hook input priority 0;
+
+		# counter accept any localhost traffic
+		iif lo counter accept
+
+		# counter accept traffic originated from us
+		ct state established,related counter accept
+
+		# activate the following line to counter accept common local services
+		#tcp dport @p ct state new counter accept
+
+		# accept neighbour discovery otherwise IPv6 connectivity breaks.
+		ip6 nexthdr icmpv6 icmpv6 type { nd-neighbor-solicit, \
+			# test
+			nd-router-advert, nd-neighbor-advert } counter accept
+
+		# count and drop any other traffic
+		counter drop
+	}
+}
