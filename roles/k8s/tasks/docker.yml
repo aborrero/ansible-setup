@@ -13,6 +13,11 @@
         # they don't have bookworm yet https://download.docker.com/linux/debian/dists/
         repo: deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/docker.asc] https://download.docker.com/linux/debian bullseye stable
         state: present
+        filename: docker
+
+    - include_tasks: "{{ role_path }}/../common/tasks/apt-update-single-repository.yaml"
+      vars:
+        file: docker.list
 
     - name: docker packages are installed
       apt:
@@ -21,7 +26,6 @@
           - docker-ce-cli
           - containerd.io
         state: latest
-        update_cache: true
 
 - name: docker group membership
   become: true
