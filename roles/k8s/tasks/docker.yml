@@ -30,12 +30,32 @@
     groups: docker
     append: true
 
-- name: docker directory
+- name: docker data root
   become: true
   ansible.builtin.file:
     dest: "/home/{{user}}/.docker"
     state: directory
 
-- name: docker directory permissions
+- name: docker data root permissions
   become: true
   ansible.builtin.shell: chown "{{user}}":"{{user}}" "/home/{{user}}/.docker" -R
+
+- name: docker daemon configuration directory
+  become: true
+  ansible.builtin.file:
+    dest: /etc/docker
+    state: directory
+
+- name: docker daemon configuration
+  become: true
+  ansible.builtin.copy:
+    src: docker/daemon.json
+    dest: /etc/docker/daemon.json
+  register: dockerconfig
+
+- name: restart docker daemon if config changed
+  become: true
+  ansible.builtin.systemd:
+    name: docker.service
+    state: restarted
+  when: dockerconfig.changed
