@@ -26,8 +26,13 @@
   tags: wmf
   become: true
   ansible.builtin.apt_repository:
+    filename: wmf-sre-laptop
     repo: deb http://apt.wikimedia.org/wikimedia buster-wikimedia component/wmf-sre-laptop
     state: present
+
+- include_tasks: "{{ role_path }}/../common/tasks/apt-update-single-repository.yaml"
+  vars:
+    file: wmf-sre-laptop.list
 
 - name: install wmf-sre-laptop
   tags: wmf
@@ -35,7 +40,6 @@
   apt:
     name: wmf-sre-laptop
     state: latest
-    update_cache: true
 
 - name: refresh ssh known hosts
   tags: wmf ssh
