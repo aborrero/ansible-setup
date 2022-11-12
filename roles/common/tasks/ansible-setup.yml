@@ -10,19 +10,15 @@
 
 - name: enable passwordless sudo for the ansible-setup user
   become: true
-  ansible.builtin.lineinfile:
-    create: true
+  ansible.builtin.copy:
     dest: /etc/sudoers.d/ansible-setup-nopasswd
-    state: present
-    line: "%ansible-setup ALL = (ALL) NOPASSWD: ALL"
+    content: "%ansible-setup ALL = (ALL) NOPASSWD: ALL\n"
 
 - name: enable passwordless sudo to run ansible-setup
   become: true
-  ansible.builtin.lineinfile:
-    create: true
+  ansible.builtin.copy:
     dest: /etc/sudoers.d/arturo-runs-ansible-setup
-    state: present
-    line: "%arturo ansible-setup = (ALL) NOPASSWD: /usr/bin/ansible-playbook"
+    content: "%arturo ALL = (ansible-setup) NOPASSWD: /usr/bin/ansible-playbook\n"
 
 - name: make sure ~/.ansible-setup/ exists
   become: true
