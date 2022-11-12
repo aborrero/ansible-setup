@@ -11,8 +11,7 @@ table inet filter {
 		# counter accept traffic originated from us
 		ct state established,related counter accept
 
-		# activate the following line to counter accept common local services
-		#tcp dport @p ct state new counter accept
+		tcp dport 22 ct state new counter accept
 
 		# accept neighbour discovery otherwise IPv6 connectivity breaks.
 		ip6 nexthdr icmpv6 icmpv6 type { nd-neighbor-solicit, \
