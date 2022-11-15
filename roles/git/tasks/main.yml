@@ -1,7 +1,7 @@
 ---
-- name: Install git-related software
+- name: install git-related software
   become: true
-  apt:
+  ansible.builtin.apt:
     name: "{{ packages }}"
     state: latest
   vars:
