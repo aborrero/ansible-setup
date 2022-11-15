@@ -43,3 +43,5 @@
     state: started
     scope: user
     daemon_reload: true
+  # affected by https://github.com/ansible/ansible/issues/75542 or similar
+  changed_when: false
