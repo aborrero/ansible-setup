@@ -1,0 +1,31 @@
+---
+- name: ensure destination dirs exist
+  tags: git
+  become: true
+  become_user: "{{user}}"
+  ansible.builtin.file:
+    dest: "/home/{{user}}/git/{{item.dir}}"
+    state: directory
+  loop: "{{git_repos}}"
+
+- name: ensure local clone exists
+  tags: git
+  become: true
+  become_user: "{{user}}"
+  ansible.builtin.command:
+    cmd: "git clone --quiet {{item.url}} /home/{{user}}/git/{{item.dir}}"
+    creates: "/home/{{user}}/git/{{item.dir}}/.git"
+  loop: "{{git_repos}}"
+
+- name: configure email
+  tags: git
+  become: true
+  become_user: "{{user}}"
+  environment:
+    GIT_DIR: "/home/{{user}}/git/{{item.dir}}/.git"
+  ansible.builtin.command: "git config user.email {{email}}"
+  when: email is defined
+  changed_when: false
+  loop: "{{git_repos}}"
+
+

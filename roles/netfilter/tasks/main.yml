@@ -1,0 +1,16 @@
+---
+- name: clone some git repos
+  include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
+  vars:
+    email: arturo@netfilter.org
+    git_repos:
+      - url: git://git.netfilter.org/nftables
+        dir: netfilter/nftables
+      - url: git://git.netfilter.org/libnftnl
+        dir: netfilter/libnftnl
+      - url: git://git.netfilter.org/iptables
+        dir: netfilter/iptables
+      - url: git://git.netfilter.org/conntrack-tools
+        dir: netfilter/conntrack-tools
+
+

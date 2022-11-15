@@ -18,3 +18,41 @@
   vars:
     dotfiles:
       - reportbugrc
+
+- name: clone some git repos
+  include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
+  vars:
+    email: arturo@debian.org
+    git_repos:
+      - url: git@salsa.debian.org:pkg-netfilter-team/pkg-nftables.git
+        dir: debian/nftables/pkg-nftables
+      - url: git@salsa.debian.org:pkg-netfilter-team/pkg-libnftnl.git
+        dir: debian/libnftnl/pkg-libnftnl
+      - url: git@salsa.debian.org:pkg-netfilter-team/pkg-iptables.git
+        dir: debian/iptables/pkg-iptables
+      - url: git@salsa.debian.org:pkg-netfilter-team/pkg-arptables.git
+        dir: debian/arptables/pkg-arptables
+      - url: git@salsa.debian.org:pkg-netfilter-team/pkg-ebtables.git
+        dir: debian/ebtables/pkg-ebtables
+      - url: git@salsa.debian.org:pkg-netfilter-team/pkg-nftlb.git
+        dir: debian/nftlb/pkg-nftlb
+      - url: git@salsa.debian.org:pkg-netfilter-team/pkg-libmnl.git
+        dir: debian/libmnl/pkg-libmnl
+      - url: git@salsa.debian.org:pkg-netfilter-team/pkg-conntrack-tools.git
+        dir: debian/conntrack-tools/pkg-conntrack-tools
+      - url: git@salsa.debian.org:pkg-netfilter-team/pkg-xtables-addons.git
+        dir: debian/xtables-addons/pkg-xtables-addons
+      - url: git@salsa.debian.org:pkg-netfilter-team/pkg-libnetfilter-conntrack.git
+        dir: debian/libnetfilter-conntrack/pkg-libnetfilter-conntrack
+      - url: git@salsa.debian.org:pkg-netfilter-team/pkg-libnetfilter-cthelper.git
+        dir: debian/libnetfilter-cthelper/pkg-libnetfilter-cthelper
+      - url: git@salsa.debian.org:pkg-netfilter-team/pkg-libnetfilter-cttimeout.git
+        dir: debian/libnetfilter-cttimeout/pkg-libnetfilter-cttimeout
+      - url: git@salsa.debian.org:pkg-netfilter-team/pkg-libnetfilter-log.git
+        dir: debian/libnetfilter-log/pkg-libnetfilter-log
+      - url: git@salsa.debian.org:pkg-netfilter-team/pkg-libnetfilter-queue.git
+        dir: debian/libnetfilter-queue/pkg-libnetfilter-queue
+      - url: git@salsa.debian.org:debian/pkg-capirca.git
+        dir: debian/capirca/pkg-capirca
+      - url: git@salsa.debian.org:debian/pkg-liquidprompt.git
+        dir: debian/liquidprompt/pkg-liquidprompt
