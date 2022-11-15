@@ -47,3 +47,31 @@
   become_user: "{{user}}"
   ansible.builtin.shell: wmf-update-known-hosts-production
   changed_when: false
+
+- name: clone some git repos
+  include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
+  vars:
+    email: aborrero@wikimedia.org
+    git_repos:
+      - url: cumin1001.eqiad.wmnet:/srv/pwstore/pw.git
+        dir: wmf/pw
+      - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/puppet
+        dir: wmf/operations/puppet
+      - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/dns
+        dir: wmf/operations/dns
+      - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/homer/public
+        dir: wmf/operations/homer/public
+      - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/cookbooks
+        dir: wmf/operations/cookbooks
+      - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/software/tools-webservice
+        dir: wmf/operations/software/tools-webservice
+      - url: ssh://gerrit.wikimedia.org:29418/cloud/instance-puppet
+        dir: wmf/cloud/instance-puppet
+      - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/jobs-framework-api
+        dir: wmf/cloud/toolforge/jobs-framework-api
+      - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/jobs-framework-cli
+        dir: wmf/cloud/toolforge/jobs-framework-cli
+      - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/jobs-framework-emailer
+        dir: wmf/cloud/toolforge/jobs-framework-emailer
+      - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/ingress-admission-controller
+        dir: wmf/cloud/toolforge/ingress-admission-controller

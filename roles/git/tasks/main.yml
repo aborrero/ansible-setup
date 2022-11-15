@@ -14,3 +14,15 @@
   vars:
     dotfiles:
       - gitconfig
+
+- name: clone some github repos
+  include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
+  vars:
+    email: arturo.bg@arturo.bg
+    git_repos:
+      - url: git@github.com:aborrero/ansible-setup.git
+        dir: github/ansible-setup
+      - url: git@github.com:aborrero/alfabravo.org.git
+        dir: github/alfabravo.org
+      - url: git@github.com:aborrero/ral-arturo.org.git
+        dir: github/ral-arturo.org

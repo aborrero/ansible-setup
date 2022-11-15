@@ -10,5 +10,6 @@
     - { role: git, tags: [git] }
     - { role: python, tags: [dev, python] }
     - { role: debian }
+    - { role: netfilter }
     - { role: wmf }
     - { role: k8s }
