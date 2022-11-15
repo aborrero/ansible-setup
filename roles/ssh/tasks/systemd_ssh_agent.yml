@@ -20,3 +20,5 @@
     scope: user
     daemon_reload: true
   loop: "{{names}}"
+  # affected by https://github.com/ansible/ansible/issues/75542 or similar
+  changed_when: false
