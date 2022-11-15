@@ -32,3 +32,10 @@
   become_user: "{{user}}"
   ansible.builtin.shell: git --git-dir=/home/{{user}}/git/github/ansible-setup/.git rev-parse HEAD > /home/{{user}}/.ansible-setup/last_run_hash
   changed_when: false
+
+- name: install ansible-setup-run helper script
+  become: true
+  ansible.builtin.copy:
+    dest: /usr/local/bin/ansible-setup-run
+    src: ansible-setup-run.sh
+    mode: "0755"
