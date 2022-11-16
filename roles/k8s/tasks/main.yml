@@ -2,3 +2,9 @@
 - include_tasks: docker.yml
 - include_tasks: kind.yml
 - include_tasks: helm.yml
+
+- name: install podman
+  become: true
+  ansible.builtin.apt:
+    name: podman
+    state: latest

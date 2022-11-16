@@ -8,3 +8,5 @@ alias tailf='tail -f'
 
 alias gldoc='git log --decorate --oneline --color'
 alias gry='git review -y'
+
+alias docker='podman'
