@@ -1,0 +1,41 @@
+---
+# expected hash:
+# conf:
+#   shortname: string
+#   repo_spec: string
+#   key_url: string
+#   packages:
+#     - string
+
+- name: install repository keys /etc/apt/trusted.gpg.d/{{conf.shortname}}.asc
+  tags: apt
+  become: true
+  ansible.builtin.get_url:
+    url: "{{conf.key_url}}"
+    dest: /etc/apt/trusted.gpg.d/{{conf.shortname}}.asc
+
+- name: install repository source in /etc/apt/sources.list/{{conf.shortname}}.list
+  tags: apt
+  become: true
+  ansible.builtin.apt_repository:
+    filename: "{{conf.shortname}}"
+    repo: "deb [signed-by=/etc/apt/trusted.gpg.d/{{conf.shortname}}.asc] {{conf.repo_spec}}"
+    state: present
+    update_cache: no
+
+- name: update single repository defined in /etc/apt/sources.list.d/{{conf.shortname}}.list
+  tags: apt
+  become: true
+  ansible.builtin.command:
+    cmd: apt-get update -o Dir::Etc::sourcelist="/etc/apt/sources.list.d/{{conf.shortname}}.list" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"
+  # never mark this task as changed (otherwise is always changed)
+  changed_when: False
+
+- name: install packages
+  tags: apt
+  become: true
+  ansible.builtin.apt:
+    name: "{{item}}"
+    state: latest
+    update_cache: no
+  loop: "{{conf.packages}}"
