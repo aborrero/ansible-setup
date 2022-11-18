@@ -12,12 +12,19 @@
       - schroot
       - git-buildpackage
       - pristine-tar
+      - apt-cacher-ng
 
 - name: install some debian-related dotfiles
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
   vars:
     dotfiles:
       - reportbugrc
+
+- name: sbuild chroot setup
+  include_tasks: "{{ role_path }}/../debian/tasks/sbuild.yml"
+  vars:
+    distributions:
+      - unstable
 
 - name: clone some git repos
   include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
