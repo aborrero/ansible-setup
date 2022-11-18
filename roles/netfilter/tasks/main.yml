@@ -12,5 +12,3 @@
         dir: netfilter/iptables
       - url: git://git.netfilter.org/conntrack-tools
         dir: netfilter/conntrack-tools
-
-

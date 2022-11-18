@@ -19,9 +19,9 @@
   become: true
   ansible.builtin.apt_repository:
     filename: "{{conf.shortname}}"
-    repo: "deb [signed-by=/etc/apt/trusted.gpg.d/{{conf.shortname}}.asc] {{conf.repo_spec}}"
+    repo: deb [signed-by=/etc/apt/trusted.gpg.d/{{conf.shortname}}.asc] {{conf.repo_spec}}
     state: present
-    update_cache: no
+    update_cache: false
 
 - name: update single repository defined in /etc/apt/sources.list.d/{{conf.shortname}}.list
   tags: apt
@@ -29,7 +29,7 @@
   ansible.builtin.command:
     cmd: apt-get update -o Dir::Etc::sourcelist="/etc/apt/sources.list.d/{{conf.shortname}}.list" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"
   # never mark this task as changed (otherwise is always changed)
-  changed_when: False
+  changed_when: false
 
 - name: install packages
   tags: apt
@@ -37,5 +37,5 @@
   ansible.builtin.apt:
     name: "{{item}}"
     state: latest
-    update_cache: no
+    update_cache: false
   loop: "{{conf.packages}}"

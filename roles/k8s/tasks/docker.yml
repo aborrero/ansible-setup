@@ -23,7 +23,7 @@
 - name: docker data root
   become: true
   ansible.builtin.file:
-    dest: "/home/{{user}}/.docker"
+    dest: /home/{{user}}/.docker
     state: directory
 
 - name: docker data root permissions
