@@ -17,7 +17,7 @@ user@machine:~/git/github/ansible-setup/ $ ./run.sh
 Or even better:
 
 ```
-user@machine:~$ ansible-setup.run
+user@machine:~$ ansible-setup-run
 ```
 
 ## credits
