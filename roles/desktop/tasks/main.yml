@@ -2,3 +2,4 @@
 - include_tasks: common.yml
 - include_tasks: lightdm.yml
 - include_tasks: profiler.yml
+- include_tasks: spotify.yml
