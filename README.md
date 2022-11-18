@@ -1,15 +1,24 @@
 # ansible setup for my machines
 
-Configuration for my laptops
+Configuration for my Debian linux machines.
 
 First run:
-`user@machine:~/git/github/ansible-setup/ $ ansible-playbook playbooks/laptop-work.yml -KD`
+
+```
+user@machine:~/git/github/ansible-setup/ $ ansible-playbook playbooks/laptop-work.yml -KD
+```
 
 Next runs:
-`user@machine:~/git/github/ansible-setup/ $ ./run.sh`
+
+```
+user@machine:~/git/github/ansible-setup/ $ ./run.sh
+```
 
 Or even better:
-`user@machine:~$ ansible-setup.run`
+
+```
+user@machine:~$ ansible-setup.run
+```
 
 ## credits
 
