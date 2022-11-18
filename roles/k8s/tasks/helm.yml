@@ -1,27 +1,14 @@
 ---
 - name: install helm
+  include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
   tags: k8s helm
-  become: true
-  block:
-    - name: helm repository key
-      ansible.builtin.get_url:
-        url: https://baltocdn.com/helm/signing.asc
-        dest: /etc/apt/trusted.gpg.d/helm.asc
-
-    - name: helm repository source
-      ansible.builtin.apt_repository:
-        filename: helm
-        repo: deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/helm.asc] https://baltocdn.com/helm/stable/debian/ all main
-        state: present
-
-    - include_tasks: "{{ role_path }}/../common/tasks/apt-update-single-repository.yaml"
-      vars:
-        file: helm.list
-
-    - name: helm repository is available
-      apt:
-        name: helm
-        state: latest
+  vars:
+    conf:
+      shortname: helm
+      repo_spec: https://baltocdn.com/helm/stable/debian/ all main
+      key_url: https://baltocdn.com/helm/signing.asc
+      packages:
+        - helm
 
 - name: install helm cm-push plugin
   tags: k8s helm
