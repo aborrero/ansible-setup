@@ -1,0 +1,68 @@
+---
+# expets variable:
+# distributions:
+#   - string
+#   - string
+
+- name: handle chroot
+  vars:
+    sbuild_update: /usr/bin/sbuild-update -udcar
+    sbuild_create: /usr/bin/sbuild-createchroot --include=eatmydata,ccache,lintian
+    sbuild_mirror: http://127.0.0.1:3142/deb.debian.org/debian
+    basedir: /srv/chroot
+  block:
+    - name: create chroot
+      become: true
+      ansible.builtin.command:
+        cmd: "{{sbuild_create}} {{item}} {{basedir}}/{{item}}-amd64-sbuild {{sbuild_mirror}}"
+        creates: "{{basedir}}/{{item}}-amd64-sbuild"
+      loop: "{{distributions}}"
+
+    - name: update chroot
+      become: true
+      ansible.builtin.command:
+        cmd: "{{sbuild_update}} {{item}}-amd64-sbuild"
+      # never changed, because otherwise is always changed
+      changed_when: false
+      loop: "{{distributions}}"
+
+    - name: create systemd service to update chroot
+      become: true
+      ansible.builtin.copy:
+        content: |
+          [Unit]
+          Description=update {{item}}-amd64-sbuild chroot
+          [Service]
+          User=root
+          ExecStart={{sbuild_update}} {{item}}-amd64-sbuild
+        dest: /etc/systemd/system/update-{{item}}-amd64-sbuild-chroot.service
+      loop: "{{distributions}}"
+
+    - name: create systemd timer to update chroot
+      become: true
+      ansible.builtin.copy:
+        content: |
+          [Unit]
+          Description=Periodic execution of update-{{item}}-amd64-sbuild-chroot.service
+          [Timer]
+          OnCalendar=*-*-* 12:00:00
+          Persistent=true
+        dest: /etc/systemd/system/update-{{item}}-amd64-sbuild-chroot.timer
+      loop: "{{distributions}}"
+
+    - name: enable systemd service
+      ansible.builtin.systemd:
+        name: update-{{item}}-amd64-sbuild-chroot.service
+        enabled: true
+        daemon_reload: false
+      notify: systemd daemon reload
+      loop: "{{distributions}}"
+
+    - name: enable systemd timer
+      ansible.builtin.systemd:
+        name: update-{{item}}-amd64-sbuild-chroot.timer
+        enabled: true
+        state: started
+        daemon_reload: false
+      notify: systemd daemon reload
+      loop: "{{distributions}}"
