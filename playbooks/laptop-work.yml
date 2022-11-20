@@ -1,6 +1,8 @@
 ---
 - name: setup for a laptop in a work environment
   hosts: localhost
+  handlers:
+    - import_tasks: ../handlers/main.yml
   roles:
     - { role: common }
     - { role: nftables }
