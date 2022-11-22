@@ -17,6 +17,12 @@
       - conky
       - blueman
 
+- name: install bitwarden desktop
+  tags: desktop bitwarden
+  become: true
+  ansible.builtin.apt:
+    deb: "https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=deb"
+
 - name: install some dotfiles
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
   vars:
