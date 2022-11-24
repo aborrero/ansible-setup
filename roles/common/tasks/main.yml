@@ -1,5 +1,6 @@
 ---
 - include_tasks: ansible-setup.yml
+- include_tasks: rclone.yml
 
 - name: install a list of CLI packages to their latest version
   tags: cli

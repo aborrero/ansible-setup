@@ -1,0 +1,14 @@
+---
+- name: install rclone
+  tags: rclone
+  become: true
+  ansible.builtin.apt:
+    name: rclone
+    state: present
+
+- name: install rclone config file
+  tags: rclone
+  include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+  vars:
+    dotfiles:
+      - config/rclone/rclone.conf
