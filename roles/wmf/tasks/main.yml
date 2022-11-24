@@ -63,16 +63,18 @@
       - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/volume-admission-controller
         dir: wmf/cloud/toolforge/volume-admission-controller
 
-- name: install spicerack config
-  become: true
-  tags: wmf spicerack
-  ansible.builtin.copy:
-    src: etc_spicerack_config.yaml
-    dest: /etc/spicerack/config.yaml
-
 - name: install spicerack config dotfiles
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
   vars:
     dotfiles:
+      - config/spicerack/cookbook.yaml
       - config/spicerack/wmcs.yaml
-      - config/spicerack/cumin_config.yaml
+      - config/spicerack/cumin.yaml
+
+- name: install spicerack config as link
+  become: true
+  tags: wmf spicerack
+  ansible.builtin.file:
+    src: /home/{{user}}/.config/spicerack/cookbook.yaml
+    dest: /etc/spicerack/config.yaml
+    state: link

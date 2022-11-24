@@ -1,8 +1,0 @@
----
-# adapt to wherever you cloned the repo
-cookbooks_base_dir: ~/git/wmf/operations/cookbooks
-logs_base_dir:  /tmp/spicerack_logs
-instance_params:
-    # pending a pip release: cumin_config: ~/.config/spicerack/cumin-config.yaml
-    # for now you'll have to use the full path, change YOURUSER with your actual user
-    cumin_config: /home/arturo/.config/spicerack/cumin_config.yaml
