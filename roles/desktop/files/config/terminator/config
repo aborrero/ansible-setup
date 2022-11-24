@@ -4,7 +4,6 @@
   [[default]]
     background_darkness = 0.85
     background_type = transparent
-    cursor_color = "#aaaaaa"
     foreground_color = "#00ff00"
     scrollback_infinite = True
     use_system_font = False
