@@ -12,3 +12,11 @@
   vars:
     dotfiles:
       - config/rclone/rclone.conf
+
+- name: install rsync.net shortcut script
+  tags: rclone rsync.net
+  become: true
+  ansible.builtin.copy:
+    src: rsync.net
+    dest: /usr/local/bin/rsync.net
+    mode: "0755"
