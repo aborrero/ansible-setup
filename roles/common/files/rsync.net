@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -e
+
+ACCOUNT="zh1664"
+HOST="zh1664.rsync.net"
+LOCAL_DIR="/home/${USER}/rsync.net/"
+RCLONE=$(which rclone)
+RCLONE_FLAGS="--daemon"
+REMOTE="rsync.net"
+REMOTE_PATH="${REMOTE}:."
+CMD="${RCLONE} mount ${RCLONE_FLAGS} ${REMOTE_PATH} ${LOCAL_DIR}"
+
+if [ "$1" == "mount" ] ; then
+    mkdir -p $LOCAL_DIR
+    $CMD
+elif [ "$1" == "list" ] | [ "$1" == "status" ] ; then
+    pgrep -a rclone | grep mount
+    ls -l $LOCAL_DIR
+elif [ "$1" == "umount" ] ; then
+    sync
+    pid=$(pgrep -a rclone | grep mount | awk -F' ' '{print $1}')
+    kill $pid
+elif [[ "$1" =~ "help" ]] ; then
+    echo "Usage: {mount|list|status|unmount|help}"
+else
+    echo "ERROR: unknown option, try '--help'".
+    exit 1
+fi
