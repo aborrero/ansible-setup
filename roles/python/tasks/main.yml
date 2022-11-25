@@ -20,6 +20,6 @@
   become_user: "{{user}}"
   ansible.builtin.command:
     cmd: python3 -m venv /home/{{user}}/.pyvenvs/{{item}}
-    creates: /home/{{user}}/.pyvenvs/{{item}}
+    creates: /home/{{user}}/.pyvenvs/{{item}}/bin/activate
   loop:
     - jobs-framework-cli
