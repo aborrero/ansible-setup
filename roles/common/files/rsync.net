@@ -14,7 +14,7 @@ CMD="${RCLONE} mount ${RCLONE_FLAGS} ${REMOTE_PATH} ${LOCAL_DIR}"
 if [ "$1" == "mount" ] ; then
     mkdir -p $LOCAL_DIR
     $CMD
-elif [ "$1" == "list" ] | [ "$1" == "status" ] ; then
+elif [ "$1" == "list" ] || [ "$1" == "status" ] ; then
     pgrep -a rclone | grep mount
     ls -l $LOCAL_DIR
 elif [ "$1" == "umount" ] ; then
@@ -22,7 +22,7 @@ elif [ "$1" == "umount" ] ; then
     pid=$(pgrep -a rclone | grep mount | awk -F' ' '{print $1}')
     kill $pid
 elif [[ "$1" =~ "help" ]] ; then
-    echo "Usage: {mount|list|status|unmount|help}"
+    echo "Usage: {mount|list|status|umount|help}"
 else
     echo "ERROR: unknown option, try '--help'".
     exit 1
