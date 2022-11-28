@@ -22,5 +22,8 @@
     cmd: python3 -m venv /home/{{user}}/.pyvenvs/{{item}}
     creates: /home/{{user}}/.pyvenvs/{{item}}/bin/activate
   loop:
+    - jobs-framework-api
     - jobs-framework-cli
-    - cookbooks
+    - jobs-framework-emailer
+    - tools-webservice
+    - spicerack
