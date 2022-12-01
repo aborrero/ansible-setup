@@ -18,13 +18,6 @@
   register: result
   changed_when: "'Error: plugin already exists' not in result.stderr"
 
-- name: install helm diff plugin
-  become: true
-  become_user: "{{user}}"
-  ansible.builtin.shell: helm plugin install https://github.com/databus23/helm-diff || true
-  register: result
-  changed_when: "'Error: plugin already exists' not in result.stderr"
-
 # see also https://brunopaz.dev/blog/how-to-keep-software-installed-from-github-updated-with-ansible/
 - name: install python dependency for ansible github_release
   become: true
@@ -53,3 +46,9 @@
     remote_src: true
     mode: 0755
   when: installed is not defined or (installed is defined and installed != release.tag[1:])
+
+# this install all helm plugin dependencies
+- name: helmfile init
+  ansible.builtin.command: helmfile init --force
+  register: init
+  changed_when: "'Installed plugin' in init.stderr"
