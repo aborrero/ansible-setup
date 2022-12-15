@@ -9,4 +9,6 @@ alias tailf='tail -f'
 alias gldoc='git log --decorate --oneline --color'
 alias gry='git review -y'
 
-alias docker='podman'
+# Comment for now. Podman tags local images as localhost/<image>:latest
+# and plenty of my kubernetes manifests can't work with that
+#alias docker='podman'
