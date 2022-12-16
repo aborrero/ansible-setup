@@ -22,3 +22,17 @@ nodes:
         containerPath: /etc/wmcs-project
       - hostPath: /var/lib/sss/pipes/
         containerPath: /var/lib/sss/pipes/
+      - hostPath: /data/scratch
+        containerPath: /data/scratch
+      - hostPath: /public/dumps
+        containerPath: /public/dumps
+      - hostPath: /etc/ldap.conf
+        containerPath: /etc/ldap.conf
+      - hostPath: /etc/ldap.yaml
+        containerPath: /etc/ldap.yaml
+      - hostPath: /etc/novaobserver.yaml
+        containerPath: /etc/novaobserver.yaml
+      - hostPath: /mnt/nfs/dumps-clouddumps1001.wikimedia.org
+        containerPath: /mnt/nfs/dumps-clouddumps1001.wikimedia.org
+      - hostPath: /mnt/nfs/dumps-clouddumps1002.wikimedia.org
+        containerPath: /mnt/nfs/dumps-clouddumps1002.wikimedia.org
