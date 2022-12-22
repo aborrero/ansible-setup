@@ -3,6 +3,8 @@
   hosts: localhost
   handlers:
     - import_tasks: ../handlers/main.yml
+  vars_files:
+    - ../vars/k8s.yaml
   roles:
     - { role: common }
     - { role: nftables }

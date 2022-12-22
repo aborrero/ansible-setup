@@ -1,0 +1,25 @@
+---
+# expects a dict like this:
+# binary:
+#   name: string
+#   version: string
+#   version_command: string
+#   dest: string
+#   url: string
+
+- name: figure out lastest installed version of '{{ binary.name }}'
+  ansible.builtin.shell: "{{ binary.version_command }}"
+  failed_when: false
+  changed_when: false
+  register: version
+
+- name: install '{{ binary.name }}' version '{{ binary.version }}'
+  become: true
+  ansible.builtin.unarchive:
+    src: "{{ binary.url }}"
+    dest: "{{ binary.dest }}"
+    remote_src: true
+    mode: 0755
+  when: >
+    version is not defined or
+    version is defined and version.stdout != binary.version

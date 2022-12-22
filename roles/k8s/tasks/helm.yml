@@ -18,34 +18,13 @@
   register: result
   changed_when: "'Error: plugin already exists' not in result.stderr"
 
-# see also https://brunopaz.dev/blog/how-to-keep-software-installed-from-github-updated-with-ansible/
-- name: install python dependency for ansible github_release
-  become: true
-  ansible.builtin.pip:
-    name: github3.py > 1.0.0a3
-
-- name: figure out latest uptsream release of helmfile
-  community.general.github_release:
-    user: helmfile
-    repo: helmfile
-    action: latest_release
-  register: release
-
-- name: figure out lastest installed version of helmfile
-  ansible.builtin.shell: /usr/local/bin/helmfile -v | awk '{print $3}'
-  failed_when: false
-  changed_when: false
-  register: installed
-
-- name: install helmfile
-  become: true
-  ansible.builtin.unarchive:
-    # https://github.com/helmfile/helmfile/releases/download/v0.148.1/helmfile_0.148.1_linux_amd64.tar.gz
-    src: https://github.com/helmfile/helmfile/releases/download/{{release.tag}}/helmfile_{{release.tag[1:]}}_linux_amd64.tar.gz
-    dest: /usr/local/bin/
-    remote_src: true
-    mode: 0755
-  when: installed is not defined or (installed is defined and installed != release.tag[1:])
+- name: install binaries from URLs
+  tags: k8s helm
+  include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
+  loop: "{{ helm.binary_install_from_url }}"
+  loop_control:
+    loop_var: binary
+    label: "{{ binary.name }}"
 
 # this install all helm plugin dependencies
 - name: helmfile init
