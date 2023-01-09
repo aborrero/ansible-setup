@@ -62,6 +62,8 @@
         dir: wmf/cloud/toolforge/ingress-admission-controller
       - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/volume-admission-controller
         dir: wmf/cloud/toolforge/volume-admission-controller
+      - url: git@gitlab.wikimedia.org:aborrero/cloud-toolforge-lima-kilo.git
+        dir: wmf/cloud/toolforge/lima-kilo
 
 - name: install spicerack config dotfiles
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
