@@ -35,3 +35,9 @@
   become: true
   apt:
     autoremove: true
+
+- name: maintain /etc/default/grub file
+  become: true
+  ansible.builtin.copy:
+    src: grub
+    dest: /etc/default/grub
