@@ -5,6 +5,7 @@
 #   - string
 
 - name: handle chroot
+  tags: sbuild-chroot
   vars:
     sbuild_update: /usr/bin/sbuild-update -udcar
     sbuild_create: /usr/bin/sbuild-createchroot --include=eatmydata,ccache,lintian
