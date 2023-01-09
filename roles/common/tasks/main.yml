@@ -2,7 +2,7 @@
 - include_tasks: ansible-setup.yml
 - include_tasks: rclone.yml
 
-- name: install a list of CLI packages to their latest version
+- name: install a list of packages to their latest version
   tags: cli
   become: true
   apt:
@@ -17,6 +17,7 @@
       - aptitude
       - cmatrix
       - ansible-lint
+      - firmware-iwlwifi
 
 - name: upgrade installed packages
   tags: package-manager
