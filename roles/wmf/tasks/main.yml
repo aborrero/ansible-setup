@@ -75,6 +75,13 @@
       - config/spicerack/wmcs.yaml
       - config/spicerack/cumin.yaml
 
+- name: make sure spicerack directory exists
+  become: true
+  tags: wmf spicerack
+  ansible.builtin.file:
+    dest: /etc/spicerack
+    state: directory
+
 - name: install spicerack config as link
   become: true
   tags: wmf spicerack
