@@ -48,6 +48,8 @@
         dir: wmf/operations/homer/public
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/cookbooks
         dir: wmf/operations/cookbooks
+      - url: ssh://aborrero@gerrit.wikimedia.org:29418/cloud/wmcs-cookbooks
+        dir: wmf/cloud/wmcs-cookbooks
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/software/tools-webservice
         dir: wmf/operations/software/tools-webservice
       - url: ssh://gerrit.wikimedia.org:29418/cloud/instance-puppet
