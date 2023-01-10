@@ -18,6 +18,8 @@
       - cmatrix
       - ansible-lint
       - firmware-iwlwifi
+      - firmware-misc-nonfree
+      - xserver-xorg-video-nvidia
 
 - name: upgrade installed packages
   tags: package-manager
