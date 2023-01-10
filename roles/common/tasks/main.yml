@@ -55,3 +55,9 @@
   ansible.builtin.copy:
     src: grub
     dest: /etc/default/grub
+  register: grub
+
+- name: update-grub
+  become: true
+  ansible.builtin.command: update-grub
+  when: grub.changed
