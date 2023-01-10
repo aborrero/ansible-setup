@@ -21,6 +21,17 @@
       - firmware-misc-nonfree
       - xserver-xorg-video-nvidia
 
+- name: install nostromo-specific packages
+  tags: apt nostromo
+  become: true
+  apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+      - firmware-sof-signed
+  when: ansible_facts['nodename'] == 'nostromo'
+
 - name: upgrade installed packages
   tags: package-manager
   become: true
