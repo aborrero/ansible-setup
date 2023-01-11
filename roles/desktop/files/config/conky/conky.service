@@ -1,10 +1,12 @@
 [Unit]
 Description=conky daemon
+After=default.target
+AssertEnvironment=DISPLAY
 
 [Service]
 RestartSec=5
 Restart=always
-ExecStart=conky
+ExecStart=conky -p 20
 
 [Install]
 WantedBy=default.target
