@@ -46,12 +46,6 @@
         dir: wmf/operations/dns
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/homer/public
         dir: wmf/operations/homer/public
-      - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/cookbooks
-        dir: wmf/operations/cookbooks
-      - url: ssh://aborrero@gerrit.wikimedia.org:29418/cloud/wmcs-cookbooks
-        dir: wmf/cloud/wmcs-cookbooks
-      - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/software/spicerack
-        dir: wmf/operations/software/spicerack
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/software/tools-webservice
         dir: wmf/operations/software/tools-webservice
       - url: ssh://gerrit.wikimedia.org:29418/cloud/instance-puppet
@@ -69,25 +63,4 @@
       - url: git@gitlab.wikimedia.org:aborrero/cloud-toolforge-lima-kilo.git
         dir: wmf/cloud/toolforge/lima-kilo
 
-- name: install spicerack config dotfiles
-  include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
-  vars:
-    dotfiles:
-      - config/spicerack/cookbook.yaml
-      - config/spicerack/wmcs.yaml
-      - config/spicerack/cumin.yaml
-
-- name: make sure spicerack directory exists
-  become: true
-  tags: wmf spicerack
-  ansible.builtin.file:
-    dest: /etc/spicerack
-    state: directory
-
-- name: install spicerack config as link
-  become: true
-  tags: wmf spicerack
-  ansible.builtin.file:
-    src: /home/{{user}}/.config/spicerack/cookbook.yaml
-    dest: /etc/spicerack/config.yaml
-    state: link
+- include_tasks: spicerack.yaml
