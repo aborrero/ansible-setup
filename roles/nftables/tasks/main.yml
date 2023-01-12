@@ -1,9 +1,12 @@
 ---
-- name: ensure config directory exists
+- name: ensure config directories exists
   become: true
   ansible.builtin.file:
-    dest: /etc/nftables.d/
+    dest: "{{ item }}"
     state: directory
+  loop:
+    - /etc/nftables.d/
+    - /etc/systemd/system/nftables.service.d/
 
 - name: install config file
   become: true
@@ -15,7 +18,7 @@
 - name: install service file
   become: true
   ansible.builtin.copy:
-    dest: /etc/systemd/system/nftables.service
+    dest: /etc/systemd/system/nftables.service.d/ansible-setup-override.conf
     content: |
       [Service]
       ExecStart=
@@ -23,6 +26,12 @@
       ExecReload=
       ExecReload=/usr/sbin/nft -f /etc/nftables.d/ruleset.nft
   register: service
+
+- name: enable nftables systemd service
+  become: true
+  ansible.builtin.systemd:
+    name: nftables.service
+    enabled: true
 
 - name: reload systemd on service changes
   become: true
@@ -34,5 +43,4 @@
   ansible.builtin.systemd:
     name: nftables.service
     state: restarted
-    enabled: true
   when: config.changed or service.changed
