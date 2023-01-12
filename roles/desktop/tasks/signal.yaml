@@ -1,0 +1,11 @@
+---
+- name: install signal
+  include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
+  tags: desktop signal
+  vars:
+    conf:
+      shortname: signal
+      repo_spec: https://updates.signal.org/desktop/apt xenial main
+      key_url: https://updates.signal.org/desktop/apt/keys.asc
+      packages:
+        - signal-desktop

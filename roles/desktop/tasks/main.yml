@@ -3,3 +3,4 @@
 - include_tasks: lightdm.yml
 - include_tasks: profiler.yml
 - include_tasks: spotify.yml
+- include_tasks: signal.yaml
