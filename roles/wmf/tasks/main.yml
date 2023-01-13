@@ -61,6 +61,10 @@
       - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/volume-admission-controller
         dir: wmf/cloud/toolforge/volume-admission-controller
       - url: git@gitlab.wikimedia.org:aborrero/cloud-toolforge-lima-kilo.git
+        dir: wmf/cloud/toolforge/arturo-lima-kilo
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/lima-kilo.git
         dir: wmf/cloud/toolforge/lima-kilo
+      - url: git@gitlab.wikimedia.org:repos/cloud/cicd/gitlab-ci.git
+        dir: wmf/cloud/cicd/gitlab-ci
 
 - include_tasks: spicerack.yaml
