@@ -19,6 +19,8 @@
       - ansible-lint
       - firmware-iwlwifi
       - firmware-misc-nonfree
+      - firmware-linux-free
+      - firmware-nvidia-gsp
       - xserver-xorg-video-nvidia
 
 - name: install nostromo-specific packages
