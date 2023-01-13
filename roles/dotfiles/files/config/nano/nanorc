@@ -1,4 +1,4 @@
-set guidestripe 120
+#set guidestripe 120
 set stripecolor brightwhite,red
 set constantshow
 set historylog
