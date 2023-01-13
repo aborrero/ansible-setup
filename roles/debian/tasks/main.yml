@@ -13,6 +13,7 @@
       - git-buildpackage
       - pristine-tar
       - apt-cacher-ng
+      - mmdebstrap
 
 - name: install some debian-related dotfiles
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
