@@ -5,3 +5,4 @@
       - bashrc
       - bash_aliases
       - config/liquidpromptrc
+      - config/nano/nanorc
