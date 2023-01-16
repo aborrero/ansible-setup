@@ -1,6 +1,7 @@
 # file maintained by ansible-setup
 
 $build_source = 1;
+$source_only_changes = 1;
 
 # don't remove this, Perl needs it:
 1;
