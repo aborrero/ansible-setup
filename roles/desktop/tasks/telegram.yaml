@@ -1,0 +1,27 @@
+---
+# see https://desktop.telegram.org/
+- name: Install telegram desktop
+  tags: desktop telegram
+  become: true
+  ansible.builtin.unarchive:
+    remote_src: true
+    src: https://telegram.org/dl/desktop/linux
+    dest: /usr/local/bin/
+    keep_newer: true
+    include: Telegram/Telegram
+
+- name: Fix telegram binary location
+  tags: desktop telegram
+  become: true
+  ansible.builtin.copy:
+    remote_src: true
+    src: /usr/local/bin/Telegram/Telegram
+    dest: /usr/local/bin/telegram
+    mode: preserve
+
+- name: Delete unused Telegram directory
+  tags: desktop telegram
+  become: true
+  ansible.builtin.file:
+    path: /usr/local/bin/Telegram
+    state: absent
