@@ -63,3 +63,9 @@
   become: true
   ansible.builtin.command: update-grub
   when: grub.changed
+
+- name: Install modprobe config file
+  become: true
+  ansible.builtin.copy:
+    src: modprobe_pcspkr.conf
+    dest: /etc/modprobe.d/modpprobe_pcspkr.conf
