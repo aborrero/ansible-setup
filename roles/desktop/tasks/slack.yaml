@@ -1,0 +1,8 @@
+---
+# see https://slack.com/downloads/instructions/ubuntu
+# and https://slack.com/help/articles/115004809166-Verify-Slack-for-Linux--beta--package-signatures
+- name: Install slack desktop
+  tags: desktop slack
+  become: true
+  ansible.builtin.apt:
+    deb: "https://downloads.slack-edge.com/releases/linux/4.29.149/prod/x64/slack-desktop-4.29.149-amd64.deb"
