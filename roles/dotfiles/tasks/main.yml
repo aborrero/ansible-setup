@@ -6,3 +6,4 @@
       - bash_aliases
       - config/liquidpromptrc
       - config/nano/nanorc
+      - config/nano/puppet.nanorc

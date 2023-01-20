@@ -14,3 +14,5 @@ set selectedcolor brightwhite,magenta
 set numbercolor cyan
 set keycolor cyan
 set functioncolor green
+
+include ~/.config/nano/puppet.nanorc
