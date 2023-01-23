@@ -26,3 +26,5 @@
         dir: github/alfabravo.org
       - url: git@github.com:aborrero/ral-arturo.org.git
         dir: github/ral-arturo.org
+      - url: git@github.com:aborrero/sys-avenger.git
+        dir: github/sys-avenger
