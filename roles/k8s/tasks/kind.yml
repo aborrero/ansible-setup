@@ -23,8 +23,9 @@
     checksum: sha256:a8c045856db33f839908b6acb90dc8ec397253ffdaef7baf058f5a542e009b9c
   when: filecheck.stat.executable is not defined or filecheck.stat.executable == False or kindversion.stdout != "kind version 0.17.0"
 
-- name: install kind configuration dotfile
-  include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
-  vars:
-    dotfiles:
-      - kind.yaml
+# don't conflict with the lima-kilo project: https://gitlab.wikimedia.org/repos/cloud/toolforge/lima-kilo
+#- name: install kind configuration dotfile
+#  include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+#  vars:
+#    dotfiles:
+#      - kind.yaml
