@@ -67,4 +67,10 @@
       - url: git@gitlab.wikimedia.org:repos/cloud/cicd/gitlab-ci.git
         dir: wmf/cloud/cicd/gitlab-ci
 
+# see https://office.wikimedia.org/wiki/Pwstore
+- name: Maintain pwstore configuration file
+  ansible.builtin.copy:
+    src: pws-trusted-users
+    dest: /home/{{ user }}/.pws-trusted-users
+
 - include_tasks: spicerack.yaml
