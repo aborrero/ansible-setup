@@ -66,6 +66,10 @@
         dir: wmf/cloud/toolforge/lima-kilo
       - url: git@gitlab.wikimedia.org:repos/cloud/cicd/gitlab-ci.git
         dir: wmf/cloud/cicd/gitlab-ci
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/buildservice.git
+        dir: wmf/cloud/toolforge/buildservice
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/buildpack-admission-controller.git
+        dir: wmf/cloud/toolforge/buildpack-admission-controller
 
 # see https://office.wikimedia.org/wiki/Pwstore
 - name: Maintain pwstore configuration file
