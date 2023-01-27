@@ -22,6 +22,8 @@
       - firmware-linux-free
       - firmware-nvidia-gsp
       - xserver-xorg-video-nvidia
+      - console-setup
+      - xfonts-terminus
 
 - name: install nostromo-specific packages
   tags: apt nostromo
@@ -69,3 +71,9 @@
   ansible.builtin.copy:
     src: modprobe_pcspkr.conf
     dest: /etc/modprobe.d/modpprobe_pcspkr.conf
+
+- name: Install /etc/default/console-setup file
+  become: true
+  ansible.builtin.copy:
+    src: console-setup
+    dest: /etc/default/console-setup
