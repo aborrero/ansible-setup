@@ -16,6 +16,7 @@
       - gnome-calculator
       - conky
       - blueman
+      - nautilus-dropbox
 
 - name: install bitwarden desktop
   tags: desktop bitwarden
