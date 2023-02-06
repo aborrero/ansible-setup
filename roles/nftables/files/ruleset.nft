@@ -1,5 +1,8 @@
 #!/usr/sbin/nft -f
-flush table inet filter
+
+# annoying, see:
+# https://bugzilla.netfilter.org/show_bug.cgi?id=1658
+flush ruleset
 
 table inet filter {
     chain input {
