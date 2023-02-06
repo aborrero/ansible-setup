@@ -38,6 +38,7 @@
       - xserver-xorg-video-nvidia
       - console-setup
       - xfonts-terminus
+      - tcpdump
 
 - name: install nostromo-specific packages
   tags: apt nostromo
