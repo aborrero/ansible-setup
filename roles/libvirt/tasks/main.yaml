@@ -11,6 +11,7 @@
       - libvirt-daemon-system
       - virt-manager
       - bridge-utils
+      - guestfs-tools
       # to use the community.libvirt module below
       - python3-lxml
 
