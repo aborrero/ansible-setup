@@ -1,27 +1,26 @@
 #!/usr/sbin/nft -f
-flush ruleset
+flush table inet filter
 
 table inet filter {
-	chain input {
-		type filter hook input priority 0;
+    chain input {
+        type filter hook input priority 0;
 
-		# counter accept any localhost traffic
-		iif lo counter accept
+        # counter accept any localhost traffic
+        iif lo counter accept
 
-		# counter accept traffic originated from us
-		ct state established,related counter accept
+        # counter accept traffic originated from us
+        ct state established,related counter accept
 
-		tcp dport 22 ct state new counter accept
+        # allow ssh
+        tcp dport 22 ct state new counter accept
 
-		# accept neighbour discovery otherwise IPv6 connectivity breaks.
-		ip6 nexthdr icmpv6 icmpv6 type { nd-neighbor-solicit, \
-			# test
-			nd-router-advert, nd-neighbor-advert } counter accept
+        # accept neighbour discovery otherwise IPv6 connectivity breaks.
+        ip6 nexthdr icmpv6 icmpv6 type { nd-neighbor-solicit, nd-router-advert, nd-neighbor-advert } counter accept
 
         # accept virtual traffic from KVM/libvirt VMs
         iifname virbr0 counter accept
 
-		# count and drop any other traffic
-		counter drop
+        # count and drop any other traffic
+        counter drop
 	}
 }
