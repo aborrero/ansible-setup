@@ -11,6 +11,8 @@
       - libvirt-daemon-system
       - virt-manager
       - bridge-utils
+      # to use the community.libvirt module below
+      - python3-lxml
 
 - name: Add user to libvirt Unix group
   become: true
@@ -18,3 +20,27 @@
     name: '{{ user }}'
     groups: libvirt
     append: yes
+
+- name: Create directory tree for default storage pool
+  ansible.builtin.file:
+    path: /home/{{ user }}/.local/share/libvirt/images/
+    state: directory
+
+- name: Define default storage pool pointing to /home
+  community.libvirt.virt_pool:
+    command: define
+    name: default
+    xml: '{{ lookup("template", "default-storage-pool.xml.j2") }}'
+
+- name: Set up default storage pool
+  community.libvirt.virt_pool:
+    command: "{{ item  }}"
+    name: defaults
+  loop:
+    - build
+    - create
+    - start
+  register: result
+  failed_when:
+    - result.rc is defined and result.rc != 0
+    - result.msg != "Requested operation is not valid: storage pool 'default' is already active"
