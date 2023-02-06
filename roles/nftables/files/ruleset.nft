@@ -18,6 +18,9 @@ table inet filter {
 			# test
 			nd-router-advert, nd-neighbor-advert } counter accept
 
+        # accept virtual traffic from KVM/libvirt VMs
+        iifname virbr0 counter accept
+
 		# count and drop any other traffic
 		counter drop
 	}
