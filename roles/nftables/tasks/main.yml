@@ -44,3 +44,10 @@
     name: nftables.service
     state: restarted
   when: config.changed or service.changed
+
+# this is shipped by the debian package, but we don't use it
+- name: Remove unused file /etc/nftables.conf
+  become: true
+  ansible.builtin.file:
+    path: /etc/nftables.conf
+    state: absent
