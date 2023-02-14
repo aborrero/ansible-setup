@@ -48,6 +48,8 @@
         dir: wmf/operations/homer/public
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/software/tools-webservice
         dir: wmf/operations/software/tools-webservice
+      - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/software/tools-manifest
+        dir: wmf/operations/software/tools-manifest
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/labs/tools/maintain-kubeusers
         dir: wmf/labs/tools/maintain-kubeusers
       - url: ssh://gerrit.wikimedia.org:29418/cloud/instance-puppet
