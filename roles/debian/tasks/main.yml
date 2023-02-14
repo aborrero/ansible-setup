@@ -27,6 +27,8 @@
   vars:
     distributions:
       - unstable
+      # for toolforge servers
+      - buster
 
 - name: clone some git repos
   include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
