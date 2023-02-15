@@ -1,3 +1,34 @@
+Host tools-*
+    # allows: ssh tools-k8s-control-3
+    CanonicalizeHostname always
+    CanonicalDomains tools.eqiad1.wikimedia.cloud
+    UserKnownHostsFile /home/arturo/.ssh/known_hosts.d/wmf-cloud
+
+Host toolsbeta-*
+    # allows: ssh toolsbeta-test-k8s-control-4
+    CanonicalizeHostname always
+    CanonicalDomains toolsbeta.eqiad1.wikimedia.cloud
+    UserKnownHostsFile /home/arturo/.ssh/known_hosts.d/wmf-cloud
+
+Host *.*.eqiad1
+    # allows: ssh whatever.project.eqiad1
+    CanonicalizeHostname always
+    CanonicalizeMaxDots 2
+    CanonicalDomains wikimedia.cloud
+
+Host *.*.codfw1dev
+    # allows: ssh bastion-codfw1dev-02.bastioninfra-codfw1dev.codfw1dev
+    CanonicalizeHostname always
+    CanonicalizeMaxDots 2
+    CanonicalDomains wikimedia.cloud
+
+Host *.*
+    # allows: ssh cloud-cumin-03.cloudinfra
+    # note: order mathers, because the *.*.eqiad1 entry above
+    CanonicalizeHostname always
+    CanonicalizeMaxDots 2
+    CanonicalDomains eqiad1.wikimedia.cloud
+
 Host *
     ServerAliveInterval 10
     TCPKeepAlive no
