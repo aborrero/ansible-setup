@@ -27,6 +27,9 @@
       packages:
         - wmf-sre-laptop
 
+# another option (not in use in my setup as of today)
+# * https://pypi.org/project/wm-ssh/
+# * https://github.com/david-caro/wm-ssh
 - name: Refresh ssh known hosts
   tags: wmf ssh
   become: true
