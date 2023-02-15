@@ -47,3 +47,11 @@
     - /home/{{ user }}/git/wmf/operations/software/spicerack
     - /home/{{ user }}/git/wmf/cloud/wmcs-cookbooks
   changed_when: false
+
+- name: Install cookbook link
+  tags: wmf spicerack python pip cookbook
+  become: true
+  ansible.builtin.file:
+    src: /home/{{ user }}/.pyvenvs/spicerack/bin/cookbook
+    dest: /usr/local/bin/cookbook
+    state: link
