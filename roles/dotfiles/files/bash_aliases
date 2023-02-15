@@ -7,6 +7,7 @@ alias sudo='sudo '
 alias tailf='tail -f'
 
 alias gldoc='git log --decorate --oneline --color'
+alias gll='git log --pretty=format:"%C(yellow)%h %Creset%s%Cblue [%ae] (%ad)" --decorate --numstat --date=relative --shortstat'
 alias gry='git review -y'
 
 # Comment for now. Podman tags local images as localhost/<image>:latest
