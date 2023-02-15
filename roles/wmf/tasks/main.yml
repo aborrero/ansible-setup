@@ -14,6 +14,7 @@
     - wmf-tools-merge.sh
     - wmf-export-puppet-patch.sh
     - wmf-git-review.sh
+    - wmcs-update-known-hosts.sh
 
 - name: install wmf-sre-laptop
   include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
@@ -26,12 +27,15 @@
       packages:
         - wmf-sre-laptop
 
-- name: refresh ssh known hosts
+- name: Refresh ssh known hosts
   tags: wmf ssh
   become: true
-  become_user: "{{user}}"
-  ansible.builtin.shell: wmf-update-known-hosts-production
+  become_user: "{{ user }}"
+  ansible.builtin.shell: "{{ item }}"
   changed_when: false
+  loop:
+    - wmf-update-known-hosts-production
+    - wmcs-update-known-hosts.sh
 
 - name: clone some git repos
   include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
