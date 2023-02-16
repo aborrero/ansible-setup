@@ -83,6 +83,8 @@
         dir: wmf/cloud/toolforge/buildpack-admission-controller
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/docker-images/toollabs-images
         dir: wmf/operations/docker-images/toollabs-images
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/calico.git
+        dir: wmf/cloud/toolforge/calico
 
 # see https://office.wikimedia.org/wiki/Pwstore
 - name: Maintain pwstore configuration file
