@@ -1,0 +1,34 @@
+---
+- name: Clone Toolforge git repos
+  include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
+  vars:
+    email: aborrero@wikimedia.org
+    git_repos:
+      - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/software/tools-webservice
+        dir: wmf/operations/software/tools-webservice
+      - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/software/tools-manifest
+        dir: wmf/operations/software/tools-manifest
+      - url: ssh://aborrero@gerrit.wikimedia.org:29418/labs/tools/maintain-kubeusers
+        dir: wmf/labs/tools/maintain-kubeusers
+      - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/jobs-framework-api
+        dir: wmf/cloud/toolforge/jobs-framework-api
+      - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/jobs-framework-cli
+        dir: wmf/cloud/toolforge/jobs-framework-cli
+      - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/jobs-framework-emailer
+        dir: wmf/cloud/toolforge/jobs-framework-emailer
+      - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/ingress-admission-controller
+        dir: wmf/cloud/toolforge/ingress-admission-controller
+      - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/volume-admission-controller
+        dir: wmf/cloud/toolforge/volume-admission-controller
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/cert-manager
+        dir: wmf/cloud/toolforge/cert-manager
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/lima-kilo.git
+        dir: wmf/cloud/toolforge/lima-kilo
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/buildservice.git
+        dir: wmf/cloud/toolforge/buildservice
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/buildpack-admission-controller.git
+        dir: wmf/cloud/toolforge/buildpack-admission-controller
+      - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/docker-images/toollabs-images
+        dir: wmf/operations/docker-images/toollabs-images
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/calico.git
+        dir: wmf/cloud/toolforge/calico
