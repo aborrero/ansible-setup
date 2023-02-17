@@ -32,3 +32,5 @@
         dir: wmf/operations/docker-images/toollabs-images
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/calico.git
         dir: wmf/cloud/toolforge/calico
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/image-config.git
+        dir: wmf/cloud/toolforge/image-config
