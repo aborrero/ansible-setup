@@ -15,6 +15,15 @@
     dotfiles:
       - gitconfig
 
+- name: Install gry script
+  become: true
+  ansible.builtin.copy:
+    src: gry.sh
+    dest: /usr/local/bin/gry
+    owner: root
+    group: root
+    mode: "0755"
+
 - name: clone some github repos
   include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
   vars:
