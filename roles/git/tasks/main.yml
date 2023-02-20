@@ -15,11 +15,11 @@
     dotfiles:
       - gitconfig
 
-- name: Install gry script
+- name: Install gr script
   become: true
   ansible.builtin.copy:
-    src: gry.sh
-    dest: /usr/local/bin/gry
+    src: gr.sh
+    dest: /usr/local/bin/gr
     owner: root
     group: root
     mode: "0755"
