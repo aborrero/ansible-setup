@@ -33,7 +33,7 @@ elif grep -q gitlab.wikimedia.org <<< "$remotes" ; then
     # decide if we need to create a new branch
     if grep -Eq ^main$\|^master$ <<< "$branch" ; then
         # we are in main branch, switch!
-        string="$(git show --format=%f | head -1 | tr '[:upper:]' '[:lower:]')"
+        string="arturo-$(git show --format=%f | head -1 | tr '[:upper:]' '[:lower:]')"
         branch=${string:0:$BRANCH_MAX_NAME_LENGTH}
         git checkout --track -B "$branch"
     fi
