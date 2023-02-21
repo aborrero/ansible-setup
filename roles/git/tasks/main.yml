@@ -15,14 +15,17 @@
     dotfiles:
       - gitconfig
 
-- name: Install gr script
+- name: Install custom git scripts
   become: true
   ansible.builtin.copy:
-    src: gr.sh
-    dest: /usr/local/bin/gr
+    src: "{{ item }}.sh"
+    dest: "/usr/local/bin/{{ item }}"
     owner: root
     group: root
     mode: "0755"
+  loop:
+    - gr
+    - grf
 
 - name: clone some github repos
   include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
