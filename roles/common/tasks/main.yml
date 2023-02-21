@@ -39,6 +39,7 @@
       - console-setup
       - xfonts-terminus
       - tcpdump
+      - shellcheck
 
 - name: install nostromo-specific packages
   tags: apt nostromo
