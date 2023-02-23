@@ -37,7 +37,7 @@
   ansible.builtin.shell: "{{ item }}"
   changed_when: false
   loop:
-    - wmf-update-known-hosts-production
+    - wmf-update-known-hosts-production /home/{{ user }}/git/wmf/operations/dns/
     - wmcs-update-known-hosts.sh
 
 - name: clone some git repos
