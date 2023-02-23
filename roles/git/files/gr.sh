@@ -2,7 +2,7 @@
 
 set -e
 
-BRANCH_PREFIX="arturo/"
+BRANCH_PREFIX="arturo-"
 BRANCH_MAX_NAME_LENGTH=30
 
 if ! ls .git/config >/dev/null 2>&1 ; then
