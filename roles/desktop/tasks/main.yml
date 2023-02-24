@@ -8,3 +8,12 @@
 
 - name: Include telegram tasks
   ansible.builtin.include_tasks: telegram.yaml
+
+- name: Include endurance workaround for debian bug https://bugs.debian.org/991788
+  ansible.builtin.copy:
+    src: systemd-sleep/manager.sh
+    dest: /usr/lib/systemd/system-sleep/manager.sh
+    owner: root
+    group: root
+    mode: "0755"
+  when: ansible_facts['nodename'] == 'endurance'
