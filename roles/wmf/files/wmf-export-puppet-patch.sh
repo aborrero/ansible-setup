@@ -7,13 +7,13 @@ if [ -z "$PUPPETMASTER" ] ; then
 fi
 
 if [ "$PUPPETMASTER" == "tools" ] ; then
-    PUPPETMASTER="tools-puppetmaster-02.eqiad.wmflabs"
+    PUPPETMASTER="tools-puppetmaster-02.tools.eqiad1.wikimedia.cloud"
 fi
 if [ "$PUPPETMASTER" == "toolsbeta" ] ; then
-    PUPPETMASTER="toolsbeta-puppetmaster-04.eqiad.wmflabs"
+    PUPPETMASTER="toolsbeta-puppetmaster-04.tools.eqiad1.wikimedia.cloud"
 fi
 if [ "$PUPPETMASTER" == "paws" ] ; then
-    PUPPETMASTER="paws-puppetmaster-01.eqiad.wmflabs"
+    PUPPETMASTER="paws-puppetmaster-01.paws.eqiad1.wikimedia.cloud"
 fi
 
 PATCH="wmf-export-puppet.patch"
