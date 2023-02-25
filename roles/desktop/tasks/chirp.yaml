@@ -1,0 +1,10 @@
+---
+# see https://chirp.danplanet.com/projects/chirp/wiki/Home
+- name: Install CHIRP
+  tags:
+    - desktop
+    - chirp
+  become: true
+  ansible.builtin.apt:
+    package: chirp
+    state: latest
