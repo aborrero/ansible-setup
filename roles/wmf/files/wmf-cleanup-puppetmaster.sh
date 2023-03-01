@@ -10,7 +10,7 @@ if [ "$PUPPETMASTER" == "tools" ] ; then
     PUPPETMASTER="tools-puppetmaster-02.tools.eqiad1.wikimedia.cloud"
 fi
 if [ "$PUPPETMASTER" == "toolsbeta" ] ; then
-    PUPPETMASTER="toolsbeta-puppetmaster-04.toolsbeta..eqiad1.wikimedia.cloud"
+    PUPPETMASTER="toolsbeta-puppetmaster-04.toolsbeta.eqiad1.wikimedia.cloud"
 fi
 if [ "$PUPPETMASTER" == "paws" ] ; then
     PUPPETMASTER="paws-puppetmaster-01.paws.eqiad1.wikimedia.cloud"
