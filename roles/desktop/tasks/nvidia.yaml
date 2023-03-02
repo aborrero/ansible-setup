@@ -1,0 +1,11 @@
+---
+# no content for now, but some notes regarding debian bug https://bugs.debian.org/1032248
+
+# an older version of the nvidia driver can be found in the snapshot repository:
+#deb     [check-valid-until=no] https://snapshot.debian.org/archive/debian/20230210T220000Z/ testing main contrib non-free
+#deb-src [check-valid-until=no] https://snapshot.debian.org/archive/debian/20230210T220000Z/ testing main contrib non-free
+
+# to force downgrade, try something like:
+# sudo apt-get install nvidia-driver=520.56.06-2 nvidia-kernel-dkms=520.56.06-2 nvidia-driver-libs=520.56.06-2 nvidia-driver-bin=520.56.06-2 xserver-xorg-video-nvidia=520.56.06-2 nvidia-vdpau-driver=520.56.06-2 nvidia-alternative=520.56.06-2 libgl1-nvidia-glvnd-glx=520.56.06-2 nvidia-egl-icd=520.56.06-2 firmware-nvidia-gsp=520.56.06-2 libglx-nvidia0=520.56.06-2 libnvidia-eglcore=520.56.06-2 libnvidia-glcore=520.56.06-2 libegl-nvidia0=520.56.06-2
+
+# beware that newer linux kernel version may not be supported by the older version of the driver
