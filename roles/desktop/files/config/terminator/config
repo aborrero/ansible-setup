@@ -1,5 +1,7 @@
 [global_config]
 [keybindings]
+  close_term = ""
+  close_window = ""
 [profiles]
   [[default]]
     background_darkness = 0.85
