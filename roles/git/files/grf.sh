@@ -16,7 +16,7 @@ fi
 
 branch=$(git branch --show-current)
 
-if grep -Eq main\|master <<< "$branch" && [ "$(git rev-list --count '@{upstream}...HEAD')" == "0" ] ; then
+if grep -Eq ^main$\|^master$ <<< "$branch" && [ "$(git rev-list --count '@{upstream}...HEAD')" == "0" ] ; then
     echo "E: updates for a later force push to the main branch is not usually done, doing nothing" >&2
     exit 1
 fi
