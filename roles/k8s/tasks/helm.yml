@@ -1,15 +1,4 @@
 ---
-- name: install helm
-  include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
-  tags: k8s helm
-  vars:
-    conf:
-      shortname: helm
-      repo_spec: https://baltocdn.com/helm/stable/debian/ all main
-      key_url: https://baltocdn.com/helm/signing.asc
-      packages:
-        - helm
-
 - name: install helm cm-push plugin
   tags: k8s helm
   become: true
@@ -25,9 +14,3 @@
   loop_control:
     loop_var: binary
     label: "{{ binary.name }}"
-
-# this install all helm plugin dependencies
-- name: helmfile init
-  ansible.builtin.command: helmfile init --force
-  register: init
-  changed_when: "'Installed plugin' in init.stderr"
