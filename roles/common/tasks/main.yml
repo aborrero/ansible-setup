@@ -41,6 +41,7 @@
       - tcpdump
       - shellcheck
       - ethtool
+      - tree
 
 - name: install nostromo-specific packages
   tags: apt nostromo
