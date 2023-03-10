@@ -3,8 +3,13 @@
 - include_tasks: kind.yml
 - include_tasks: helm.yml
 
-- name: install podman
+- name: Install k8s-related packages
   become: true
   ansible.builtin.apt:
-    name: podman
+    name: "{{ packages }}"
     state: latest
+  vars:
+    packages:
+      - podman
+      - python3-kubernetes
+      - jq
