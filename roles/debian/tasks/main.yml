@@ -22,6 +22,13 @@
       - reportbugrc
       - sbuildrc
 
+- name: Add user to sbuild Unix group
+  become: true
+  ansible.builtin.user:
+    name: '{{ user }}'
+    groups: sbuild
+    append: yes
+
 - name: sbuild chroot setup
   include_tasks: "{{ role_path }}/../debian/tasks/sbuild.yml"
   vars:
