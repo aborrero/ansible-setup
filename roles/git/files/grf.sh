@@ -4,6 +4,18 @@
 
 set -e
 
+arg=$1
+
+if [ -n "$arg" ] ; then
+    if [ "$arg" == "-h" ] || [ "$arg" == "--help" ] ; then
+        echo "I: use --force to allow rewriting last commit in main branch for a later force-push"
+        exit 0
+    fi
+    if [ "$arg" == "--force" ] ; then
+        force="yes"
+    fi
+fi
+
 if ! ls .git/config >/dev/null 2>&1 ; then
     echo "E: missing .git/config file, is this a git repo?" >&2
     exit 1
@@ -14,12 +26,17 @@ if [ "$(git status -s | wc -l)" == "0" ] ; then
     exit 1
 fi
 
-if [ "$(git rev-list --count '@{upstream}...HEAD')" == "0" ] ; then
-    echo "E: no changes yet? You may need to create a patch/commit first" >&2
-    exit 1
+branch=$(git branch --show-current)
+
+if grep -Eq ^main$\|^master$ <<< "$branch" && [ "$(git rev-list --count '@{upstream}...HEAD')" == "0" ] ; then
+    if [ "$force" == "yes" ] ; then
+        echo "I: force refresh last commit for a later force push of a main branch"
+    else
+        echo "E: updates for a later force push to the main branch is not usually done, doing nothing. Try '--force'" >&2
+        exit 1
+    fi
 fi
 
-branch=$(git branch --show-current)
 if git branch -l | grep -q "$branch".stgit && [ "$(stg top 2>/dev/null | wc -l)" == "1" ] ; then
     # stgit context!
     stg refresh
