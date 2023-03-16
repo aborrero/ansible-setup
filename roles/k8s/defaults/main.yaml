@@ -1,0 +1,3 @@
+---
+docker:
+  data_root: /home/{{ user }}/.docker

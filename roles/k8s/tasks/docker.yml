@@ -20,15 +20,15 @@
     groups: docker
     append: true
 
-- name: docker data root
+- name: Create docker data root
   become: true
   ansible.builtin.file:
-    dest: /home/{{user}}/.docker
+    dest: "{{ docker.data_root }}"
     state: directory
 
-- name: docker data root permissions
+- name: Set docker data root permissions
   become: true
-  ansible.builtin.shell: chown "{{user}}":"{{user}}" "/home/{{user}}/.docker" -R
+  ansible.builtin.shell: chown -R {{ user }}:{{ user }} {{ docker.data_root }}
   changed_when: false
 
 - name: docker daemon configuration directory
@@ -37,16 +37,36 @@
     dest: /etc/docker
     state: directory
 
-- name: docker daemon configuration
+- name: Install docker daemon configuration
   become: true
-  ansible.builtin.copy:
-    src: docker/daemon.json
+  ansible.builtin.template:
+    src: docker/daemon.json.j2
     dest: /etc/docker/daemon.json
   register: dockerconfig
 
-- name: restart docker daemon if config changed
+- name: Create docker service override directory
+  become: true
+  ansible.builtin.file:
+    path: /etc/systemd/system/docker.service.d/
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+
+- name: Introduce docker service override
+  become: true
+  ansible.builtin.template:
+    src: docker/systemd-override.conf.j2
+    dest: /etc/systemd/system/docker.service.d/override.conf
+    owner: root
+    group: root
+    mode: 0644
+  register: override
+  notify: "systemd daemon reload"
+
+- name: Restart docker daemon if config changed
   become: true
   ansible.builtin.systemd:
     name: docker.service
     state: restarted
-  when: dockerconfig.changed
+  when: dockerconfig.changed or override.changed
