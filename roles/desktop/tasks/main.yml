@@ -9,6 +9,9 @@
 - name: Include telegram tasks
   ansible.builtin.include_tasks: telegram.yaml
 
+- name: Include autofirma tasks
+  ansible.builtin.include_tasks: autofirma.yaml
+
 - name: Include endurance workaround for debian bug https://bugs.debian.org/991788
   become: true
   ansible.builtin.copy:

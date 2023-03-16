@@ -1,0 +1,7 @@
+---
+# see https://firmaelectronica.gob.es/Home/Descargas.html
+- name: Intall some manual dependencies
+  become: true
+  ansible.builtin.apt:
+    name: icedtea-netx
+    state: latest
