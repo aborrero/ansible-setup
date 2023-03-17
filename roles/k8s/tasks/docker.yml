@@ -26,12 +26,7 @@
     dest: "{{ docker.data_root }}"
     state: directory
 
-- name: Set docker data root permissions
-  become: true
-  ansible.builtin.shell: chown -R {{ user }}:{{ user }} {{ docker.data_root }}
-  changed_when: false
-
-- name: docker daemon configuration directory
+- name: Docker daemon configuration directory
   become: true
   ansible.builtin.file:
     dest: /etc/docker
@@ -44,29 +39,9 @@
     dest: /etc/docker/daemon.json
   register: dockerconfig
 
-- name: Create docker service override directory
-  become: true
-  ansible.builtin.file:
-    path: /etc/systemd/system/docker.service.d/
-    state: directory
-    owner: root
-    group: root
-    mode: "0755"
-
-- name: Introduce docker service override
-  become: true
-  ansible.builtin.template:
-    src: docker/systemd-override.conf.j2
-    dest: /etc/systemd/system/docker.service.d/override.conf
-    owner: root
-    group: root
-    mode: 0644
-  register: override
-  notify: "systemd daemon reload"
-
 - name: Restart docker daemon if config changed
   become: true
   ansible.builtin.systemd:
     name: docker.service
     state: restarted
-  when: dockerconfig.changed or override.changed
+  when: dockerconfig.changed
