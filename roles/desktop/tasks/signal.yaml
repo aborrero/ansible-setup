@@ -1,7 +1,7 @@
 ---
-- name: install signal
-  include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
-  tags: desktop signal
+- name: Install signal
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
+  tags: signal
   vars:
     conf:
       shortname: signal
