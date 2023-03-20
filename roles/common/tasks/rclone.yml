@@ -1,20 +1,20 @@
 ---
-- name: install rclone
+- name: Install rclone
   tags: rclone
   become: true
   ansible.builtin.apt:
     name: rclone
     state: present
 
-- name: install rclone config file
+- name: Install rclone config file
   tags: rclone
-  include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+  ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
   vars:
     dotfiles:
       - config/rclone/rclone.conf
 
-- name: install rsync.net shortcut script
-  tags: rclone rsync.net
+- name: Install rsync.net shortcut script
+  tags: rclone
   become: true
   ansible.builtin.copy:
     src: rsync.net
