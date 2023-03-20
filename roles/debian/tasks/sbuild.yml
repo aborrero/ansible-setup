@@ -9,7 +9,7 @@
   vars:
     sbuild_update: /usr/bin/sbuild-update -udcar
     sbuild_create: /usr/bin/sbuild-createchroot
-    sbuild_create_opts: "--include=eatmydata,ccache,lintian --debootstrap=mmdebstrap"
+    sbuild_create_opts: --include=eatmydata,ccache,lintian --debootstrap=mmdebstrap
     sbuild_mirror: http://127.0.0.1:3142/deb.debian.org/debian
     basedir: /srv/chroot
   block:
@@ -17,7 +17,7 @@
       become: true
       ansible.builtin.command:
         cmd: "{{sbuild_create}} {{sbuild_create_opts}} {{item}} {{basedir}}/{{item}}-amd64-sbuild {{sbuild_mirror}}"
-        creates: "/etc/sbuild/chroot/{{ item }}-amd64-sbuild"
+        creates: /etc/sbuild/chroot/{{ item }}-amd64-sbuild
       loop: "{{distributions}}"
 
     - name: update chroot

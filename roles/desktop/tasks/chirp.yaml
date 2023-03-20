@@ -13,6 +13,6 @@
 - name: Add user to dialout Unix group
   become: true
   ansible.builtin.user:
-    name: '{{ user }}'
+    name: "{{ user }}"
     groups: dialout
-    append: yes
+    append: true

@@ -5,7 +5,7 @@
   ansible.builtin.copy:
     src: profiler.py
     dest: /usr/local/bin/profiler
-    mode: 0755
+    mode: "0755"
 
 - name: install profile.yaml
   tags: profiler desktop

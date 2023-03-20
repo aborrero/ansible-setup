@@ -19,7 +19,7 @@
   become: true
   ansible.builtin.copy:
     src: "{{ item }}.sh"
-    dest: "/usr/local/bin/{{ item }}"
+    dest: /usr/local/bin/{{ item }}
     owner: root
     group: root
     mode: "0755"

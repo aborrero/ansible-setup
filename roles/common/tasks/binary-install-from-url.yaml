@@ -19,7 +19,7 @@
     src: "{{ binary.url }}"
     dest: "{{ binary.dest }}"
     remote_src: true
-    mode: 0755
+    mode: "0755"
   when: >
     version is not defined or
     version is defined and version.stdout != binary.version

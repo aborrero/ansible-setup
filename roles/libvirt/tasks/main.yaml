@@ -18,9 +18,9 @@
 - name: Add user to libvirt Unix group
   become: true
   ansible.builtin.user:
-    name: '{{ user }}'
+    name: "{{ user }}"
     groups: libvirt
-    append: yes
+    append: true
 
 - name: Create directory tree for default storage pool
   ansible.builtin.file:

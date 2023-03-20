@@ -5,9 +5,9 @@
 - name: Add user to sudo Unix group
   become: true
   ansible.builtin.user:
-    name: '{{ user }}'
+    name: "{{ user }}"
     groups: sudo
-    append: yes
+    append: true
 
 - name: Install custom sources.list
   tags: apt
