@@ -1,8 +1,9 @@
 ---
-- name: setup for a laptop in a work environment
+- name: Setup for a laptop in a work environment
   hosts: localhost
   handlers:
-    - import_tasks: ../handlers/main.yml
+    - name: Import handlers
+      ansible.builtin.import_tasks: ../handlers/main.yml
   vars_files:
     - ../vars/k8s.yaml
   roles:
