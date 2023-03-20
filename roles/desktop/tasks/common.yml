@@ -1,8 +1,8 @@
 ---
-- name: install common desktop packages
-  tags: desktop
+- name: Install common desktop packages
+  tags: apt
   become: true
-  apt:
+  ansible.builtin.apt:
     name: "{{ packages }}"
     state: latest
   vars:
@@ -18,21 +18,21 @@
       - blueman
       - nautilus-dropbox
 
-- name: install bitwarden desktop
-  tags: desktop bitwarden
+- name: Install bitwarden desktop
+  tags: bitwarden
   become: true
   ansible.builtin.apt:
     deb: https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=deb
 
-- name: install some dotfiles
-  include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+- name: Install some dotfiles
+  ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
   vars:
     dotfiles:
       - config/terminator/config
       - config/conky/conky.conf
 
-- name: create systemd service files for conky
-  tags: desktop conky
+- name: Create systemd service files for conky
+  tags: conky
   become: true
   ansible.builtin.copy:
     src: config/conky/conky.service
@@ -41,10 +41,10 @@
     group: root
     mode: "0644"
 
-- name: enable systemd service for conky
+- name: Enable systemd service for conky
   become: true
-  become_user: "{{user}}"
-  systemd:
+  become_user: "{{ user }}"
+  ansible.builtin.systemd:
     name: conky.service
     enabled: true
     state: started
