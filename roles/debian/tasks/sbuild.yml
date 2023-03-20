@@ -4,8 +4,8 @@
 #   - string
 #   - string
 
-- name: handle chroot
-  tags: sbuild-chroot
+- name: Handle chroot
+  tags: sbuild
   vars:
     sbuild_update: /usr/bin/sbuild-update -udcar
     sbuild_create: /usr/bin/sbuild-createchroot
@@ -13,17 +13,17 @@
     sbuild_mirror: http://127.0.0.1:3142/deb.debian.org/debian
     basedir: /srv/chroot
   block:
-    - name: create chroot
+    - name: Create chroot
       become: true
       ansible.builtin.command:
-        cmd: "{{sbuild_create}} {{sbuild_create_opts}} {{item}} {{basedir}}/{{item}}-amd64-sbuild {{sbuild_mirror}}"
+        cmd: "{{ sbuild_create }} {{ sbuild_create_opts }} {{ item }} {{ basedir }}/{{ item }}-amd64-sbuild {{ sbuild_mirror }}"
         creates: /etc/sbuild/chroot/{{ item }}-amd64-sbuild
-      loop: "{{distributions}}"
+      loop: "{{ distributions }}"
 
-    - name: update chroot
+    - name: Update chroot
       become: true
       ansible.builtin.command:
-        cmd: "{{sbuild_update}} {{item}}-amd64-sbuild"
+        cmd: "{{ sbuild_update }} {{ item }}-amd64-sbuild"
       # never changed, because otherwise is always changed
       changed_when: false
-      loop: "{{distributions}}"
+      loop: "{{ distributions }}"
