@@ -1,10 +1,21 @@
 ---
-- include_tasks: common.yml
-- include_tasks: lightdm.yml
-- include_tasks: profiler.yml
-- include_tasks: spotify.yml
-- include_tasks: signal.yaml
-- ansible.builtin.include_tasks: slack.yaml
+- name: Include common desktop tasks
+  ansible.builtin.include_tasks: common.yml
+
+- name: Include lighdm tasks
+  ansible.builtin.include_tasks: lightdm.yml
+
+- name: Include desktop profiler tasks
+  ansible.builtin.include_tasks: profiler.yml
+
+- name: Include spotify tasks
+  ansible.builtin.include_tasks: spotify.yml
+
+- name: Include signal tasks
+  ansible.builtin.include_tasks: signal.yaml
+
+- name: Include slack tasks
+  ansible.builtin.include_tasks: slack.yaml
 
 - name: Include telegram tasks
   ansible.builtin.include_tasks: telegram.yaml
