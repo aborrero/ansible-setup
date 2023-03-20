@@ -1,5 +1,6 @@
 ---
-- name: make sure user ansible-setup exists
+- name: Make sure user ansible-setup exists
+  tags: ansible-setup
   become: true
   ansible.builtin.user:
     name: ansible-setup
@@ -8,32 +9,41 @@
     system: true
     shell: /usr/sbin/nologin
 
-- name: enable passwordless sudo for the ansible-setup user
+- name: Enable passwordless sudo for the ansible-setup user
+  tags: ansible-setup
   become: true
   ansible.builtin.copy:
     dest: /etc/sudoers.d/ansible-setup-nopasswd
     content: "%ansible-setup ALL = (ALL) NOPASSWD: ALL\n"
+    mode: "0644"
 
-- name: enable passwordless sudo to run ansible-setup
+- name: Enable passwordless sudo to run ansible-setup
+  tags: ansible-setup
   become: true
   ansible.builtin.copy:
     dest: /etc/sudoers.d/arturo-runs-ansible-setup
     content: "%arturo ALL = (ansible-setup) NOPASSWD: /usr/bin/ansible-playbook\n"
+    mode: "0644"
 
-- name: make sure ~/.ansible-setup/ exists
+- name: Make sure ~/.ansible-setup/ exists
+  tags: ansible-setup
   become: true
-  become_user: "{{user}}"
+  become_user: "{{ user }}"
   ansible.builtin.file:
-    dest: /home/{{user}}/.ansible-setup/
+    dest: /home/{{ user }}/.ansible-setup/
     state: directory
+    mode: "0700"
 
-- name: write hash of the repo to a ~/.ansible-setup/last_run_hash
+- name: Write hash of the repo to a ~/.ansible-setup/last_run_hash
+  tags: ansible-setup
   become: true
-  become_user: "{{user}}"
-  ansible.builtin.shell: git --git-dir=/home/{{user}}/git/github/ansible-setup/.git rev-parse HEAD > /home/{{user}}/.ansible-setup/last_run_hash
+  become_user: "{{ user }}"
+  # noqa: command-instead-of-module
+  ansible.builtin.shell: git --git-dir=/home/{{ user }}/git/github/ansible-setup/.git rev-parse HEAD > /home/{{ user }}/.ansible-setup/last_run_hash
   changed_when: false
 
-- name: install ansible-setup-run helper script
+- name: Install ansible-setup-run helper script
+  tags: ansible-setup
   become: true
   ansible.builtin.copy:
     dest: /usr/local/bin/ansible-setup-run
