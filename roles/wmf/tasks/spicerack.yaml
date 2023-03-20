@@ -1,7 +1,7 @@
 ---
-- name: clone spicerack/coobook git repos
-  tags: wmf spicerack
-  include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
+- name: Clone spicerack/coobook git repos
+  tags: spicerack
+  ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
   vars:
     email: aborrero@wikimedia.org
     git_repos:
@@ -12,32 +12,34 @@
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/software/spicerack
         dir: wmf/operations/software/spicerack
 
-- name: install spicerack config dotfiles
-  tags: wmf spicerack
-  include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+- name: Install spicerack config dotfiles
+  tags: spicerack
+  ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
   vars:
     dotfiles:
       - config/spicerack/cookbook.yaml
       - config/spicerack/wmcs.yaml
       - config/spicerack/cumin.yaml
 
-- name: make sure spicerack directory exists
-  tags: wmf spicerack
+- name: Make sure spicerack directory exists
+  tags: spicerack
   become: true
   ansible.builtin.file:
     dest: /etc/spicerack
     state: directory
+    mode: "0644"
 
-- name: install spicerack config as link
-  tags: wmf spicerack
+- name: Install spicerack config as link
+  tags: spicerack
   become: true
   ansible.builtin.file:
-    src: /home/{{user}}/.config/spicerack/cookbook.yaml
+    src: /home/{{ user }}/.config/spicerack/cookbook.yaml
     dest: /etc/spicerack/config.yaml
     state: link
+    mode: "0644"
 
-- name: install spicerack into the venv
-  tags: wmf spicerack python pip
+- name: Install spicerack into the venv
+  tags: spicerack
   become: true
   become_user: "{{ user }}"
   ansible.builtin.command:
@@ -49,7 +51,7 @@
   changed_when: false
 
 - name: Install cookbook link
-  tags: wmf spicerack python pip cookbook
+  tags: spicerack
   become: true
   ansible.builtin.file:
     src: /home/{{ user }}/.pyvenvs/spicerack/bin/cookbook
