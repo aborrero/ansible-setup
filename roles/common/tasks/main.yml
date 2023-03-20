@@ -1,6 +1,9 @@
 ---
-- include_tasks: ansible-setup.yml
-- include_tasks: rclone.yml
+- name: Include ansible-setip tasks
+  ansible.builtin.include_tasks: ansible-setup.yml
+
+- name: Include rclone tasks
+  ansible.builtin.include_tasks: rclone.yml
 
 - name: Add user to sudo Unix group
   become: true
@@ -15,11 +18,12 @@
   ansible.builtin.copy:
     src: sources.list
     dest: /etc/apt/sources.list
+    mode: "0644"
 
-- name: install a list of packages to their latest version
-  tags: cli
+- name: Install a list of packages to their latest version
+  tags: apt
   become: true
-  apt:
+  ansible.builtin.apt:
     name: "{{ packages }}"
     state: latest
   vars:
@@ -43,10 +47,12 @@
       - ethtool
       - tree
 
-- name: install nostromo-specific packages
-  tags: apt nostromo
+- name: Install nostromo-specific packages
+  tags:
+    - apt
+    - nostromo
   become: true
-  apt:
+  ansible.builtin.apt:
     name: "{{ packages }}"
     state: latest
   vars:
@@ -54,44 +60,51 @@
       - firmware-sof-signed
   when: ansible_facts['nodename'] == 'nostromo'
 
-- name: upgrade installed packages
-  tags: package-manager
+- name: Upgrade installed packages
+  tags: apt
   become: true
-  apt:
+  ansible.builtin.apt:
     upgrade: true
 
-- name: remove useless packages from the cache
-  tags: package-manager
+- name: Remove useless packages from the cache
+  tags: apt
   become: true
-  apt:
+  ansible.builtin.apt:
     autoclean: true
 
-- name: remove dependencies that are no longer required
-  tags: package-manager
+- name: Remove dependencies that are no longer required
+  tags: apt
   become: true
-  apt:
+  ansible.builtin.apt:
     autoremove: true
 
-- name: maintain /etc/default/grub file
+- name: Maintain /etc/default/grub file
   become: true
   ansible.builtin.copy:
     src: grub
     dest: /etc/default/grub
+    mode: "0644"
   register: grub
 
-- name: update-grub
+- name: Run update-grub
+  # I'm lazy:
+  # noqa: no-handler
   become: true
   ansible.builtin.command: update-grub
   when: grub.changed
+  register: update_grub
+  changed_when: update_grub.changed
 
 - name: Install modprobe config file
   become: true
   ansible.builtin.copy:
     src: modprobe_pcspkr.conf
     dest: /etc/modprobe.d/modpprobe_pcspkr.conf
+    mode: "0644"
 
 - name: Install /etc/default/console-setup file
   become: true
   ansible.builtin.copy:
     src: console-setup
     dest: /etc/default/console-setup
+    mode: "0644"
