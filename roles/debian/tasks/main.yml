@@ -1,8 +1,8 @@
 ---
-- name: install debian devel packages
-  tags: cli debian
+- name: Install debian devel packages
+  tags: apt
   become: true
-  apt:
+  ansible.builtin.apt:
     name: "{{ package }}"
     state: latest
   vars:
@@ -15,8 +15,8 @@
       - apt-cacher-ng
       - mmdebstrap
 
-- name: install some debian-related dotfiles
-  include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+- name: Install some debian-related dotfiles
+  ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
   vars:
     dotfiles:
       - reportbugrc
@@ -29,16 +29,16 @@
     groups: sbuild
     append: true
 
-- name: sbuild chroot setup
-  include_tasks: "{{ role_path }}/../debian/tasks/sbuild.yml"
+- name: Setup sbuild chroot
+  ansible.builtin.include_tasks: "{{ role_path }}/../debian/tasks/sbuild.yml"
   vars:
     distributions:
       - unstable
       # for toolforge servers
       - buster
 
-- name: clone some git repos
-  include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
+- name: Clone some debian git repos
+  ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
   vars:
     email: arturo@debian.org
     git_repos:
