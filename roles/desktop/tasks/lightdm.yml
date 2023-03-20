@@ -1,8 +1,8 @@
 ---
-- name: install lightdm-related packages
-  tags: desktop lightdm
+- name: Install lightdm-related packages
+  tags: lightdm
   become: true
-  apt:
+  ansible.builtin.apt:
     name: "{{ packages }}"
     state: latest
   vars:
@@ -11,8 +11,8 @@
       # seems to be required, see https://bugs.debian.org/837979
       - accountsservice
 
-- name: install /etc/lightdm/lightdm.conf
-  tags: desktop lightdm
+- name: Install /etc/lightdm/lightdm.conf
+  tags: lightdm
   become: true
   ansible.builtin.template:
     src: lightdm.conf.j2
