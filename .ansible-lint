@@ -8,3 +8,5 @@ skip_list:
   # this has been overridden also by some other projects, see
   # for example https://review.opendev.org/c/openstack/kolla-ansible/+/859220
   - name[template]
+  # Package installs should not use latest, but here yes they can
+  - package-latest
