@@ -7,13 +7,15 @@
 #   dest: string
 #   url: string
 
-- name: figure out lastest installed version of '{{ binary.name }}'
+- name: Figure out lastest installed version of '{{ binary.name }}'
+  tags: binary-install
   ansible.builtin.shell: "{{ binary.version_command }}"
   failed_when: false
   changed_when: false
   register: version
 
-- name: install '{{ binary.name }}' version '{{ binary.version }}'
+- name: Install '{{ binary.name }}' version '{{ binary.version }}'
+  tags: binary-install
   become: true
   ansible.builtin.unarchive:
     src: "{{ binary.url }}"
