@@ -1,6 +1,7 @@
 ---
 - name: Clone Toolforge git repos
-  include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
+  tags: toolforge
+  ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
   vars:
     email: aborrero@wikimedia.org
     git_repos:
