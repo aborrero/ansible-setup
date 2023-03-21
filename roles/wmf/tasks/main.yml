@@ -1,10 +1,10 @@
 ---
-- name: install custom WMF scripts
+- name: Install custom WMF scripts
   tags: wmf
   become: true
   ansible.builtin.copy:
-    src: "{{item}}"
-    dest: /usr/local/bin/{{item}}
+    src: "{{ item }}"
+    dest: /usr/local/bin/{{ item }}
     owner: root
     group: root
     mode: "0755"
@@ -16,9 +16,9 @@
     - wmf-git-review.sh
     - wmcs-update-known-hosts.sh
 
-- name: install wmf-sre-laptop
-  include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
-  tags: wmf wmf-sre-laptop
+- name: Install wmf-sre-laptop
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
+  tags: wmf
   vars:
     conf:
       shortname: wmf-sre-laptop
@@ -31,7 +31,7 @@
 # * https://pypi.org/project/wm-ssh/
 # * https://github.com/david-caro/wm-ssh
 - name: Refresh ssh known hosts
-  tags: wmf ssh
+  tags: ssh
   become: true
   become_user: "{{ user }}"
   ansible.builtin.shell: "{{ item }}"
@@ -40,8 +40,8 @@
     - wmf-update-known-hosts-production /home/{{ user }}/git/wmf/operations/dns/
     - wmcs-update-known-hosts.sh
 
-- name: clone some git repos
-  include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
+- name: Clone some git repos
+  ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
   vars:
     email: aborrero@wikimedia.org
     git_repos:
@@ -63,6 +63,10 @@
   ansible.builtin.copy:
     src: pws-trusted-users
     dest: /home/{{ user }}/.pws-trusted-users
+    mode: "0644"
 
-- include_tasks: spicerack.yaml
-- include_tasks: toolforge.yaml
+- name: Include spicerack tasks
+  ansible.builtin.include_tasks: spicerack.yaml
+
+- name: Include toolforge tasks
+  ansible.builtin.include_tasks: toolforge.yaml
