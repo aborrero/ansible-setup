@@ -1,24 +1,24 @@
 ---
-- name: create systemd service files for ssh agents
+- name: Create systemd service files for ssh agents
   tags: ssh
   become: true
   ansible.builtin.template:
     src: systemd_ssh_agent.service.j2
-    dest: /etc/systemd/user/{{item}}.service
+    dest: /etc/systemd/user/{{ item }}.service
     owner: root
     group: root
     mode: "0644"
-  loop: "{{names}}"
+  loop: "{{ names }}"
 
-- name: enable systemd service for ssh agents
+- name: Enable systemd service for ssh agents
   become: true
-  become_user: "{{user}}"
-  systemd:
-    name: "{{item}}.service"
+  become_user: "{{ user }}"
+  ansible.builtin.systemd:
+    name: "{{ item }}.service"
     enabled: true
     state: started
     scope: user
     daemon_reload: true
-  loop: "{{names}}"
+  loop: "{{ names }}"
   # affected by https://github.com/ansible/ansible/issues/75542 or similar
   changed_when: false
