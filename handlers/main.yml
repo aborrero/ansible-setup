@@ -3,3 +3,9 @@
   become: true
   ansible.builtin.systemd:
     daemon_reload: true
+
+- name: Restart nftables service
+  become: true
+  ansible.builtin.systemd:
+    name: nftables.service
+    state: restarted

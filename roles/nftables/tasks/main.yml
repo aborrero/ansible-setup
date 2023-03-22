@@ -1,24 +1,31 @@
 ---
-- name: ensure config directories exists
+- name: Ensure config directories exists
+  tags: nft
   become: true
   ansible.builtin.file:
     dest: "{{ item }}"
     state: directory
+    mode: "0644"
   loop:
     - /etc/nftables.d/
     - /etc/systemd/system/nftables.service.d/
 
-- name: install config file
+- name: Install config file
+  tags: nft
   become: true
   ansible.builtin.copy:
     src: ruleset.nft
     dest: /etc/nftables.d/ruleset.nft
+    mode: "0644"
+  notify: "Restart nftables service"
   register: config
 
-- name: install service file
+- name: Install service file
+  tags: nft
   become: true
   ansible.builtin.copy:
     dest: /etc/systemd/system/nftables.service.d/ansible-setup-override.conf
+    mode: "0644"
     content: |
       [Service]
       ExecStart=
@@ -26,27 +33,21 @@
       ExecReload=
       ExecReload=/usr/sbin/nft -f /etc/nftables.d/ruleset.nft
   register: service
+  notify:
+    - "Run systemd daemon reload"
+    - "Restart nftables service"
 
-- name: enable nftables systemd service
+- name: Enable nftables systemd service
+  tags: nft
   become: true
   ansible.builtin.systemd:
     name: nftables.service
     enabled: true
-
-- name: reload systemd on service changes
-  become: true
-  ansible.builtin.shell: systemctl daemon-reload
-  when: service.changed
-
-- name: restart nftables service
-  become: true
-  ansible.builtin.systemd:
-    name: nftables.service
-    state: restarted
-  when: config.changed or service.changed
+  notify: "Restart nftables service"
 
 # this is shipped by the debian package, but we don't use it
 - name: Remove unused file /etc/nftables.conf
+  tags: nft
   become: true
   ansible.builtin.file:
     path: /etc/nftables.conf
