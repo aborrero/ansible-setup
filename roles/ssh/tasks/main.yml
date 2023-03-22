@@ -1,8 +1,8 @@
 ---
-- name: install ssh packages
+- name: Install ssh packages
   tags: ssh
   become: true
-  apt:
+  ansible.builtin.apt:
     name: "{{ packages }}"
     state: latest
   vars:
@@ -10,13 +10,14 @@
       - openssh-client
       - openssh-server
 
-- name: install ssh config dotfile
-  include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+- name: Install ssh config dotfile
+  ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
   vars:
     dotfiles:
       - ssh/config
 
-- import_tasks: systemd_ssh_agent.yml
+- name: Import systemd ssh agent tasks
+  ansible.builtin.import_tasks: systemd_ssh_agent.yml
   vars:
     names:
       - ssh-wmf-cloud-root
