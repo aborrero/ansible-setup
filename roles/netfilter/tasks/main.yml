@@ -1,6 +1,6 @@
 ---
-- name: clone some git repos
-  include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
+- name: Clone some git repos
+  ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
   vars:
     email: arturo@netfilter.org
     git_repos:
