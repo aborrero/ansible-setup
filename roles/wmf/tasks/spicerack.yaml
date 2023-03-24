@@ -36,7 +36,6 @@
     src: /home/{{ user }}/.config/spicerack/cookbook.yaml
     dest: /etc/spicerack/config.yaml
     state: link
-    mode: "0644"
 
 - name: Install spicerack into the venv
   tags: spicerack
