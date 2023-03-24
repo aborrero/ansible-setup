@@ -14,9 +14,9 @@
   become: true
   become_user: "{{ user }}"
   ansible.builtin.file:
+    # noqa: risky-file-permissions
     dest: /home/{{ user }}/.pyvenvs/
     state: directory
-    mode: "0644"
 
 - name: Create virtualenvs
   tags: pyvenv

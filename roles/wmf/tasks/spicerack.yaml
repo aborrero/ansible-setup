@@ -25,9 +25,9 @@
   tags: spicerack
   become: true
   ansible.builtin.file:
+    # noqa: risky-file-permissions
     dest: /etc/spicerack
     state: directory
-    mode: "0644"
 
 - name: Install spicerack config as link
   tags: spicerack
