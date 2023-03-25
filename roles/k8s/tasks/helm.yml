@@ -1,15 +1,15 @@
 ---
-- name: install helm cm-push plugin
-  tags: k8s helm
+- name: Install helm cm-push plugin
+  tags: helm
   become: true
-  become_user: "{{user}}"
+  become_user: "{{ user }}"
   ansible.builtin.shell: helm plugin install https://github.com/chartmuseum/helm-push || true
   register: result
   changed_when: "'Error: plugin already exists' not in result.stderr"
 
-- name: install binaries from URLs
-  tags: k8s helm
-  include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
+- name: Install binaries from URLs
+  tags: helm
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
   loop: "{{ helm.binary_install_from_url }}"
   loop_control:
     loop_var: binary
