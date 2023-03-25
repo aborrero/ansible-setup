@@ -1,4 +1,6 @@
 [global_config]
+  window_state = maximise
+  link_single_click = True
 [keybindings]
   close_term = ""
   close_window = ""
@@ -11,10 +13,33 @@
     use_system_font = False
 [layouts]
   [[default]]
-    [[[window0]]]
+    [[[child0]]]
       type = Window
       parent = ""
+      order = 0
+      position = 0:27
+      maximised = True
+      fullscreen = False
+      size = 1920, 1029
+      title = /bin/bash
+      last_active_term = 66616d09-ff2d-4680-9324-dd4370c0d259
+      last_active_window = True
     [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 958
+      ratio = 0.5002610966057441
+    [[[terminal2]]]
       type = Terminal
-      parent = window0
+      parent = child1
+      order = 0
+      profile = default
+      uuid = 66616d09-ff2d-4680-9324-dd4370c0d259
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      uuid = 7fdf1dce-8c81-4c66-be5d-334bfcbfe810
 [plugins]
