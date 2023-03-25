@@ -2,9 +2,6 @@
 - name: Include docker tasks
   ansible.builtin.include_tasks: docker.yml
 
-- name: Include kind tasks
-  ansible.builtin.include_tasks: kind.yml
-
 - name: Include helm tasks
   ansible.builtin.include_tasks: helm.yml
 
