@@ -1,7 +1,7 @@
 ---
-- name: install docker
-  include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
-  tags: k8s docker
+- name: Install docker
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
+  tags: docker
   vars:
     conf:
       shortname: docker
@@ -13,35 +13,35 @@
         - docker-ce-cli
         - containerd.io
 
-- name: docker group membership
+- name: Manage docker group membership
+  tags: docker
   become: true
   ansible.builtin.user:
-    name: "{{user}}"
+    name: "{{ user }}"
     groups: docker
     append: true
 
 - name: Create docker data root
+  tags: docker
   become: true
   ansible.builtin.file:
+    # noqa: risky-file-permissions
     dest: "{{ docker.data_root }}"
     state: directory
 
 - name: Docker daemon configuration directory
+  tags: docker
   become: true
   ansible.builtin.file:
+    # noqa: risky-file-permissions
     dest: /etc/docker
     state: directory
 
 - name: Install docker daemon configuration
+  tags: docker
   become: true
   ansible.builtin.template:
     src: docker/daemon.json.j2
     dest: /etc/docker/daemon.json
-  register: dockerconfig
-
-- name: Restart docker daemon if config changed
-  become: true
-  ansible.builtin.systemd:
-    name: docker.service
-    state: restarted
-  when: dockerconfig.changed
+    mode: "0644"
+  notify: "Restart docker daemon"

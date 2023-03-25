@@ -9,3 +9,9 @@
   ansible.builtin.systemd:
     name: nftables.service
     state: restarted
+
+- name: Restart docker daemon
+  become: true
+  ansible.builtin.systemd:
+    name: docker.service
+    state: restarted
