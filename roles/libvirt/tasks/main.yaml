@@ -1,6 +1,6 @@
 ---
 - name: Install libvirt packages
-  tags: libvirt
+  tags: apt
   become: true
   ansible.builtin.apt:
     name: "{{ packages }}"
@@ -23,19 +23,24 @@
     append: true
 
 - name: Create directory tree for default storage pool
+  become: true
+  become_user: "{{ user }}"
   ansible.builtin.file:
+    # noqa: risky-file-permissions
     path: /home/{{ user }}/.local/share/libvirt/images/
     state: directory
 
 - name: Define default storage pool pointing to /home
+  tags: libvirt
   community.libvirt.virt_pool:
     command: define
     name: default
     xml: '{{ lookup("template", "default-storage-pool.xml.j2") }}'
 
 - name: Set up default storage pool
+  tags: libvirt
   community.libvirt.virt_pool:
-    command: "{{ item  }}"
+    command: "{{ item }}"
     name: defaults
   loop:
     - build
@@ -44,4 +49,4 @@
   register: result
   failed_when:
     - result.rc is defined and result.rc != 0
-    - result.msg != "Requested operation is not valid: storage pool 'default' is already active"
+    - '"is already active" not in result.msg'
