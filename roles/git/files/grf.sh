@@ -28,7 +28,7 @@ fi
 
 branch=$(git branch --show-current)
 
-if grep -Eq ^main$\|^master$ <<< "$branch" && [ "$(git rev-list --count '@{upstream}...HEAD')" == "0" ] ; then
+if grep -Eq ^main$\|^master$\|^production$ <<< "$branch" && [ "$(git rev-list --count '@{upstream}...HEAD')" == "0" ] ; then
     if [ "$force" == "yes" ] ; then
         echo "I: force refresh last commit for a later force push of a main branch"
     else
