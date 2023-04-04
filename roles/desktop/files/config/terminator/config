@@ -1,6 +1,5 @@
 [global_config]
   window_state = maximise
-  link_single_click = True
 [keybindings]
   close_term = ""
   close_window = ""
