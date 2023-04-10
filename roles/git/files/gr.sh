@@ -10,11 +10,6 @@ if ! ls .git/config >/dev/null 2>&1 ; then
     exit 1
 fi
 
-if [ "$(git status -s | wc -l)" != "0" ] ; then
-    echo "E: refusing to work with uncommited changes. Commit first." >&2
-    exit 1
-fi
-
 if [ "$(git rev-list --count '@{upstream}...HEAD')" == "0" ] ; then
     echo "W: no commits. Doing nothing" >&2
     exit 1
