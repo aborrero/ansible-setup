@@ -39,3 +39,14 @@
         dir: wmf/cloud/toolforge/api-gateway
       - url: git@gitlab.wikimedia.org:aborrero/foxtrot-ldap.git
         dir: wmf/cloud/toolforge/foxtrot-ldap-arturo
+
+- name: Install fake toolforge-jobs
+  tags: toolforge
+  become: true
+  ansible.builtin.copy:  # noqa template-instead-of-copy
+    content: |
+      #!/bin/bash
+      source ~/.pyvenvs/jobs-framework-cli/bin/activate
+      ~/.local/toolforge-lima-kilo/bin/toolforge-jobs "$@"
+    dest: /usr/local/bin/toolforge-jobs
+    mode: "0755"
