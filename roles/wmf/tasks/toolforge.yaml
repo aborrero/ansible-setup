@@ -37,8 +37,11 @@
         dir: wmf/cloud/toolforge/image-config
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/api-gateway.git
         dir: wmf/cloud/toolforge/api-gateway
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/foxtrot-ldap.git
+        dir: wmf/cloud/toolforge/foxtrot-ldap
       - url: git@gitlab.wikimedia.org:aborrero/foxtrot-ldap.git
         dir: wmf/cloud/toolforge/foxtrot-ldap-arturo
+
 
 - name: Install fake toolforge-jobs
   tags: toolforge
