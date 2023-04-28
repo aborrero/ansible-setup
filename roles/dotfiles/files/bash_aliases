@@ -9,6 +9,7 @@ alias tailf='tail -f'
 
 alias gldoc='git log --decorate --oneline --color'
 alias gll='git log --pretty=format:"%C(yellow)%h %Creset%s%Cblue [%ae] (%ad)" --decorate --numstat --date=relative --shortstat'
+alias grpo='git remote prune origin'
 
 # this is now a script
 #alias gry='git review -y'
