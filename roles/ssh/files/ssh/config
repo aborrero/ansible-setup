@@ -142,7 +142,7 @@ Host *.eqiad.wmnet
     ProxyCommand ssh -a -W %h:%p bast1003.wikimedia.org
 
 Host *.codfw.wmnet
-    ProxyCommand ssh -6 -a -W %h:%p bast2002.wikimedia.org
+    ProxyCommand ssh -6 -a -W %h:%p bast2003.wikimedia.org
 
 Host *.esams.wmnet
     ProxyCommand ssh -a -W %h:%p bast3002.wikimedia.org
@@ -155,7 +155,7 @@ Host *-eqiad.wikimedia.org *-eqord.wikimedia.org
     ProxyCommand ssh -a -W %h:%p bast1003.wikimedia.org
 
 Host *-codfw.wikimedia.org *-eqdfw.wikimedia.org
-    ProxyCommand ssh -a -W %h:%p bast2002.wikimedia.org
+    ProxyCommand ssh -a -W %h:%p bast2003.wikimedia.org
 
 Host *-esams.wikimedia.org *-knams.wikimedia.org
     ProxyCommand ssh -a -W %h:%p bast3002.wikimedia.org
