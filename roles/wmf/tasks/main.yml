@@ -16,16 +16,16 @@
     - wmf-git-review.sh
     - wmcs-update-known-hosts.sh
 
-- name: Install wmf-sre-laptop
+- name: Install wmf-laptop-sre
   ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
   tags: wmf
   vars:
     conf:
-      shortname: wmf-sre-laptop
+      shortname: wmf-laptop-sre
       repo_spec: http://apt.wikimedia.org/wikimedia buster-wikimedia component/wmf-sre-laptop
       key_url: https://wikitech.wikimedia.org/w/index.php?title=APT_repository/Stretch-Key&action=raw
       packages:
-        - wmf-sre-laptop
+        - wmf-laptop-sre
 
 # another option (not in use in my setup as of today)
 # * https://pypi.org/project/wm-ssh/
