@@ -6,10 +6,11 @@
 [profiles]
   [[default]]
     background_darkness = 0.85
-    background_type = transparent
-    foreground_color = "#00ff00"
+    foreground_color = "#62a0ea"
     scrollback_infinite = True
     use_system_font = False
+    bold_is_bright = True
+    title_transmit_bg_color = "#613583"
 [layouts]
   [[default]]
     [[[child0]]]
