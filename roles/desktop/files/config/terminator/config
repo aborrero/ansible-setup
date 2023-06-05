@@ -7,6 +7,7 @@
 [profiles]
   [[default]]
     background_darkness = 0.85
+    font = Noto Mono Bold 10
     foreground_color = "#99c1f1"
     show_titlebar = False
     scrollbar_position = hidden
