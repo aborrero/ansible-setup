@@ -19,7 +19,7 @@
         dir: wmf/cloud/toolforge/jobs-framework-emailer
       - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/ingress-admission-controller
         dir: wmf/cloud/toolforge/ingress-admission-controller
-      - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/volume-admission-controller
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/volume-admission-controller
         dir: wmf/cloud/toolforge/volume-admission-controller
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/cert-manager
         dir: wmf/cloud/toolforge/cert-manager
