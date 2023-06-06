@@ -1,6 +1,6 @@
 [global_config]
   window_state = maximise
-  inactive_color_offset = 0.9
+  inactive_color_offset = 0.75
 [keybindings]
   close_term = ""
   close_window = ""
