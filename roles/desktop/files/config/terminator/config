@@ -11,11 +11,9 @@
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
-    palette = "#363636:#ff0883:#83ff08:#ff8308:#0883ff:#8308ff:#08ff83:#b6b6b6:#363636:#ff0883:#83ff08:#ff8308:#0883ff:#8308ff:#08ff83:#b6b6b6"
+    palette = "#363636:#ff0883:#4e9a06:#ff8308:#0883ff:#8308ff:#08ff83:#b6b6b6:#363636:#ff0883:#4e9a06:#ff8308:#1c71d8:#8308ff:#08ff83:#b6b6b6"
     bold_is_bright = True
     title_transmit_bg_color = "#613583"
-    # a less contrasted palette could be this:
-    #palette = "#2e3436:#cc0000:#4e9a06:#c4a000:#1c71d8:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
 [layouts]
   [[default]]
     [[[child0]]]
