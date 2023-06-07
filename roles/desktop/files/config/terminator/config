@@ -11,8 +11,7 @@
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
-    palette = "#363636:#ff0883:#4e9a06:#ff8308:#0883ff:#8308ff:#08ff83:#b6b6b6:#363636:#ff0883:#4e9a06:#ff8308:#1c71d8:#8308ff:#08ff83:#b6b6b6"
-    bold_is_bright = True
+    palette = "#363636:#f66151:#4e9a06:#ff8308:#0883ff:#8308ff:#08ff83:#deddda:#363636:#ff0883:#4e9a06:#ff8308:#1c71d8:#8308ff:#08ff83:#b6b6b6"
     title_transmit_bg_color = "#613583"
 [layouts]
   [[default]]
