@@ -50,6 +50,6 @@
     content: |
       #!/bin/bash
       source ~/.pyvenvs/jobs-framework-cli/bin/activate
-      ~/.local/toolforge-lima-kilo/bin/toolforge-jobs "$@"
+      ~/.toolforge-lima-kilo/bin/toolforge-jobs "$@"
     dest: /usr/local/bin/toolforge-jobs
     mode: "0755"
