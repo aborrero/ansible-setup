@@ -11,7 +11,7 @@
         dir: wmf/operations/software/tools-manifest
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/labs/tools/maintain-kubeusers
         dir: wmf/labs/tools/maintain-kubeusers
-      - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/jobs-framework-api
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/jobs-framework-api
         dir: wmf/cloud/toolforge/jobs-framework-api
       - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/jobs-framework-cli
         dir: wmf/cloud/toolforge/jobs-framework-cli
