@@ -30,7 +30,10 @@ elif grep -q gitlab.wikimedia.org <<< "$remotes" ; then
     if grep -Eq ^main$\|^master$ <<< "$branch" ; then
         # we are in main branch, switch!
         string="${BRANCH_PREFIX}$(git show --format=%f | head -1 | tr '[:upper:]' '[:lower:]')"
-        branch=${string:0:$BRANCH_MAX_NAME_LENGTH}
+        # trim length
+        string2=${string:0:$BRANCH_MAX_NAME_LENGTH}
+        # trim trailing "-" dash character
+        branch=${string2%-}
         git checkout --track -B "$branch"
     fi
 
