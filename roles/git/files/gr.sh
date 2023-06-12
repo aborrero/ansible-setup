@@ -10,7 +10,8 @@ if ! ls .git/config >/dev/null 2>&1 ; then
     exit 1
 fi
 
-if [ "$(git rev-list --count '@{upstream}...HEAD')" == "0" ] ; then
+n_commits="$(git rev-list --count '@{upstream}...HEAD')"
+if [ "${n_commits}" == "0" ] ; then
     echo "W: no commits. Doing nothing" >&2
     exit 1
 fi
@@ -34,7 +35,15 @@ elif grep -q gitlab.wikimedia.org <<< "$remotes" ; then
         string2=${string:0:$BRANCH_MAX_NAME_LENGTH}
         # trim trailing "-" dash character
         branch=${string2%-}
+
+        # this relocates commits from the main branch into the new branch
+        # see https://stackoverflow.com/questions/1628563/move-the-most-recent-commits-to-a-new-branch-with-git/36463546
+        # delete commits from main branch
+        git reset --keep HEAD~${n_commits}
+        # create a new branch
         git checkout --track -B "$branch"
+        # using reflog, in the new branch, cherry-pick the changes that were in HEAD 2 operations ago
+        git cherry-pick ..HEAD@{2}
     fi
 
     git push --force -u origin "$branch"
