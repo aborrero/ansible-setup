@@ -55,6 +55,8 @@
         dir: wmf/operations/homer/public
       - url: ssh://gerrit.wikimedia.org:29418/cloud/instance-puppet
         dir: wmf/cloud/instance-puppet
+      - url: ssh://gerrit.wikimedia.org:29418/cloud/instance-puppet-dev
+        dir: wmf/cloud/instance-puppet-dev
       - url: git@gitlab.wikimedia.org:repos/cloud/cicd/gitlab-ci.git
         dir: wmf/cloud/cicd/gitlab-ci
 
