@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# git refresh current patch, in either stgit or raw commit mode
+# edit current commit message, in either stgit or raw commit mode
 
 set -e
 
