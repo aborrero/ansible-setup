@@ -5,4 +5,4 @@
   tags: desktop slack
   become: true
   ansible.builtin.apt:
-    deb: https://downloads.slack-edge.com/releases/linux/4.32.122/prod/x64/slack-desktop-4.32.122-amd64.deb
+    deb: https://downloads.slack-edge.com/releases/linux/4.32.127/prod/x64/slack-desktop-4.32.127-amd64.deb
