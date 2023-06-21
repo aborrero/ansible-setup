@@ -5,8 +5,8 @@
   vars:
     email: aborrero@wikimedia.org
     git_repos:
-      - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/software/tools-webservice
-        dir: wmf/operations/software/tools-webservice
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/tools-webservice.git
+        dir: wmf/cloud/toolforge/tools-webservice
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/software/tools-manifest
         dir: wmf/operations/software/tools-manifest
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/labs/tools/maintain-kubeusers
