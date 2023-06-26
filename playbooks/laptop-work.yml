@@ -8,7 +8,8 @@
     - ../vars/k8s.yaml
   roles:
     - { role: common }
-    - { role: libvirt }
+    # disabled for now, libvirtd requires a restart everytimg I interact with it
+    #- { role: libvirt }
     - { role: nftables }
     - { role: dotfiles }
     - { role: ssh }
