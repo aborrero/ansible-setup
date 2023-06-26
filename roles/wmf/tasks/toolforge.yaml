@@ -43,7 +43,12 @@
         dir: wmf/cloud/toolforge/toolforge-weld
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/toolforge-deploy.git
         dir: wmf/cloud/toolforge/toolforge-deploy
-
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/envvars-api.git
+        dir: wmf/cloud/toolforge/envvars-api
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/builds-api.git
+        dir: wmf/cloud/toolforge/builds-api
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/buildservice.git
+        dir: wmf/cloud/toolforge/buildservice
 
 - name: Install fake toolforge-jobs
   tags: toolforge
