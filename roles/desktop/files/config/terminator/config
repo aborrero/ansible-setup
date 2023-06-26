@@ -1,6 +1,7 @@
 [global_config]
   window_state = maximise
   inactive_color_offset = 0.75
+  always_split_with_profile = True
 [keybindings]
   close_term = ""
   close_window = ""
