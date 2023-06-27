@@ -49,6 +49,8 @@
         dir: wmf/pw
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/puppet
         dir: wmf/operations/puppet
+      - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/alerts
+        dir: wmf/operations/alerts
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/dns
         dir: wmf/operations/dns
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/homer/public
