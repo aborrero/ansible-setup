@@ -74,3 +74,6 @@
 
 - name: Include toolforge tasks
   ansible.builtin.include_tasks: toolforge.yaml
+
+- name: Include prometheus tasks
+  ansible.builtin.include_tasks: prometheus.yaml
