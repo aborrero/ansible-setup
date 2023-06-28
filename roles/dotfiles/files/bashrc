@@ -49,3 +49,5 @@ echo $- | grep -q i 2>/dev/null && . /usr/share/liquidprompt/liquidprompt
 
 export KUBE_EDITOR=/usr/bin/nano
 export DEBEMAIL=arturo@debian.org
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin
