@@ -1,0 +1,24 @@
+---
+- name: Install golang packages
+  tags: apt
+  become: true
+  ansible.builtin.apt:
+    pkg:
+      - golang
+    state: latest
+
+- name: Create GOPATH directory
+  become: true
+  become_user: "{{ user }}"
+  ansible.builtin.file:
+    # noqa: risky-file-permissions
+    dest: /home/{{ user }}/.go/
+    state: directory
+
+# used in toolforge projects
+- name: Install oapi-codegen
+  become: true
+  become_user: "{{ user }}"
+  ansible.builtin.command:
+    cmd: go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest
+    creates: /home/{{ user }}/.go/bin/oapi-codegen

@@ -16,6 +16,7 @@
     - { role: desktop }
     - { role: git, tags: [git] }
     - { role: python, tags: [dev, python] }
+    - { role: golang }
     - { role: debian }
     - { role: netfilter }
     - { role: wmf }
