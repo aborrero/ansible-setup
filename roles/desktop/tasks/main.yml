@@ -23,6 +23,9 @@
 - name: Include autofirma tasks
   ansible.builtin.include_tasks: autofirma.yaml
 
+- name: Include vscode tasks
+  ansible.builtin.include_tasks: vscode.yaml
+
 - name: Include endurance workaround for debian bug https://bugs.debian.org/991788
   become: true
   ansible.builtin.copy:
