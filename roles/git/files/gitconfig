@@ -7,3 +7,5 @@
     rebase = true
 [protocol]
     version = 2
+[core]
+    excludesfile = /home/arturo/.gitignore

@@ -9,11 +9,12 @@
       - git
       - stgit
 
-- name: install git configuration dotfiles
+- name: Install git configuration dotfiles
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
   vars:
     dotfiles:
       - gitconfig
+      - gitignore
 
 - name: Install custom git scripts
   become: true
