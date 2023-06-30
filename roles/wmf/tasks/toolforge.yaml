@@ -27,8 +27,8 @@
         dir: wmf/cloud/toolforge/lima-kilo
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/buildservice.git
         dir: wmf/cloud/toolforge/buildservice
-      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/buildpack-admission-controller.git
-        dir: wmf/cloud/toolforge/buildpack-admission-controller
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/builds-admission-controller.git
+        dir: wmf/cloud/toolforge/builds-admission-controller
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/docker-images/toollabs-images
         dir: wmf/operations/docker-images/toollabs-images
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/calico.git
