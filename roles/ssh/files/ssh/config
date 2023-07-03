@@ -110,7 +110,9 @@ Host gerrit.wikimedia.org
     ForwardAgent no
     IdentityAgent /run/user/1000/ssh-wmf-gerrit.socket
     AddKeysToAgent yes
-    UserKnownHostsFile /home/arturo/.ssh/known_hosts.d/wmf-prod
+    # use the general known_hosts file, since it is not included in the automated file
+    # see https://phabricator.wikimedia.org/T340947
+    UserKnownHostsFile /home/arturo/.ssh/known_hosts
     
 
 ## Production & External Zones
@@ -177,3 +179,6 @@ Host review.opendev.org review
 
 Host gitlab.wikimedia.org
   IdentityFile ~/.ssh/id_rsa
+  # use the general known_hosts file, since it is not included in the automated file
+  # see https://phabricator.wikimedia.org/T340947
+  UserKnownHostsFile /home/arturo/.ssh/known_hosts
