@@ -15,7 +15,7 @@
         dir: wmf/cloud/toolforge/jobs-framework-api
       - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/jobs-framework-cli
         dir: wmf/cloud/toolforge/jobs-framework-cli
-      - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/jobs-framework-emailer
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/jobs-framework-emailer
         dir: wmf/cloud/toolforge/jobs-framework-emailer
       - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/ingress-admission-controller
         dir: wmf/cloud/toolforge/ingress-admission-controller
@@ -25,8 +25,6 @@
         dir: wmf/cloud/toolforge/cert-manager
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/lima-kilo.git
         dir: wmf/cloud/toolforge/lima-kilo
-      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/buildservice.git
-        dir: wmf/cloud/toolforge/buildservice
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/builds-admission-controller.git
         dir: wmf/cloud/toolforge/builds-admission-controller
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/docker-images/toollabs-images
