@@ -47,6 +47,8 @@
         dir: wmf/cloud/toolforge/builds-api
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/buildservice.git
         dir: wmf/cloud/toolforge/buildservice
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/builds-cli.git
+        dir: wmf/cloud/toolforge/builds-cli
 
 - name: Install toolforge lima-kilo userconfig file
   ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"

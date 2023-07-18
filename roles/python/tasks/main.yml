@@ -32,3 +32,4 @@
     - jobs-framework-emailer
     - tools-webservice
     - spicerack
+    - builds-cli
