@@ -48,6 +48,12 @@
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/buildservice.git
         dir: wmf/cloud/toolforge/buildservice
 
+- name: Install toolforge lima-kilo userconfig file
+  ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+  vars:
+    dotfiles:
+      - toolforge-lima-kilo/userconfig.yaml
+
 - name: Install fake toolforge-jobs
   tags: toolforge
   become: true
