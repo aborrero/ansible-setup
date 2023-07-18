@@ -1,3 +1,37 @@
 ---
 docker:
   data_root: /home/_docker_data_root
+
+k8s_binary_install_from_url:
+  # https://github.com/kubernetes-sigs/kind/releases
+  - name: kind
+    version: "0.20.0"
+    version_command: kind --version
+    path: /usr/local/bin/kind
+    url: https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+    checksum: sha256:513a7213d6d3332dd9ef27c24dab35e5ef10a04fa27274fe1c14d8a246493ded
+    unpack: false
+  # https://github.com/helm/helm/releases
+  - name: helm
+    version: "3.11.1"
+    version_command: helm version --short
+    path: /usr/local/bin/helm
+    url: https://get.helm.sh/helm-v3.11.1-linux-amd64.tar.gz
+    checksum: sha256:0b1be96b66fab4770526f136f5f1a385a47c41923d33aab0dcb500e0f6c1bf7c
+    unpack: true
+  # https://github.com/helmfile/helmfile/releases
+  - name: helmfile
+    version: "0.151.0"
+    version_command: helmfile -v | awk '{print $3}'
+    path: /usr/local/bin/helmfile
+    url: https://github.com/helmfile/helmfile/releases/download/v0.151.0/helmfile_0.151.0_linux_amd64.tar.gz
+    checksum: sha256:f33bdad8c1c7081cc95a858c4d307baf419f03d77758fae26ac8625725b398d9
+    unpack: true
+  # https://github.com/arttor/helmify/releases
+  - name: helmify
+    version: "0.3.22"
+    version_command: helmify -version | grep Version | awk -F' ' '{print $2}'
+    path: /usr/local/bin/helmify
+    url: https://github.com/arttor/helmify/releases/download/v0.3.22/helmify_0.3.22_Linux_64-bit.tar.gz
+    checksum: sha256:6ae7fa6726fd09a39d1b60c4ce7df7edc3fb4fbee2fc99211c217870cf8d226b
+    unpack: true

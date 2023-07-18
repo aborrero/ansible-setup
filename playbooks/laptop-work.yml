@@ -4,8 +4,6 @@
   handlers:
     - name: Import handlers
       ansible.builtin.import_tasks: ../handlers/main.yml
-  vars_files:
-    - ../vars/k8s.yaml
   roles:
     - { role: common }
     # disabled for now, libvirtd requires a restart everytimg I interact with it

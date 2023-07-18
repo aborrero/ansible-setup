@@ -14,6 +14,14 @@
   vars:
     packages:
       # this conflicts with some toolforge components
-      #- podman
+      # - podman
       - python3-kubernetes
       - jq
+
+- name: Install binaries from URLs
+  tags: k8s
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
+  loop: "{{ k8s_binary_install_from_url }}"
+  loop_control:
+    loop_var: binary
+    label: "{{ binary.name }}"
