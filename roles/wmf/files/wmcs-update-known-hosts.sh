@@ -12,7 +12,7 @@ set -e
 
 KNOWN_HOSTS_PATH="${HOME}/.ssh/known_hosts.d"
 KNOWN_HOST_FILE="${KNOWN_HOSTS_PATH}/wmf-cloud"
-KNOWN_HOST_URLS="https://tools-static.wmflabs.org/admin/fingerprints/known_hosts.ecdsa https://toolsbeta-static.wmcloud.org/admin/fingerprints/known_hosts.ecdsa https://config-master.wikimedia.beta.wmflabs.org/known_hosts.ecdsa"
+KNOWN_HOST_URLS="https://tools-static.wmflabs.org/admin/fingerprints/known_hosts https://toolsbeta-static.wmcloud.org/admin/fingerprints/known_hosts https://config-master.wikimedia.beta.wmflabs.org/known_hosts"
 
 if [[ ! -d "${KNOWN_HOSTS_PATH}" ]]; then
     echo "ERROR: KNOWN_HOSTS_PATH '${KNOWN_HOSTS_PATH}' is not a directory, you might want to adjust the constant in the script or create it"
