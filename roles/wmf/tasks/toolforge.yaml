@@ -9,8 +9,6 @@
         dir: wmf/cloud/toolforge/tools-webservice
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/software/tools-manifest
         dir: wmf/operations/software/tools-manifest
-      - url: ssh://aborrero@gerrit.wikimedia.org:29418/labs/tools/maintain-kubeusers
-        dir: wmf/labs/tools/maintain-kubeusers
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/jobs-framework-api
         dir: wmf/cloud/toolforge/jobs-framework-api
       - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/jobs-framework-cli
@@ -49,6 +47,8 @@
         dir: wmf/cloud/toolforge/buildservice
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/builds-cli.git
         dir: wmf/cloud/toolforge/builds-cli
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/maintain-kubeusers.git
+        dir: wmf/cloud/toolforge/maintain-kubeusers
 
 - name: Install toolforge lima-kilo userconfig file
   ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
