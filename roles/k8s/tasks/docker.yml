@@ -13,6 +13,13 @@
         - docker-ce-cli
         - containerd.io
 
+- name: Install docker compose
+  tags: docker
+  become: true
+  ansible.builtin.apt:
+    name: docker-compose
+    state: latest
+
 - name: Manage docker group membership
   tags: docker
   become: true
