@@ -14,8 +14,8 @@ table inet filter {
         # counter accept traffic originated from us
         ct state established,related counter accept
 
-        # allow ssh
-        tcp dport 22 ct state new counter accept
+        # allow ssh and http (harbor)
+        tcp dport {22, 80} ct state new counter accept
 
         # accept neighbour discovery otherwise IPv6 connectivity breaks.
         ip6 nexthdr icmpv6 icmpv6 type { nd-neighbor-solicit, nd-router-advert, nd-neighbor-advert } counter accept
