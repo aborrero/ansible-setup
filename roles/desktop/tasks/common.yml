@@ -17,6 +17,7 @@
       - conky
       - blueman
       - nautilus-dropbox
+      - hexchat
 
 - name: Install bitwarden desktop
   tags: bitwarden
