@@ -43,8 +43,8 @@
         dir: wmf/cloud/toolforge/envvars-api
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/builds-api.git
         dir: wmf/cloud/toolforge/builds-api
-      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/buildservice.git
-        dir: wmf/cloud/toolforge/buildservice
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/builds-builder.git
+        dir: wmf/cloud/toolforge/builds-builder
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/builds-cli.git
         dir: wmf/cloud/toolforge/builds-cli
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/maintain-kubeusers.git
