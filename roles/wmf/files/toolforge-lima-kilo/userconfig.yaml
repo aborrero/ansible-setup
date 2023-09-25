@@ -18,3 +18,6 @@ lima_kilo_helm_binary_path: /usr/local/bin/helm
 lima_kilo_manage_helmfile_installation: false
 # not really usefull, there are no direct calls to helmfile from lima-kilo anyway
 lima_kilo_helmfile_binary_path: /usr/local/bin/helmfile
+
+# docker
+lima_kilo_docker_addr: "172.17.0.1"
