@@ -21,11 +21,11 @@ k8s_binary_install_from_url:
     unpack: true
   # https://github.com/helmfile/helmfile/releases
   - name: helmfile
-    version: "0.151.0"
+    version: "0.157.0"
     version_command: helmfile -v | awk '{print $3}'
     path: /usr/local/bin/helmfile
-    url: https://github.com/helmfile/helmfile/releases/download/v0.151.0/helmfile_0.151.0_linux_amd64.tar.gz
-    checksum: sha256:f33bdad8c1c7081cc95a858c4d307baf419f03d77758fae26ac8625725b398d9
+    url: https://github.com/helmfile/helmfile/releases/download/v0.157.0/helmfile_0.157.0_linux_amd64.tar.gz
+    checksum: sha256:0b2d9f603752b51e7b3a23cb2784c334c920cb6ed5f83ac6df6c29c8be5a75ae
     unpack: true
   # https://github.com/arttor/helmify/releases
   - name: helmify
