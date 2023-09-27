@@ -12,6 +12,8 @@
   tags: git
   become: true
   become_user: "{{user}}"
+  environment:
+    GIT_SSH_COMMAND: "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
   ansible.builtin.command:
     cmd: git clone --quiet {{item.url}} /home/{{user}}/git/{{item.dir}}
     creates: /home/{{user}}/git/{{item.dir}}/.git
