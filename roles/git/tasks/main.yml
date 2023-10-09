@@ -43,3 +43,5 @@
         dir: github/ral-arturo.org
       - url: git@github.com:aborrero/sys-avenger.git
         dir: github/sys-avenger
+      - url: git@github.com:aborrero/arturo.bg.git
+        dir: github/arturo.bg
