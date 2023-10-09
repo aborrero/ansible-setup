@@ -18,6 +18,7 @@
       - blueman
       - nautilus-dropbox
       - hexchat
+      - mkdocs
 
 - name: Install bitwarden desktop
   tags: bitwarden
