@@ -19,6 +19,7 @@
       - nautilus-dropbox
       - hexchat
       - mkdocs
+      - mkdocs-material
 
 - name: Install bitwarden desktop
   tags: bitwarden
