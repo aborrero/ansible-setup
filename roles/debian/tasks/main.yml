@@ -36,8 +36,6 @@
       - unstable
       # to include stuff in point releases
       - bookworm
-      # for toolforge servers
-      - buster
 
 - name: Clone some debian git repos
   ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
