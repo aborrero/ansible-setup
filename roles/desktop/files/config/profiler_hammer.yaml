@@ -1,19 +1,15 @@
 ---
-# profiles for hammer.
-# TODO: PLACEHOLDER
-
+# profiles for hammer
 - profile: pulseaudio_analog
   description: pulseaudio analog I/O profile
   setup:
     - pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo+input:analog-stereo
-    # mute
-    - pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo 1
+    - pactl set-sink-mute @DEFAULT_SINK@ 0
     - pactl set-sink-volume @DEFAULT_SINK@ 50%
 
 - profile: pulseaudio_hdmi
   description: pulseaudio HDMI output profile
   setup:
-    - pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:hdmi-stereo-extra1+input:analog-stereo
-    # unmute
-    - pactl set-sink-mute alsa_output.pci-0000_00_1f.3.hdmi-stereo-extra1 0
-    - pactl set-sink-volume @DEFAULT_SINK@ 100%
+    - pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:hdmi-stereo+input:analog-stereo
+    - pactl set-sink-mute @DEFAULT_SINK@ 0
+    - pactl set-sink-volume @DEFAULT_SINK@ 50%
