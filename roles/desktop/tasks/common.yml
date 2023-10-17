@@ -14,7 +14,7 @@
       - pdfsam
       - terminator
       - gnome-calculator
-      - conky
+      - conky-std
       - blueman
       - nautilus-dropbox
       - hexchat
