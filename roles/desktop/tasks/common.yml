@@ -55,3 +55,14 @@
     daemon_reload: true
   # affected by https://github.com/ansible/ansible/issues/75542 or similar
   changed_when: false
+
+- name: Install desktop backgrounds
+  become: true
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: /usr/share/backgrounds/
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "0644"
+  with_fileglob:
+    - "backgrounds/*"
