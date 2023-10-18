@@ -46,6 +46,7 @@
       - shellcheck
       - ethtool
       - tree
+      - git-crypt
 
 - name: Install nostromo-specific packages
   tags:
