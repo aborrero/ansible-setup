@@ -1,0 +1,6 @@
+---
+- name: Install network-manager-openvpn package
+  become: true
+  ansible.builtin.apt:
+    name: network-manager-openvpn
+    state: latest

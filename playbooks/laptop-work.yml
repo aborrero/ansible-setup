@@ -18,3 +18,4 @@
     - { role: debian }
     - { role: netfilter }
     - { role: k8s }
+    - { role: spryker }
