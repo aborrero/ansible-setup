@@ -1,6 +1,3 @@
 ---
-- name: Install network-manager-openvpn package
-  become: true
-  ansible.builtin.apt:
-    name: network-manager-openvpn
-    state: latest
+- name: Include spryker VPN tasks
+  ansible.builtin.include_tasks: vpn.yaml
