@@ -1,0 +1,10 @@
+---
+- name: Clone some spryker git repos
+  ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
+  vars:
+    email: arturo.borrero@spryker.com
+    git_repos:
+      - url: git@github.com:spryker-shop/b2c-demo-shop.git
+        dir: spryker/shop/b2c-demo-shop
+      - url: git@github.com:spryker/docker-sdk.git
+        dir: spryker/docker-sdk
