@@ -19,6 +19,3 @@ alias grpo='git remote prune origin'
 # Comment for now. Podman tags local images as localhost/<image>:latest
 # and plenty of my kubernetes manifests can't work with that
 #alias docker='podman'
-
-# spryker
-alias sdk='/home/arturo/git/spryker/docker-sdk/sdk'
