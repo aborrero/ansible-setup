@@ -109,3 +109,10 @@
     src: console-setup
     dest: /etc/default/console-setup
     mode: "0644"
+
+# see https://atuin.sh/
+# releases from https://github.com/atuinsh/atuin/releases
+- name: Install atuin
+  become: true
+  ansible.builtin.apt:
+    deb: https://github.com/atuinsh/atuin/releases/download/v16.0.0/atuin_16.0.0_amd64.deb

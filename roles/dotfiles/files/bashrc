@@ -51,3 +51,7 @@ export KUBE_EDITOR=/usr/bin/nano
 export DEBEMAIL=arturo@debian.org
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
+
+# atuin stuff
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash --disable-up-arrow)"
