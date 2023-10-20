@@ -1,0 +1,7 @@
+---
+# from https://zoom.us/es/download
+# the package needs to be modified by hand to delete dependencies on old libeglx/libglx packages
+- name: Install zoom deb package
+  become: true
+  ansible.builtin.apt:
+    deb: "{{ role_path }}/files/deb/zoom_5.16.2.8828_amd64.deb"

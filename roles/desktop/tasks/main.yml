@@ -38,3 +38,6 @@
 
 - name: Include CHIRP tasks
   ansible.builtin.include_tasks: chirp.yaml
+
+- name: Include zoom tasks
+  ansible.builtin.include_tasks: zoom.yaml

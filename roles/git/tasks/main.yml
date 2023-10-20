@@ -9,6 +9,7 @@
       - git
       - stgit
       - gh
+      - git-lfs
 
 - name: Install git configuration dotfiles
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
