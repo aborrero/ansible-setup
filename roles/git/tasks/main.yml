@@ -8,6 +8,7 @@
     packages:
       - git
       - stgit
+      - gh
 
 - name: Install git configuration dotfiles
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
@@ -15,6 +16,14 @@
     dotfiles:
       - gitconfig
       - gitignore
+
+- name: Install github CLI config dotfiles
+  ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+  vars:
+    dotfiles:
+      - config/gh/config.yml
+      - config/gh/hosts.yml
+
 
 - name: Install custom git scripts
   become: true
