@@ -67,6 +67,7 @@
   changed_when: false
 
 - name: Start VPN
+  become: true
   ansible.builtin.command:
     cmd: nmcli connection up spryker-vpn
   when: nmcli_connection_reload.changed or nmcli_connection_show.rc == 1
