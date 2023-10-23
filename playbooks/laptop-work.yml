@@ -6,13 +6,13 @@
       ansible.builtin.import_tasks: ../handlers/main.yml
   roles:
     - { role: common }
+    - { role: git }
     # disabled for now, libvirtd requires a restart everytimg I interact with it
     #- { role: libvirt }
     - { role: nftables }
     - { role: dotfiles }
     - { role: ssh }
     - { role: desktop }
-    - { role: git, tags: [git] }
     - { role: python, tags: [dev, python] }
     - { role: golang }
     - { role: debian }
