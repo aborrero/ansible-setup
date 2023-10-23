@@ -5,4 +5,11 @@
   tags: slack
   become: true
   ansible.builtin.apt:
-    deb: https://downloads.slack-edge.com/releases/linux/4.34.120/prod/x64/slack-desktop-4.34.120-amd64.deb
+    deb: "https://downloads.slack-edge.com/releases/linux/{{ version }}/prod/x64/slack-desktop-{{ version }}-amd64.deb"
+  vars:
+    version: "4.34.121"
+  register: result
+  # don't fail if a later version has been installed
+  failed_when: >
+    result.failed == true and
+    result.msg != "A later version is already installed"
