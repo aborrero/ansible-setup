@@ -4,8 +4,9 @@
   vars:
     email: arturo.borrero@spryker.com
     git_repos:
-      # main docker sdk repo
       - url: git@github.com:spryker/docker-sdk.git
         dir: spryker/docker-sdk
       - url: git@github.com:spryker-shop/b2c-demo-shop.git
         dir: spryker/shop/b2c-demo-shop
+      - url: git@github.com:spryker-shop/b2b-demo-shop.git
+        dir: spryker/shop/b2b-demo-shop
