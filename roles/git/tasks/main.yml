@@ -25,9 +25,14 @@
       - config/gh/config.yml
       - config/gh/hosts.yml
 
-- name: Checkout git lfs files
+- name: Fetch git lfs files
   ansible.builtin.command:
     cmd: git lfs fetch
+    chdir: "{{ role_path }}/../../"
+
+- name: Checkout git lfs files
+  ansible.builtin.command:
+    cmd: git lfs checkout
     chdir: "{{ role_path }}/../../"
 
 - name: Install custom git scripts
