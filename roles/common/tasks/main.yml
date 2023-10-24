@@ -47,6 +47,7 @@
       - ethtool
       - tree
       - git-crypt
+      - fzf
 
 - name: Install nostromo-specific packages
   tags:

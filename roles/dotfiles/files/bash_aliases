@@ -20,3 +20,14 @@ alias grpo='git remote prune origin'
 # Comment for now. Podman tags local images as localhost/<image>:latest
 # and plenty of my kubernetes manifests can't work with that
 #alias docker='podman'
+
+# fuzzy grip search
+# this shows all files in a fzf preview panel with grep search context
+fgs() {
+    if [ "$1" == "" ] ; then
+        return 1
+    fi
+
+    grep --recursive --files-with-matches --only-matching --binary-files=without-match --no-messages "$1" * \
+        | fzf --preview "grep --color=always -C 3 '$1' {}"
+}
