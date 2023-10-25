@@ -7,3 +7,5 @@
       - config/liquidpromptrc
       - config/nano/nanorc
       - config/nano/puppet.nanorc
+      - config/nano/yaml-template.nanorc
+      - config/nano/hcl.nanorc
