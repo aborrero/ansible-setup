@@ -46,4 +46,4 @@ fggs () {
 alias ffb='fzf --preview "pygmentize -g {}"'
 
 # fuzzy tree browser
-alias ftb='tree -C -f --prune --noreport | fzf --ansi --preview "pygmentize -g {-1}"'
+alias ftb='tree -C -f --prune --noreport | fzf --no-sort --ansi --preview "pygmentize -g {-1}"'
