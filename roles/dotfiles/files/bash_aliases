@@ -89,3 +89,6 @@ ffba() {
     # execute the actual command
     eval ${next_command}
 }
+
+# fuzzy file search then nano
+alias fnano='ffba nano'
