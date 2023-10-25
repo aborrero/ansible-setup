@@ -1,3 +1,4 @@
+#!/bin/bash
 export LS_OPTIONS='--color=auto'
 eval "$(dircolors)"
 alias ls='ls $LS_OPTIONS'
@@ -43,7 +44,13 @@ fggs () {
 }
 
 # fuzzy file browser
-alias ffb='fzf --preview "pygmentize -g {}"'
+ffb() {
+    dir="${1:-.}"
+    find ${dir} -type f | fzf --preview "pygmentize -g {}"
+}
 
 # fuzzy tree browser
-alias ftb='tree -C -f --prune --noreport | fzf --no-sort --ansi --preview "pygmentize -g {-1}"'
+ftb() {
+    dir="${1:-.}"
+    tree -C -f --prune --noreport ${dir} | fzf --no-sort --ansi --preview "pygmentize -g {-1}"
+}
