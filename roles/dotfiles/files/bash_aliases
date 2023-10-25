@@ -92,3 +92,35 @@ ffba() {
 
 # fuzzy file search then nano
 alias fnano='ffba nano'
+
+# fuzzy grep then nano
+fgnano() {
+    if [ "$1" == "" ] ; then
+        return 1
+    fi
+
+    if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" == "true" ] ; then
+        fuzzy_command="fggs"
+    else
+        fuzzy_command="fgs"
+    fi
+
+    result=$(${fuzzy_command} "${@}")
+    if [ "$result" == "" ] ; then
+        return 1
+    fi
+
+    this_command="fgnano ${@}"
+    next_command="nano ${result}"
+
+    # leave traces of what just happened
+    # 1) echo the command we will execute for real
+    # 2) save in the history this very call (this function call)
+    # 3) save in the history the next command, so the keyboard's arrow up finds it
+    echo "${next_command}"
+    history -s "${this_command}"
+    history -s "${next_command}"
+
+    # execute the actual command
+    eval ${next_command}
+}
