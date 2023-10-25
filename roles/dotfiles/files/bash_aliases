@@ -32,8 +32,8 @@ fgs() {
         | fzf --preview "grep --ignore-case --color=always --context 3 '$1' {}"
 }
 
-# git fuzzy grep search
-gfgs () {
+# fuzzy git grep search
+fggs () {
     if [ "$1" == "" ] ; then
         return 1
     fi
@@ -41,3 +41,6 @@ gfgs () {
     git grep --ignore-case --no-index -I --full-name --files-with-matches "$1" \
         | fzf --preview "git grep --ignore-case --color=always --context 3 '$1' {}"
 }
+
+# fuzzy file browser
+alias ffb='fzf --preview "pygmentize -g {}"'

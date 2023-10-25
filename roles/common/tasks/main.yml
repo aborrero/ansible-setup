@@ -48,6 +48,7 @@
       - tree
       - git-crypt
       - fzf
+      - python3-pygments
 
 - name: Install nostromo-specific packages
   tags:
