@@ -21,13 +21,23 @@ alias grpo='git remote prune origin'
 # and plenty of my kubernetes manifests can't work with that
 #alias docker='podman'
 
-# fuzzy grip search
+# fuzzy grep search
 # this shows all files in a fzf preview panel with grep search context
 fgs() {
     if [ "$1" == "" ] ; then
         return 1
     fi
 
-    grep --recursive --files-with-matches --only-matching --binary-files=without-match --no-messages "$1" * \
-        | fzf --preview "grep --color=always -C 3 '$1' {}"
+    grep --ignore-case --recursive --files-with-matches --only-matching --binary-files=without-match --no-messages "$1" * \
+        | fzf --preview "grep --ignore-case --color=always --context 3 '$1' {}"
+}
+
+# git fuzzy grep search
+gfgs () {
+    if [ "$1" == "" ] ; then
+        return 1
+    fi
+
+    git grep --ignore-case --no-index -I --full-name --files-with-matches "$1" \
+        | fzf --preview "git grep --ignore-case --color=always --context 3 '$1' {}"
 }
