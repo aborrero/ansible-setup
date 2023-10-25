@@ -40,7 +40,7 @@ fggs () {
     fi
 
     git grep --ignore-case --no-index -I --full-name --files-with-matches "$1" \
-        | fzf --preview "git grep --ignore-case --color=always --context 3 '$1' {}"
+        | fzf --preview "git grep -h --line-number --ignore-case --color=always --context 3 '$1' {}"
 }
 
 # fuzzy file browser
