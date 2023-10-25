@@ -54,3 +54,21 @@ ftb() {
     dir="${1:-.}"
     tree -C -f --prune --noreport ${dir} | fzf --no-sort --ansi --preview "pygmentize -g {-1}"
 }
+
+# fuzzy cd
+fcd() {
+    dir="${1:-.}"
+    if [ ! -d "${dir}" ] ; then
+        return 1
+    fi
+    cd $(find ${dir} -type d | fzf)
+}
+
+# fuzzy file browser for anything
+ffba() {
+    if [ "$#" == "0" ] ; then
+        return 1
+    fi
+
+    "${@}" $(ffb)
+}
