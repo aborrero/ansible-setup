@@ -70,5 +70,22 @@ ffba() {
         return 1
     fi
 
-    "${@}" $(ffb)
+    result=$(ffb)
+    if [ "$result" == "" ] ; then
+        return 1
+    fi
+
+    this_command="ffba ${@}"
+    next_command="${@} ${result}"
+
+    # leave traces of what just happened
+    # 1) echo the command we will execute for real
+    # 2) save in the history this very call (this function call)
+    # 3) save in the history the next command, so the keyboard's arrow up finds it
+    echo "${next_command}"
+    history -s "${this_command}"
+    history -s "${next_command}"
+
+    # execute the actual command
+    eval ${next_command}
 }
