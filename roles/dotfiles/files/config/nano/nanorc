@@ -15,5 +15,4 @@ set numbercolor cyan
 set keycolor cyan
 set functioncolor green
 
-include ~/.config/nano/puppet.nanorc
-include ~/.config/nano/yaml-template.nanorc
+include ~/.config/nano/*.nanorc
