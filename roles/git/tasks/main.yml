@@ -10,6 +10,7 @@
       - stgit
       - gh
       - git-lfs
+      - pre-commit
 
 - name: Install git configuration dotfiles
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
