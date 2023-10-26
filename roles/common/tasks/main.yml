@@ -43,7 +43,6 @@
       - shellcheck
       - ethtool
       - tree
-      - git-crypt
       - fzf
       - python3-pygments
 

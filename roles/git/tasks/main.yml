@@ -11,6 +11,7 @@
       - gh
       - git-lfs
       - pre-commit
+      - git-crypt
 
 - name: Install git configuration dotfiles
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
