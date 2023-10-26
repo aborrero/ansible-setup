@@ -1,7 +1,4 @@
 ---
-- name: Include ansible-setip tasks
-  ansible.builtin.include_tasks: ansible-setup.yml
-
 - name: Include rclone tasks
   ansible.builtin.include_tasks: rclone.yml
 
