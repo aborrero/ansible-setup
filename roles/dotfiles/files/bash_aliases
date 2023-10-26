@@ -124,3 +124,31 @@ fgnano() {
     # execute the actual command
     eval ${next_command}
 }
+
+# fuzzy git log
+fgl() {
+    if [ "$(git rev-parse --is-inside-work-tree)" != "true" ] ; then
+        return 1
+    fi
+
+    this_command="fgl"
+    command='git log --decorate --oneline --color | fzf --ansi --preview "git show --patch-with-stat --color {1}"'
+    result=$(eval ${command})
+    if [ "$result" == "" ] ; then
+        return 1
+    fi
+
+    git_hash=$(awk -F' ' '{print $1}' <<< ${result})
+    next_command="git show --patch-with-stat ${git_hash}"
+
+    # leave traces of what just happened
+    # 1) echo the command we will execute for real
+    # 2) save in the history this very call (this function call)
+    # 3) save in the history the next command, so the keyboard's arrow up finds it
+    echo "${next_command}"
+    history -s "${this_command}"
+    history -s "${next_command}"
+
+    # execute the actual command
+    eval ${next_command}
+}
