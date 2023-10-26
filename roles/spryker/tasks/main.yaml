@@ -4,3 +4,6 @@
 
 - name: Include spryker git tasks
   ansible.builtin.include_tasks: git.yaml
+
+- name: Include spryker terraform tasks
+  ansible.builtin.include_tasks: terraform.yaml

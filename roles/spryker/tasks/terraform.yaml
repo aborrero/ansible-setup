@@ -1,0 +1,11 @@
+---
+# from https://developer.hashicorp.com/terraform/downloads
+- name: Install terraform
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
+  vars:
+    conf:
+      shortname: terraform
+      repo_spec: https://apt.releases.hashicorp.com bookworm main
+      key_url: https://apt.releases.hashicorp.com/gpg
+      packages:
+        - terraform
