@@ -14,3 +14,17 @@
         dir: spryker/shop/b2c-demo-shop
       - url: git@github.com:spryker-shop/b2b-demo-shop.git
         dir: spryker/shop/b2b-demo-shop
+
+# from https://github.com/git-chglog/git-chglog
+# and https://github.com/git-chglog/git-chglog/releases
+- name: Install git-chglog
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
+  vars:
+    binary:
+      name: git-chglog
+      version: "0.15.4"
+      version_command: "git-chglog --version"
+      path: /usr/local/bin/git-chglog
+      url: https://github.com/git-chglog/git-chglog/releases/download/v0.15.4/git-chglog_0.15.4_linux_amd64.tar.gz
+      checksum: sha256:03cbeedbd1317289295e75016fa0acd26baeb2fc7810ed287361dd9bd8bc33a8
+      unpack: true
