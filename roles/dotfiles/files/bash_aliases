@@ -34,7 +34,7 @@ fgs() {
 }
 
 # fuzzy git grep search
-fggs () {
+fggs() {
     if [ "$1" == "" ] ; then
         return 1
     fi
