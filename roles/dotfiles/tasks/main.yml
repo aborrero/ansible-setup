@@ -10,3 +10,4 @@
       - config/nano/puppet.nanorc
       - config/nano/yaml-template.nanorc
       - config/nano/hcl.nanorc
+      - config/nano/dockerfile.nanorc
