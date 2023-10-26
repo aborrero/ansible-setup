@@ -132,7 +132,9 @@ fgl() {
     fi
 
     this_command="fgl"
-    command='git log --decorate --oneline --color | fzf --ansi --preview "git show --patch-with-stat --color {1}"'
+    cmd_git_log="git log --decorate --oneline --color '${1:-.}'"
+    cmd_fzf='fzf --no-sort --layout=reverse-list --ansi --preview "git show --patch-with-stat --color {1}"'
+    command="${cmd_git_log} | ${cmd_fzf}"
     result=$(eval ${command})
     if [ "$result" == "" ] ; then
         return 1
