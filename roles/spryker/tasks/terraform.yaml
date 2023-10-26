@@ -9,3 +9,17 @@
       key_url: https://apt.releases.hashicorp.com/gpg
       packages:
         - terraform
+
+# from https://terragrunt.gruntwork.io/docs/getting-started/install/
+# and https://github.com/gruntwork-io/terragrunt/releases
+- name: Install terragrunt
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
+  vars:
+    binary:
+      name: terragrunt
+      version: "v0.52.5"
+      version_command: "terragrunt --version"
+      path: /usr/local/bin/terragrunt
+      url: https://github.com/gruntwork-io/terragrunt/releases/download/v0.52.5/terragrunt_linux_amd64
+      checksum: sha256:c22755640122bddf78d3c7311e0e1d66fcdab8a7c1d1e876e3fca60edb5f1a21
+      unpack: false
