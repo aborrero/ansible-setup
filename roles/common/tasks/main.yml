@@ -113,4 +113,4 @@
 - name: Install atuin
   become: true
   ansible.builtin.apt:
-    deb: https://github.com/atuinsh/atuin/releases/download/v16.0.0/atuin_16.0.0_amd64.deb
+    deb: https://github.com/atuinsh/atuin/releases/download/v17.0.0/atuin_17.0.0_amd64.deb
