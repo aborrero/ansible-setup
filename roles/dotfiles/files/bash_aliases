@@ -5,6 +5,7 @@ alias ls='ls $LS_OPTIONS'
 alias ll='ls $LS_OPTIONS -l'
 alias treel='tree -L 2 --filesfirst -F'
 alias diff='diff -u --color'
+alias bat='batcat'
 
 alias grep='grep --color'
 
