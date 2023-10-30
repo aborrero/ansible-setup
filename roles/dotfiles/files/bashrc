@@ -44,6 +44,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# for spryker terraform/ansible environment
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export KUBE_EDITOR=/usr/bin/nano
 export DEBEMAIL=arturo@debian.org
 export GOPATH=$HOME/.go
