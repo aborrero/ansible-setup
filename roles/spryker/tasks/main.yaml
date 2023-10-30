@@ -7,3 +7,12 @@
 
 - name: Include spryker terraform tasks
   ansible.builtin.include_tasks: terraform.yaml
+
+- name: Install some required deb packages
+  become: true
+  ansible.builtin.apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+      - python3-hvac
