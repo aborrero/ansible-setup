@@ -23,3 +23,16 @@
       url: https://github.com/gruntwork-io/terragrunt/releases/download/v0.52.5/terragrunt_linux_amd64
       checksum: sha256:c22755640122bddf78d3c7311e0e1d66fcdab8a7c1d1e876e3fca60edb5f1a21
       unpack: false
+
+# from https://github.com/terraform-docs/terraform-docs/
+- name: Install terraform-docs
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
+  vars:
+    binary:
+      name: terraform-docs
+      version: "v0.16.0"
+      version_command: "terraform-docs --version"
+      path: /usr/local/bin/terraform-docs
+      url: https://github.com/terraform-docs/terraform-docs/releases/download/v0.16.0/terraform-docs-v0.16.0-linux-amd64.tar.gz
+      checksum: sha256:328c16cd6552b3b5c4686b8d945a2e2e18d2b8145b6b66129cd5491840010182
+      unpack: yes
