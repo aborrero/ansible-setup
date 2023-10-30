@@ -1,5 +1,6 @@
 # hit <tab> to edit before enter
-enter_accept = true
+# TODO: buggy on bash, see https://github.com/atuinsh/atuin/pull/1342
+#enter_accept = true
 
 ## where to store your database, default is your system data directory
 ## linux/mac: ~/.local/share/atuin/history.db
