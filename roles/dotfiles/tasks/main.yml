@@ -5,6 +5,7 @@
     dotfiles:
       - bashrc
       - bash_aliases
+      - bash-preexec.sh
       - config/liquidpromptrc
       - config/nano/nanorc
       - config/nano/puppet.nanorc
