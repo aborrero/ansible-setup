@@ -9,3 +9,8 @@
     version = 2
 [core]
     excludesfile = /home/arturo/.gitignore
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
