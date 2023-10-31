@@ -23,6 +23,15 @@ alias grpo='git remote prune origin'
 # and plenty of my kubernetes manifests can't work with that
 #alias docker='podman'
 
+# recursive sed
+sedrec() {
+    pattern=${1:?"${FUNCNAME[0]}: missing pattern: s/foo/bar/g"}
+    shift
+    dir="${1:-.}"
+
+    find ${dir} -type f -exec sed -i "${pattern}" {} +
+}
+
 # fuzzy grep search
 # this shows all files in a fzf preview panel with grep search context
 fgs() {
