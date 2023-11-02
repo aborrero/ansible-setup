@@ -16,3 +16,4 @@
   vars:
     packages:
       - python3-hvac
+      - awscli
