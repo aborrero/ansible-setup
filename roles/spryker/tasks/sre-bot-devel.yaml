@@ -7,3 +7,27 @@
   vars:
     packages:
       - postgresql
+      - python3-psycopg2
+
+- name: Create postgres DB
+  become: true
+  become_user: postgres
+  community.postgresql.postgresql_db:
+    name: incident_bot
+
+- name: Create postgres DB user
+  become: true
+  become_user: postgres
+  community.postgresql.postgresql_user:
+    db: incident_bot
+    name: incident_bot
+    password: somepassword
+
+- name: Grant postgress DB privileges to incident_bot
+  become: true
+  become_user: postgres
+  community.postgresql.postgresql_privs:
+    db: incident_bot
+    role: incident_bot
+    type: database
+    privs: ALL
