@@ -17,3 +17,6 @@
     packages:
       - python3-hvac
       - awscli
+
+- name: Include spryker sre-bot-devel tasks
+  ansible.builtin.include_tasks: sre-bot-devel.yaml

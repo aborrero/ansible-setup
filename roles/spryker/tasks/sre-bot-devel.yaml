@@ -1,0 +1,9 @@
+---
+- name: Install some required deb packages for sre-bot devel env
+  become: true
+  ansible.builtin.apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+      - postgresql
