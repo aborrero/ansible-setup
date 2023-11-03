@@ -21,6 +21,7 @@
   community.postgresql.postgresql_user:
     db: incident_bot
     name: incident_bot
+    # NOTE: not really private, no important data in here
     password: somepassword
 
 - name: Grant postgress DB privileges to incident_bot
