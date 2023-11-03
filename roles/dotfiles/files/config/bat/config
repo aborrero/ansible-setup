@@ -1,0 +1,4 @@
+# config file for bat(1)
+
+# this disables line numbers and headers
+--style=plain

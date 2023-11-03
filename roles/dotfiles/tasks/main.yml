@@ -13,3 +13,4 @@
       - config/nano/hcl.nanorc
       - config/nano/dockerfile.nanorc
       - config/atuin/config.toml
+      - config/bat/config
