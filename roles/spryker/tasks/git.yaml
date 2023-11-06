@@ -18,6 +18,8 @@
         dir: spryker/projects/spryker-jobs-framework
       - url: git@github.com:spryker-projects/sre-bot.git
         dir: spryker/projects/sre-bot
+      - url: git@github.com:spryker-projects/sre-services.git
+        dir: spryker/projects/sre-services
 
 # from https://github.com/git-chglog/git-chglog
 # and https://github.com/git-chglog/git-chglog/releases
