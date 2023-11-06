@@ -4,3 +4,11 @@
   become: true
   ansible.builtin.apt:
     deb: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+
+- name: Install vscode extensions
+  ansible.builtin.command:
+    cmd: code --install-extension "{{ item }}" --force
+  # never changed, because otherwise is always changed
+  changed_when: false
+  loop:
+    - golang.go
