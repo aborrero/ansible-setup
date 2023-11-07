@@ -23,26 +23,25 @@ get_pid_name() {
     ps -o comm= "${pid}"
 }
 
-get_ppid_tree_names() {
+check_ppid_tree_names() {
+    local contains=${1:?"Missing input strings"}
     local ppid
 
     ppid=$(get_ppid $$)
     while [ "$ppid" != "0" ] ; do
-        name=$(get_pid_name "${ppid}")
-        echo "${name}"
+        pid_name=$(get_pid_name "${ppid}")
+        for contain in ${contains} ; do
+            if grep -q "${contain}" <<< "${pid_name}" ; then
+                return 0
+            fi
+        done
         ppid=$(get_ppid "${ppid}")
     done
-}
 
-check_ppid_tree_contains() {
-    local contains=${1:?"Missing input argument"}
-    if grep -q "${contains}" <<< "$(get_ppid_tree_names)" ; then
-        return 0
-    fi
     return 1
 }
 
-if ! check_ppid_tree_contains "pre-commit" ; then
+if ! check_ppid_tree_names "git pre-commit" ; then
     dirname=$(awk -F'/' '{print $NF}' <<< "${this}")
     if [ "${dirname}" == "${root}" ] ; then
         warning
