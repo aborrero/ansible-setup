@@ -49,7 +49,7 @@ fggs() {
         return 1
     fi
 
-    git grep --ignore-case --no-index -I --files-with-matches "$1" \
+    git grep --ignore-case --no-index --exclude-standard -I --files-with-matches "$1" \
         | fzf --preview "git grep -h --line-number --ignore-case --color=always --context 3 '$1' {}"
 }
 
