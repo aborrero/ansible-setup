@@ -16,6 +16,8 @@
         dir: spryker/shop/b2b-demo-shop
       - url: git@github.com:spryker-shop/suite.git
         dir: spryker/shop/suite
+      - url: git@github.com:aborrero/spryker-shop-suite.git
+        dir: spryker/shop/suite-arturo-fork
       - url: git@github.com:spryker-projects/spryker-jobs-framework.git
         dir: spryker/projects/spryker-jobs-framework
       - url: git@github.com:spryker-projects/sre-bot.git
