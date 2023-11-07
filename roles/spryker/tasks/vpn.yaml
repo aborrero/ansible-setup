@@ -13,6 +13,11 @@
     state: directory
     mode: "0755"
 
+- name: Ensure secrets are decrypted
+  ansible.builtin.command:
+    cmd: git crypt unlock
+    chdir: "{{ role_path }}/../.."
+
 - name: Ensure secrets exists
   ansible.builtin.copy:
     src: "{{ item }}"
