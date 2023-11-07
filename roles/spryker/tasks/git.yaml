@@ -14,6 +14,8 @@
         dir: spryker/shop/b2c-demo-shop
       - url: git@github.com:spryker-shop/b2b-demo-shop.git
         dir: spryker/shop/b2b-demo-shop
+      - url: git@github.com:spryker-shop/suite.git
+        dir: spryker/shop/suite
       - url: git@github.com:spryker-projects/spryker-jobs-framework.git
         dir: spryker/projects/spryker-jobs-framework
       - url: git@github.com:spryker-projects/sre-bot.git
