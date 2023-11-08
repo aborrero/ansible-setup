@@ -60,4 +60,7 @@ if echo $- | grep -q i 2>/dev/null ; then
 
     # see https://github.com/lincheney/fzf-tab-completion
     . ~/.fzf-bash-completion.sh
+    export FZF_COMPLETION_AUTO_COMMON_PREFIX=true
+    export FZF_COMPLETION_AUTO_COMMON_PREFIX_PART=true
+    bind -x '"\t": fzf_bash_completion'
 fi
