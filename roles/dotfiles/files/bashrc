@@ -57,4 +57,7 @@ if echo $- | grep -q i 2>/dev/null ; then
     . ~/.bash-preexec.sh
     . /usr/share/liquidprompt/liquidprompt
     eval "$(atuin init bash --disable-up-arrow)"
+
+    # see https://github.com/lincheney/fzf-tab-completion
+    . ~/.fzf-bash-completion.sh
 fi

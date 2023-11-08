@@ -6,6 +6,7 @@
       - bashrc
       - bash_aliases
       - bash-preexec.sh
+      - fzf-bash-completion.sh
       - config/liquidpromptrc
       - config/nano/nanorc
       - config/nano/puppet.nanorc
