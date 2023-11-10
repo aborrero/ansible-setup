@@ -16,6 +16,10 @@ alias gldoc='git log --decorate --oneline --color'
 alias gll='git log --pretty=format:"%C(yellow)%h %Creset%s%Cblue [%ae] (%ad)" --decorate --numstat --date=relative --shortstat'
 alias grpo='git remote prune origin'
 
+# NOTE: consider adding something like --bind=ctrl-v:execute(nano {} < /dev/tty)
+# NOTE: but it may break fgnano and other funcs because reasons
+alias fzf='fzf --ansi --bind="tab:first+replace-query"'
+
 # this is now a script
 #alias gry='git review -y'
 
@@ -32,8 +36,6 @@ sedrec() {
     find ${dir} -type f -exec sed -i "${pattern}" {} +
 }
 
-export FZF_COMMON_OPTS="--ansi --bind=tab:first+replace-query"
-
 # fuzzy grep search
 # this shows all files in a fzf preview panel with grep search context
 fgs() {
@@ -42,7 +44,7 @@ fgs() {
     fi
 
     grep --ignore-case --recursive --files-with-matches --only-matching --binary-files=without-match --no-messages "$1" * \
-        | fzf ${FZF_COMMON_OPTS} --preview "grep --ignore-case --color=always --context 3 '$1' {}"
+        | fzf --preview "grep --ignore-case --color=always --context 3 '$1' {}"
 }
 
 # fuzzy git grep search
@@ -52,7 +54,7 @@ fggs() {
     fi
 
     git grep --ignore-case --no-index --exclude-standard -I --files-with-matches "$1" \
-        | fzf ${FZF_COMMON_OPTS} --preview "git grep -h --line-number --ignore-case --color=always --context 3 '$1' {}"
+        | fzf --preview "git grep -h --line-number --ignore-case --color=always --context 3 '$1' {}"
 }
 
 # fuzzy file browser
@@ -73,7 +75,7 @@ fcd() {
     if [ ! -d "${dir}" ] ; then
         return 1
     fi
-    cd $(find ${dir} -type d | fzf)
+    cd $(find ${dir} -type d | fzf ${FZF_COMMON_OPTS})
 }
 
 # fuzzy file browser for anything
@@ -145,7 +147,7 @@ fgl() {
 
     this_command="fgl"
     cmd_git_log="git log --decorate --oneline --color '${1:-.}'"
-    cmd_fzf='fzf --no-sort --layout=reverse-list ${FZF_COMMON_OPTS} --preview "git show --patch-with-stat --color {1}"'
+    cmd_fzf='fzf --no-sort --layout=reverse-list --preview "git show --patch-with-stat --color {1}"'
     command="${cmd_git_log} | ${cmd_fzf}"
     result=$(eval ${command})
     if [ "$result" == "" ] ; then
