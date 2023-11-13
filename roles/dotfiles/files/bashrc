@@ -55,16 +55,13 @@ export DEBEMAIL=arturo@debian.org
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 
-# only load this stuff in interactive shells, not from a script or from scp
-if echo $- | grep -q i 2>/dev/null ; then
-    # order is important: liquidprompt will understand that bash-preexec was loaded first
-    . ~/.bash-preexec.sh
-    . /usr/share/liquidprompt/liquidprompt
-    eval "$(atuin init bash --disable-up-arrow)"
+# order is important: liquidprompt will understand that bash-preexec was loaded first
+. ~/.bash-preexec.sh
+. /usr/share/liquidprompt/liquidprompt
+eval "$(atuin init bash --disable-up-arrow)"
 
-    # see https://github.com/lincheney/fzf-tab-completion
-    . ~/.fzf-bash-completion.sh
-    export FZF_COMPLETION_AUTO_COMMON_PREFIX=true
-    export FZF_COMPLETION_AUTO_COMMON_PREFIX_PART=true
-    bind -x '"\t": fzf_bash_completion'
-fi
+# see https://github.com/lincheney/fzf-tab-completion
+. ~/.fzf-bash-completion.sh
+export FZF_COMPLETION_AUTO_COMMON_PREFIX=true
+export FZF_COMPLETION_AUTO_COMMON_PREFIX_PART=true
+bind -x '"\t": fzf_bash_completion'
