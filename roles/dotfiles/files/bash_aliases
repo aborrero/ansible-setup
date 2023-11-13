@@ -168,3 +168,32 @@ fgl() {
     # execute the actual command
     eval ${next_command}
 }
+
+fsystemctl() {
+    # load sudo credentials first
+    sudo true
+    cmd_systemctl='sudo systemctl list-unit-files --all --full --quiet --no-pager'
+    cmd_fzf='fzf --preview "sudo SYSTEMD_COLORS=true systemctl status {1}"'
+    command="${cmd_systemctl} | ${cmd_fzf}"
+    result=$(eval ${command})
+    if [ "$result" == "" ] ; then
+        return 1
+    fi
+
+    unit=$(awk -F' ' '{print $1}' <<< ${result})
+    if [ "$unit" == "" ] ; then
+        return 1
+    fi
+
+    this_command="${FUNCNAME[0]}"
+    next_command="sudo systemctl status ${unit}"
+
+    # leave traces of what just happened
+    # 1) echo the command we will execute for real
+    # 2) save in the history this very call (this function call)
+    # 3) save in the history the next command, so the keyboard's arrow up finds it
+    echo "${next_command}"
+    history -s "${this_command}"
+    history -s "${next_command}"
+    eval ${next_command}
+}
