@@ -46,6 +46,10 @@ fi
 
 # for spryker terraform/ansible environment
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+# see also https://terragrunt.gruntwork.io/docs/reference/cli-options/
+export TERRAGRUNT_PARALLELISM=8
+export TERRAGRUNT_INCLUDE_EXTERNAL_DEPENDENCIES=true
+
 export KUBE_EDITOR=/usr/bin/nano
 export DEBEMAIL=arturo@debian.org
 export GOPATH=$HOME/.go
