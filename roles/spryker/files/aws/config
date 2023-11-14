@@ -1,5 +1,6 @@
 [default]
 region = eu-central-1
+output = yaml
 
 [sso-session spryker]
 sso_start_url = https://d-936703d662.awsapps.com/start#/
@@ -11,9 +12,11 @@ sso_session = spryker
 sso_account_id = 262925510123
 sso_role_name = AWSAdministratorAccess
 region = eu-central-1
+output = yaml
 
 [profile spryker-sre-shared-admin]
 sso_session = spryker
 sso_account_id = 880063349454
 sso_role_name = AWSAdministratorAccess
 region = eu-central-1
+output = yaml
