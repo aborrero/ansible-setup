@@ -13,6 +13,13 @@
       - pre-commit
       - git-crypt
 
+# see https://github.com/getsops/sops
+# releases from https://github.com/getsops/sops/releases
+- name: Install SOPS
+  become: true
+  ansible.builtin.apt:
+    deb: https://github.com/getsops/sops/releases/download/v3.8.1/sops_3.8.1_amd64.deb
+
 - name: Install git configuration dotfiles
   include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
   vars:
