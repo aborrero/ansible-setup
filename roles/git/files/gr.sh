@@ -5,8 +5,8 @@ set -e
 BRANCH_PREFIX="arturo-"
 BRANCH_MAX_NAME_LENGTH=30
 
-if ! ls .git/config >/dev/null 2>&1 ; then
-    echo "E: missing .git/config file, is this a git repo?" >&2
+if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != "true" ] ; then
+    echo "E: is this a git repo?" >&2
     exit 1
 fi
 
@@ -23,7 +23,7 @@ if grep -Eq gerrit.wikimedia.org\|^gerrit <<< "$remotes" ; then
     git review -y
     exit $?
 
-elif grep -q gitlab.wikimedia.org <<< "$remotes" ; then
+elif grep -qE gitlab.wikimedia.org\|github.com <<< "$remotes" ; then
     # this is a gitlab repository
     branch=$(git branch --show-current)
 
