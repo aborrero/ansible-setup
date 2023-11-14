@@ -12,3 +12,4 @@
   changed_when: false
   loop:
     - golang.go
+    - 4ops.terraform
