@@ -1,0 +1,13 @@
+[default]
+region = eu-central-1
+
+[sso-session spryker]
+sso_start_url = https://d-936703d662.awsapps.com/start#/
+sso_region = eu-west-1
+sso_registration_scopes = sso:account:access
+
+[profile AWSAdministratorAccess-262925510123]
+sso_session = spryker
+sso_account_id = 262925510123
+sso_role_name = AWSAdministratorAccess
+region = eu-central-1

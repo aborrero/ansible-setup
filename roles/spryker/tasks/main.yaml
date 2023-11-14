@@ -18,6 +18,12 @@
       - python3-hvac
       - awscli
 
+- name: Install aws cli config dotfile
+  ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+  vars:
+    dotfiles:
+      - aws/config
+
 # NOTE: docker compose includes a postgresql deployment
 # so I don't need this for now
 #- name: Include spryker sre-bot-devel tasks
