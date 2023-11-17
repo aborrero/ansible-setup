@@ -43,3 +43,16 @@
       url: https://github.com/terraform-docs/terraform-docs/releases/download/v0.16.0/terraform-docs-v0.16.0-linux-amd64.tar.gz
       checksum: sha256:328c16cd6552b3b5c4686b8d945a2e2e18d2b8145b6b66129cd5491840010182
       unpack: yes
+
+# from https://github.com/terraform-linters/tflint
+- name: Install tflint
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
+  vars:
+    binary:
+      name: tflint
+      version: "v0.49.0"
+      version_command: "tflint --version"
+      path: /usr/local/bin/tflint
+      url: https://github.com/terraform-linters/tflint/releases/download/v0.49.0/tflint_linux_amd64.zip
+      checksum: sha256:56d862054e8f71e3ba392c6617fca2d730b5ecdf8a4a0768ba6087406dcc7d63
+      unpack: yes
