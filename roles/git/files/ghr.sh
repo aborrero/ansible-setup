@@ -60,7 +60,7 @@ if grep -Eq ^main$\|^master$ <<< "$branch" ; then
     # create a new branch
     git checkout --track -B "$branch"
     # using reflog, in the new branch, cherry-pick the changes that were in HEAD 2 operations ago
-    git cherry-pick "..HEAD@{2}"
+    git cherry-pick ..HEAD@\{2\}
 fi
 
 git push --upstream "${REMOTE}" "$branch"
