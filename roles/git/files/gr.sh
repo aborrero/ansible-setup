@@ -30,7 +30,7 @@ elif grep -qE gitlab.wikimedia.org\|github.com <<< "$remotes" ; then
     # decide if we need to create a new branch
     if grep -Eq ^main$\|^master$ <<< "$branch" ; then
         # we are in main branch, switch!
-        string="${BRANCH_PREFIX}$(git show --format=%f | head -1 | tr '[:upper:]' '[:lower:]')"
+        string="${BRANCH_PREFIX}$(git show --format=%f | head -1 | tr '[:upper:]' '[:lower:]' | tr . _)"
         # trim length
         string2=${string:0:$BRANCH_MAX_NAME_LENGTH}
         # trim trailing "-" dash character
