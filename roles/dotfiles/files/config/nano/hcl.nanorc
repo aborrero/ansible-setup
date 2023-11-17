@@ -20,7 +20,7 @@ color green "\\\\" "\\\"" "\\[bfnrt]" "\\u[0-9abcdefABCDEF]{4})"
 # Special words.
 color green "(true|false|null|output|path|vault|description|default|value)"
 
-color brightgreen "(variable|terraform|resource|provider|module)"
+color brightgreen "(variable|terraform|resource|provider|required_providers|module) "
 
 # Names (very unlikely to contain a quote).
 color brightblue "\"[^"]+\"[[:space:]]*:"
