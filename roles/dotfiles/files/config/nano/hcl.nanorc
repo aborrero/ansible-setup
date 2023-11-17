@@ -9,6 +9,10 @@ syntax "hcl" "\.(tf|tftpl|hcl)$"
 # No comments are permitted in JSON.
 comment ""
 
+# Special words.
+color green "(true|false|null|output|path|vault|description|default|value)"
+color brightgreen "(variable|terraform|resource|provider|required_providers|module) "
+
 # Numbers (used as value).
 color green ":[[:space:]]*\-?(0|[1-9][0-9]*)(\.[0-9]+)?([Ee]?[-+]?[0-9]+)?"
 # Values (well, any string).
@@ -17,10 +21,6 @@ color brightmagenta "\".+\""
 color green ":[[:space:]]*\"#[0-9abcdefABCDEF]+\""
 # Escapes.
 color green "\\\\" "\\\"" "\\[bfnrt]" "\\u[0-9abcdefABCDEF]{4})"
-# Special words.
-color green "(true|false|null|output|path|vault|description|default|value)"
-
-color brightgreen "(variable|terraform|resource|provider|required_providers|module) "
 
 # Names (very unlikely to contain a quote).
 color brightblue "\"[^"]+\"[[:space:]]*:"
