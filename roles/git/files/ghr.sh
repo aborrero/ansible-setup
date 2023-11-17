@@ -63,4 +63,4 @@ if grep -Eq ^main$\|^master$ <<< "$branch" ; then
     git cherry-pick ..HEAD@\{2\}
 fi
 
-git push --upstream "${REMOTE}" "$branch"
+git push --set-upstream "${REMOTE}" "$branch"
