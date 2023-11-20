@@ -6,6 +6,7 @@ set -e
 
 REMOTE="origin"
 REMOTE_EXPECTED_URL="github.com"
+REMOTE_PERSONAL="aborrero"
 BRANCH_PREFIX="arturo-${RANDOM:0:4}-"
 BRANCH_MAX_NAME_LENGTH=30
 
@@ -31,13 +32,30 @@ if ! grep -q "${REMOTE_EXPECTED_URL}" <<< "${remote_url}" ; then
     exit 1
 fi
 
+is_main_branch() {
+    local branch
+    branch=$(git branch --show-current)
+    if grep -Eq ^main$\|^master$ <<< "$branch" ; then
+        return 0
+    fi
+    return 1
+}
+
 # decide if we need to create a new commit, or refresh a previus one
 n_commits="$(git rev-list --count '@{upstream}...HEAD')"
 if [ "${n_commits}" == "0" ] ; then
     # create a new commit!
     git add -A
-    # don't use -s to add sign-off because it will leave the github squashed merge commit in bad shape
-    git commit
+
+    if is_main_branch ; then
+        # this is the first commit for a future PR. Use sign-off
+        sign_off="--signoff"
+    else
+        # not the first commit in the PR. Don't use sign-off because it will leave the github squashed merge commit in bad shape
+        sign_off="--no-signoff"
+    fi
+
+    git commit "${sign_off}"
 else
     # refresh current commit!
     git add -A
@@ -45,8 +63,7 @@ else
 fi
 
 # decide if we need to create a new branch
-branch=$(git branch --show-current)
-if grep -Eq ^main$\|^master$ <<< "$branch" ; then
+if is_main_branch && ! grep -q "${REMOTE_PERSONAL}/" <<< "${remote_url}" ; then
     # we are in main branch, switch!
     string="${BRANCH_PREFIX}$(git show --format=%f | head -1 | tr '[:upper:]' '[:lower:]' | tr . _)"
     # trim length
@@ -61,7 +78,7 @@ if grep -Eq ^main$\|^master$ <<< "$branch" ; then
     # create a new branch
     git checkout --track -B "$branch"
     # using reflog, in the new branch, cherry-pick the changes that were in HEAD 2 operations ago
-    git cherry-pick ..HEAD@\{2\}
+    git cherry-pick ..HEAD@{2}
 fi
 
-git push --set-upstream "${REMOTE}" "$branch"
+#git push --set-upstream "${REMOTE}" "$branch"
