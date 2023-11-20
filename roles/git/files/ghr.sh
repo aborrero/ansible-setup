@@ -81,4 +81,4 @@ if is_main_branch && ! grep -q "${REMOTE_PERSONAL}/" <<< "${remote_url}" ; then
     git cherry-pick ..HEAD@{2}
 fi
 
-#git push --set-upstream "${REMOTE}" "$branch"
+git push --set-upstream "${REMOTE}" "$branch"
