@@ -36,7 +36,8 @@ n_commits="$(git rev-list --count '@{upstream}...HEAD')"
 if [ "${n_commits}" == "0" ] ; then
     # create a new commit!
     git add -A
-    git commit -s
+    # don't use -s to add sign-off because it will leave the github squashed merge commit in bad shape
+    git commit
 else
     # refresh current commit!
     git add -A
