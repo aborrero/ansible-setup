@@ -39,3 +39,10 @@
     # unmute and set volume
     - pactl set-sink-mute alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 0
     - pactl set-sink-volume @DEFAULT_SINK@ 35%
+
+- profile: screen_post_suspend
+  description: enable & configure screen post laptop suspend
+  setup:
+    - chvt 7
+    - DISPLAY=:0 xrandr --auto
+    - DISPLAY=:0 xrandr -s 1920x1080

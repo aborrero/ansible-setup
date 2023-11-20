@@ -26,7 +26,7 @@
 - name: Include vscode tasks
   ansible.builtin.include_tasks: vscode.yaml
 
-- name: Include endurance workaround for debian bug https://bugs.debian.org/991788
+- name: Include workaround for debian bug https://bugs.debian.org/991788
   become: true
   ansible.builtin.copy:
     src: systemd-sleep/manager.sh
@@ -34,7 +34,7 @@
     owner: root
     group: root
     mode: "0755"
-  when: ansible_facts['nodename'] == 'endurance'
+  when: ansible_facts['nodename'] == 'nostromo'
 
 - name: Include CHIRP tasks
   ansible.builtin.include_tasks: chirp.yaml
