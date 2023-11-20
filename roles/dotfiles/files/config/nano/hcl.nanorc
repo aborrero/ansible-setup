@@ -6,6 +6,10 @@
 # License:  GPLv3 or newer
 
 syntax "hcl" "\.(tf|tftpl|hcl)$"
+
+# use 2 spaces as tab
+tabgives "  "
+
 # No comments are permitted in JSON.
 comment ""
 
