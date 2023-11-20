@@ -4,8 +4,8 @@ set -e
 
 # This script runs git pull --rebase, with support for stgit context
 
-if ! ls .git/config >/dev/null 2>&1 ; then
-    echo "E: missing .git/config file, is this a git repo?" >&2
+if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != "true" ] ; then
+    echo "E: is this a git repo?" >&2
     exit 1
 fi
 
