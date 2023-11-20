@@ -8,6 +8,9 @@
 - name: Include desktop profiler tasks
   ansible.builtin.include_tasks: profiler.yml
 
+- name: Include system sleep laptop suspend workaround
+  ansible.builtin.include_tasks: laptop_suspend.yaml
+
 - name: Include spotify tasks
   ansible.builtin.include_tasks: spotify.yml
 
@@ -25,16 +28,6 @@
 
 - name: Include vscode tasks
   ansible.builtin.include_tasks: vscode.yaml
-
-- name: Include workaround for debian bug https://bugs.debian.org/991788
-  become: true
-  ansible.builtin.copy:
-    src: systemd-sleep/manager.sh
-    dest: /usr/lib/systemd/system-sleep/manager.sh
-    owner: root
-    group: root
-    mode: "0755"
-  when: ansible_facts['nodename'] == 'nostromo'
 
 - name: Include CHIRP tasks
   ansible.builtin.include_tasks: chirp.yaml

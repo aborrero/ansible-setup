@@ -1,0 +1,16 @@
+---
+- name: Make sure /usr/lib/systemd/system-sleep/ directory exists
+  become: true
+  ansible.builtin.file:
+    path: /usr/lib/systemd/system-sleep/
+    state: directory
+    mode: '0755'
+
+- name: Include workaround for debian bug https://bugs.debian.org/991788
+  become: true
+  ansible.builtin.copy:
+    src: systemd-sleep/manager.sh
+    dest: /usr/lib/systemd/system-sleep/manager.sh
+    owner: root
+    group: root
+    mode: "0755"
