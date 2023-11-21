@@ -18,6 +18,17 @@
       - python3-kubernetes
       - jq
 
+# see https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management
+- name: Install kubectl
+  include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
+  vars:
+    conf:
+      shortname: kubectl
+      repo_spec: https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /
+      key_url: https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key
+      packages:
+        - kubectl
+
 - name: Install binaries from URLs
   tags: k8s
   ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
