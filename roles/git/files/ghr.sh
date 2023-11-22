@@ -32,9 +32,8 @@ if ! grep -q "${REMOTE_EXPECTED_URL}" <<< "${remote_url}" ; then
     exit 1
 fi
 
+branch=$(git branch --show-current)
 is_main_branch() {
-    local branch
-    branch=$(git branch --show-current)
     if grep -Eq ^main$\|^master$ <<< "$branch" ; then
         return 0
     fi
