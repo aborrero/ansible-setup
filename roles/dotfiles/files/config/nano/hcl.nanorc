@@ -14,7 +14,7 @@ tabgives "  "
 comment ""
 
 # Special words.
-color green "(true|false|null|output|path|vault|description|default|value) "
+color green "(true|false|null|output|path|vault|description|default|value|type) "
 color brightgreen "(variable|terraform|resource|provider|required_providers|module) "
 
 # Numbers (used as value).
