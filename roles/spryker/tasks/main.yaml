@@ -24,6 +24,19 @@
     dotfiles:
       - aws/config
 
+# from https://github.com/legal90/awscurl
+- name: Install awscurl
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
+  vars:
+    binary:
+      name: awscurl
+      version: "0.2.1"
+      version_command: "awscurl --version"
+      path: /usr/local/bin/awscurl
+      url: https://github.com/legal90/awscurl/releases/download/0.2.1/awscurl_0.2.1_linux_amd64.zip
+      checksum: sha256:189626b48d0d4df703e733a583c0d2471c754e0841d06790d41a2eaf2a2a468b
+      unpack: yes
+
 # NOTE: docker compose includes a postgresql deployment
 # so I don't need this for now
 #- name: Include spryker sre-bot-devel tasks
