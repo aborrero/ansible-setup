@@ -23,7 +23,7 @@ fi
 
 remote_url=$(git remote get-url "${REMOTE}")
 if [ "${remote_url}" == "" ] ; then
-    echo "E: expecting a remote called origin, but couldn't find it. Doing nothing." >&2
+    echo "E: expecting a remote called '${REMOTE}', but couldn't find it. Doing nothing." >&2
     exit 1
 fi
 
@@ -55,6 +55,9 @@ if [ "${n_commits}" == "0" ] ; then
     fi
 
     git commit "${sign_off}"
+
+    # bump this number so we can relocate the commit later
+    n_commits=1
 else
     # refresh current commit!
     git add -A
