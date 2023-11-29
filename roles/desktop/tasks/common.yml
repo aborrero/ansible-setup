@@ -9,6 +9,7 @@
     packages:
       - firefox-esr
       - thunderbird
+      - thunderbird-l10n-es-es
       - gimp
       - dia
       - pdfsam
