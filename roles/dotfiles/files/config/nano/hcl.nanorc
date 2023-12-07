@@ -5,7 +5,7 @@
 # Original author:  John Boero
 # License:  GPLv3 or newer
 
-syntax "hcl" "\.(tf|tftpl|hcl)$"
+syntax "hcl" "\.(tf|tftpl|hcl|tfvars)$"
 
 # use 2 spaces as tab
 tabgives "  "
