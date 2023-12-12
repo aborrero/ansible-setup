@@ -13,26 +13,6 @@
     state: directory
     mode: "0755"
 
-- name: Check if secrets are decrypted
-  ansible.builtin.command:
-    cmd: git crypt status
-    chdir: "{{ role_path }}/../.."
-  register: git_crypt_status
-  # never changed, otherwise is always changed
-  changed_when: false
-
-- name: Ensure secrets are decrypted
-  ansible.builtin.command:
-    cmd: git crypt unlock
-    chdir: "{{ role_path }}/../.."
-  # always changed if run
-  changed_when: true
-  when: >
-    "not encrypted: roles/spryker/secrets/spryker-vpn-ca.pem" in git_crypt_status.stdout or
-    "not encrypted: roles/spryker/secrets/spryker-vpn-cert.pem" in git_crypt_status.stdout or
-    "not encrypted: roles/spryker/secrets/spryker-vpn-key.pem" in git_crypt_status.stdout or
-    "not encrypted: roles/spryker/secrets/spryker-vpn-tls-auth.pem" in git_crypt_status.stdout
-
 - name: Ensure secrets exists
   ansible.builtin.copy:
     src: "{{ item }}"
