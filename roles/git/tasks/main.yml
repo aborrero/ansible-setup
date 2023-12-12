@@ -1,5 +1,5 @@
 ---
-- name: install git-related software
+- name: Install git-related software
   become: true
   ansible.builtin.apt:
     name: "{{ packages }}"
@@ -12,6 +12,18 @@
       - git-lfs
       - pre-commit
       - git-crypt
+
+- name: Ensure secrets are decrypted
+  ansible.builtin.command:
+    cmd: git crypt unlock
+    chdir: "{{ role_path }}/../.."
+  register: git_crypt_unlock
+  # always changed
+  changed_when: true
+  # allow me to work on the repo and run the playbook without this failing
+  failed_when: >
+    git_crypt_unlock.rc != 0 and
+    "Please commit your changes or 'git stash' them before running 'git-crypt unlock'." not in git_crypt_unlock.stderr
 
 # see https://github.com/getsops/sops
 # releases from https://github.com/getsops/sops/releases
