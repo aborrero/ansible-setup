@@ -18,11 +18,17 @@
       - python3-hvac
       - awscli
 
-- name: Install aws cli config dotfile
-  ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
-  vars:
-    dotfiles:
-      - aws/config
+- name: Create aws directory
+  ansible.builtin.file:
+    dest: "/home/{{ user }}/.aws"
+    state: directory
+    mode: "0755"
+
+- name: Install aws cli config file
+  ansible.builtin.copy:
+    src: "{{ role_path }}/secrets/aws_config"
+    dest: "/home/{{ user }}/.aws/config"
+    mode: "0655"
 
 # from https://github.com/legal90/awscurl
 - name: Install awscurl
