@@ -70,6 +70,7 @@
     - ge
     - gpr
     - ghr
+    - ghm
 
 - name: clone some github repos
   include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
