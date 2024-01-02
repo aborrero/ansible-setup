@@ -36,6 +36,7 @@
     distributions:
       - unstable
       # to include stuff in point releases
+      - bullseye
       - bookworm
 
 - name: Clone some debian git repos
