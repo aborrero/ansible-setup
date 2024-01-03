@@ -6,6 +6,7 @@ alias ll='ls $LS_OPTIONS -l'
 alias treel='tree -L 2 --filesfirst -F'
 alias diff='diff -u --color'
 alias bat='batcat'
+alias cp='cp --interactive'
 
 alias grep='grep --color'
 
