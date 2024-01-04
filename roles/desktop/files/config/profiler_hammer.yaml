@@ -3,6 +3,15 @@
 - profile: pulseaudio_analog
   description: pulseaudio analog I/O profile
   setup:
+    # first: lower spotify volume, if running
+    - |
+      # spotify running?
+      [ "$(ps aux | grep -i [s]potify | wc -l)" != "0" ] || return 0
+      # get sink input index
+      idx=$(pactl --format=json list sink-inputs | jq -rM '.[] | select(.properties."media.name" == "Spotify") | .index')
+      [ "$idx" != "" ] || return 0
+      pactl set-sink-input-volume "${idx}" 40%
+    # then: the rest of the config. This order avoids the brief moment in which spotify running at max volume.
     - pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo+input:analog-stereo
     - pactl set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo
     - pactl set-sink-port @DEFAULT_SINK@ analog-output-headphones
@@ -13,14 +22,6 @@
     - pactl set-source-port @DEFAULT_SOURCE@ analog-input-headset-mic
     - pactl set-source-volume @DEFAULT_SOURCE@ 50%
     - pactl set-source-mute @DEFAULT_SOURCE@ 0
-    # lower spotify volume, if running
-    - |
-      # spotify running?
-      [ "$(ps aux | grep -i [s]potify | wc -l)" != "0" ] || return 0
-      # get sink input index
-      idx=$(pactl --format=json list sink-inputs | jq -rM '.[] | select(.properties."media.name" == "Spotify") | .index')
-      [ "$idx" != "" ] || return 0
-      pactl set-sink-input-volume "${idx}" 40%
 
 - profile: pulseaudio_hdmi
   description: pulseaudio HDMI output profile
