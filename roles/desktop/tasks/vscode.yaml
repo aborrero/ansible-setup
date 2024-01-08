@@ -5,6 +5,13 @@
   ansible.builtin.apt:
     deb: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
 
+- name: Install vscode user settings file
+  tags: rclone
+  ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+  vars:
+    dotfiles:
+      - config/Code/User/settings.json
+
 - name: Install vscode extensions
   ansible.builtin.command:
     cmd: code --install-extension "{{ item }}" --force
