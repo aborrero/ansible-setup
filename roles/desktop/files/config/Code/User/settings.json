@@ -3,5 +3,6 @@
     "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_",
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "security.workspace.trust.untrustedFiles": "open"
 }
