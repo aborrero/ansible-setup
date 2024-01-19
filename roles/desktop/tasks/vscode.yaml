@@ -19,5 +19,4 @@
   changed_when: false
   loop:
     - golang.go
-    - 4ops.terraform
     - redhat.vscode-yaml
