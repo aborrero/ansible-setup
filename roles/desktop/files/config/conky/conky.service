@@ -6,7 +6,7 @@ AssertEnvironment=DISPLAY
 [Service]
 RestartSec=5
 Restart=always
-ExecStart=conky -p 20
+ExecStart=conky --pause=20
 
 [Install]
 WantedBy=default.target
