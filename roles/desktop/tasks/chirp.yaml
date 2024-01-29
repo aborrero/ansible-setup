@@ -8,6 +8,9 @@
   ansible.builtin.apt:
     package: chirp
     state: latest
+  # this package may not be in the archive
+  # don't stop the playbook if that is the case
+  ignore_errors: true
 
 # so we can use /dev/ttyUSB0 and /dev/ttyS0 as user
 - name: Add user to dialout Unix group
