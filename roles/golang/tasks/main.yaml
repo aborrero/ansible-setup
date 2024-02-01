@@ -15,6 +15,7 @@
     dest: /home/{{ user }}/.go/
     state: directory
 
+# used in toolforge projects
 - name: Install oapi-codegen
   become: true
   become_user: "{{ user }}"

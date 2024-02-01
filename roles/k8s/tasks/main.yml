@@ -13,7 +13,7 @@
     state: latest
   vars:
     packages:
-      # this may cause some conflicts
+      # this conflicts with some toolforge components
       # - podman
       - python3-kubernetes
       - jq

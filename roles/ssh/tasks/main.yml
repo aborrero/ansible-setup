@@ -15,3 +15,12 @@
   vars:
     dotfiles:
       - ssh/config
+
+- name: Import systemd ssh agent tasks
+  ansible.builtin.import_tasks: systemd_ssh_agent.yml
+  vars:
+    names:
+      - ssh-wmf-cloud-root
+      - ssh-wmf-cloud-user
+      - ssh-wmf-gerrit
+      - ssh-wmf-prod

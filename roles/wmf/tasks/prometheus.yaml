@@ -1,0 +1,27 @@
+---
+# I use this to work with WMF operations/alerts.git
+- name: Install promtool
+  tags: prometheus
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
+  vars:
+    binary:
+      name: promtool
+      version: "2.45.0"
+      version_command: "promtool --version | head -1 | awk -F' ' '{print $3}'"
+      path: /usr/local/bin/promtool
+      url: https://github.com/prometheus/prometheus/releases/download/v2.45.0/prometheus-2.45.0.linux-amd64.tar.gz
+      checksum: sha256:1c7f489a3cc919c1ed0df2ae673a280309dc4a3eaa6ee3411e7d1f4bdec4d4c5
+      unpack: true
+
+- name: Install pint
+  tags: prometheus
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
+  vars:
+    binary:
+      name: pint
+      version: "0.44.1"
+      version_command: "pint version | awk -F' ' '{print $1}'"
+      path: /usr/local/bin/pint
+      url: https://github.com/cloudflare/pint/releases/download/v0.44.1/pint-0.44.1-linux-amd64.tar.gz
+      checksum: sha256:36af97f843f58ab095c6b6ff20c94a5fb146ef64cef6748a09336c71dcb23b08
+      unpack: true

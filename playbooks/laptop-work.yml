@@ -17,4 +17,5 @@
     - { role: golang }
     - { role: debian }
     - { role: netfilter }
+    - { role: wmf }
     - { role: k8s }
