@@ -27,19 +27,6 @@
       packages:
         - wmf-laptop-sre
 
-# another option (not in use in my setup as of today)
-# * https://pypi.org/project/wm-ssh/
-# * https://github.com/david-caro/wm-ssh
-- name: Refresh ssh known hosts
-  tags: ssh
-  become: true
-  become_user: "{{ user }}"
-  ansible.builtin.shell: "{{ item }}"
-  changed_when: false
-  loop:
-    - wmf-update-known-hosts-production /home/{{ user }}/git/wmf/operations/dns/
-    - wmcs-update-known-hosts.sh
-
 - name: Clone some git repos
   ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
   vars:
@@ -61,6 +48,19 @@
         dir: wmf/cloud/instance-puppet-dev
       - url: git@gitlab.wikimedia.org:repos/cloud/cicd/gitlab-ci.git
         dir: wmf/cloud/cicd/gitlab-ci
+
+# another option (not in use in my setup as of today)
+# * https://pypi.org/project/wm-ssh/
+# * https://github.com/david-caro/wm-ssh
+- name: Refresh ssh known hosts
+  tags: ssh
+  become: true
+  become_user: "{{ user }}"
+  ansible.builtin.shell: "{{ item }}"
+  changed_when: false
+  loop:
+    - wmf-update-known-hosts-production /home/{{ user }}/git/wmf/operations/dns/
+    - wmcs-update-known-hosts.sh
 
 # see https://office.wikimedia.org/wiki/Pwstore
 - name: Maintain pwstore configuration file
