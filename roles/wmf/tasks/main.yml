@@ -69,6 +69,11 @@
     dest: /home/{{ user }}/.pws-trusted-users
     mode: "0644"
 
+- name: Install gerritlab from upstream git repository via pipx
+  community.general.pipx:
+    name: gerritlab
+    source: https://github.com/yaoyuannnn/gerritlab
+
 - name: Include spicerack tasks
   ansible.builtin.include_tasks: spicerack.yaml
 
