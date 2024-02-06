@@ -9,6 +9,7 @@
       - python3-venv
       - tox
       - isort
+      - pipx
     state: latest
 
 - name: Create virtualenvs directory
