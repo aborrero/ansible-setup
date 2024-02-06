@@ -59,3 +59,9 @@ eval "$(atuin init bash --disable-up-arrow)"
 export FZF_COMPLETION_AUTO_COMMON_PREFIX=true
 export FZF_COMPLETION_AUTO_COMMON_PREFIX_PART=true
 bind -x '"\t": fzf_bash_completion'
+
+# pipx stuff: see https://github.com/pypa/pipx
+# this is what `pipx ensurepath` injects:
+export PATH="$PATH:/home/arturo/.local/bin"
+# this is from `pipx completions`:
+eval "$(register-python-argcomplete pipx)"
