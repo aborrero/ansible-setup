@@ -74,6 +74,12 @@
     name: gerritlab
     source: https://github.com/yaoyuannnn/gerritlab
 
+- name: Install the gitlab CLI
+  become: true
+  ansible.builtin.apt:
+    name: glab
+    state: latest
+
 - name: Include spicerack tasks
   ansible.builtin.include_tasks: spicerack.yaml
 
