@@ -12,6 +12,13 @@
       - pipx
     state: latest
 
+- name: Install some utilities via pipx
+  community.general.pipx:
+    name: "{{ item }}"
+  loop:
+    - ruff
+    - openapi-python-client
+
 - name: Create virtualenvs directory
   become: true
   become_user: "{{ user }}"
