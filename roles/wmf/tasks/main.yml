@@ -32,7 +32,7 @@
   vars:
     email: aborrero@wikimedia.org
     git_repos:
-      - url: cumin1001.eqiad.wmnet:/srv/pwstore/pw.git
+      - url: cumin1002.eqiad.wmnet:/srv/pwstore/pw.git
         dir: wmf/pw
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/puppet
         dir: wmf/operations/puppet
