@@ -69,17 +69,6 @@
     dest: /home/{{ user }}/.pws-trusted-users
     mode: "0644"
 
-- name: Install gerritlab from upstream git repository via pipx
-  community.general.pipx:
-    name: gerritlab
-    source: https://github.com/yaoyuannnn/gerritlab
-
-- name: Install the gitlab CLI
-  become: true
-  ansible.builtin.apt:
-    name: glab
-    state: latest
-
 - name: Include spicerack tasks
   ansible.builtin.include_tasks: spicerack.yaml
 
@@ -88,3 +77,6 @@
 
 - name: Include prometheus tasks
   ansible.builtin.include_tasks: prometheus.yaml
+
+- name: Include gerritlab tasks
+  ansible.builtin.include_tasks: gerritlab.yaml
