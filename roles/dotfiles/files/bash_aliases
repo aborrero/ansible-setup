@@ -18,6 +18,7 @@ alias gll='git log --pretty=format:"%C(yellow)%h %Creset%s%Cblue [%ae] (%ad)" --
 alias grpo='git remote prune origin'
 alias gcd='cd $(git rev-parse --show-toplevel 2>/dev/null || echo .)'
 alias ghd='git diff origin/HEAD..HEAD'
+alias gcas='git commit --all --signoff'
 
 # NOTE: consider adding something like --bind=ctrl-v:execute(nano {} < /dev/tty)
 # NOTE: but it may break fgnano and other funcs because reasons
