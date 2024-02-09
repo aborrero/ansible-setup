@@ -11,7 +11,7 @@
         dir: wmf/operations/software/tools-manifest
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/jobs-api
         dir: wmf/cloud/toolforge/jobs-api
-      - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/jobs-cli
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/jobs-cli
         dir: wmf/cloud/toolforge/jobs-cli
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/jobs-emailer
         dir: wmf/cloud/toolforge/jobs-emailer
