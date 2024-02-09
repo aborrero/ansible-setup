@@ -65,3 +65,6 @@ bind -x '"\t": fzf_bash_completion'
 export PATH="$PATH:/home/arturo/.local/bin"
 # this is from `pipx completions`:
 eval "$(register-python-argcomplete pipx)"
+
+# nix stuff
+export PATH="$PATH:~/.nix-profile/bin"
