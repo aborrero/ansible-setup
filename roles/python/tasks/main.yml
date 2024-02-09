@@ -18,6 +18,8 @@
   loop:
     - ruff
     - openapi-python-client
+    # https://github.com/Textualize/toolong
+    - toolong
 
 - name: Create virtualenvs directory
   become: true
