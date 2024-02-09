@@ -62,6 +62,7 @@
       - "*tar.gz"
       - "*tar.bz2"
       - "*tar"
+      - "*zip"
   register: find
   when: tempdir.path is defined
   # assert: something is really wrong if we couldn't find a file to install

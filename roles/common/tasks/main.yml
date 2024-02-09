@@ -118,3 +118,17 @@
 
 - name: Include nix tasks
   ansible.builtin.include_tasks: nix.yaml
+
+# log viewer, see https://github.com/tstack/lnav
+- name: Install lnav
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
+  vars:
+    binary:
+      name: "lnav"
+      version: "0.11.2"
+      version_command: "lanv --version"
+      path: "/usr/local/bin/lnav"
+      url: "https://github.com/tstack/lnav/releases/download/v0.11.2/lnav-0.11.2-x86_64-linux-musl.zip"
+      # note: calculated by hand, they don't provide this
+      checksum: "sha256:6515598ca4985ec42daeafbae7eb5c7c6d7e94a11f88666d157b3d363aa391ff"
+      unpack: true
