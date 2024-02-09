@@ -20,3 +20,4 @@
   loop:
     - golang.go
     - redhat.vscode-yaml
+    - 42crunch.vscode-openapi
