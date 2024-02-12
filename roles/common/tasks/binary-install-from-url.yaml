@@ -21,7 +21,7 @@
   when: filecheck.stat.executable is defined and filecheck.stat.executable
   failed_when: false
   changed_when: false
-  register: version
+  register: binary_from_url_installed_version
 
 - name: Create temp directory for '{{ binary.name }}'
   ansible.builtin.tempfile:
@@ -30,8 +30,9 @@
   register: tempdir
   when: >
     filecheck.stat.executable is not defined or not filecheck.stat.executable or
-    filecheck.stat.mimetype != "application/x-executable" or version is not
-    defined or version is defined and binary.version not in version.stdout
+    filecheck.stat.mimetype != "application/x-executable" or
+    binary_from_url_installed_version is not defined or
+    binary_from_url_installed_version is defined and binary.version not in binary_from_url_installed_version.stdout
 
 - name: Download '{{ binary.name }}' version '{{ binary.version }}'
   ansible.builtin.get_url:
