@@ -46,6 +46,7 @@
       - fzf
       - python3-pygments
       - bat
+      - npm
 
 - name: Install nostromo-specific packages
   tags:

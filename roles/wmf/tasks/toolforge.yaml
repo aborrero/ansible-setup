@@ -77,3 +77,10 @@
       ~/.toolforge-lima-kilo/bin/toolforge-build "$@"
     dest: /usr/local/bin/toolforge-build
     mode: "0755"
+
+# from https://openapi-generator.tech
+- name: Install openapi-generator from npm
+  community.general.npm:
+    name: "@openapitools/openapi-generator-cli"
+    global: true
+    state: present

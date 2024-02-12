@@ -7,6 +7,7 @@
       - bash_aliases
       - bash-preexec.sh
       - fzf-bash-completion.sh
+      - npmrc
       - config/liquidpromptrc
       - config/nano/nanorc
       - config/nano/puppet.nanorc

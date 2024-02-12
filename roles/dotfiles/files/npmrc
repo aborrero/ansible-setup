@@ -1,0 +1,2 @@
+# file managed using ansible-setup
+prefix=~/.local/
