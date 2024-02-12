@@ -126,7 +126,7 @@
     binary:
       name: "lnav"
       version: "0.11.2"
-      version_command: "lanv --version"
+      version_command: "lnav -V"
       path: "/usr/local/bin/lnav"
       url: "https://github.com/tstack/lnav/releases/download/v0.11.2/lnav-0.11.2-x86_64-linux-musl.zip"
       # note: calculated by hand, they don't provide this
