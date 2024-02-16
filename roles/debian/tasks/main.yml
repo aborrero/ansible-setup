@@ -15,6 +15,7 @@
       - apt-cacher-ng
       - mmdebstrap
       - dput-ng
+      - debcargo
 
 - name: Install some debian-related dotfiles
   ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
