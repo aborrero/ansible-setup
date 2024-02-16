@@ -45,6 +45,7 @@ if ! shopt -oq posix; then
 fi
 
 export KUBE_EDITOR=/usr/bin/nano
+export DEBFULLNAME="Arturo Borrero Gonzalez"
 export DEBEMAIL=arturo@debian.org
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
