@@ -78,3 +78,5 @@
         dir: debian/capirca/pkg-capirca
       - url: git@salsa.debian.org:debian/pkg-liquidprompt.git
         dir: debian/liquidprompt/pkg-liquidprompt
+      - url: git@salsa.debian.org:rust-team/debcargo-conf.git
+        dir: debian/rust-team/debcargo-conf
