@@ -34,3 +34,6 @@
 
 - name: Include zoom tasks
   ansible.builtin.include_tasks: zoom.yaml
+
+- name: Include bluetooth tasks
+  ansible.builtin.include_tasks: bluetooth.yaml

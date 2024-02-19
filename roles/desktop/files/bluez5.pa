@@ -1,0 +1,3 @@
+# see https://wiki.debian.org/BluetoothUser/a2dp#a2dp-sink_profile_connect_failed_.5B....5D:_Protocol_not_available
+load-module module-bluez5-device
+load-module module-bluez5-discover

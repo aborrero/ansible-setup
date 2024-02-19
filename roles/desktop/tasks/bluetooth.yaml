@@ -1,0 +1,9 @@
+---
+# see also https://wiki.debian.org/BluetoothUser/a2dp#a2dp-sink_profile_connect_failed_.5B....5D:_Protocol_not_available
+- name: Install bluez5 config file
+  become: true
+  ansible.builtin.copy:
+    src: bluez5.pa
+    dest: /etc/pulse/default.pa.d/bluez5.pa
+    mode: "0644"
+
