@@ -22,3 +22,4 @@
     - redhat.vscode-yaml
     - 42crunch.vscode-openapi
     - ms-python.python
+    - charliermarsh.ruff
