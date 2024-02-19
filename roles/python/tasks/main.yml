@@ -29,14 +29,13 @@
     dest: /home/{{ user }}/.pyvenvs/
     state: directory
 
-# TODO: no venvs at the moment!
-#
-#- name: Create virtualenvs
-#  tags: pyvenv
-#  become: true
-#  become_user: "{{ user }}"
-#  ansible.builtin.command:
-#    cmd: python3 -m venv /home/{{ user }}/.pyvenvs/{{ item }}
-#    creates: /home/{{ user }}/.pyvenvs/{{ item }}/bin/activate
-#  loop:
-#    - <nothing>
+- name: Create virtualenvs
+  become: true
+  become_user: "{{ user }}"
+  ansible.builtin.command:
+    cmd: python3 -m venv /home/{{ user }}/.pyvenvs/{{ item }}
+    creates: /home/{{ user }}/.pyvenvs/{{ item }}/bin/activate
+  loop:
+    - spicerack
+    - jobs-framework-cli
+    - builds-cli
