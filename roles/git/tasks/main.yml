@@ -12,6 +12,7 @@
       - git-lfs
       - pre-commit
       - git-crypt
+      - git-delta
 
 - name: Ensure secrets are decrypted
   ansible.builtin.command:

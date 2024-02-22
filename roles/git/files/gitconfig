@@ -1,18 +1,48 @@
 [gitreview]
     username = aborrero
+
 [user]
     email = arturo.bg@arturo.bg
     name = Arturo Borrero Gonzalez
+
 [pull]
     rebase = true
+
 [protocol]
     version = 2
+
 [core]
     excludesfile = /home/arturo/.gitignore
+    pager = delta
+
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
 [branch]
     sort = -committerdate
+
+[diff]
+    algorithm = histogram
+    colorMoved = default
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+
+[merge]
+    conflictstyle = diff3
+
+[transfer]
+fsckobjects = true
+
+[fetch]
+fsckobjects = true
+
+[receive]
+fsckObjects = true
