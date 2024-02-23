@@ -56,18 +56,24 @@
     dotfiles:
       - toolforge-lima-kilo/userconfig.yaml
 
-# refresh version from https://github.com/lima-vm/lima/releases
-- name: Install lima-vm
-  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
-  vars:
-    binary:
-      name: "limactl"
-      version: "0.20.1"
-      version_command: "limactl --version"
-      path: "/usr/local/bin/limactl"
-      url: "https://github.com/lima-vm/lima/releases/download/v0.20.1/lima-0.20.1-Linux-x86_64.tar.gz"
-      checksum: "sha256:e7093ca1889d2dab436d9f0e6b53d65336f75cf8ebd54f583085eca462a1fc4b"
-      unpack: true
+# docs at https://lima-vm.io/docs/installation/
+
+- name: Check if lima-vm is installed
+  ansible.builtin.stat:
+    path: /home/{{ user }}/.local/bin/limactl
+  register: lima_vm_filecheck
+
+- name: Install lima-vm latest version
+  ansible.builtin.shell:
+    executable: /bin/bash
+    cmd: |
+      set -e -o pipefail
+      VERSION=$(curl -fsSL https://api.github.com/repos/lima-vm/lima/releases/latest | jq -r .tag_name)
+      curl -fsSL "https://github.com/lima-vm/lima/releases/download/${VERSION}/lima-${VERSION:1}-$(uname -s)-$(uname -m).tar.gz" | tar Cxzvm /home/${USER}/.local
+  when: |
+    lima_vm_filecheck.stat.executable is not defined or
+    not lima_vm_filecheck.stat.executable or
+    lima_vm_filecheck.stat.mimetype != "application/x-executable"
 
 # from https://openapi-generator.tech
 - name: Install openapi-generator from npm
