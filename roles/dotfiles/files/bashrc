@@ -48,8 +48,8 @@ export EDITOR=/usr/bin/nano
 export KUBE_EDITOR=$EDITOR
 export DEBFULLNAME="Arturo Borrero Gonzalez"
 export DEBEMAIL=arturo@debian.org
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin
+export GOPATH=${HOME}/.go
+export PATH=${PATH}:${GOPATH}/bin
 
 # order is important: liquidprompt will understand that bash-preexec was loaded first
 . ~/.bash-preexec.sh
@@ -64,9 +64,9 @@ bind -x '"\t": fzf_bash_completion'
 
 # pipx stuff: see https://github.com/pypa/pipx
 # this is what `pipx ensurepath` injects:
-export PATH="$PATH:/home/arturo/.local/bin"
+export PATH=${PATH}:/home/arturo/.local/bin
 # this is from `pipx completions`:
 eval "$(register-python-argcomplete pipx)"
 
 # nix stuff
-export PATH="$PATH:~/.nix-profile/bin"
+export PATH=${PATH}:${HOME}/.nix-profile/bin
