@@ -48,3 +48,9 @@ fsckobjects = true
 
 [receive]
 fsckObjects = true
+
+# see also https://github.com/stacked-git/stgit/blob/master/examples/gitconfig
+[stgit]
+    autosign = Signed-off-by
+    diff-opts = --find-renames
+    autokeep = yes
