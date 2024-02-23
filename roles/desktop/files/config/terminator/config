@@ -15,6 +15,7 @@
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
+    disable_mousewheel_zoom = True
     palette = "#363636:#ed333b:#4e9a06:#ffbe6f:#0883ff:#8308ff:#2ec27e:#deddda:#9a9996:#ff0883:#4e9a06:#f6d32d:#1c71d8:#8308ff:#08ff83:#b6b6b6"
     title_transmit_bg_color = "#613583"
   [[hdmi_screen]]
@@ -24,6 +25,7 @@
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
+    disable_mousewheel_zoom = True
     palette = "#363636:#ed333b:#2ec27e:#ffbe6f:#0883ff:#8308ff:#2ec27e:#deddda:#9a9996:#ff0883:#4e9a06:#f6d32d:#1c71d8:#8308ff:#08ff83:#b6b6b6"
     title_transmit_bg_color = "#613583"
   [[endurance]]
@@ -34,6 +36,7 @@
     handle_size = -1
     scrollbar_position = hidden
     scrollback_infinite = True
+    disable_mousewheel_zoom = True
     palette = "#363636:#ed333b:#4e9a06:#ffbe6f:#0883ff:#8308ff:#2ec27e:#deddda:#9a9996:#ff0883:#4e9a06:#f6d32d:#1c71d8:#8308ff:#08ff83:#b6b6b6"
     title_transmit_bg_color = "#613583"
 [layouts]
