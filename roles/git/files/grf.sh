@@ -37,7 +37,7 @@ if grep -Eq ^main$\|^master$\|^production$ <<< "$branch" && [ "$(git rev-list --
     fi
 fi
 
-if git branch -l | grep -q "$branch".stgit && [ "$(stg top 2>/dev/null | wc -l)" == "1" ] ; then
+if [ "$(stg top 2>/dev/null | wc -l)" == "1" ] ; then
     # stgit context!
     stg refresh
     exit $?
