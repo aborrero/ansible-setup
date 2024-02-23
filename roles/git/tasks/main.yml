@@ -7,7 +7,6 @@
   vars:
     packages:
       - git
-      - stgit
       - gh
       - git-lfs
       - pre-commit
@@ -73,7 +72,7 @@
     - ghr
     - ghm
 
-- name: clone some github repos
+- name: Clone some github repos
   include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
   vars:
     email: arturo.bg@arturo.bg
@@ -88,3 +87,9 @@
         dir: github/sys-avenger
       - url: git@github.com:aborrero/arturo.bg.git
         dir: github/arturo.bg
+
+# from https://github.com/stacked-git/stgit/releases
+- name: Install stgit
+  become: true
+  ansible.builtin.apt:
+    deb: https://github.com/stacked-git/stgit/releases/download/v2.4.5/stgit_2.4.5-1_amd64.deb
