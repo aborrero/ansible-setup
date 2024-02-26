@@ -29,6 +29,18 @@
   changed_when: false
   loop: "{{ git_repos }}"
 
+- name: Execute additional commands
+  tags: git
+  ansible.builtin.command:
+    cmd: "{{ command }}"
+    chdir: "{{ dir }}"
+  vars:
+    dir: "/home/{{ user }}/git/{{ item[0].dir }}/"
+    command: "{{ item[1] }}"
+  changed_when: false
+  loop: "{{ git_repos | product(additional_commands) | list }}"
+  when: additional_commands is defined
+
 - name: Pull and fast-forward
   tags: git
   become: true

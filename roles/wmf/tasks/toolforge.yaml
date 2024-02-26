@@ -4,6 +4,9 @@
   ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
   vars:
     email: aborrero@wikimedia.org
+    additional_commands:
+      # make sure no push is done directly
+      - "git remote set-url --push origin no_push_use_review"
     git_repos:
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/tools-webservice.git
         dir: wmf/cloud/toolforge/tools-webservice

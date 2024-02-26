@@ -31,6 +31,9 @@
   ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
   vars:
     email: aborrero@wikimedia.org
+    additional_commands:
+      # make sure no push is done directly
+      - "git remote set-url --push origin no_push_use_review"
     git_repos:
       - url: cumin1002.eqiad.wmnet:/srv/pwstore/pw.git
         dir: wmf/pw
