@@ -1,41 +1,42 @@
 ---
-- name: ensure destination dirs exist
+- name: Ensure destination dirs exist
   tags: git
   become: true
-  become_user: "{{user}}"
+  become_user: "{{ user }}"
   ansible.builtin.file:
-    dest: /home/{{user}}/git/{{item.dir}}
+    dest: "/home/{{ user }}/git/{{ item.dir }}"
     state: directory
-  loop: "{{git_repos}}"
+    mode: "0755"
+  loop: "{{ git_repos }}"
 
-- name: ensure local clone exists
+- name: Ensure local clone exists
   tags: git
   become: true
-  become_user: "{{user}}"
+  become_user: "{{ user }}"
   environment:
     GIT_SSH_COMMAND: "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
   ansible.builtin.command:
-    cmd: git clone --quiet {{item.url}} /home/{{user}}/git/{{item.dir}}
-    creates: /home/{{user}}/git/{{item.dir}}/.git
-  loop: "{{git_repos}}"
+    cmd: "git clone --quiet {{ item.url }} /home/{{ user }}/git/{{ item.dir }}"
+    creates: "/home/{{ user }}/git/{{ item.dir }}/.git"
+  loop: "{{ git_repos }}"
 
-- name: configure email
+- name: Configure email
   tags: git
   become: true
-  become_user: "{{user}}"
-  ansible.builtin.command: git -C /home/{{user}}/git/{{item.dir}}/ config user.email {{email}}
+  become_user: "{{ user }}"
+  ansible.builtin.command: "git -C /home/{{ user }}/git/{{ item.dir }}/ config user.email {{ email }}"
   when: email is defined
   changed_when: false
-  loop: "{{git_repos}}"
+  loop: "{{ git_repos }}"
 
-- name: pull and fast-forward
+- name: Pull and fast-forward
   tags: git
   become: true
-  become_user: "{{user}}"
-  ansible.builtin.command: git -C /home/{{user}}/git/{{item.dir}}/ pull --rebase --ff-only --all --no-autostash --quiet
-  ignore_errors: true
+  become_user: "{{ user }}"
+  ansible.builtin.command: "git -C /home/{{ user }}/git/{{ item.dir }}/ pull --rebase --ff-only --all --no-autostash --quiet"
+  ignore_errors: true  # noqa: ignore-errors
   changed_when: false
   failed_when: false
   async: 45
   poll: 0
-  loop: "{{git_repos}}"
+  loop: "{{ git_repos }}"
