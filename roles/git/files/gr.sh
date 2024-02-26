@@ -18,6 +18,13 @@ fi
 
 # decice if this is a gerrit or a gitlab repo
 remotes=$(git remote -v)
+
+# check for a common mistake first
+if grep --quiet "aborrero/ansible-setup" <<< "$remotes" ; then
+    echo "E: refusing to run in this repo, maybe just use `git push`" >&2
+    exit 1
+fi
+
 if grep -Eq gerrit.wikimedia.org\|^gerrit <<< "$remotes" ; then
     # this is a gerrit repository, use git review as usual
     git review -y
