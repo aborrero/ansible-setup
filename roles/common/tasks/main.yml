@@ -140,7 +140,7 @@
   vars:
     binary:
       name: "zellij"
-      version: "v0.39.2"
+      version: "0.39.2"
       version_command: "zellij --version"
       path: "/usr/local/bin/zellij"
       url: "https://github.com/zellij-org/zellij/releases/download/v0.39.2/zellij-x86_64-unknown-linux-musl.tar.gz"
