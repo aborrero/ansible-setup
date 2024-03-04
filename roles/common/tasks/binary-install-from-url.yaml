@@ -30,7 +30,6 @@
   register: tempdir
   when: >
     filecheck.stat.executable is not defined or not filecheck.stat.executable or
-    filecheck.stat.mimetype != "application/x-executable" or
     binary_from_url_installed_version is not defined or
     binary_from_url_installed_version is defined and binary.version not in binary_from_url_installed_version.stdout
 
