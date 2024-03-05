@@ -27,7 +27,7 @@
       packages:
         - wmf-laptop-sre
 
-- name: Clone some git repos
+- name: Clone some gerrit repos
   ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
   vars:
     email: aborrero@wikimedia.org
@@ -49,6 +49,12 @@
         dir: wmf/cloud/instance-puppet
       - url: ssh://gerrit.wikimedia.org:29418/cloud/instance-puppet-dev
         dir: wmf/cloud/instance-puppet-dev
+
+- name: Clone some gitlab repos
+  ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
+  vars:
+    email: aborrero@wikimedia.org
+    git_repos:
       - url: git@gitlab.wikimedia.org:repos/cloud/cicd/gitlab-ci.git
         dir: wmf/cloud/cicd/gitlab-ci
 

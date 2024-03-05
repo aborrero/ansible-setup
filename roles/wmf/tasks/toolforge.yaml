@@ -1,5 +1,5 @@
 ---
-- name: Clone Toolforge git repos
+- name: Clone Toolforge gerrit repos
   tags: toolforge
   ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
   vars:
@@ -8,18 +8,27 @@
       # make sure no push is done directly
       - "git remote set-url --push origin no_push_use_review"
     git_repos:
-      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/tools-webservice.git
-        dir: wmf/cloud/toolforge/tools-webservice
       - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/software/tools-manifest
         dir: wmf/operations/software/tools-manifest
+      - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/ingress-admission-controller
+        dir: wmf/cloud/toolforge/ingress-admission-controller
+      - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/docker-images/toollabs-images
+        dir: wmf/operations/docker-images/toollabs-images
+
+- name: Clone Toolforge gitlab repos
+  tags: toolforge
+  ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
+  vars:
+    email: aborrero@wikimedia.org
+    git_repos:
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/tools-webservice.git
+        dir: wmf/cloud/toolforge/tools-webservice
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/jobs-api
         dir: wmf/cloud/toolforge/jobs-api
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/jobs-cli
         dir: wmf/cloud/toolforge/jobs-cli
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/jobs-emailer
         dir: wmf/cloud/toolforge/jobs-emailer
-      - url: ssh://gerrit.wikimedia.org:29418/cloud/toolforge/ingress-admission-controller
-        dir: wmf/cloud/toolforge/ingress-admission-controller
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/volume-admission-controller
         dir: wmf/cloud/toolforge/volume-admission-controller
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/cert-manager
@@ -28,8 +37,6 @@
         dir: wmf/cloud/toolforge/lima-kilo
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/builds-admission-controller.git
         dir: wmf/cloud/toolforge/builds-admission-controller
-      - url: ssh://aborrero@gerrit.wikimedia.org:29418/operations/docker-images/toollabs-images
-        dir: wmf/operations/docker-images/toollabs-images
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/calico.git
         dir: wmf/cloud/toolforge/calico
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/image-config.git
