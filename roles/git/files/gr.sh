@@ -21,7 +21,7 @@ remotes=$(git remote -v)
 
 # check for a common mistake first
 if grep --quiet "aborrero/ansible-setup" <<< "$remotes" ; then
-    echo "E: refusing to run in this repo, maybe just use `git push`" >&2
+    echo "E: refusing to run in this repo, maybe just use 'git push'" >&2
     exit 1
 fi
 
