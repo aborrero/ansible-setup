@@ -66,6 +66,12 @@
     dotfiles:
       - toolforge-lima-kilo/userconfig.yaml
 
+- name: Install qemu package for lima-kilo
+  become: true
+  ansible.builtin.apt:
+    name: "qemu-kvm"
+    state: latest
+
 # docs at https://lima-vm.io/docs/installation/
 
 - name: Check if lima-vm is installed
