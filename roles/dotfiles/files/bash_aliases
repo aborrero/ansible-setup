@@ -204,3 +204,16 @@ fsystemctl() {
     history -s "${next_command}"
     eval ${next_command}
 }
+
+fxfconf() {
+    items=""
+    channels=$(xfconf-query --list | grep "^  " | awk -F' ' '{print $1}')
+    for channel in $channels ; do
+        properties=$(xfconf-query --list --channel $channel)
+        for property in $properties ; do
+            items=$(echo "${items}" ; echo "$channel $property")
+        done
+    done
+
+    echo "${items}" | fzf --preview "xfconf-query --channel {1} --property {2}"
+}
