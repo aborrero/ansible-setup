@@ -206,14 +206,10 @@ fsystemctl() {
 }
 
 fxfconf() {
-    items=""
     channels=$(xfconf-query --list | grep "^  " | awk -F' ' '{print $1}')
     for channel in $channels ; do
-        properties=$(xfconf-query --list --channel $channel)
-        for property in $properties ; do
-            items=$(echo "${items}" ; echo "$channel $property")
-        done
+        items=$(echo "${items}" ; xfconf-query --channel ${channel} --list --verbose)
     done
 
-    echo "${items}" | fzf --preview "xfconf-query --channel {1} --property {2}"
+    echo "${items}" | fzf
 }
