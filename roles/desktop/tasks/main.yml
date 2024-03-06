@@ -37,3 +37,6 @@
 
 - name: Include bluetooth tasks
   ansible.builtin.include_tasks: bluetooth.yaml
+
+- name: Include xfce tasks
+  ansible.builtin.include_tasks: xfce.yaml

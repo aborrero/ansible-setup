@@ -1,0 +1,21 @@
+---
+xfce_xfconf_data:
+  # workspaces
+  - channel: "xfwm4"
+    property: "/general/workspace_count"
+    type: "int"
+    value: "2"
+    force_array: false
+
+  - channel: "xfwm4"
+    property: "/general/workspace_names"
+    type: "string"
+    value: ['main', 'secondary']
+    force_array: true
+
+  # aspect
+  - channel: "xsettings"
+    property: "/Net/ThemeName"
+    type: "string"
+    value: "Adwaita-dark"
+    force_array: false

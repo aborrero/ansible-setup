@@ -1,0 +1,11 @@
+---
+- name: Configure xfce
+  community.general.xfconf:
+    channel: "{{ item.channel }}"
+    property: "{{ item.property }}"
+    value_type: "{{ item.type }}"
+    value: "{{ item.value }}"
+    force_array: "{{ item.force_array }}"
+  loop: "{{ xfce_xfconf_data }}"
+  loop_control:
+    label: "{{ item.channel }} -> {{ item.property }}: {{ item.value }}"
