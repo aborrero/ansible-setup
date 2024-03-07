@@ -1,4 +1,6 @@
 ---
+# see https://docs.ansible.com/ansible/latest/collections/community/general/xfconf_module.html
+# and https://forum.xfce.org/viewtopic.php?pid=32033#p32033
 xfce_xfconf_data:
   # workspaces
   - channel: "xfwm4"
@@ -13,9 +15,23 @@ xfce_xfconf_data:
     value: ['main', 'secondary']
     force_array: true
 
+  # behavior
+  - channel: "xfwm4"
+    property: "/general/click_to_focus"
+    type: "bool"
+    value: "false"
+    force_array: false
+
   # aspect
   - channel: "xsettings"
     property: "/Net/ThemeName"
     type: "string"
     value: "Adwaita-dark"
+    force_array: false
+
+  # panels
+  - channel: "xfce4-panel"
+    property: "/plugins/plugin-1/show-button-title"
+    type: "bool"
+    value: "false"
     force_array: false
