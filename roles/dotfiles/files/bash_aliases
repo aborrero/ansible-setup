@@ -208,7 +208,7 @@ fsystemctl() {
 fxfconf() {
     channels=$(xfconf-query --list | grep "^  " | awk -F' ' '{print $1}')
     for channel in $channels ; do
-        items=$(echo "${items}" ; xfconf-query --channel ${channel} --list --verbose)
+        items=$(echo "${items}" ; xfconf-query --channel ${channel} --list --verbose | while read line; do echo "${channel} -> ${line}"; done)
     done
 
     echo "${items}" | fzf
