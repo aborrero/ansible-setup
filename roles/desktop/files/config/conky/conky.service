@@ -1,7 +1,6 @@
 [Unit]
 Description=conky daemon
 After=default.target
-AssertEnvironment=DISPLAY
 
 [Service]
 RestartSec=5
