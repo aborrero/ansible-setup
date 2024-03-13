@@ -117,8 +117,10 @@
   ansible.builtin.apt:
     deb: https://github.com/atuinsh/atuin/releases/download/v18.1.0/atuin_18.1.0_amd64.deb
 
-- name: Include nix tasks
-  ansible.builtin.include_tasks: nix.yaml
+# NOTE: nix disabled for now, it eats the space on /nix which is usually the root partition
+# changing it is not simple with the debian installation method
+#- name: Include nix tasks
+#  ansible.builtin.include_tasks: nix.yaml
 
 # log viewer, see https://github.com/tstack/lnav
 - name: Install lnav
