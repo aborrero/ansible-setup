@@ -5,7 +5,7 @@ After=default.target
 [Service]
 RestartSec=5
 Restart=always
-ExecStart=conky --pause=20
+ExecStart=conky-wrapper.sh
 
 [Install]
 WantedBy=default.target
