@@ -2,12 +2,9 @@
 
 set -eo pipefail
 
-SLEEP=2
-PAUSE=5
+if [ "$DISPLAY" == "" ] ; then
+    echo "ERROR: empty \$DISPLAY env variable. Refusing to run conky" >&2
+    exit 1
+fi
 
-while [ "$DISPLAY" == "" ] ; do
-    echo "WARNING: empty \$DISPLAY env variable, retriyng in $SLEEP seconds" >&2
-    sleep $SLEEP
-done
-
-conky --pause=$PAUSE
+conky
