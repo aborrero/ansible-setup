@@ -13,7 +13,6 @@
 
 [core]
     excludesfile = /home/arturo/.gitignore
-    pager = delta
 
 [filter "lfs"]
     clean = git-lfs clean -- %f
@@ -27,15 +26,6 @@
 [diff]
     algorithm = histogram
     colorMoved = default
-
-[interactive]
-    diffFilter = delta --color-only
-
-[delta]
-    # use n and N to move between diff sections
-    navigate = true
-    # set to true if you're in a terminal w/ a light background color
-    light = false
 
 [merge]
     conflictstyle = diff3
