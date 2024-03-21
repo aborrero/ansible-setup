@@ -40,3 +40,6 @@
 
 - name: Include xfce tasks
   ansible.builtin.include_tasks: xfce.yaml
+
+- name: Include stremio tasks
+  ansible.builtin.include_tasks: stremio.yaml
