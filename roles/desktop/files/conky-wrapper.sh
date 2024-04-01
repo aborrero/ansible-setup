@@ -7,4 +7,5 @@ if [ "$DISPLAY" == "" ] ; then
     exit 1
 fi
 
-conky
+# pause so in case of triple monitor, it starts on the right one
+conky --pause=20
