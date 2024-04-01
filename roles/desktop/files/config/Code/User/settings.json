@@ -6,5 +6,8 @@
     "files.insertFinalNewline": true,
     "security.workspace.trust.untrustedFiles": "open",
     "extensions.ignoreRecommendations": true,
-    "editor.rulers": [120]
+    "editor.rulers": [
+        120
+    ],
+    "rewrap.autoWrap.enabled": true
 }
