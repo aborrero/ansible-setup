@@ -39,6 +39,6 @@ xfce_xfconf_data:
   # mouse, touchpad
   - channel: "pointers"
     property: "/SynPS2_Synaptics_TouchPad/Acceleration"
-    type: "int"
+    type: "double"
     value: "7.5"
     force_array: false
