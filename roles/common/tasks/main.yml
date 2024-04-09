@@ -47,6 +47,7 @@
       - python3-pygments
       - bat
       - npm
+      - jq
 
 - name: Install nostromo-specific packages
   tags:
