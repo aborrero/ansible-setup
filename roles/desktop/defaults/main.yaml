@@ -29,11 +29,32 @@ xfce_xfconf_data:
     value: "Adwaita-dark"
     force_array: false
 
-  # panels
+  # main panel, main app button
   - channel: "xfce4-panel"
     property: "/plugins/plugin-1/show-button-title"
     type: "bool"
     value: "false"
+    force_array: false
+
+  # main panel, show in main display
+  - channel: "xfce4-panel"
+    property: "/panels/panel-1/output-name"
+    type: "string"
+    value: "Primary"
+    force_array: false
+
+  # lower panel, show in main display
+  - channel: "xfce4-panel"
+    property: "/panels/panel-2/output-name"
+    type: "int"
+    value: "2"
+    force_array: false
+
+  # lower panel, auto hide
+  - channel: "xfce4-panel"
+    property: "/panels/panel-2/autohide-behavior"
+    type: "string"
+    value: "Primary"
     force_array: false
 
   # mouse, touchpad
