@@ -61,7 +61,7 @@ xfce_xfconf_data:
   - channel: "pointers"
     property: "/SynPS2_Synaptics_TouchPad/Acceleration"
     type: "double"
-    value: "8"
+    value: "8.000000"
     force_array: false
 
   # background, left HDMI monitor
