@@ -46,15 +46,15 @@ xfce_xfconf_data:
   # lower panel, show in main display
   - channel: "xfce4-panel"
     property: "/panels/panel-2/output-name"
-    type: "int"
-    value: "2"
+    type: "string"
+    value: "Primary"
     force_array: false
 
   # lower panel, auto hide
   - channel: "xfce4-panel"
     property: "/panels/panel-2/autohide-behavior"
-    type: "string"
-    value: "Primary"
+    type: "int"
+    value: "2"
     force_array: false
 
   # mouse, touchpad
