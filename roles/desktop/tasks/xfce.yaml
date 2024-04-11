@@ -9,3 +9,13 @@
   loop: "{{ xfce_xfconf_data }}"
   loop_control:
     label: "{{ item.channel }} -> {{ item.property }}: {{ item.value }}"
+
+- name: Deploy xfce autostartup files
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "/home/{{ user }}/.config/autostart/"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: "0755"
+  with_fileglob:
+    - "config/autostart/*"
