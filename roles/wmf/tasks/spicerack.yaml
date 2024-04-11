@@ -48,6 +48,8 @@
     - /home/{{ user }}/git/wmf/operations/software/spicerack
     - /home/{{ user }}/git/wmf/cloud/wmcs-cookbooks
   changed_when: false
+  # TODO: disabled for now, see https://phabricator.wikimedia.org/T345337
+  when: false
 
 - name: Install cookbook link
   tags: spicerack
