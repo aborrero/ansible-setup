@@ -2,7 +2,7 @@
 
 set -e
 
-BRANCH_PREFIX="arturo-${RANDOM:0:4}-"
+BRANCH_PREFIX="arturo-${RANDOM:0:2}-"
 BRANCH_MAX_NAME_LENGTH=30
 
 if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != "true" ] ; then
