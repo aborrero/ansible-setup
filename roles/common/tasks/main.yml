@@ -116,7 +116,7 @@
 - name: Install atuin
   become: true
   ansible.builtin.apt:
-    deb: https://github.com/atuinsh/atuin/releases/download/v18.1.0/atuin_18.1.0_amd64.deb
+    deb: https://github.com/atuinsh/atuin/releases/download/v18.2.0/atuin_18.2.0_amd64.deb
 
 # NOTE: nix disabled for now, it eats the space on /nix which is usually the root partition
 # changing it is not simple with the debian installation method
