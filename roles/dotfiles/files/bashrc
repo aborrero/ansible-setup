@@ -51,6 +51,8 @@ export DEBEMAIL=arturo@debian.org
 export GOPATH=${HOME}/.go
 export PATH=${PATH}:${GOPATH}/bin
 
+# order is important, otherwise the fzf keybindings will disable atuin
+. /usr/share/doc/fzf/examples/key-bindings.bash
 # order is important: liquidprompt will understand that bash-preexec was loaded first
 . ~/.bash-preexec.sh
 . /usr/share/liquidprompt/liquidprompt
