@@ -5,7 +5,7 @@
     dest: "/home/{{ user }}/.config/xfc4/panel/"
     owner: "{{ user }}"
     group: "{{ user }}"
-    mode: "0755"
+    mode: "0644"
 
 - name: Configure xfce
   community.general.xfconf:
