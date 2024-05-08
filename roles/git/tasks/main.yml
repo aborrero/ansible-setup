@@ -72,6 +72,7 @@
     - ghr
     - ghm
     - grm
+    - glm
 
 - name: Clone some github repos
   include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
