@@ -42,10 +42,10 @@ if is_main_branch ; then
 fi
 
 # make sure both branches are up-to-date
-gpr
 git checkout main
 gpr
 git checkout "$branch"
+gpr || true
 
 branch_commit_id=$(git rev-parse "$branch")
 common_commit_id=$(git merge-base main "$branch")
