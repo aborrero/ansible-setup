@@ -26,3 +26,4 @@
     - ms-python.python
     - charliermarsh.ruff
     - stkb.rewrap
+    - ms-python.mypy-type-checker
