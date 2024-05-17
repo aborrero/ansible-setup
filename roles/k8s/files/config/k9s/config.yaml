@@ -1,0 +1,10 @@
+# managed by ansible-setup
+---
+k9s:
+  liveViewAutoRefresh: true
+  noExitOnCtrlC: true
+  ui:
+    enableMouse: true
+    logoless: true
+  skipLatestRevCheck: false
+  disablePodCounting: false

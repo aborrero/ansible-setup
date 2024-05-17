@@ -35,3 +35,11 @@ k8s_binary_install_from_url:
     url: https://github.com/arttor/helmify/releases/download/v0.3.22/helmify_0.3.22_Linux_64-bit.tar.gz
     checksum: sha256:6ae7fa6726fd09a39d1b60c4ce7df7edc3fb4fbee2fc99211c217870cf8d226b
     unpack: true
+  # https://github.com/derailed/k9s/releases
+  - name: k9s
+    version: "v0.32.4"
+    version_command: "k9s version"
+    path: "/usr/local/bin/k9s"
+    url: "https://github.com/derailed/k9s/releases/download/v0.32.4/k9s_Linux_amd64.tar.gz"
+    checksum: "sha256:d62611d9be2c35b782a765e98421500196acbf8be844cd3d9e32d4fa7846da05"
+    unpack: true

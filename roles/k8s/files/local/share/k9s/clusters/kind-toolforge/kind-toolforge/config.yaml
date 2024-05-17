@@ -1,0 +1,11 @@
+# managed via ansible-setup
+---
+k9s:
+  cluster: kind-toolforge
+  namespace:
+    active: all
+    favorites:
+      - all
+      - kube-system
+  view:
+    active: deployments

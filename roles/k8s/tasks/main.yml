@@ -36,3 +36,10 @@
   loop_control:
     loop_var: binary
     label: "{{ binary.name }}"
+
+- name: Install some k8s dotfiles
+  ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+  vars:
+    dotfiles:
+      - config/k9s/config.yaml
+      - local/share/k9s/clusters/kind-toolforge/kind-toolforge/config.yaml
