@@ -91,6 +91,13 @@
     not lima_vm_filecheck.stat.executable or
     lima_vm_filecheck.stat.mimetype != "application/x-executable"
 
+- name: Install lima-kilo helpers
+  become: true
+  ansible.builtin.copy:
+    src: toolforge-lima-kilo/lima-kilo-get-kubeconfig.sh
+    dest: /usr/local/bin/lima-kilo-get-kubeconfig
+    mode: "0755"
+
 # from https://openapi-generator.tech
 - name: Install openapi-generator from npm
   community.general.npm:
