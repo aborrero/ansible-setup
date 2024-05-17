@@ -13,6 +13,7 @@
   vars:
     dotfiles:
       - config/Code/User/settings.json
+      - config/Code/User/keybindings.json
 
 - name: Install vscode extensions
   ansible.builtin.command:
