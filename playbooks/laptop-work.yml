@@ -19,3 +19,4 @@
     - { role: netfilter }
     - { role: wmf }
     - { role: k8s }
+    - { role: freexian }
