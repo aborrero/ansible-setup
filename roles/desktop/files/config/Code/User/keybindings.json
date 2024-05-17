@@ -2,12 +2,28 @@
 [
     // Toggle between terminal and editor focus
     {
-        "key":     "ctrl+p",
+        "key":     "alt+down",
         "command": "workbench.action.terminal.focus"
     },
     {
-        "key":     "ctrl+p",
+        "key":     "alt+up",
         "command": "workbench.action.focusActiveEditorGroup",
         "when":    "terminalFocus"
+    },
+    {
+        "key": "alt+left",
+        "command": "workbench.action.focusLeftGroup"
+    },
+    {
+        "key": "ctrl+k ctrl+left",
+        "command": "-workbench.action.focusLeftGroup"
+    },
+    {
+        "key": "alt+right",
+        "command": "workbench.action.focusRightGroup"
+    },
+    {
+        "key": "ctrl+k ctrl+right",
+        "command": "-workbench.action.focusRightGroup"
     }
 ]
