@@ -67,7 +67,7 @@ fggs() {
 # fuzzy file browser
 ffb() {
     dir="${1:-.}"
-    find ${dir} -type f | fzf --preview "pygmentize -g {}"
+    find ${dir} -type f -not -path '*/.*' | fzf --ansi --bind="ctrl-v:execute(nano {} < /dev/tty)" --preview "batcat --color always {}"
 }
 
 # fuzzy tree browser
