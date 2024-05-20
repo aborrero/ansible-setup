@@ -9,3 +9,6 @@ k9s:
     skin: everforest-dark
   skipLatestRevCheck: false
   disablePodCounting: false
+  logger:
+    textWrap: true
+    showTime: true
