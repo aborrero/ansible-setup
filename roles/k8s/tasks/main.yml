@@ -17,6 +17,8 @@
       # - podman
       - python3-kubernetes
       - jq
+      # for k9s to be able to copy logs from the ui
+      - xsel
 
 # see https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management
 - name: Install kubectl
