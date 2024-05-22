@@ -45,4 +45,3 @@
     dotfiles:
       - config/k9s/config.yaml
       - config/k9s/skins/everforest-dark.yaml
-      - local/share/k9s/clusters/kind-toolforge/kind-toolforge/config.yaml
