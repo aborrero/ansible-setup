@@ -45,3 +45,4 @@
     dotfiles:
       - config/k9s/config.yaml
       - config/k9s/skins/everforest-dark.yaml
+      - config/k9s/skins/kanagawa.yaml
