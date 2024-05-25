@@ -16,6 +16,7 @@
       - mmdebstrap
       - dput-ng
       - debcargo
+      - diffoscope-minimal
 
 - name: Install some debian-related dotfiles
   ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
