@@ -69,7 +69,7 @@
 - name: Install qemu package for lima-kilo
   become: true
   ansible.builtin.apt:
-    name: "qemu-kvm"
+    name: "qemu-system-x86"
     state: latest
 
 # docs at https://lima-vm.io/docs/installation/
