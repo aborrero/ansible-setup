@@ -44,5 +44,7 @@
   vars:
     dotfiles:
       - config/k9s/config.yaml
+      - config/k9s/hotkeys.yaml
+      - config/k9s/aliases.yaml
       - config/k9s/skins/everforest-dark.yaml
       - config/k9s/skins/kanagawa.yaml
