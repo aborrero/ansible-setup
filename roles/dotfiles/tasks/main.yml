@@ -14,5 +14,6 @@
       - config/nano/yaml-template.nanorc
       - config/nano/hcl.nanorc
       - config/nano/dockerfile.nanorc
+      - config/nano/bats.nanorc
       - config/atuin/config.toml
       - config/bat/config
