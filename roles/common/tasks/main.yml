@@ -150,3 +150,17 @@
       # NOTE: wrong sha256 published, see https://github.com/zellij-org/zellij/issues/3149
       checksum: "sha256:9203da2887042b4d8a3b2753e475f812fa60aff6955ffbf0632c0fbfcfaa4a81"
       unpack: true
+
+# see https://github.com/mikefarah/yq/releases
+- name: Install yq
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
+  vars:
+    binary:
+      name: "yq"
+      version: "4.44.1"
+      version_command: "yq --version"
+      path: "/usr/local/bin/yq"
+      url: "https://github.com/mikefarah/yq/releases/download/v4.44.1/yq_linux_amd64"
+      # NOTE: weird script is required to get this script
+      checksum: "sha256:6dc2d0cd4e0caca5aeffd0d784a48263591080e4a0895abe69f3a76eb50d1ba3"
+      unpack: false
