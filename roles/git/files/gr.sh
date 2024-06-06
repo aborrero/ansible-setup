@@ -34,6 +34,8 @@ elif grep -qE gitlab.wikimedia.org\|github.com <<< "$remotes" ; then
     # this is a gitlab repository
     branch=$(git branch --show-current)
 
+    git_push_args="--force --set-upstream origin"
+
     # decide if we need to create a new branch
     if grep -Eq ^main$\|^master$ <<< "$branch" ; then
         # we are in main branch, switch!
@@ -54,14 +56,11 @@ elif grep -qE gitlab.wikimedia.org\|github.com <<< "$remotes" ; then
 
         # create a new gitlab MR, see
         # https://docs.gitlab.com/ee/user/project/push_options.html
-        push_options="--push-option=merge_request.create --push-option=merge_request.label='Needs review'"
-    else
-        push_options=""
+        label="Needs review"
+        git_push_args="--push-option=merge_request.create --push-option=merge_request.label=\"${label}\" ${git_push_args}"
     fi
 
-    git push "$push_options" --force -u origin "$branch"
-    exit $?
-
+    eval git push "$git_push_args" "$branch"
 else
     echo "E: unknown context, expecting gerrit or gitlab" >&2
     exit 1
