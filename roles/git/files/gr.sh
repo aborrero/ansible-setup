@@ -51,9 +51,15 @@ elif grep -qE gitlab.wikimedia.org\|github.com <<< "$remotes" ; then
         git checkout --track -B "$branch"
         # using reflog, in the new branch, cherry-pick the changes that were in HEAD 2 operations ago
         git cherry-pick ..HEAD@{2}
+
+        # create a new gitlab MR, see
+        # https://docs.gitlab.com/ee/user/project/push_options.html
+        push_options="--push-option=merge_request.create --push-option=merge_request.label='Needs review'"
+    else
+        push_options=""
     fi
 
-    git push --force -u origin "$branch"
+    git push "$push_options" --force -u origin "$branch"
     exit $?
 
 else
