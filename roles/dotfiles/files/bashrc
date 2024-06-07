@@ -50,6 +50,7 @@ export DEBFULLNAME="Arturo Borrero Gonzalez"
 export DEBEMAIL=arturo@debian.org
 export GOPATH=${HOME}/.go
 export PATH=${PATH}:${GOPATH}/bin
+export LIMA_KILO_DOTFILES="arturo"
 
 # order is important, otherwise the fzf keybindings will disable atuin
 . /usr/share/doc/fzf/examples/key-bindings.bash
