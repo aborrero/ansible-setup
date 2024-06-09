@@ -1,2 +1,4 @@
 # nano swp file
 *.swp
+# quilt pc directory
+.pc/
