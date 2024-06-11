@@ -7,6 +7,10 @@ set -e
 REMOTE="origin"
 REMOTE_EXPECTED_URL="gitlab.wikimedia.org"
 
+if [ "$1" == "--force" ] || [ "$1" == "-f" ] ; then
+    force="force"
+fi
+
 if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != "true" ] ; then
     echo "E: is this a git repo?" >&2
     exit 1
@@ -50,8 +54,14 @@ gpr || true
 branch_commit_id=$(git rev-parse "$branch")
 common_commit_id=$(git merge-base main "$branch")
 if [ "$branch_commit_id" != "$common_commit_id" ] ; then
-    echo "E: it seems branch $branch has not been merged to main yet. Doing nothing." >&2
-    exit 1
+    if [ "$force" != "force" ] ; then
+        echo "ERROR: it seems branch '$branch' has not been merged to main yet." >&2
+        echo "ERROR: if you know that the branch '$branch' was merged for sure, try with --force/-f" >&2
+        echo "ERROR: doing nothing." >&2
+        exit 1
+    else
+        echo "WARNING: could not find a common merge-base commit, but used --force/-f, so deleting branch '$branch' anyway..." >&2
+    fi
 fi
 
 # both branches have the same commit id in common, means the branch was merged to main
