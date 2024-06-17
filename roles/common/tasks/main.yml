@@ -111,12 +111,27 @@
     dest: /etc/default/console-setup
     mode: "0644"
 
+# previously via .deb package, now no longer
+# see https://github.com/atuinsh/atuin/issues/2023#issuecomment-2158635429
+- name: Uninstall legacy atuin .deb
+  become: true
+  ansible.builtin.apt:
+    name: atuin
+    state: absent
+
 # see https://atuin.sh/
 # releases from https://github.com/atuinsh/atuin/releases
 - name: Install atuin
-  become: true
-  ansible.builtin.apt:
-    deb: https://github.com/atuinsh/atuin/releases/download/v18.2.0/atuin_18.2.0_amd64.deb
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
+  vars:
+    binary:
+      name: "atuin"
+      version: "18.3.0"
+      version_command: "atuin --version"
+      path: "/usr/local/bin/autin"
+      url: "https://github.com/atuinsh/atuin/releases/download/v18.3.0/atuin-x86_64-unknown-linux-gnu.tar.gz"
+      checksum: "sha256:e3716dfb8a68dbf8992c11dbb6cb9be746cf69a32b80075553c94614c7311792"
+      unpack: true
 
 # NOTE: nix disabled for now, it eats the space on /nix which is usually the root partition
 # changing it is not simple with the debian installation method
