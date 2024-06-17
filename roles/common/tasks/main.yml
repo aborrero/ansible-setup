@@ -128,7 +128,7 @@
       name: "atuin"
       version: "18.3.0"
       version_command: "atuin --version"
-      path: "/usr/local/bin/autin"
+      path: "/usr/local/bin/atuin"
       url: "https://github.com/atuinsh/atuin/releases/download/v18.3.0/atuin-x86_64-unknown-linux-gnu.tar.gz"
       checksum: "sha256:e3716dfb8a68dbf8992c11dbb6cb9be746cf69a32b80075553c94614c7311792"
       unpack: true
