@@ -364,7 +364,7 @@
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = '''bash -ic "ssh -t toolsbeta-bastion-6.toolsbeta.eqiad1.wikimedia.cloud 'become test'" ; bash'''
+      command = '''bash -ic "ssh -t toolsbeta-bastion-6.toolsbeta.eqiad1.wikimedia.cloud 'sudo become test ; bash'" ; bash'''
   [[wmf tools deploy]]
     [[[child0]]]
       title = tools deploy
@@ -421,5 +421,5 @@
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = '''bash -ic "ssh -t dev.toolforge.org 'become arturo-test-tool'" ; bash'''
+      command = '''bash -ic "ssh -t dev.toolforge.org 'become arturo-test-tool ; bash'" ; bash'''
 [plugins]
