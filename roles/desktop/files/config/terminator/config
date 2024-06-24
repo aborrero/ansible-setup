@@ -288,7 +288,6 @@
       order = 0
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = bash -ic "limactl start lima-kilo" ; bash
     [[[child2]]]
       type = VPaned
       parent = child1
@@ -308,5 +307,119 @@
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = bash -ic "limactl shell lima-kilo" ; bash
+      command = bash -ic "limactl start lima-kilo && limactl shell lima-kilo" ; bash
+  [[wmf toolsbeta deploy]]
+    [[[child0]]]
+      title = toolsbeta deploy
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:27
+      maximised = True
+      fullscreen = False
+      size = 2560, 1389
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 1278
+      ratio = 0.50
+    [[[child2]]]
+      type = VPaned
+      parent = child1
+      order = 0
+      position = 1250
+      ratio = 0.70
+    [[[terminal7]]]
+      type = Terminal
+      parent = child2
+      order = 0
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/toolforge
+      command = bash -ic "ssh toolsbeta-test-k8s-control-7.toolsbeta.eqiad1.wikimedia.cloud" ; bash
+    [[[terminal8]]]
+      type = Terminal
+      parent = child2
+      order = 1
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/toolforge
+      command = bash -ic "ssh cloudcumin1001.eqiad.wmnet" ; bash
+    [[[child3]]]
+      type = VPaned
+      parent = child1
+      order = 1
+      position = 692
+      ratio = 0.5
+    [[[terminal10]]]
+      type = Terminal
+      parent = child3
+      order = 0
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/toolforge
+      command = bash -ic "ssh toolsbeta-test-k8s-control-7.toolsbeta.eqiad1.wikimedia.cloud" ; bash
+    [[[terminal11]]]
+      type = Terminal
+      parent = child3
+      order = 1
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/toolforge
+      command = '''bash -ic "ssh -t toolsbeta-bastion-6.toolsbeta.eqiad1.wikimedia.cloud 'become test'" ; bash'''
+  [[wmf tools deploy]]
+    [[[child0]]]
+      title = tools deploy
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:27
+      maximised = True
+      fullscreen = False
+      size = 2560, 1389
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 1278
+      ratio = 0.50
+    [[[child2]]]
+      type = VPaned
+      parent = child1
+      order = 0
+      position = 1250
+      ratio = 0.70
+    [[[terminal7]]]
+      type = Terminal
+      parent = child2
+      order = 0
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/toolforge
+      command = bash -ic "ssh tools-k8s-control-7.tools.eqiad1.wikimedia.cloud" ; bash
+    [[[terminal8]]]
+      type = Terminal
+      parent = child2
+      order = 1
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/toolforge
+      command = bash -ic "ssh cloudcumin1001.eqiad.wmnet" ; bash
+    [[[child3]]]
+      type = VPaned
+      parent = child1
+      order = 1
+      position = 692
+      ratio = 0.5
+    [[[terminal10]]]
+      type = Terminal
+      parent = child3
+      order = 0
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/toolforge
+      command = bash -ic "ssh tools-k8s-control-7.tools.eqiad1.wikimedia.cloud" ; bash
+    [[[terminal11]]]
+      type = Terminal
+      parent = child3
+      order = 1
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/toolforge
+      command = '''bash -ic "ssh -t dev.toolforge.org 'become arturo-test-tool'" ; bash'''
 [plugins]
