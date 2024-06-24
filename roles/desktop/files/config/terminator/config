@@ -265,4 +265,48 @@
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/operations/puppet
+  [[wmf lima-kilo]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:27
+      maximised = True
+      fullscreen = False
+      size = 2560, 1389
+      title = lima-kilo
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 1278
+      ratio = 0.5
+    [[[terminal1]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/toolforge
+      command = bash -ic "limactl start lima-kilo" ; bash
+    [[[child2]]]
+      type = VPaned
+      parent = child1
+      order = 1
+      position = 692
+      ratio = 0.5
+    [[[terminal2]]]
+      type = Terminal
+      parent = child2
+      order = 0
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/toolforge
+      command = bash -ic "k9s" ; bash
+    [[[terminal3]]]
+      type = Terminal
+      parent = child2
+      order = 1
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/toolforge
+      command = bash -ic "limactl shell lima-kilo" ; bash
 [plugins]
