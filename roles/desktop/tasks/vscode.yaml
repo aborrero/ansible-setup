@@ -28,3 +28,4 @@
     - charliermarsh.ruff
     - stkb.rewrap
     - ms-python.mypy-type-checker
+    - puppet.puppet-vscode
