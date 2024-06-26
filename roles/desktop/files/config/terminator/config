@@ -2,6 +2,7 @@
   handle_size = 4
   window_state = maximise
   inactive_color_offset = 0.75
+  enabled_plugins = LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, PhabricatorURLHandler
   always_split_with_profile = True
 [keybindings]
   close_term = ""

@@ -13,7 +13,6 @@
       - gimp
       - dia
       - pdfsam
-      - terminator
       - gnome-calculator
       - conky-std
       - blueman
@@ -34,7 +33,6 @@
   ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
   vars:
     dotfiles:
-      - config/terminator/config
       - config/conky/conky.conf
 
 - name: Install conky wrapper

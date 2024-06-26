@@ -1,0 +1,30 @@
+---
+- name: Install terminator
+  tags: apt
+  become: true
+  ansible.builtin.apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+      - terminator
+
+- name: Install terminator dotfiles
+  ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+  vars:
+    dotfiles:
+      - config/terminator/config
+
+- name: Create terminator plugins directory
+  ansible.builtin.file:
+    path: /home/{{ user }}/.config/terminator/plugins
+    state: directory
+    mode: '0755'
+
+- name: Install plugins
+  ansible.builtin.copy:
+    src: config/terminator/plugins/{{ item }}
+    dest: /home/{{ user }}/.config/terminator/plugins/{{ item }}
+    mode: "0755"
+  loop:
+    - wmcs_phab.py
