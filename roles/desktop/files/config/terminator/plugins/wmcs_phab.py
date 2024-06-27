@@ -17,5 +17,5 @@ class PhabricatorURLHandler(plugin.URLHandler):
     def callback(self, url):
         """Look for the number in the supplied string and return it as a URL"""
         for item in re.findall(r'[0-9]+', url):
-            url = 'https://phabricator.wikimedia.org/%s' % item
+            url = f"https://phabricator.wikimedia.org/T{item}"
             return url
