@@ -61,6 +61,8 @@
         dir: wmf/cloud/toolforge/maintain-kubeusers
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/alerts.git
         dir: wmf/cloud/toolforge/alerts
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/wmcs-k8s-metrics.git
+        dir: wmf/cloud/toolforge/wmcs-k8s-metrics
 
 - name: Install toolforge lima-kilo userconfig file
   ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
