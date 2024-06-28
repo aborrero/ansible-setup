@@ -48,3 +48,12 @@
       - config/k9s/aliases.yaml
       - config/k9s/skins/everforest-dark.yaml
       - config/k9s/skins/kanagawa.yaml
+
+- name: Git clone k8s repos
+  ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
+  vars:
+    email: arturo.bg@arturo.bg
+    git_repos:
+      - url: https://github.com/kubernetes-sigs/contributor-playground
+        dir: k8s-sigs/contributor-playground
+
