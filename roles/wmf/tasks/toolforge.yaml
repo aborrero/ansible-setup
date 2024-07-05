@@ -65,6 +65,8 @@
         dir: wmf/cloud/toolforge/wmcs-k8s-metrics
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/registry-admission.git
         dir: wmf/cloud/toolforge/registry-admission
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/fourohfour.git
+        dir: wmf/cloud/toolforge/fourohfour
 
 - name: Install toolforge lima-kilo userconfig file
   ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
