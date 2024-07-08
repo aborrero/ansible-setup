@@ -49,6 +49,8 @@
         dir: wmf/cloud/instance-puppet
       - url: ssh://gerrit.wikimedia.org:29418/cloud/instance-puppet-dev
         dir: wmf/cloud/instance-puppet-dev
+      - url: git@gitlab.wikimedia.org:repos/cloud/deb/k9s.git
+        dir: wmf/cloud/deb/k9s
 
 - name: Clone some gitlab repos
   ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
