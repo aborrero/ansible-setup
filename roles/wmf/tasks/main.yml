@@ -57,8 +57,6 @@
     git_repos:
       - url: git@gitlab.wikimedia.org:repos/cloud/cicd/gitlab-ci.git
         dir: wmf/cloud/cicd/gitlab-ci
-      - url: git@gitlab.wikimedia.org:repos/cloud/deb/k9s.git
-        dir: wmf/cloud/deb/k9s
 
 # another option (not in use in my setup as of today)
 # * https://pypi.org/project/wm-ssh/
