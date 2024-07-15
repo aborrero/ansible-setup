@@ -30,3 +30,4 @@
     - ms-python.mypy-type-checker
     - puppet.puppet-vscode
     - yzhang.markdown-all-in-one
+    - gamunu.opentofu
