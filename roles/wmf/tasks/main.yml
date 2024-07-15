@@ -89,3 +89,6 @@
 
 - name: Include gerritlab tasks
   ansible.builtin.include_tasks: gerritlab.yaml
+
+- name: Include opentofu tasks
+  ansible.builtin.include_tasks: opentofu.yaml
