@@ -57,6 +57,8 @@
     git_repos:
       - url: git@gitlab.wikimedia.org:repos/cloud/cicd/gitlab-ci.git
         dir: wmf/cloud/cicd/gitlab-ci
+      - url: git@gitlab.wikimedia.org:repos/cloud/cloud-vps/tofu-infra.git
+        dir: wmf/cloud/cloud-vps/tofu-infra.git
 
 # another option (not in use in my setup as of today)
 # * https://pypi.org/project/wm-ssh/
