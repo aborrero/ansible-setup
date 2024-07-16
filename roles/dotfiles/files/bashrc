@@ -73,3 +73,6 @@ eval "$(register-python-argcomplete pipx)"
 
 # nix stuff
 export PATH=${PATH}:${HOME}/.nix-profile/bin
+
+# cargo stuff
+export PATH=${PATH}:${HOME}/.cargo/bin

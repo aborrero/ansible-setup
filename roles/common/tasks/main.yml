@@ -48,6 +48,7 @@
       - bat
       - npm
       - jq
+      - cargo
 
 - name: Install nostromo-specific packages
   tags:
