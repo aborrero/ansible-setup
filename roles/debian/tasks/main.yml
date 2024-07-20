@@ -83,3 +83,6 @@
         dir: debian/liquidprompt/pkg-liquidprompt
       - url: git@salsa.debian.org:rust-team/debcargo-conf.git
         dir: debian/rust-team/debcargo-conf
+
+- name: Include dput tasks
+  ansible.builtin.include_tasks: "{{ role_path }}/../debian/tasks/dput.yaml"
