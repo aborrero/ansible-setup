@@ -12,7 +12,7 @@
     mode: "0644"
     content: |
       {
-          "default_keyid": "DD9861AB23DC3333892E07A968E713981D1515F8",
+          "default_keyid": "DD9861AB23DC3333892E07A968E713981D1515F8"
       }
 
 - name: Install dput extended-lts profile config
