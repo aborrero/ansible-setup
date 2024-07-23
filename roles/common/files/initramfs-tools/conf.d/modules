@@ -1,0 +1,8 @@
+# managed by ansible-setup
+#
+# try to guess which modules are necessary for the running box and only adds those modules
+# otherwise the initramfs will grow too big
+#
+# see also: initramfs.conf(5)
+# see also: https://askubuntu.com/questions/16007/switch-to-a-targeted-initrd-after-setup
+MODULES=dep

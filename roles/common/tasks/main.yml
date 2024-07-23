@@ -180,3 +180,10 @@
       # NOTE: weird script is required to get this script
       checksum: "sha256:6dc2d0cd4e0caca5aeffd0d784a48263591080e4a0895abe69f3a76eb50d1ba3"
       unpack: false
+
+- name: Install initramfs-tools config file
+  become: true
+  ansible.builtin.copy:
+    src: initramfs-tools/conf.d/modules
+    dest: /etc/initramfs-tools/conf.d/modules
+    mode: "0644"
