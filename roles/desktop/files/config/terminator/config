@@ -10,7 +10,7 @@
   close_window = ""
 [profiles]
   [[default]]
-    background_color = "#230a32"
+    background_color = "#14021a"
     background_darkness = 0.85
     foreground_color = "#9ae1ff"
     show_titlebar = False
