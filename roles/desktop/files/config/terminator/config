@@ -426,6 +426,7 @@
       command = '''bash -ic "ssh -t dev.toolforge.org 'become arturo-test-tool ; bash'" ; bash'''
   [[wmf tofu]]
     [[[child0]]]
+      title = tofu
       type = Window
       parent = ""
       order = 0
