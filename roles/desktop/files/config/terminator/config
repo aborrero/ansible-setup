@@ -434,7 +434,6 @@
       maximised = True
       fullscreen = False
       size = 2560, 1389
-      title = /bin/bash
       last_active_window = True
     [[[child1]]]
       type = HPaned
