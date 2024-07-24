@@ -359,7 +359,7 @@
       order = 0
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = bash -ic "ssh -t toolsbeta-test-k8s-control-7.toolsbeta.eqiad1.wikimedia.cloud 'sudo -i k9s ; bash'" ; bash
+      command = '''bash -ic "ssh -t toolsbeta-test-k8s-control-7.toolsbeta.eqiad1.wikimedia.cloud 'sudo -i k9s ; bash'" ; bash'''
     [[[terminal11]]]
       type = Terminal
       parent = child3
@@ -416,7 +416,7 @@
       order = 0
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = bash -ic "ssh -t tools-k8s-control-7.tools.eqiad1.wikimedia.cloud 'sudo -i k9s ; bash'" ; bash
+      command = '''bash -ic "ssh -t tools-k8s-control-7.tools.eqiad1.wikimedia.cloud 'sudo -i k9s ; bash'" ; bash'''
     [[[terminal11]]]
       type = Terminal
       parent = child3
@@ -424,4 +424,60 @@
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
       command = '''bash -ic "ssh -t dev.toolforge.org 'become arturo-test-tool ; bash'" ; bash'''
+  [[wmf tofu]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 1080:507
+      maximised = True
+      fullscreen = False
+      size = 2560, 1389
+      title = /bin/bash
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 1278
+      ratio = 0.5001956947162427
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
+    [[[child3]]]
+      type = VPaned
+      parent = child1
+      order = 1
+      position = 692
+      ratio = 0.5
+    [[[terminal4]]]
+      type = Terminal
+      parent = child3
+      order = 0
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
+      command = bash -ic "ssh cloudcumin1001.eqiad.wmnet" ; bash
+    [[[child5]]]
+      type = VPaned
+      parent = child3
+      order = 1
+      position = 344
+      ratio = 0.5
+    [[[terminal6]]]
+      type = Terminal
+      parent = child5
+      order = 0
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
+      command = bash -ic "ssh cloudcontrol2004-dev.codfw.wmnet" ; bash
+    [[[terminal7]]]
+      type = Terminal
+      parent = child5
+      order = 1
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
+      command = bash -ic "ssh cloudcontrol1005.eqiad.wmnet" ; bash
 [plugins]
