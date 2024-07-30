@@ -8,6 +8,7 @@
   vars:
     packages:
       - terminator
+      - xdotool
 
 - name: Install terminator dotfiles
   ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
@@ -28,3 +29,11 @@
     mode: "0755"
   loop:
     - wmcs_phab.py
+
+- name: Install layout launcher closer script
+  ansible.builtin.copy:
+    src: "{{ file }}"
+    dest: "/home/{{ user }}/.config/terminator/{{ file }}"
+    mode: "0755"
+  vars:
+    file: "terminator-llc.sh"

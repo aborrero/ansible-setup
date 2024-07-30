@@ -59,7 +59,7 @@
       maximised = True
       fullscreen = False
       size = 1920, 1029
-      title = /bin/bash
+      title = default
       last_active_window = True
     [[[child1]]]
       type = HPaned
@@ -72,6 +72,7 @@
       parent = child1
       order = 0
       profile = default
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"
     [[[terminal3]]]
       type = Terminal
       parent = child1
@@ -99,6 +100,7 @@
       parent = child1
       order = 0
       profile = default
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"
       directory = /home/arturo/git/wmf/operations/puppet
     [[[child2]]]
       type = VPaned
@@ -140,6 +142,7 @@
       parent = child1
       order = 0
       profile = default
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"
       directory = /home/arturo/git/github/ansible-setup
     [[[child2]]]
       type = VPaned
@@ -212,6 +215,7 @@
       parent = child3
       order = 1
       profile = default
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"
       directory = /home/arturo/git/wmf/operations/puppet
   [[wmf reimage codfw]]
     [[[child0]]]
@@ -266,6 +270,7 @@
       parent = child3
       order = 1
       profile = default
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"
       directory = /home/arturo/git/wmf/operations/puppet
   [[wmf lima-kilo]]
     [[[child0]]]
@@ -289,6 +294,7 @@
       parent = child1
       order = 0
       profile = default
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"
       directory = /home/arturo/git/wmf/cloud/toolforge
     [[[child2]]]
       type = VPaned
@@ -346,7 +352,7 @@
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = bash -ic "ssh cloudcumin1001.eqiad.wmnet" ; bash
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh cloudcumin1001.eqiad.wmnet" ; bash
     [[[child3]]]
       type = VPaned
       parent = child1
@@ -403,7 +409,7 @@
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = bash -ic "ssh cloudcumin1001.eqiad.wmnet" ; bash
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh cloudcumin1001.eqiad.wmnet" ; bash
     [[[child3]]]
       type = VPaned
       parent = child1
@@ -446,6 +452,7 @@
       parent = child1
       order = 0
       profile = default
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
     [[[child3]]]
       type = VPaned
