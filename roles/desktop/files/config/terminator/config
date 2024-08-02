@@ -72,7 +72,7 @@
       parent = child1
       order = 0
       profile = default
-      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"
+      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"'
     [[[terminal3]]]
       type = Terminal
       parent = child1
@@ -100,7 +100,7 @@
       parent = child1
       order = 0
       profile = default
-      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"
+      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"'
       directory = /home/arturo/git/wmf/operations/puppet
     [[[child2]]]
       type = VPaned
@@ -142,7 +142,7 @@
       parent = child1
       order = 0
       profile = default
-      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"
+      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"'
       directory = /home/arturo/git/github/ansible-setup
     [[[child2]]]
       type = VPaned
@@ -215,7 +215,7 @@
       parent = child3
       order = 1
       profile = default
-      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"
+      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"'
       directory = /home/arturo/git/wmf/operations/puppet
   [[wmf reimage codfw]]
     [[[child0]]]
@@ -270,7 +270,7 @@
       parent = child3
       order = 1
       profile = default
-      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"
+      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"'
       directory = /home/arturo/git/wmf/operations/puppet
   [[wmf lima-kilo]]
     [[[child0]]]
@@ -294,7 +294,7 @@
       parent = child1
       order = 0
       profile = default
-      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"
+      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"'
       directory = /home/arturo/git/wmf/cloud/toolforge
     [[[child2]]]
       type = VPaned
@@ -452,7 +452,7 @@
       parent = child1
       order = 0
       profile = default
-      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"
+      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"'
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
     [[[child3]]]
       type = VPaned
@@ -487,4 +487,149 @@
       profile = default
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
       command = bash -ic "ssh cloudcontrol1005.eqiad.wmnet" ; bash
+  [[debian pkg]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 1080:507
+      maximised = True
+      fullscreen = False
+      size = 2560, 1389
+      title = debian pkg
+      last_active_term = 3c5a8bac-3eb3-4534-b4e4-44a10d487193
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 1278
+      ratio = 0.5
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      uuid = 3c5a8bac-3eb3-4534-b4e4-44a10d487193
+      directory = /home/arturo/git/debian
+      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"'
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      uuid = 17bf3979-2c0c-4245-90fd-d708859b5377
+      directory = /home/arturo/git/debian
+  [[x freexian lts]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 1080:507
+      maximised = True
+      fullscreen = False
+      size = 2560, 1389
+      title = freexian lts
+      last_active_term = 3c5a8bac-3eb3-4534-b4e4-44a10d487193
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 1278
+      ratio = 0.5
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      uuid = 3c5a8bac-3eb3-4534-b4e4-44a10d487193
+      directory = /home/arturo/git/freexian/security-tracker
+      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"'
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      uuid = 17bf3979-2c0c-4245-90fd-d708859b5377
+      directory = /home/arturo/git/freexian/services/deblts-team/debian-lts
+  [[x freexian deb]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 1080:507
+      maximised = True
+      fullscreen = False
+      size = 2560, 1389
+      title = freexian deb
+      last_active_term = 3c5a8bac-3eb3-4534-b4e4-44a10d487193
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 1278
+      ratio = 0.5
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      uuid = 3c5a8bac-3eb3-4534-b4e4-44a10d487193
+      directory = /home/arturo/git/debian/lts
+      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"'
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      uuid = 17bf3979-2c0c-4245-90fd-d708859b5377
+      directory = /home/arturo/git/debian/lts
+  [[x freexian elts]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 1080:507
+      maximised = True
+      fullscreen = False
+      size = 2560, 1389
+      title = freexian elts
+      last_active_term = 3c5a8bac-3eb3-4534-b4e4-44a10d487193
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 1278
+      ratio = 0.5
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      uuid = 17bf3979-2c0c-4245-90fd-d708859b5377
+      directory = /home/arturo/git/freexian/extended-security-tracker
+    [[[child3]]]
+      type = VPaned
+      parent = child1
+      order = 1
+      position = 692
+      ratio = 0.5
+    [[[terminal4]]]
+      type = Terminal
+      parent = child3
+      order = 0
+      profile = default
+      uuid = 3c5a8bac-3eb3-4534-b4e4-44a10d487193
+      directory = /home/arturo/git/freexian/services/deblts-team/extended-lts
+      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"'
+    [[[terminal5]]]
+      type = Terminal
+      parent = child3
+      order = 1
+      profile = default
+      uuid = a1a9cda5-beda-4779-a6b7-ad74e90ea4c8
+      directory = /home/arturo/git/freexian/extended-lts-website
 [plugins]
