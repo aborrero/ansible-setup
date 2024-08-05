@@ -45,7 +45,7 @@
   tags: git
   become: true
   become_user: "{{ user }}"
-  ansible.builtin.command: "git -C /home/{{ user }}/git/{{ item.dir }}/ pull --rebase --ff-only --all --no-autostash --quiet"
+  ansible.builtin.command: "git -C /home/{{ user }}/git/{{ item.dir }}/ pull {{ item.pull_options | default('') }} --rebase --ff-only --all --no-autostash --quiet"
   ignore_errors: true  # noqa: ignore-errors
   changed_when: false
   failed_when: false
