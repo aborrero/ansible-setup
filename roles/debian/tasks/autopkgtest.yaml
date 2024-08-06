@@ -1,0 +1,17 @@
+---
+# target_config:
+#   mirror: string
+#   release: string
+#   keyring: string
+
+- name: Create qemu image for autopkgtest, release {{ release }}
+  become: true
+  ansible.builtin.command:
+    cmd: "autopkgtest-build-qemu {{ size }} {{ keyring }} {{ mirror }} {{ release }} {{ image }}"
+    creates: "{{ image }}"
+  vars:
+    size: "--size=5G"
+    keyring: "{{ target_config.keyring | default('') }}"
+    mirror: " {{ target_config.mirror | default('') }}"
+    release: "{{ target_config.release }}"
+    image: "/home/{{ user }}/.local/autopkgtest-qemu-{{ target_config.release }}.img"

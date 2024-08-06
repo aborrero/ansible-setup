@@ -18,6 +18,8 @@
       - debcargo
       - diffoscope-minimal
       - cdbs
+      # for autopkgtest-build-qemu
+      - vmdb2
 
 - name: Install some debian-related dotfiles
   ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
@@ -86,3 +88,21 @@
 
 - name: Include dput tasks
   ansible.builtin.include_tasks: "{{ role_path }}/../debian/tasks/dput.yaml"
+
+- name: Create autopkgtest qemu images
+  ansible.builtin.include_tasks: "{{ role_path }}/../debian/tasks/autopkgtest.yaml"
+  loop: "{{ data }}"
+  loop_control:
+    loop_var: target_config
+    label: "{{ target_config.release }}"
+  vars:
+    data:
+      - keyring: --keyring=/etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
+        mirror: --mirror=http://localhost:3142/deb.freexian.com/extended-lts/
+        release: buster
+      - keyring: --keyring=/etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
+        mirror: --mirror=http://localhost:3142/deb.freexian.com/extended-lts/
+        release: stretch
+      - keyring: --keyring=/etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
+        mirror: --mirror=http://localhost:3142/deb.freexian.com/extended-lts/
+        release: jessie
