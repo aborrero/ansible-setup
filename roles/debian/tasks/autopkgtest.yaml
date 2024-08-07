@@ -15,3 +15,34 @@
     mirror: " {{ target_config.mirror | default('') }}"
     release: "{{ target_config.release }}"
     image: "/home/{{ user }}/.local/autopkgtest-qemu-{{ target_config.release }}.img"
+  register: qemu_image_create
+
+- name: Fix filesystem to remove newer flags not supported by older grub
+  become: true
+  when: qemu_image_create.changed
+  vars:
+    image: "/home/{{ user }}/.local/autopkgtest-qemu-{{ target_config.release }}.img"
+    dev: /dev/nbd0
+    partition: /dev/nbd0p1
+  block:
+    - name: Enable nbd module
+      community.general.modprobe:
+        name: nbd
+        state: present
+        params: max_part=8
+
+    - name: Run qemu-nbd connect for {{ image }}
+      ansible.builtin.command:
+        cmd: "qemu-nbd --connect={{ dev }} {{ image }}"
+        creates: "{{ dev }}"
+
+    - name: Fix fs flags in {{ image }}
+      ansible.builtin.command:
+        cmd: "tune2fs -O ^orphan_file {{ partition }}"
+      # this can fail, ignore
+      failed_when: false
+
+    - name: Run qemu-nbd disconnect for {{ image }}
+      ansible.builtin.command:
+        cmd: "qemu-nbd --disconnect {{ dev }}"
+        removes: "{{ dev }}"
