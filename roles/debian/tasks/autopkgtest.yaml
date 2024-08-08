@@ -46,3 +46,8 @@
       ansible.builtin.command:
         cmd: "qemu-nbd --disconnect {{ dev }}"
         removes: "{{ dev }}"
+
+    - name: Disable nbd module
+      community.general.modprobe:
+        name: nbd
+        state: absent
