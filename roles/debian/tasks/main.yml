@@ -98,11 +98,11 @@
   vars:
     data:
       - keyring: --keyring=/etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
-        mirror: --mirror=http://localhost:3142/deb.freexian.com/extended-lts/
+        mirror: --mirror=http://deb.freexian.com/extended-lts/
         release: buster
       - keyring: --keyring=/etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
-        mirror: --mirror=http://localhost:3142/deb.freexian.com/extended-lts/
+        mirror: --mirror=http://deb.freexian.com/extended-lts/
         release: stretch
       - keyring: --keyring=/etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
-        mirror: --mirror=http://localhost:3142/deb.freexian.com/extended-lts/
+        mirror: --mirror=http://deb.freexian.com/extended-lts/
         release: jessie
