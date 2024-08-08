@@ -34,18 +34,20 @@
     - name: Run qemu-nbd connect for {{ image }}
       ansible.builtin.command:
         cmd: "qemu-nbd --connect={{ dev }} {{ image }}"
-        creates: "{{ dev }}"
+        creates: "{{ partition }}"
 
     - name: Fix fs flags in {{ image }}
       ansible.builtin.command:
         cmd: "tune2fs -O ^orphan_file {{ partition }}"
-      # this can fail, ignore
-      failed_when: false
+
+    - name: Sync filesystem
+      ansible.builtin.command:
+        cmd: sync
 
     - name: Run qemu-nbd disconnect for {{ image }}
       ansible.builtin.command:
         cmd: "qemu-nbd --disconnect {{ dev }}"
-        removes: "{{ dev }}"
+        removes: "{{ partition }}"
 
     - name: Disable nbd module
       community.general.modprobe:
