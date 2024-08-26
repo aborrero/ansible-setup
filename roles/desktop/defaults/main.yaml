@@ -161,3 +161,305 @@ xfce_xfconf_data:
     type: "string"
     value: "/usr/share/backgrounds/blue_mountains.jpg"
     force_array: false
+
+  # display settings, laptop only profile
+  - channel: displays
+    force_array: 'false'
+    property: /ba80724e2db564ce4d9289488bba79e7d492ff19
+    type: string
+    value: laptop only
+
+  - channel: displays
+    force_array: 'false'
+    property: /ba80724e2db564ce4d9289488bba79e7d492ff19/eDP-1
+    type: string
+    value: Laptop
+
+  - channel: displays
+    force_array: 'false'
+    property: /ba80724e2db564ce4d9289488bba79e7d492ff19/eDP-1/Active
+    type: bool
+    value: 'true'
+
+  - channel: displays
+    force_array: 'false'
+    property: /ba80724e2db564ce4d9289488bba79e7d492ff19/eDP-1/EDID
+    type: string
+    value: d8e8c3b3d3bcf218eea802ed9c52bbe3a0086f5a
+
+  - channel: displays
+    force_array: 'false'
+    property: /ba80724e2db564ce4d9289488bba79e7d492ff19/eDP-1/Position/X
+    type: int
+    value: '0'
+
+  - channel: displays
+    force_array: 'false'
+    property: /ba80724e2db564ce4d9289488bba79e7d492ff19/eDP-1/Position/Y
+    type: int
+    value: '0'
+
+  - channel: displays
+    force_array: 'false'
+    property: /ba80724e2db564ce4d9289488bba79e7d492ff19/eDP-1/Primary
+    type: bool
+    value: 'false'
+
+  - channel: displays
+    force_array: 'false'
+    property: /ba80724e2db564ce4d9289488bba79e7d492ff19/eDP-1/Reflection
+    type: int
+    value: '0'
+
+  - channel: displays
+    force_array: 'false'
+    property: /ba80724e2db564ce4d9289488bba79e7d492ff19/eDP-1/RefreshRate
+    type: double
+    value: '120.015505'
+
+  - channel: displays
+    force_array: 'false'
+    property: /ba80724e2db564ce4d9289488bba79e7d492ff19/eDP-1/Resolution
+    type: string
+    value: 1920x1080
+
+  - channel: displays
+    force_array: 'false'
+    property: /ba80724e2db564ce4d9289488bba79e7d492ff19/eDP-1/Rotation
+    type: int
+    value: '0'
+
+  - channel: displays
+    force_array: 'false'
+    property: /ba80724e2db564ce4d9289488bba79e7d492ff19/eDP-1/Scale/X
+    type: double
+    value: '1.000000'
+
+  - channel: displays
+    force_array: 'false'
+    property: /ba80724e2db564ce4d9289488bba79e7d492ff19/eDP-1/Scale/Y
+    type: double
+    value: '1.000000'
+
+  # display settings, 3 screens profile
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12
+    type: string
+    value: 3 screens
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/DP-1-2
+    type: string
+    value: ASUS 27"
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/DP-1-2/Active
+    type: bool
+    value: 'true'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/DP-1-2/EDID
+    type: string
+    value: 71f8026b5cdd2776c54bd1529eb350fd35526c9e
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/DP-1-2/Position/X
+    type: int
+    value: '0'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/DP-1-2/Position/Y
+    type: int
+    value: '0'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/DP-1-2/Primary
+    type: bool
+    value: 'false'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/DP-1-2/Reflection
+    type: int
+    value: '0'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/DP-1-2/RefreshRate
+    type: double
+    value: '60.000000'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/DP-1-2/Resolution
+    type: string
+    value: 1920x1080
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/DP-1-2/Rotation
+    type: int
+    value: '90'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/DP-1-2/Scale/X
+    type: double
+    value: '1.000000'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/DP-1-2/Scale/Y
+    type: double
+    value: '1.000000'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/HDMI-1-0
+    type: string
+    value: LG 32"
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/HDMI-1-0/Active
+    type: bool
+    value: 'true'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/HDMI-1-0/EDID
+    type: string
+    value: e50b6f8b5c9854ec5f8ed4921b2048f94437167f
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/HDMI-1-0/Position/X
+    type: int
+    value: '1080'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/HDMI-1-0/Position/Y
+    type: int
+    value: '480'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/HDMI-1-0/Primary
+    type: bool
+    value: 'true'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/HDMI-1-0/Reflection
+    type: int
+    value: '0'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/HDMI-1-0/RefreshRate
+    type: double
+    value: '59.950550'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/HDMI-1-0/Resolution
+    type: string
+    value: 2560x1440
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/HDMI-1-0/Rotation
+    type: int
+    value: '0'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/HDMI-1-0/Scale/X
+    type: double
+    value: '1.000000'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/HDMI-1-0/Scale/Y
+    type: double
+    value: '1.000000'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/eDP-1
+    type: string
+    value: Laptop
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/eDP-1/Active
+    type: bool
+    value: 'true'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/eDP-1/EDID
+    type: string
+    value: d8e8c3b3d3bcf218eea802ed9c52bbe3a0086f5a
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/eDP-1/Position/X
+    type: int
+    value: '3640'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/eDP-1/Position/Y
+    type: int
+    value: '1200'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/eDP-1/Primary
+    type: bool
+    value: 'false'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/eDP-1/Reflection
+    type: int
+    value: '0'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/eDP-1/RefreshRate
+    type: double
+    value: '120.001629'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/eDP-1/Resolution
+    type: string
+    value: 1280x720
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/eDP-1/Rotation
+    type: int
+    value: '0'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/eDP-1/Scale/X
+    type: double
+    value: '1.000000'
+
+  - channel: displays
+    force_array: 'false'
+    property: /d4df945a4760356ad978ade7ffc60a03c3acbb12/eDP-1/Scale/Y
+    type: double
+    value: '1.000000'
