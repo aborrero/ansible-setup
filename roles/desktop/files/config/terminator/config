@@ -509,7 +509,7 @@
       parent = child1
       order = 0
       profile = default
-      command = bash -ic "ssh cloudcontrol1005.eqiad.wmnet" ; bash
+      command = bash -ic "ssh cloudcontrol1005.eqiad.wmnet ; bash"
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
     [[[child2]]]
       type = VPaned
@@ -523,14 +523,14 @@
       order = 0
       profile = default
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
-      command = bash -ic "ssh cloudcontrol1005.eqiad.wmnet" ; bash
+      command = bash -ic "ssh cloudcontrol1005.eqiad.wmnet ; bash"
     [[[terminal3]]]
       type = Terminal
       parent = child2
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
-      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh cloudcumin1001.eqiad.wmnet" ; bash
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh cloudcumin1001.eqiad.wmnet ; bash"
   [[wmf cloud codfw1dev]]
     [[[child0]]]
       type = Window
@@ -553,7 +553,7 @@
       parent = child1
       order = 0
       profile = default
-      command = bash -ic "ssh cloudcontrol2004-dev.codfw.wmnet" ; bash
+      command = bash -ic "ssh cloudcontrol2004-dev.codfw.wmnet ; bash"
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
     [[[child2]]]
       type = VPaned
@@ -567,14 +567,102 @@
       order = 0
       profile = default
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
-      command = bash -ic "ssh cloudcontrol2004-dev.codfw.wmnet" ; bash
+      command = bash -ic "ssh cloudcontrol2004-dev.codfw.wmnet ; bash"
     [[[terminal3]]]
       type = Terminal
       parent = child2
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
-      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh cloudcumin1001.eqiad.wmnet" ; bash
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh cloudcumin1001.eqiad.wmnet ; bash"
+  [[wmf cloudnet eqiad1]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:27
+      maximised = True
+      fullscreen = False
+      size = 2560, 1389
+      title = wmf cloudnet eqiad1
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 1278
+      ratio = 0.5
+    [[[terminal1]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh cloudnet1005.eqiad.wmnet ; bash"
+      directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
+    [[[child2]]]
+      type = VPaned
+      parent = child1
+      order = 1
+      position = 692
+      ratio = 0.5
+    [[[terminal2]]]
+      type = Terminal
+      parent = child2
+      order = 0
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
+      command = bash -ic "ssh cloudnet1006.eqiad.wmnet ; bash"
+    [[[terminal3]]]
+      type = Terminal
+      parent = child2
+      order = 1
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
+      command = bash -ic "ssh cloudcontrol1005.eqiad.wmnet ; bash"
+  [[wmf cloudnet codfw1dev]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:27
+      maximised = True
+      fullscreen = False
+      size = 2560, 1389
+      title = wmf cloudnet codfw1dev
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 1278
+      ratio = 0.5
+    [[[terminal1]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh cloudnet2005-dev.codfw.wmnet ; bash"
+      directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
+    [[[child2]]]
+      type = VPaned
+      parent = child1
+      order = 1
+      position = 692
+      ratio = 0.5
+    [[[terminal2]]]
+      type = Terminal
+      parent = child2
+      order = 0
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
+      command = bash -ic "ssh cloudnet2006-dev.codfw.wmnet ; bash"
+    [[[terminal3]]]
+      type = Terminal
+      parent = child2
+      order = 1
+      profile = default
+      directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
+      command = bash -ic "ssh cloudcontrol2004-dev.codfw.wmnet ; bash"
   [[debian pkg]]
     [[[child0]]]
       type = Window
