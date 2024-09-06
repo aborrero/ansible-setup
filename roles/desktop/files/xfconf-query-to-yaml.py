@@ -44,6 +44,10 @@ def get_type(value: str) -> str:
 def main():
     args = sys.argv[1:]
 
+    if len(args) != 1:
+        show_help()
+        exit(1)
+
     if args[0] in ["--help", "-h", "-H"]:
         show_help()
         exit(0)
@@ -57,6 +61,16 @@ def main():
     for item in channel_items:
         elements.append(translate_item(channel, item))
 
-    print(yaml.safe_dump({"xfce_xfconf_data": elements}))
+    yaml_string = yaml.safe_dump({"xfce_xfconf_data": elements})
+
+    # do some formatting
+    indent="  "
+    for line in yaml_string.splitlines():
+        if line.startswith("-"):
+            # print empty line before each array element
+            print()
+
+        # indent each line
+        print(f"{indent}{line}")
 
 main()
