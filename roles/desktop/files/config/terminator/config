@@ -162,6 +162,35 @@
       order = 1
       profile = default
       directory = /home/arturo/git/github/ansible-setup
+  [[wmf cumin]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:27
+      maximised = True
+      fullscreen = False
+      size = 1920, 1029
+      title = "cumin"
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 958
+      ratio = 0.50
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh cumin1002.eqiad.wmnet ; bash -i"'
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      command = 'bash -ic "ssh cloudcumin1001.eqiad.wmnet ; bash -i"'
   [[wmf reimage eqiad]]
     [[[child0]]]
       title = wmf reimage eqiad
