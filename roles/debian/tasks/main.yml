@@ -97,6 +97,7 @@
     label: "{{ target_config.release }}"
   vars:
     data:
+      - release: bullseye
       - keyring: --keyring=/etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
         mirror: --mirror=http://deb.freexian.com/extended-lts/
         release: buster
