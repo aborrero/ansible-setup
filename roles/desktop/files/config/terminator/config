@@ -374,14 +374,14 @@
       order = 0
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = bash -ic "ssh toolsbeta-test-k8s-control-7.toolsbeta.eqiad1.wikimedia.cloud" ; bash
+      command = bash -ic "ssh toolsbeta-test-k8s-control-10.toolsbeta.eqiad1.wikimedia.cloud ; bash -i"
     [[[terminal8]]]
       type = Terminal
       parent = child2
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh cloudcumin1001.eqiad.wmnet" ; bash
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh cloudcumin1001.eqiad.wmnet ; bash -i"
     [[[child3]]]
       type = VPaned
       parent = child1
@@ -394,14 +394,14 @@
       order = 0
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = '''bash -ic "ssh -t toolsbeta-test-k8s-control-7.toolsbeta.eqiad1.wikimedia.cloud 'sudo -i k9s ; bash'" ; bash'''
+      command = '''bash -ic "ssh -t toolsbeta-test-k8s-control-10.toolsbeta.eqiad1.wikimedia.cloud 'sudo -i k9s ; bash -i' ; bash -i"'''
     [[[terminal11]]]
       type = Terminal
       parent = child3
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = '''bash -ic "ssh -t toolsbeta-bastion-6.toolsbeta.eqiad1.wikimedia.cloud 'sudo become test ; bash'" ; bash'''
+      command = '''bash -ic "ssh -t toolsbeta-bastion-6.toolsbeta.eqiad1.wikimedia.cloud 'sudo become test ; bash -i' ; bash -i"'''
   [[wmf tools deploy]]
     [[[child0]]]
       title = tools deploy
