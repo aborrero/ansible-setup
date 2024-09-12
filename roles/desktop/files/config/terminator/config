@@ -603,7 +603,7 @@
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
-      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh cloudcumin1001.eqiad.wmnet ; bash"
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh cloudcumin2001.codfw.wmnet ; bash"
   [[wmf cloudnet eqiad1]]
     [[[child0]]]
       type = Window
