@@ -20,8 +20,6 @@
       - hexchat
       - mkdocs
       - mkdocs-material
-      # required by nvidia stuff
-      - linux-headers-amd64
 
 - name: Install bitwarden desktop
   tags: bitwarden

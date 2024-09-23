@@ -3,26 +3,44 @@
 # conf:
 #   shortname: string
 #   repo_spec: string
-#   key_url: string
+#   key_extension: string (asc or gpg)
+#   key_url: string -- mutually exclusive
+#   key_path: string -- mutually exclusive
 #   packages:
 #     - string
 
-- name: Install repository key for /etc/apt/trusted.gpg.d/{{ conf.shortname }}.asc
+- name: Download repository key for /etc/apt/trusted.gpg.d/{{ conf.shortname }}.{{ ext }}
   tags: apt
   become: true
   ansible.builtin.get_url:
     url: "{{ conf.key_url }}"
-    dest: /etc/apt/trusted.gpg.d/{{ conf.shortname }}.asc
+    dest: /etc/apt/trusted.gpg.d/{{ conf.shortname }}.{{ ext }}
     mode: "0644"
+  vars:
+    ext: "{{ conf.key_extension | default('asc') }}"
+  when: conf.key_url is defined
+
+- name: Copy repository key for /etc/apt/trusted.gpg.d/{{ conf.shortname }}.{{ ext }}
+  tags: apt
+  become: true
+  ansible.builtin.copy:
+    src: "{{ conf.key_path }}"
+    dest: /etc/apt/trusted.gpg.d/{{ conf.shortname }}.{{ ext }}
+    mode: "0644"
+  vars:
+    ext: "{{ conf.key_extension | default('asc') }}"
+  when: conf.key_path is defined
 
 - name: Install repository source in /etc/apt/sources.list/{{ conf.shortname }}.list
   tags: apt
   become: true
   ansible.builtin.apt_repository:
     filename: "{{ conf.shortname }}"
-    repo: deb [signed-by=/etc/apt/trusted.gpg.d/{{ conf.shortname }}.asc] {{ conf.repo_spec }}
+    repo: deb [signed-by=/etc/apt/trusted.gpg.d/{{ conf.shortname }}.{{ ext }}] {{ conf.repo_spec }}
     state: present
     update_cache: false
+  vars:
+    ext: "{{ conf.key_extension | default('asc') }}"
 
 - name: Update single repository defined in /etc/apt/sources.list.d/{{ conf.shortname }}.list
   tags: apt

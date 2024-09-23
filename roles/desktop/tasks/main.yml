@@ -2,6 +2,9 @@
 - name: Include common desktop tasks
   ansible.builtin.include_tasks: common.yml
 
+- name: Include display tasks
+  ansible.builtin.include_tasks: display.yaml
+
 - name: Include terminator tasks
   ansible.builtin.include_tasks: terminator.yml
 
