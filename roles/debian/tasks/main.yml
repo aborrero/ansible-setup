@@ -27,6 +27,7 @@
     dotfiles:
       - reportbugrc
       - sbuildrc
+      - quiltrc
 
 - name: Add user to sbuild Unix group
   become: true
