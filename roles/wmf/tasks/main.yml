@@ -9,12 +9,21 @@
     group: root
     mode: "0755"
   loop:
-    - wmf-puppetmaster-merge.sh
-    - wmf-cleanup-puppetmaster.sh
+    - wmf-puppetserver-merge.sh
+    - wmf-cleanup-puppetserver.sh
     - wmf-tools-merge.sh
     - wmf-export-puppet-patch.sh
     - wmf-git-review.sh
     - wmcs-update-known-hosts.sh
+
+- name: Cleanup unused custom WMF scripts
+  become: true
+  ansible.builtin.file:
+    path: "/usr/local/bin/{{ item }}"
+    state: absent
+  loop:
+    - wmf-puppetmaster-merge.sh
+    - wmf-cleanup-puppetmaster.sh
 
 - name: Install wmf-laptop-sre
   ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
