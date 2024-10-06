@@ -51,8 +51,10 @@
         release: buster
       - mirror: deb.freexian.com/extended-lts/
         release: stretch
-      - mirror: deb.freexian.com/extended-lts/
-        release: jessie
+      - release: jessie
+        mirror: deb.freexian.com/extended-lts/
+        mmdebstrap: false
+        keyring: /etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
 
 - name: Clone some debian git repos
   ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
