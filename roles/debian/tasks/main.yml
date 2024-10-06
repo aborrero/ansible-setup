@@ -38,14 +38,21 @@
 
 - name: Setup sbuild chroot
   ansible.builtin.include_tasks: "{{ role_path }}/../debian/tasks/sbuild.yml"
+  loop: "{{ data }}"
+  loop_control:
+    loop_var: target_config
+    label: "{{ target_config.release }}"
   vars:
-    distributions:
-      - unstable
-      # to include stuff in point releases
-      - bullseye
-      - bookworm
-      # for toolforge servers
-      - buster
+    data:
+      - release: unstable
+      - release: bullseye
+      - release: bookworm
+      - mirror: deb.freexian.com/extended-lts/
+        release: buster
+      - mirror: deb.freexian.com/extended-lts/
+        release: stretch
+      - mirror: deb.freexian.com/extended-lts/
+        release: jessie
 
 - name: Clone some debian git repos
   ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
