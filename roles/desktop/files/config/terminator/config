@@ -88,7 +88,7 @@
       maximised = True
       fullscreen = False
       size = 2560, 1389
-      title = wmf ops dns
+      title = ops dns
       last_active_window = True
     [[[child1]]]
       type = HPaned
@@ -132,7 +132,7 @@
       maximised = True
       fullscreen = False
       size = 2560, 1389
-      title = wmf ops puppet
+      title = ops puppet
       last_active_window = True
     [[[child1]]]
       type = HPaned
@@ -238,7 +238,7 @@
       command = 'bash -ic "ssh cloudcumin1001.eqiad.wmnet ; bash -i"'
   [[wmf reimage eqiad]]
     [[[child0]]]
-      title = wmf reimage eqiad
+      title = reimage eqiad
       type = Window
       parent = ""
       order = 0
@@ -293,7 +293,7 @@
       directory = /home/arturo/git/wmf/operations/puppet
   [[wmf reimage codfw]]
     [[[child0]]]
-      title = wmf reimage codfw
+      title = reimage codfw
       type = Window
       parent = ""
       order = 0
@@ -570,7 +570,7 @@
       maximised = True
       fullscreen = False
       size = 2560, 1389
-      title = wmf cloud eqiad1
+      title = cloud eqiad1
       last_active_window = True
     [[[child1]]]
       type = HPaned
@@ -614,7 +614,7 @@
       maximised = True
       fullscreen = False
       size = 2560, 1389
-      title = wmf cloud codfw1dev
+      title = cloud codfw1dev
       last_active_window = True
     [[[child1]]]
       type = HPaned
@@ -658,7 +658,7 @@
       maximised = True
       fullscreen = False
       size = 2560, 1389
-      title = wmf cloudnet eqiad1
+      title = cloudnet eqiad1
       last_active_window = True
     [[[child1]]]
       type = HPaned
@@ -702,7 +702,7 @@
       maximised = True
       fullscreen = False
       size = 2560, 1389
-      title = wmf cloudnet codfw1dev
+      title = cloudnet codfw1dev
       last_active_window = True
     [[[child1]]]
       type = HPaned
@@ -881,7 +881,7 @@
       profile = default
       command = 'bash -ic "ssh dev.toolforge.org ; bash -i"'
 
-  [[wmf bastions cofw1dev]]
+  [[wmf bastions codfw1dev]]
     [[[child0]]]
       type = Window
       parent = ""
