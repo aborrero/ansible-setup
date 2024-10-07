@@ -78,6 +78,51 @@
       parent = child1
       order = 1
       profile = default
+
+  [[wmf ops dns]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:27
+      maximised = True
+      fullscreen = False
+      size = 2560, 1389
+      title = wmf ops dns
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 1278
+      ratio = 0.5
+    [[[terminal1]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash -i"'
+      directory = /home/arturo/git/wmf/operations/dns
+    [[[child2]]]
+      type = VPaned
+      parent = child1
+      order = 1
+      position = 692
+      ratio = 0.5
+    [[[terminal2]]]
+      type = Terminal
+      parent = child2
+      order = 0
+      profile = default
+      directory = /home/arturo/git/wmf/operations/dns
+    [[[terminal3]]]
+      type = Terminal
+      parent = child2
+      order = 1
+      profile = default
+      directory = /home/arturo/git/wmf/operations/dns
+      command = 'bash -ic "ssh cloudcumin1001.eqiad.wmnet ; bash -i"'
+
   [[wmf ops puppet]]
     [[[child0]]]
       type = Window
