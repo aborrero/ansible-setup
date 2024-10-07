@@ -806,6 +806,66 @@
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
       command = bash -ic "ssh cloudgw2003-dev.codfw.wmnet; bash -i"
+  [[wmf bastions eqiad1]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:27
+      maximised = True
+      fullscreen = False
+      size = 1920, 1029
+      title = "bastion eqiad1"
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 958
+      ratio = 0.50
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh eqiad1-restricted.bastion.wmcloud.org ; bash -i"'
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      command = 'bash -ic "ssh dev.toolforge.org ; bash -i"'
+
+  [[wmf bastions cofw1dev]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:27
+      maximised = True
+      fullscreen = False
+      size = 1920, 1029
+      title = "bastion codfw1dev"
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 958
+      ratio = 0.50
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh bastion.bastioninfra-codfw1dev.codfw1dev.wmcloud.org ; bash -i"'
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      command = 'bash -ic "ssh bastion.bastioninfra-codfw1dev.codfw1dev.wmcloud.org ; bash -i"'
+
   [[debian pkg]]
     [[[child0]]]
       type = Window
