@@ -89,6 +89,8 @@
         dir: github/sys-avenger
       - url: git@github.com:aborrero/arturo.bg.git
         dir: github/arturo.bg
+      - url: git@github.com:aborrero/nftables-tracer.git
+        dir: github/nftables-tracer
 
 # from https://github.com/stacked-git/stgit/releases
 - name: Install stgit
