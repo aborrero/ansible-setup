@@ -14,8 +14,8 @@ if [ "$PUPPETSERVER" == "toolsbeta" ] ; then
 fi
 
 SSH_COMMAND="{ cd /srv/git/operations/puppet/ ;
-		sudo git checkout -f ;
-		sudo git clean -fd ;
+		sudo pgit checkout -f ;
+		sudo pgit clean -fd ;
 		sudo systemctl start puppet-git-sync-upstream.service ;}"
 echo "INFO: cleaning up $PUPPETSERVER"
 echo
