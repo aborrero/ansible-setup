@@ -1,5 +1,5 @@
 #!/bin/bash
 
-wmf-puppetmaster-merge.sh
-wmf-cleanup-puppetmaster.sh tools
-wmf-cleanup-puppetmaster.sh toolsbeta
+wmf-puppetserver-merge.sh
+wmf-cleanup-puppetserver.sh tools
+wmf-cleanup-puppetserver.sh toolsbeta
