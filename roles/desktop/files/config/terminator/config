@@ -368,7 +368,7 @@
       parent = child1
       order = 0
       profile = default
-      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash"'
+      command = 'bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; bash -i"'
       directory = /home/arturo/git/wmf/cloud/toolforge
     [[[child2]]]
       type = VPaned
@@ -382,14 +382,14 @@
       order = 0
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = bash -ic "k9s" ; bash
+      command = bash -ic "k9s ; bash -i"
     [[[terminal3]]]
       type = Terminal
       parent = child2
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = bash -ic "limactl start lima-kilo && limactl shell lima-kilo" ; bash
+      command = bash -ic "limactl start lima-kilo && limactl shell lima-kilo ; bash -i"
   [[wmf toolsbeta deploy]]
     [[[child0]]]
       title = toolsbeta deploy
