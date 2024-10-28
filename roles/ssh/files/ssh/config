@@ -174,7 +174,7 @@ Host git.netfilter.org
 Host review.opendev.org review
   Hostname review.opendev.org
   Port 29418
-  User artur
+  User arturo
   IdentityFile ~/.ssh/id_rsa
 
 Host gitlab.wikimedia.org
