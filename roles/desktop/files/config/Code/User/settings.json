@@ -12,5 +12,6 @@
     "rewrap.autoWrap.enabled": true,
     "python.defaultInterpreterPath": "/usr/bin/python3",
     "explorer.confirmDragAndDrop": false,
-    "go.toolsManagement.autoUpdate": true
+    "go.toolsManagement.autoUpdate": true,
+    "explorer.confirmDelete": false
 }
