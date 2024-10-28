@@ -18,3 +18,13 @@ deb [trusted=yes] http://deb.freexian.com/extended-lts buster main contrib non-f
 deb-src [trusted=yes] http://deb.freexian.com/extended-lts buster main contrib non-free
 deb [trusted=yes] http://deb.freexian.com/extended-lts-staging buster-lts-proposed main contrib non-free
 deb-src [trusted=yes] http://deb.freexian.com/extended-lts-staging buster-lts-proposed main contrib non-free
+
+deb [trusted=yes] http://deb.freexian.com/extended-lts stretch main contrib non-free
+deb-src [trusted=yes] http://deb.freexian.com/extended-lts stretch main contrib non-free
+deb [trusted=yes] http://deb.freexian.com/extended-lts-staging stretch-lts-proposed main contrib non-free
+deb-src [trusted=yes] http://deb.freexian.com/extended-lts-staging stretch-lts-proposed main contrib non-free
+
+deb [trusted=yes] http://deb.freexian.com/extended-lts jessie main contrib non-free
+deb-src [trusted=yes] http://deb.freexian.com/extended-lts jessie main contrib non-free
+deb [trusted=yes] http://deb.freexian.com/extended-lts-staging jessie-lts-proposed main contrib non-free
+deb-src [trusted=yes] http://deb.freexian.com/extended-lts-staging jessie-lts-proposed main contrib non-free
