@@ -51,6 +51,7 @@
         release: buster
       - mirror: deb.freexian.com/extended-lts/
         release: stretch
+        keyring: /etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
       - release: jessie
         mirror: deb.freexian.com/extended-lts/
         mmdebstrap: false
