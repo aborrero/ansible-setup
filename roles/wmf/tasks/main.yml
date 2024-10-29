@@ -68,6 +68,8 @@
         dir: wmf/cloud/cicd/gitlab-ci
       - url: git@gitlab.wikimedia.org:repos/cloud/cloud-vps/tofu-infra.git
         dir: wmf/cloud/cloud-vps/tofu-infra
+      - url: git@gitlab.wikimedia.org:repos/cloud/cloud-vps/designate-sink-nova-fixed-ptr.git
+        dir: wmf/cloud/cloud-vps/designate-sink-nova-fixed-ptr
 
 # another option (not in use in my setup as of today)
 # * https://pypi.org/project/wm-ssh/
