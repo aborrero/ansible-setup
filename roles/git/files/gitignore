@@ -2,3 +2,5 @@
 *.swp
 # quilt pc directory
 .pc/
+# python pyc files
+*.pyc
