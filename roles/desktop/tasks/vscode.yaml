@@ -4,8 +4,6 @@
   become: true
   ansible.builtin.apt:
     deb: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
-  # dependency problem with libglib2.0-0
-  failed_when: false
 
 - name: Install vscode user settings file
   tags: rclone
