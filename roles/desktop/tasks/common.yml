@@ -20,49 +20,19 @@
       - hexchat
       - mkdocs
       - mkdocs-material
+      - copyq
+
+- name: Install copyq config
+  ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+  vars:
+    dotfiles:
+      - config/copyq/copyq.conf
 
 - name: Install bitwarden desktop
   tags: bitwarden
   become: true
   ansible.builtin.apt:
     deb: https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=deb
-
-- name: Install some dotfiles
-  ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
-  vars:
-    dotfiles:
-      - config/conky/conky.conf
-
-- name: Install conky wrapper
-  become: true
-  ansible.builtin.copy:
-    src: conky-wrapper.sh
-    dest: /usr/local/bin/conky-wrapper.sh
-    owner: root
-    group: root
-    mode: "0755"
-
-- name: Create systemd service files for conky
-  tags: conky
-  become: true
-  ansible.builtin.copy:
-    src: config/conky/conky.service
-    dest: /etc/systemd/user/conky.service
-    owner: root
-    group: root
-    mode: "0644"
-
-- name: Enable systemd service for conky
-  become: true
-  become_user: "{{ user }}"
-  ansible.builtin.systemd:
-    name: conky.service
-    enabled: true
-    state: started
-    scope: user
-    daemon_reload: true
-  # affected by https://github.com/ansible/ansible/issues/75542 or similar
-  changed_when: false
 
 - name: Install desktop backgrounds
   become: true

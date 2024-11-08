@@ -2,6 +2,9 @@
 - name: Include common desktop tasks
   ansible.builtin.include_tasks: common.yml
 
+- name: Include conky tasks
+  ansible.builtin.include_tasks: conky.yml
+
 - name: Include display tasks
   ansible.builtin.include_tasks: display.yaml
 
