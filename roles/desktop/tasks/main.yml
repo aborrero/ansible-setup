@@ -3,7 +3,7 @@
   ansible.builtin.include_tasks: common.yml
 
 - name: Include conky tasks
-  ansible.builtin.include_tasks: conky.yml
+  ansible.builtin.include_tasks: conky.yaml
 
 - name: Include display tasks
   ansible.builtin.include_tasks: display.yaml
