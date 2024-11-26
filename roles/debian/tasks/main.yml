@@ -36,7 +36,14 @@
     groups: sbuild
     append: true
 
-- name: Setup sbuild chroot
+- name: Install system-wide sbuild config file
+  become: true
+  ansible.builtin.copy:
+    src: sbuild.conf
+    dest: /etc/sbuild/sbuild.conf
+    mode: "0644"
+
+- name: Setup sbuild chroots
   ansible.builtin.include_tasks: "{{ role_path }}/../debian/tasks/sbuild.yml"
   loop: "{{ data }}"
   loop_control:
@@ -52,6 +59,7 @@
       - mirror: deb.freexian.com/extended-lts/
         release: stretch
         keyring: /etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
+        mmdebstrap: false
       - release: jessie
         mirror: deb.freexian.com/extended-lts/
         mmdebstrap: false

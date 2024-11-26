@@ -4,5 +4,10 @@ $build_source = 1;
 $source_only_changes = 1;
 #$run_autopkgtest = 1;
 
+# explicit schroot selection, otherwise it defaults to unshare
+# which may be fine, but I don't have to test now
+$chroot_mode = "schroot";
+$schroot = "schroot";
+
 # don't remove this, Perl needs it:
 1;
