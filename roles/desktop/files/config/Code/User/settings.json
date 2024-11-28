@@ -13,5 +13,6 @@
     "python.defaultInterpreterPath": "/usr/bin/python3",
     "explorer.confirmDragAndDrop": false,
     "go.toolsManagement.autoUpdate": true,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "workbench.editor.empty.hint": "hidden"
 }
