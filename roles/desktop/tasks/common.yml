@@ -21,6 +21,8 @@
       - mkdocs
       - mkdocs-material
       - copyq
+      - amberol
+      - vlc
 
 - name: Install copyq config
   ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
@@ -44,3 +46,16 @@
     mode: "0644"
   with_fileglob:
     - "backgrounds/*"
+
+- name: Deinstall some packages
+  become: true
+  ansible.builtin.apt:
+    name: "{{ packages }}"
+    state: absent
+  vars:
+    packages:
+      - exfalso
+      - quodlibet
+      - xfburn
+      - parole
+      - mpv
