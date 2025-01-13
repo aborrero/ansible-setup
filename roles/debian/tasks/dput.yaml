@@ -21,7 +21,7 @@
     mode: "0644"
     content: |
       {
-          "fqdn": "deb.freexian.com",
+          "fqdn": "deb-master.freexian.com",
           "incoming": "/incoming",
           "login": "extended-lts",
           "meta": "debian",
