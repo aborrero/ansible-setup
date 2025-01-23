@@ -1,0 +1,15 @@
+---
+- name: Install packages for sending emails from the command line
+  become: true
+  ansible.builtin.apt:
+    pkg:
+      - msmtp
+      - libsecret-tools
+    state: latest
+
+- name: Install some dotfiles
+  ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+  vars:
+    dotfiles:
+      - msmtprc
+      - mailrc

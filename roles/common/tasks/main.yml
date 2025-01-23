@@ -1,4 +1,7 @@
 ---
+- name: Include email tasks
+  ansible.builtin.include_tasks: email.yaml
+
 - name: Include rclone tasks
   ansible.builtin.include_tasks: rclone.yml
 

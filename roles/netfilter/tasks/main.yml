@@ -12,18 +12,3 @@
         dir: netfilter/iptables
       - url: git://git.netfilter.org/conntrack-tools
         dir: netfilter/conntrack-tools
-
-- name: Install packages for sending git emails
-  tags: netfilter
-  become: true
-  ansible.builtin.apt:
-    pkg:
-      - msmtp
-      - libsecret-tools
-    state: latest
-
-- name: Install some dotfiles
-  ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
-  vars:
-    dotfiles:
-      - msmtprc
