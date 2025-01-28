@@ -15,12 +15,11 @@
     groups: sudo
     append: true
 
-- name: Install custom sources.list
-  tags: apt
+- name: Install apt configuration
   become: true
   ansible.builtin.copy:
-    src: sources.list
-    dest: /etc/apt/sources.list
+    src: apt/
+    dest: /etc/apt/
     mode: "0644"
 
 - name: Install a list of packages to their latest version
