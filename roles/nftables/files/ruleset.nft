@@ -24,7 +24,7 @@ table inet filter {
         # accept virtual traffic from KVM/libvirt VMs
         iifname virbr0 counter accept
         # accept virtual traffic in the docker network
-        iffname docker0 counter accept
+        iifname docker0 counter accept
 
         # count and drop any other traffic
         counter drop
