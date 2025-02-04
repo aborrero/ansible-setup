@@ -786,14 +786,14 @@
       order = 0
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = bash -ic "ssh cloudgw1002.eqiad.wmnet; bash -i"
+      command = bash -ic "ssh cloudgw1004.eqiad.wmnet; bash -i"
     [[[terminal11]]]
       type = Terminal
       parent = child3
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = bash -ic "ssh cloudgw1002.eqiad.wmnet; bash -i"
+      command = bash -ic "ssh cloudgw1004.eqiad.wmnet; bash -i"
   [[wmf cloudgw codfw]]
     [[[child0]]]
       title = cloudgw codfw
