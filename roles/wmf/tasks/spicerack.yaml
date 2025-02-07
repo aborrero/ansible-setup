@@ -48,6 +48,8 @@
     - /home/{{ user }}/git/wmf/operations/software/spicerack
     - /home/{{ user }}/git/wmf/cloud/wmcs-cookbooks
   changed_when: false
+  # NOTE: disabled for now, because it always fails!
+  when: false
 
 - name: Install cookbook link
   tags: spicerack
