@@ -1,4 +1,15 @@
 ---
+- name: Install xfce-related packages
+  become: true
+  ansible.builtin.apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+      # this, in turns depends on utilities like the screenshooter
+      # xfce4-goodies is only listed as Recommends in the tasksel package
+      - xfce4-goodies
+
 - name: Deploy xfce panel files
   ansible.builtin.copy:
     src: "config/xfce4/panel/"
