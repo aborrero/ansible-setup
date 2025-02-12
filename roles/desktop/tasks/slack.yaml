@@ -1,5 +1,5 @@
 ---
-# see https://slack.com/downloads/instructions/ubuntu
+# see https://slack.com/downloads/linux
 # and https://slack.com/help/articles/115004809166-Verify-Slack-for-Linux--beta--package-signatures
 - name: Install slack desktop
   tags: slack
@@ -7,7 +7,7 @@
   ansible.builtin.apt:
     deb: "https://downloads.slack-edge.com/releases/linux/{{ version }}/prod/x64/slack-desktop-{{ version }}-amd64.deb"
   vars:
-    version: "4.34.121"
+    version: "4.41.105"
   register: result
   # don't fail if a later version has been installed
   failed_when: >
