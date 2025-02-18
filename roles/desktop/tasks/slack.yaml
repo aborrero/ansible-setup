@@ -5,7 +5,7 @@
   tags: slack
   become: true
   ansible.builtin.apt:
-    deb: "https://downloads.slack-edge.com/releases/linux/{{ version }}/prod/x64/slack-desktop-{{ version }}-amd64.deb"
+    deb: "https://downloads.slack-edge.com/desktop-releases/linux/x64/{{ version }}/slack-desktop-{{ version }}-amd64.deb"
   vars:
     version: "4.41.105"
   register: result
