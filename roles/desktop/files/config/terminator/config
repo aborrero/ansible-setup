@@ -766,14 +766,14 @@
       order = 0
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = bash -ic "ssh cloudgw1001.eqiad.wmnet; bash -i"
+      command = bash -ic "ssh cloudgw1003.eqiad.wmnet; bash -i"
     [[[terminal8]]]
       type = Terminal
       parent = child2
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
-      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh cloudgw1001.eqiad.wmnet ; bash"
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh cloudgw1003.eqiad.wmnet ; bash"
     [[[child3]]]
       type = VPaned
       parent = child1
