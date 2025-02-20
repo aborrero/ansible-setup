@@ -29,8 +29,8 @@
         dir: wmf/cloud/toolforge/jobs-cli
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/jobs-emailer
         dir: wmf/cloud/toolforge/jobs-emailer
-      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/volume-admission-controller
-        dir: wmf/cloud/toolforge/volume-admission-controller
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/volume-admission
+        dir: wmf/cloud/toolforge/volume-admission
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/cert-manager
         dir: wmf/cloud/toolforge/cert-manager
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/lima-kilo.git
