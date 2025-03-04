@@ -14,5 +14,6 @@
     "explorer.confirmDragAndDrop": false,
     "go.toolsManagement.autoUpdate": true,
     "explorer.confirmDelete": false,
-    "workbench.editor.empty.hint": "hidden"
+    "workbench.editor.empty.hint": "hidden",
+    "window.titleBarStyle": "native"
 }
