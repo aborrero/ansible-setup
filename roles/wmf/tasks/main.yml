@@ -25,16 +25,22 @@
     - wmf-puppetmaster-merge.sh
     - wmf-cleanup-puppetmaster.sh
 
-- name: Install wmf-laptop-sre
+- name: Make sure old wmf-laptop-sre package is not installed
+  become: true
+  # it can conflict with wmf-laptop, remove this task once we are sure is not installed anywhere
+  ansible.builtin.apt:
+    name: wmf-laptop-sre
+    state: absent
+
+- name: Install wmf-laptop
   ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
-  tags: wmf
   vars:
     conf:
-      shortname: wmf-laptop-sre
-      repo_spec: http://apt.wikimedia.org/wikimedia buster-wikimedia component/wmf-sre-laptop
+      shortname: wmf-laptop
+      repo_spec: http://apt.wikimedia.org/wikimedia bookworm-wikimedia component/wmf-laptop
       key_url: https://wikitech.wikimedia.org/w/index.php?title=APT_repository/Stretch-Key&action=raw
       packages:
-        - wmf-laptop-sre
+        - wmf-laptop
 
 - name: Clone some gerrit repos
   ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
