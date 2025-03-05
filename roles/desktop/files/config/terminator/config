@@ -504,6 +504,67 @@
       profile = default
       directory = /home/arturo/git/wmf/cloud/toolforge
       command = '''bash -ic "ssh -t dev.toolforge.org 'become arturo-test-tool ; bash -i'" ; bash -i'''
+
+  [[wmf tools haproxy]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:27
+      maximised = True
+      fullscreen = False
+      size = 1920, 1029
+      title = "tools haproxy"
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 958
+      ratio = 0.50
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh tools-k8s-haproxy-5.tools.eqiad1.wikimedia.cloud ; bash -i"
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      command = bash -ic "ssh tools-k8s-haproxy-6.tools.eqiad1.wikimedia.cloud ; bash -i"
+
+  [[wmf toolsbeta haproxy]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:27
+      maximised = True
+      fullscreen = False
+      size = 1920, 1029
+      title = "tools haproxy"
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 958
+      ratio = 0.50
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      command = bash -ic "/home/arturo/.config/terminator/terminator-llc.sh ; ssh toolsbeta-test-k8s-haproxy-5.toolsbeta.eqiad1.wikimedia.cloud ; bash -i"
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      command = bash -ic "ssh toolsbeta-test-k8s-haproxy-6.toolsbeta.eqiad1.wikimedia.cloud ; bash -i"
+
   [[wmf tofu]]
     [[[child0]]]
       title = tofu
