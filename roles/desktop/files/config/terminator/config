@@ -601,7 +601,7 @@
       order = 0
       profile = default
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
-      command = bash -ic "ssh cloudcumin1001.eqiad.wmnet" ; bash
+      command = bash -ic "ssh cloudcumin1001.eqiad.wmnet" ; bash -i
     [[[child5]]]
       type = VPaned
       parent = child3
@@ -614,14 +614,14 @@
       order = 0
       profile = default
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
-      command = bash -ic "ssh cloudcontrol2004-dev.codfw.wmnet" ; bash
+      command = bash -ic "ssh cloudcontrol2004-dev.codfw.wmnet" ; bash -i
     [[[terminal7]]]
       type = Terminal
       parent = child5
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
-      command = bash -ic "ssh cloudcontrol1005.eqiad.wmnet" ; bash
+      command = bash -ic "ssh cloudcontrol1006.eqiad.wmnet" ; bash -i
   [[wmf cloud eqiad1]]
     [[[child0]]]
       type = Window
@@ -644,7 +644,7 @@
       parent = child1
       order = 0
       profile = default
-      command = bash -ic "ssh cloudcontrol1005.eqiad.wmnet ; bash"
+      command = bash -ic "ssh cloudcontrol1006.eqiad.wmnet ; bash -i"
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
     [[[child2]]]
       type = VPaned
@@ -658,7 +658,7 @@
       order = 0
       profile = default
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
-      command = bash -ic "ssh cloudcontrol1005.eqiad.wmnet ; bash"
+      command = bash -ic "ssh cloudcontrol1007.eqiad.wmnet ; bash -i"
     [[[terminal3]]]
       type = Terminal
       parent = child2
@@ -753,7 +753,7 @@
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
-      command = bash -ic "ssh cloudcontrol1005.eqiad.wmnet ; bash"
+      command = bash -ic "ssh cloudcontrol1006.eqiad.wmnet ; bash -i"
   [[wmf cloudnet codfw1dev]]
     [[[child0]]]
       type = Window
@@ -955,7 +955,7 @@
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
-      command = bash -ic "ssh cloudcontrol1005.eqiad.wmnet ; bash -i"
+      command = bash -ic "ssh cloudcontrol1006.eqiad.wmnet ; bash -i"
   [[wmf cloudservices codfw1dev]]
     [[[child0]]]
       type = Window
@@ -999,7 +999,7 @@
       order = 1
       profile = default
       directory = /home/arturo/git/wmf/cloud/cloud-vps/tofu-infra
-      command = bash -ic "ssh cloudcontrol1005.eqiad.wmnet ; bash -i"
+      command = bash -ic "ssh cloudcontrol1007.eqiad.wmnet ; bash -i"
   [[wmf bastions eqiad1]]
     [[[child0]]]
       type = Window
