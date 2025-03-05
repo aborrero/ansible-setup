@@ -544,7 +544,7 @@
       maximised = True
       fullscreen = False
       size = 1920, 1029
-      title = "tools haproxy"
+      title = "toolsbeta haproxy"
       last_active_window = True
     [[[child1]]]
       type = HPaned
