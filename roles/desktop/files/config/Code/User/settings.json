@@ -15,5 +15,6 @@
     "go.toolsManagement.autoUpdate": true,
     "explorer.confirmDelete": false,
     "workbench.editor.empty.hint": "hidden",
-    "window.titleBarStyle": "native"
+    "window.titleBarStyle": "native",
+    "files.autoSave": "afterDelay"
 }
