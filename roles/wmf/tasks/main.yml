@@ -78,6 +78,8 @@
         dir: wmf/cloud/cloud-vps/designate-sink-wmcs-nova-fixed-ptr
       - url: git@gitlab.wikimedia.org:repos/cloud/cloud-vps/nova_fullstack_test.git
         dir: wmf/cloud/cloud-vps/nova_fullstack_test
+      - url: git@gitlab.wikimedia.org:repos/cloud/metricsinfra/tofu-provisioning.git
+        dir: wmf/cloud/metricsinfra/tofu-provisioning
 
 # another option (not in use in my setup as of today)
 # * https://pypi.org/project/wm-ssh/
