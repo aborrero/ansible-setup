@@ -69,6 +69,8 @@
         dir: wmf/cloud/toolforge/fourohfour
       - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/envvars-admission.git
         dir: wmf/cloud/toolforge/envvars-admission
+      - url: git@gitlab.wikimedia.org:repos/cloud/toolforge/tofu-provisioning.git
+        dir: wmf/cloud/toolforge/tofu-provisioning
 
 - name: Install toolforge lima-kilo userconfig file
   ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
