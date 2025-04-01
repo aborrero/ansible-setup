@@ -6,25 +6,3 @@ deb-src http://deb.debian.org/debian/ testing main non-free contrib non-free-fir
 
 deb http://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
 deb-src http://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
-
-# for work in LTS, see https://wiki.debian.org/LTS/Using
-deb http://deb.debian.org/debian/ buster main contrib non-free
-deb-src http://deb.debian.org/debian/ buster main contrib non-free
-deb http://security.debian.org/ buster/updates main contrib non-free
-deb-src http://security.debian.org/ buster/updates main contrib non-free
-
-# for work in ELTS
-deb [trusted=yes] http://deb.freexian.com/extended-lts buster main contrib non-free
-deb-src [trusted=yes] http://deb.freexian.com/extended-lts buster main contrib non-free
-deb [trusted=yes] http://deb.freexian.com/extended-lts-staging buster-lts-proposed main contrib non-free
-deb-src [trusted=yes] http://deb.freexian.com/extended-lts-staging buster-lts-proposed main contrib non-free
-
-deb [trusted=yes] http://deb.freexian.com/extended-lts stretch main contrib non-free
-deb-src [trusted=yes] http://deb.freexian.com/extended-lts stretch main contrib non-free
-deb [trusted=yes] http://deb.freexian.com/extended-lts-staging stretch-lts-proposed main contrib non-free
-deb-src [trusted=yes] http://deb.freexian.com/extended-lts-staging stretch-lts-proposed main contrib non-free
-
-deb [trusted=yes] http://deb.freexian.com/extended-lts jessie main contrib non-free
-deb-src [trusted=yes] http://deb.freexian.com/extended-lts jessie main contrib non-free
-deb [trusted=yes] http://deb.freexian.com/extended-lts-staging jessie-lts-proposed main contrib non-free
-deb-src [trusted=yes] http://deb.freexian.com/extended-lts-staging jessie-lts-proposed main contrib non-free

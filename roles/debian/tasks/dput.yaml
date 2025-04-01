@@ -14,32 +14,3 @@
       {
           "default_keyid": "DD9861AB23DC3333892E07A968E713981D1515F8"
       }
-
-- name: Install dput extended-lts profile config
-  ansible.builtin.copy:
-    dest: /home/{{ user }}/.dput.d/profiles/extended-lts.json
-    mode: "0644"
-    content: |
-      {
-          "fqdn": "deb-master.freexian.com",
-          "incoming": "/incoming",
-          "login": "extended-lts",
-          "meta": "debian",
-          "method": "sftp",
-          "allowed-distribution": {
-              "distributions": [
-                  "buster",
-                  "buster-lts",
-                  "buster-security",
-                  "stretch",
-                  "stretch-lts",
-                  "stretch-security",
-                  "jessie",
-                  "jessie-lts",
-                  "jessie-security"
-              ]
-          },
-          "allow_dcut": true,
-          "valid_commands": ["migrate"]
-      }
-

@@ -1,3 +1,0 @@
----
-- name: Include secret tasks
-  ansible.builtin.include_tasks: secret.yaml

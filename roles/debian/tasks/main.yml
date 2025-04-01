@@ -54,16 +54,6 @@
       - release: unstable
       - release: bullseye
       - release: bookworm
-      - mirror: deb.freexian.com/extended-lts/
-        release: buster
-      - mirror: deb.freexian.com/extended-lts/
-        release: stretch
-        keyring: /etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
-        mmdebstrap: false
-      - release: jessie
-        mirror: deb.freexian.com/extended-lts/
-        mmdebstrap: false
-        keyring: /etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
 
 - name: Clone some debian git repos
   ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
@@ -117,12 +107,3 @@
   vars:
     data:
       - release: bullseye
-      - keyring: --keyring=/etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
-        mirror: --mirror=http://deb.freexian.com/extended-lts/
-        release: buster
-      - keyring: --keyring=/etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
-        mirror: --mirror=http://deb.freexian.com/extended-lts/
-        release: stretch
-      - keyring: --keyring=/etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
-        mirror: --mirror=http://deb.freexian.com/extended-lts/
-        release: jessie
