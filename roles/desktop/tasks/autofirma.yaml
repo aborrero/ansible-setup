@@ -9,4 +9,4 @@
 - name: Install autofirma deb package
   become: true
   ansible.builtin.apt:
-    deb: "{{ role_path }}/files/deb/autofirma_1.8.2.deb"
+    deb: "{{ role_path }}/files/deb/autofirma_1.8.3.deb"
