@@ -80,6 +80,8 @@
         dir: wmf/cloud/cloud-vps/nova_fullstack_test
       - url: git@gitlab.wikimedia.org:repos/cloud/metricsinfra/tofu-provisioning.git
         dir: wmf/cloud/metricsinfra/tofu-provisioning
+      - url: git@gitlab.wikimedia.org:repos/cloud/cloud-vps/networktests-tofu-provisioning.git
+        dir: wmf/cloud/cloud-vps/networktests-tofu-provisioning
 
 # another option (not in use in my setup as of today)
 # * https://pypi.org/project/wm-ssh/
