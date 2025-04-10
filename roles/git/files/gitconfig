@@ -44,3 +44,6 @@ fsckObjects = true
     autosign = Signed-off-by
     diff-opts = --find-renames
     autokeep = yes
+
+[advice]
+    skippedCherryPicks = false
