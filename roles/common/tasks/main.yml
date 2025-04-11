@@ -40,8 +40,6 @@
       - firmware-iwlwifi
       - firmware-misc-nonfree
       - firmware-linux-free
-      - firmware-nvidia-gsp
-      - xserver-xorg-video-nvidia
       - console-setup
       - xfonts-terminus
       - tcpdump
@@ -54,6 +52,18 @@
       - npm
       - jq
       - cargo
+
+- name: Install nvidia-related packages
+  become: true
+  ansible.builtin.apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+      - firmware-nvidia-gsp
+      - xserver-xorg-video-nvidia
+  # the xwing laptop uses intel graphics
+  when: ansible_facts['nodename'] != 'xwing'
 
 - name: Install nostromo-specific packages
   tags:
