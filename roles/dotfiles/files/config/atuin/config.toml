@@ -13,5 +13,7 @@ update_check = true
 ## set it to 0 to sync after every command
 sync_frequency = 0
 
+style = "full"
+
 [sync]
 records = true
