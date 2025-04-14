@@ -22,6 +22,16 @@
     dest: /etc/apt/
     mode: "0644"
 
+- name: Install apt configuration for nostromo
+  become: true
+  ansible.builtin.copy:
+    src: apt_nostromo/
+    dest: /etc/apt/
+    mode: "0644"
+  # the nostromo laptop doesn't work well with newer kernel, install apt pin
+  when: ansible_facts['nodename'] == 'nostromo'
+
+
 - name: Install a list of packages to their latest version
   tags: apt
   become: true
