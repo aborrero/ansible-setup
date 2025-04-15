@@ -3,9 +3,9 @@
 - name: Install stremio desktop
   become: true
   ansible.builtin.apt:
-    deb: "https://dl.strem.io/shell-linux/{{ version }}/Stremio_{{ version }}.deb"
+    deb: "https://dl.strem.io/shell-linux/v{{ version }}/stremio_{{ version }}-1_amd64.deb"
   vars:
-    version: "v4.4.165"
+    version: "4.4.168"
   register: result
   # don't fail if a later version has been installed
   failed_when: >
