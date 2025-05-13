@@ -56,7 +56,10 @@
     packages:
       - exfalso
       - quodlibet
-      - xfburn
       - parole
       - mpv
       - imagemagick
+      # we would like to deinstall xfburn (our hardware don't have CD bays)
+      # but it is a Depends of xfce4-goodies, and we definitely want to keep that one installed
+      # this is debian bug #1059738
+      #- xfburn
