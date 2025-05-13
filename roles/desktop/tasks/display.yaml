@@ -9,8 +9,6 @@
       - autorandr
       # required by nvidia stuff
       - linux-headers-amd64
-      # see debian bug #1093378 https://bugs.debian.org/1093378
-      - libglib2.0-bin
 
 - name: Install autorandr config files
   ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
