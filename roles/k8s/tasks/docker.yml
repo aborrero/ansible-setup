@@ -6,7 +6,7 @@
     conf:
       shortname: docker
       # they don't have bookworm yet https://download.docker.com/linux/debian/dists/
-      repo_spec: https://download.docker.com/linux/debian bullseye stable
+      repo_spec: https://download.docker.com/linux/debian bookworm stable
       key_url: https://download.docker.com/linux/debian/gpg
       packages:
         - docker-ce
