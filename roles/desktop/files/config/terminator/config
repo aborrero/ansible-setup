@@ -78,7 +78,6 @@
       parent = child1
       order = 1
       profile = default
-
   [[ansible-setup]]
     [[[child0]]]
       type = Window
@@ -121,7 +120,6 @@
       order = 1
       profile = default
       directory = /home/arturo/git/github/ansible-setup
-
   [[debian pkg]]
     [[[child0]]]
       type = Window
@@ -155,5 +153,4 @@
       profile = default
       uuid = 17bf3979-2c0c-4245-90fd-d708859b5377
       directory = /home/arturo/git/debian
-
 [plugins]
