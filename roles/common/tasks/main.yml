@@ -136,39 +136,6 @@
     dest: /etc/default/console-setup
     mode: "0644"
 
-# NOTE: nix disabled for now, it eats the space on /nix which is usually the root partition
-# changing it is not simple with the debian installation method
-#- name: Include nix tasks
-#  ansible.builtin.include_tasks: nix.yaml
-
-# log viewer, see https://github.com/tstack/lnav
-- name: Install lnav
-  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
-  vars:
-    binary:
-      name: "lnav"
-      version: "0.11.2"
-      version_command: "lnav -V"
-      path: "/usr/local/bin/lnav"
-      url: "https://github.com/tstack/lnav/releases/download/v0.11.2/lnav-0.11.2-x86_64-linux-musl.zip"
-      # note: calculated by hand, they don't provide this
-      checksum: "sha256:6515598ca4985ec42daeafbae7eb5c7c6d7e94a11f88666d157b3d363aa391ff"
-      unpack: true
-
-# zellij, https://zellij.dev/ from https://github.com/zellij-org/zellij/releases
-- name: Install zellij
-  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
-  vars:
-    binary:
-      name: "zellij"
-      version: "0.39.2"
-      version_command: "zellij --version"
-      path: "/usr/local/bin/zellij"
-      url: "https://github.com/zellij-org/zellij/releases/download/v0.39.2/zellij-x86_64-unknown-linux-musl.tar.gz"
-      # NOTE: wrong sha256 published, see https://github.com/zellij-org/zellij/issues/3149
-      checksum: "sha256:9203da2887042b4d8a3b2753e475f812fa60aff6955ffbf0632c0fbfcfaa4a81"
-      unpack: true
-
 # see https://github.com/mikefarah/yq/releases
 - name: Install yq
   ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
