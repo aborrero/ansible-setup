@@ -12,6 +12,7 @@
       - pre-commit
       - git-crypt
       - git-delta
+      - gitsign
 
 - name: Ensure secrets are decrypted
   ansible.builtin.command:
