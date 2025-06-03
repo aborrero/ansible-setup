@@ -49,6 +49,7 @@
     - name: dive
       ref: github.com/wagoodman/dive@latest
 
+# from https://cloud.google.com/sdk/docs/install#deb
 - name: Install gcloud
   include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
   vars:
@@ -58,3 +59,14 @@
       key_url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
       packages:
         - google-cloud-cli
+
+# from https://developer.hashicorp.com/terraform/downloads
+- name: Install terraform
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/apt-install-from-repository.yml"
+  vars:
+    conf:
+      shortname: terraform
+      repo_spec: https://apt.releases.hashicorp.com bookworm main
+      key_url: https://apt.releases.hashicorp.com/gpg
+      packages:
+        - terraform
