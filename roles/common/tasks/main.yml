@@ -62,6 +62,7 @@
       - npm
       - jq
       - cargo
+      - yubikey-manager
 
 - name: Install nvidia-related packages
   become: true
