@@ -1,0 +1,3 @@
+---
+- name: Include utils tasks
+  ansible.builtin.include_tasks: utils.yaml
