@@ -13,3 +13,13 @@ Host review.opendev.org review
   Port 29418
   User arturo
   IdentityFile ~/.ssh/id_rsa
+
+# cg
+Host cg-github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/cg_arturo
+  IdentitiesOnly yes
+  ForwardAgent no
+  IdentityAgent /run/user/1000/cg_arturo.socket
+  AddKeysToAgent yes

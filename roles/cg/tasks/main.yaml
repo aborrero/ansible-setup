@@ -1,3 +1,6 @@
 ---
 - name: Include utils tasks
   ansible.builtin.include_tasks: utils.yaml
+
+- name: Include secret tasks
+  ansible.builtin.include_tasks: secret.yaml

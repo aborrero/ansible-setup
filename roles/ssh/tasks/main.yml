@@ -16,8 +16,8 @@
     dotfiles:
       - ssh/config
 
-#- name: Import systemd ssh agent tasks
-#  ansible.builtin.import_tasks: systemd_ssh_agent.yml
-#  vars:
-#    names:
-#      - ssh-personal
+- name: Import systemd ssh agent tasks
+  ansible.builtin.import_tasks: systemd_ssh_agent.yml
+  vars:
+    names:
+      - cg_arturo

@@ -79,3 +79,6 @@ export PATH=${PATH}:${HOME}/.cargo/bin
 
 # snapd stuff
 export PATH=${PATH}:/snap/bin
+
+# some cg stuff
+. ~/git/cg/chainguard-dev/wolfi-rc/wolfi-rc
