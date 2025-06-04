@@ -71,16 +71,19 @@ if is_main_branch && ! grep -q "${REMOTE_PERSONAL}/" <<< "${remote_url}" ; then
     # trim length
     string2=${string:0:$BRANCH_MAX_NAME_LENGTH}
     # trim trailing "-" dash character
-    branch=${string2%-}
+    new_branch=${string2%-}
 
     # this relocates commits from the main branch into the new branch
     # see https://stackoverflow.com/questions/1628563/move-the-most-recent-commits-to-a-new-branch-with-git/36463546
     # delete commits from main branch
     git reset --keep HEAD~"${n_commits}"
     # create a new branch
-    git checkout --track -B "$branch"
+    git checkout --track -B "$new_branch"
     # using reflog, in the new branch, cherry-pick the changes that were in HEAD 2 operations ago
     git cherry-pick ..HEAD@{2}
 fi
 
-git push --set-upstream "${REMOTE}" "$branch"
+git push --set-upstream "${REMOTE}" "$new_branch"
+
+# create PR
+gh pr create --base $branch --head $new_branch
