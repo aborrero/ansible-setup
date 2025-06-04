@@ -29,6 +29,20 @@
   changed_when: false
   loop: "{{ git_repos }}"
 
+- name: Configure gitsign
+  tags: git
+  ansible.builtin.shell: |
+    git config --local commit.gpgsign true
+    git config --local tag.gpgsign true
+    git config --local gpg.x509.program gitsign
+    git config --local gpg.format x509
+    git config --local gitsign.connectorID https://accounts.google.com
+  args:
+    chdir: "/home/{{ user }}/git/{{ item.dir }}/"
+  changed_when: false
+  loop: "{{ git_repos }}"
+  when: configure_gitsign is defined
+
 - name: Execute additional commands
   tags: git
   ansible.builtin.command:
