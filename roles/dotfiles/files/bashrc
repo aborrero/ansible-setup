@@ -81,4 +81,5 @@ export PATH=${PATH}:${HOME}/.cargo/bin
 export PATH=${PATH}:/snap/bin
 
 # some cg stuff
+export GITSIGN_CREDENTIAL_CACHE="$HOME/.cache/sigstore/gitsign/cache.sock"
 . ~/git/cg/chainguard-dev/wolfi-rc/wolfi-rc
