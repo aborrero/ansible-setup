@@ -76,3 +76,6 @@ export PATH=${PATH}:${HOME}/.nix-profile/bin
 
 # cargo stuff
 export PATH=${PATH}:${HOME}/.cargo/bin
+
+# snapd stuff
+export PATH=${PATH}:/snap/bin

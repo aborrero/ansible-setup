@@ -1,9 +1,8 @@
 ---
-- name: Install vscode
-  tags: vscode
-  become: true
-  ansible.builtin.apt:
-    deb: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+- name: Ensure vscode is installed
+  ansible.builtin.command:
+    cmd: snap install code --classic
+    creates: /snap/bin/code
 
 - name: Install vscode user settings file
   tags: rclone
