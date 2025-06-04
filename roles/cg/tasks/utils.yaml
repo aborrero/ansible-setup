@@ -72,9 +72,8 @@
         - terraform
 
 # from https://edu.chainguard.dev/chainguard/chainctl-usage/how-to-install-chainctl/
-- name: Ensure chainctl is installed
-  ansible.builtin.command:
-    cmd: |
-      curl -o /home/{{ user }}/.local/bin/chainctl \
-        "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s \ | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
-    creates: /home/{{ user }}/.local/bin/chainctl
+- name: Download and install chainctl
+  ansible.builtin.get_url:
+    url: https://dl.enforce.dev/chainctl/latest/chainctl_linux_x86_64
+    dest: /home/{{ user }}/.local/bin/chainctl
+    mode: "0744"
