@@ -19,5 +19,6 @@
     "files.autoSave": "afterDelay",
     "redhat.telemetry.enabled": false,
     "editor.autoIndent": "keep",
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "basic",
+    "explorer.sortOrder": "mixed"
 }
