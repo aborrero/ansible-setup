@@ -2,7 +2,7 @@
 
 set -e
 
-source $(dirname "${BASH_SOURCE[0]}")/arturo-git-lib.sh || source /usr/local/share/arturo-git-lib.sh
+source $(dirname "${BASH_SOURCE[0]}")/arturo-git-lib.sh 2>/dev/null || source /usr/local/share/arturo-git-lib.sh
 
 assert_is_inside_git_repo
 n_commits=$(get_commit_count)
