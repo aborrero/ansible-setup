@@ -13,7 +13,7 @@
     email: arturo.borrero@chainguard.dev
     configure_gitsign: true
     git_repos:
-      - url: git@github.com:wolfi-dev/wolfictl.git
+      - url: git@cg-github.com:wolfi-dev/wolfictl.git
         dir: cg/wolfi-dev/wolfictl
 
 - name: Install wolfictl

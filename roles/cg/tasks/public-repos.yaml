@@ -1,0 +1,11 @@
+---
+- name: Clone some public cg git repos
+  ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
+  vars:
+    email: arturo.borrero@chainguard.dev
+    configure_gitsign: true
+    git_repos:
+      - url: git@cg-github.com:wolfi-dev/os.git
+        dir: cg/wolfi-dev/os
+      - url: git@cg-github.com:wolfi-dev/advisories.git
+        dir: cg/wolfi-dev/advisories
