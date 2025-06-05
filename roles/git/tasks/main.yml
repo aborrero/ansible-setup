@@ -57,6 +57,15 @@
     cmd: git lfs checkout
     chdir: "{{ role_path }}/../../"
 
+- name: Install custom git library
+  become: true
+  ansible.builtin.copy:
+    src: "arturo-git-lib.sh"
+    dest: /usr/local/share/arturo-git-lib.sh
+    owner: root
+    group: root
+    mode: "0755"
+
 - name: Install custom git scripts
   become: true
   ansible.builtin.copy:
