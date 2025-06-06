@@ -23,6 +23,7 @@
       - copyq
       - amberol
       - vlc
+      - yubikey-manager-qt
 
 - name: Install copyq config
   ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
