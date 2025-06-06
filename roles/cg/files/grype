@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# hopefully in the future grype will support setting this via config file,
+# see https://github.com/anchore/grype?tab=readme-ov-file#configuration
+# see https://github.com/anchore/grype/issues/2266
+TMPDIR=~/.grype-tmp grype-orig "$@"
