@@ -9,3 +9,5 @@
         dir: cg/wolfi-dev/os
       - url: git@cg-github.com:wolfi-dev/advisories.git
         dir: cg/wolfi-dev/advisories
+      - url: git@github.com:aborrero/wolfi-dev_os.git
+        dir: cg/wolfi-dev/os-fork
