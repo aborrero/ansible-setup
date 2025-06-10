@@ -21,17 +21,16 @@ assert_github_or_gitlab_remotes "$remotes"
 
 orig_branch=$(get_current_branch)
 if is_main_branch $orig_branch ; then
-    mr_branch=$(create_mr_branch $n_commits)
+    create_mr_branch $n_commits
+    current_branch=$(get_current_branch)
+else
+    current_branch=$orig_branch
+    echo "I: guessing original branch as 'main'"
+    orig_branch="main"
 fi
 
-git_push_mr_branch "$remotes" $mr_branch
+git_push_mr_branch "$remotes" "$current_branch"
 
 if is_remote_github "$remotes" ; then
-    if is_main_branch $orig_branch ; then
-        base_branch=$orig_branch
-    else
-        base_branch="main"
-        mr_branch=$orig_branch
-    fi
-    gh pr create --base $base_branch --head $mr_branch
+    gh pr create --base $orig_branch --head "$current_branch"
 fi

@@ -99,8 +99,6 @@ create_mr_branch() {
     git checkout --track -B "$branch"
     # using reflog, in the new branch, cherry-pick the changes that were in HEAD 2 operations ago
     git cherry-pick ..HEAD@{2}
-
-    echo $branch
 }
 
 git_push_mr_branch() {
