@@ -1,5 +1,5 @@
 ---
-- name: Clone some public cg git repos
+- name: Clone some public cg git repos (with gitsign)
   ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
   vars:
     email: arturo.borrero@chainguard.dev
@@ -11,3 +11,17 @@
         dir: cg/wolfi-dev/advisories
       - url: git@github.com:aborrero/wolfi-dev_os.git
         dir: cg/wolfi-dev/os-fork
+      - url: git@cg-github.com:chainguard-dev/mono.git
+        dir: cg/chainguard-dev/mono
+      - url: git@cg-github.com:chainguard-dev/malcontent.git
+        dir: cg/chainguard-dev/malcontent
+      - url: git@cg-github.com:chainguard-dev/tw.git
+        dir: cg/chainguard-dev/tw
+
+- name: Clone some public cg git repos (no gitsign)
+  ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
+  vars:
+    email: arturo.borrero@chainguard.dev
+    git_repos:
+      - url: git@github.com:philroche/wolfi-package-status.git
+        dir: cg/philroche/wolfi-package-status
