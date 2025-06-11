@@ -18,6 +18,8 @@
       creates: wolfictl
     - chdir: philroche/wolfi-package-status
       creates: wolfi-package-status
+    - chdir: chainguard-dev/mono/cg
+      creates: cg
 
 - name: Ensure grype has a temp directory
   ansible.builtin.file:
