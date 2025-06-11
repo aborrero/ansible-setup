@@ -35,6 +35,15 @@
     group: root
     mode: "0755"
 
+- name: Install custom auth script
+  become: true
+  ansible.builtin.copy:
+    src: cg-auth.sh
+    dest: /usr/local/bin/cg-auth
+    owner: root
+    group: root
+    mode: "0755"
+
 - name: Ensure some binaries from URLs are installed
   tags: k8s
   ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
