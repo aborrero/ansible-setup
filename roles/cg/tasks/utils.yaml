@@ -13,6 +13,8 @@
     cmd: go install
     chdir: /home/{{ user }}/git/cg/{{ item.chdir }}
     creates: /home/{{ user }}/.go/bin/{{ item.creates }}
+  loop_control:
+    label: "{{ item.creates }}"
   loop:
     - chdir: wolfi-dev/wolfictl
       creates: wolfictl
