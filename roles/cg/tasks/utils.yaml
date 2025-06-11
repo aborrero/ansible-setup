@@ -52,13 +52,21 @@
   tags: k8s
   ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
   loop:
-      # https://github.com/anchore/grype/releases
+    # https://github.com/anchore/grype/releases
     - name: grype
       version: "0.92.2"
       version_command: grype-orig --version
       path: /usr/local/bin/grype-orig
       url: https://github.com/anchore/grype/releases/download/v0.92.2/grype_0.92.2_linux_amd64.tar.gz
       checksum: sha256:0b378a8d4153aa71d9ce95a3597f241a90f98b957a5694041d0ec04c6600b115
+      unpack: true
+    # https://github.com/anchore/syft/releases
+    - name: syft
+      version: "1.27.0"
+      version_command: syft --version
+      path: /usr/local/bin/syft
+      url: https://github.com/anchore/syft/releases/download/v1.27.0/syft_1.27.0_linux_amd64.tar.gz
+      checksum: sha256:2cee2128b0a05dfadec34676def064979b3098bfa447679c38ce3bb69e9321f3
       unpack: true
   loop_control:
     loop_var: binary
