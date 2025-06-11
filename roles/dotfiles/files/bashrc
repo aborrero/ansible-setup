@@ -81,6 +81,7 @@ export PATH=${PATH}:${HOME}/.cargo/bin
 export PATH=${PATH}:/snap/bin
 
 # some cg stuff
-export TF_VAR_target_repository="registry.localhost:5005"
+export TF_VAR_target_repository="localhost:5005"
+export GITHUB_TOKEN=$(gh auth token)
 export GITSIGN_CREDENTIAL_CACHE="$HOME/.cache/sigstore/gitsign/cache.sock"
 . ~/git/cg/chainguard-dev/wolfi-rc/wolfi-rc
