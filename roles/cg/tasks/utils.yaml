@@ -8,20 +8,16 @@
     - apko
     - yam
 
-- name: Clone some cg git repos
-  ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
-  vars:
-    email: arturo.borrero@chainguard.dev
-    configure_gitsign: true
-    git_repos:
-      - url: git@cg-github.com:wolfi-dev/wolfictl.git
-        dir: cg/wolfi-dev/wolfictl
-
-- name: Install wolfictl
+- name: Install some go utils
   ansible.builtin.command:
     cmd: go install
-    chdir: /home/{{ user }}/git/cg/wolfi-dev/wolfictl/
-    creates: /home/{{ user }}/.go/bin/wolfictl
+    chdir: /home/{{ user }}/git/cg/{{ item.chdir }}
+    creates: /home/{{ user }}/.go/bin/{{ item.creates }}
+  loop:
+    - chdir: wolfi-dev/wolfictl
+      creates: wolfictl
+    - chdir: philroche/wolfi-package-status
+      creates: wolfi-package-status
 
 - name: Ensure grype has a temp directory
   ansible.builtin.file:
