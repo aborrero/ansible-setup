@@ -3,3 +3,4 @@ secrets/** filter=git-crypt diff=git-crypt
 */secrets/** filter=git-crypt diff=git-crypt
 **/secrets/** filter=git-crypt diff=git-crypt
 *.deb filter=lfs diff=lfs merge=lfs -text
+roles/desktop/files/config/terminator/config filter=git-crypt diff=git-crypt
