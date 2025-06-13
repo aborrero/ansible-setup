@@ -116,14 +116,17 @@
     state: "latest"
 
 # see https://github.com/sigstore/gitsign/tree/main/cmd/gitsign-credential-cache
-- name: Create systemd user service for gitsign-credential-cache
+- name: Create systemd files for gitsign-credential-cache
   become: true
   ansible.builtin.copy:
-    src: gitsign-credential-cache.service
-    dest: /etc/systemd/user/gitsign-credential-cache.service
+    src: "{{ item }}"
+    dest: /etc/systemd/user/{{ item }}
     owner: root
     group: root
     mode: "0644"
+  loop:
+    - gitsign-credential-cache.service
+    - gitsign-credential-cache.socket
 
 - name: Enable systemd service for gitsign-credential-cache
   become: true
