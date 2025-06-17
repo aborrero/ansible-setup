@@ -54,11 +54,11 @@
   loop:
     # https://github.com/anchore/grype/releases
     - name: grype
-      version: "0.92.2"
+      version: "0.94.0"
       version_command: grype-orig --version
       path: /usr/local/bin/grype-orig
-      url: https://github.com/anchore/grype/releases/download/v0.92.2/grype_0.92.2_linux_amd64.tar.gz
-      checksum: sha256:0b378a8d4153aa71d9ce95a3597f241a90f98b957a5694041d0ec04c6600b115
+      url: https://github.com/anchore/grype/releases/download/v0.94.0/grype_0.94.0_linux_amd64.tar.gz
+      checksum: sha256:46bad313a4083474a776f6a2787b0caee842c52028cd9b1bffc9d74ba11d565a
       unpack: true
     # https://github.com/anchore/syft/releases
     - name: syft
