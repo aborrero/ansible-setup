@@ -16,6 +16,8 @@
     dotfiles:
       - config/autorandr/3screens_{{ ansible_facts['nodename'] }}/config
       - config/autorandr/3screens_{{ ansible_facts['nodename'] }}/setup
+  # be gentle with newer laptop installs
+  failed_when: never
 
 # from https://www.startech.com/en-us/universal-laptop-docking-stations/dk30a2dh
 - name: Install startech docking station driver
