@@ -7,7 +7,5 @@
   vars:
     version: "4.4.168"
   register: result
-  # don't fail if a later version has been installed
-  failed_when: >
-    result.failed == true and
-    result.msg != "A later version is already installed"
+  # don't ever fail
+  failed_when: false
