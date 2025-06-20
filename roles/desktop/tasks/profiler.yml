@@ -26,3 +26,5 @@
     src: config/profiler_shortcuts_{{ ansible_facts['nodename'] }}.sh
     dest: /home/{{ user }}/.config/profiler_shortcuts.sh
     mode: "0744"
+  # be nicer to new laptops
+  failed_when: false
