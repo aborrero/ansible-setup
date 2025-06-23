@@ -12,10 +12,14 @@
 
 - name: Install autorandr config files
   ansible.builtin.include_tasks: "{{ role_path }}/../dotfiles/tasks/link_dotfiles.yml"
+  when: ansible_facts['nodename'] in allowed_nodenames
   vars:
     dotfiles:
       - config/autorandr/3screens_{{ ansible_facts['nodename'] }}/config
       - config/autorandr/3screens_{{ ansible_facts['nodename'] }}/setup
+    allowed_nodenames:
+      - nostromo
+      - endurance
 
 # from https://www.startech.com/en-us/universal-laptop-docking-stations/dk30a2dh
 - name: Install startech docking station driver

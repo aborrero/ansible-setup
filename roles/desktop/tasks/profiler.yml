@@ -15,8 +15,11 @@
     src: config/profiler_{{ ansible_facts['nodename'] }}.yaml
     dest: /home/{{ user }}/.config/profiler.yaml
     mode: "0644"
-  # be nicer to new laptops
-  failed_when: false
+  when: ansible_facts['nodename'] in allowed_nodenames
+  vars:
+    allowed_nodenames:
+      - nostromo
+      - endurance
 
 - name: Install shortcuts
   tags: profiler
@@ -26,5 +29,8 @@
     src: config/profiler_shortcuts_{{ ansible_facts['nodename'] }}.sh
     dest: /home/{{ user }}/.config/profiler_shortcuts.sh
     mode: "0744"
-  # be nicer to new laptops
-  failed_when: false
+  when: ansible_facts['nodename'] in allowed_nodenames
+  vars:
+    allowed_nodenames:
+      - nostromo
+      - endurance
