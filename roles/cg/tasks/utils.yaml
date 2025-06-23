@@ -83,6 +83,8 @@
       ref: github.com/google/go-containerregistry/cmd/crane@latest
     - name: dive
       ref: github.com/wagoodman/dive@latest
+    - name: cosign
+      ref: github.com/sigstore/cosign/v2/cmd/cosign@latest
 
 # from https://cloud.google.com/sdk/docs/install#deb
 - name: Install gcloud
