@@ -81,6 +81,6 @@ export PATH=${PATH}:/snap/bin
 
 # some cg stuff
 export TF_VAR_target_repository="localhost:5005"
-export GITHUB_TOKEN=$(gh auth token)
+export GITHUB_TOKEN=$(gh auth token 2>/dev/null)
 export GITSIGN_CREDENTIAL_CACHE="$HOME/.cache/sigstore/gitsign/cache.sock"
-. ~/git/cg/chainguard-dev/wolfi-rc/wolfi-rc
+. ~/git/cg/chainguard-dev/wolfi-rc/wolfi-rc 2>/dev/null
