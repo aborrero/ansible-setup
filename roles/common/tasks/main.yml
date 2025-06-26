@@ -64,6 +64,9 @@
       - cargo
       - yubikey-manager
       - snapd
+      - ripgrep
+      - libxml2-utils
+      - ack
 
 - name: Install nvidia-related packages
   become: true
