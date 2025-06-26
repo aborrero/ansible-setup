@@ -22,6 +22,13 @@ xfce_xfconf_data:
     value: "false"
     force_array: false
 
+  # disable mouse wheel to roll up windows
+  - channel: "xfwm4"
+    property: "/general/mousewheel_rollup"
+    type: "bool"
+    value: "false"
+    force_array: false
+
   # aspect
   - channel: "xsettings"
     property: "/Net/ThemeName"
