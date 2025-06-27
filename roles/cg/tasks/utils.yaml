@@ -114,3 +114,8 @@
     url: https://dl.enforce.dev/chainctl/latest/chainctl_linux_x86_64
     dest: /home/{{ user }}/.local/bin/chainctl
     mode: "0744"
+
+- name: Make sure claude CLI is installed
+  ansible.builtin.npm:
+    name: "@anthropic-ai/claude-code"
+    global: true
