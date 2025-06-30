@@ -6,7 +6,7 @@
   vars:
     conf:
       shortname: spotify
-      repo_spec: http://repository.spotify.com stable non-free
+      repo_spec: https://repository.spotify.com stable non-free
       key_url: https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg
       packages:
         - spotify-client
