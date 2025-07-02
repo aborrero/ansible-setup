@@ -7,7 +7,6 @@
     state: latest
   vars:
     packages:
-      - light-locker
       # seems to be required, see https://bugs.debian.org/837979
       - accountsservice
 
