@@ -9,6 +9,8 @@
       # this, in turns depends on utilities like the screenshooter
       # xfce4-goodies is only listed as Recommends in the tasksel package
       - xfce4-goodies
+      # should be part of xfc4-goodies, but for whatever reason, it isn't
+      - xfce4-screensaver
 
 - name: Deploy xfce panel files
   ansible.builtin.copy:
