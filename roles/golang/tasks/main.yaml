@@ -22,3 +22,18 @@
   ansible.builtin.command:
     cmd: go install github.com/deepmap/oapi-codegen/cmd/oapi-codegen@latest
     creates: /home/{{ user }}/.go/bin/oapi-codegen
+
+- name: Ensure some binaries from URLs are installed
+  ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
+  loop:
+    # https://github.com/golangci/golangci-lint/releases/
+    - name: golangci-lint
+      version: "v2.2.1"
+      version_command: golangci-lint --version
+      path: /usr/local/bin/golangci-lint
+      url: https://github.com/golangci/golangci-lint/releases/download/v2.2.1/golangci-lint-2.2.1-linux-amd64.tar.gz
+      checksum: sha256:4098436776a4f4bbef25dcad93f56533003d085f9133e4c69ba3145973d211dc
+      unpack: true
+  loop_control:
+    loop_var: binary
+    label: "{{ binary.name }}"
