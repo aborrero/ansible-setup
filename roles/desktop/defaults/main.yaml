@@ -106,14 +106,14 @@ xfce_xfconf_data:
     value: ["17126586842.desktop"]
     force_array: true
 
-  # lower panel, launcher for firefox
+  # lower panel, launcher for browser
   - channel: "xfce4-panel"
     property: "/plugins/plugin-19"
     type: "string"
     value: "launcher"
     force_array: false
 
-  # lower panel, launcher for firefox
+  # lower panel, launcher for browser
   - channel: "xfce4-panel"
     property: "/plugins/plugin-19/items"
     type: "string"

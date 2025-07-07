@@ -2,7 +2,7 @@
 Version=1.0
 Type=Application
 Exec=exo-open --launch WebBrowser %u
-Icon=/usr/share/icons/hicolor/64x64/apps/firefox-esr.png
+Icon=google-chrome
 StartupNotify=true
 Terminal=false
 Categories=Network;X-XFCE;X-Xfce-Toplevel;

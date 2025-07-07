@@ -65,3 +65,9 @@
       # but it is a Depends of xfce4-goodies, and we definitely want to keep that one installed
       # this is debian bug #1059738
       #- xfburn
+
+# See https://www.google.com/chrome/
+- name: Install Chrome
+  become: true
+  ansible.builtin.apt:
+    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
