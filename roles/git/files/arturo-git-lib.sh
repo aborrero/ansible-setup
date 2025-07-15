@@ -10,6 +10,13 @@ assert_is_inside_git_repo() {
     fi
 }
 
+assert_some_changes() {
+    if [ "$(git status -s | wc -l)" == "0" ] ; then
+        echo "W: no uncommited changes, do some edit first" >&2
+        exit 1
+    fi
+}
+
 assert_some_commits() {
     local n_commits=$1
     if [ "${n_commits}" == "0" ] ; then
@@ -76,7 +83,7 @@ is_remote_github() {
 
 is_main_branch() {
     local branch=$1
-    if grep -Eq ^main$\|^master$ <<< "$branch" ; then
+    if grep -Eq ^main$\|^master$\|^production$ <<< "$branch" ; then
         return 0
     fi
     return 1

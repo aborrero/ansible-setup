@@ -4,6 +4,8 @@
 
 set -e
 
+source $(dirname "${BASH_SOURCE[0]}")/arturo-git-lib.sh 2>/dev/null || source /usr/local/share/arturo-git-lib.sh
+
 arg=$1
 
 if [ -n "$arg" ] ; then
@@ -16,19 +18,13 @@ if [ -n "$arg" ] ; then
     fi
 fi
 
-if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != "true" ] ; then
-    echo "E: is this a git repo?" >&2
-    exit 1
-fi
+assert_inside_git_repo
+assert_some_changes
 
-if [ "$(git status -s | wc -l)" == "0" ] ; then
-    echo "W: no uncommited changes, do some edit first" >&2
-    exit 1
-fi
+branch=$(get_current_branch)
+n_commits=$(get_commit_count)
 
-branch=$(git branch --show-current)
-
-if grep -Eq ^main$\|^master$\|^production$ <<< "$branch" && [ "$(git rev-list --count '@{upstream}...HEAD')" == "0" ] ; then
+if is_main_branch "$branch" && [ "${n_commits}" == "0" ] ; then
     if [ "$force" == "yes" ] ; then
         echo "I: force refresh last commit for a later force push of a main branch"
     else
