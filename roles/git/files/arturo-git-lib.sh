@@ -89,6 +89,22 @@ is_main_branch() {
     return 1
 }
 
+is_gitsign_repo() {
+    if [ "$(git config get --local commit.gpgsign)" == "true" ] ; then
+        return 0
+    fi
+    return 1
+}
+
+
+run_gscc_in_background_if_required() {
+    if ! is_gitsign_repo ; then
+        return
+    fi
+
+    (sleep 2; gscc) &
+}
+
 create_mr_branch() {
     local n_commits=$1
 

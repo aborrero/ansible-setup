@@ -18,7 +18,7 @@ if [ -n "$arg" ] ; then
     fi
 fi
 
-assert_inside_git_repo
+assert_is_inside_git_repo
 assert_some_changes
 
 branch=$(get_current_branch)
@@ -32,6 +32,8 @@ if is_main_branch "$branch" && [ "${n_commits}" == "0" ] ; then
         exit 1
     fi
 fi
+
+run_gscc_in_background_if_required
 
 if [ "$(stg top 2>/dev/null | wc -l)" == "1" ] ; then
     # stgit context!
