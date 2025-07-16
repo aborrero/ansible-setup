@@ -4,17 +4,20 @@
 
 set -e
 
-if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != "true" ] ; then
-    echo "E: is this a git repo?" >&2
-    exit 1
-fi
+source $(dirname "${BASH_SOURCE[0]}")/arturo-git-lib.sh 2>/dev/null || source /usr/local/share/arturo-git-lib.sh
 
-branch=$(git branch --show-current)
+PRIMARY_BRANCH="main"
 
-git checkout main
+assert_is_inside_git_repo
+
+branch=$(get_current_branch)
+
+run_gscc_in_background_if_required
+
+git checkout $PRIMARY_BRANCH
 gpr  # custom git pull rebase
 
-if [ "$branch" != "main" ] ; then
+if [ "$branch" != "${PRIMARY_BRANCH}" ] ; then
     git checkout "$branch"
-    git rebase main
+    git rebase $PRIMARY_BRANCH
 fi
