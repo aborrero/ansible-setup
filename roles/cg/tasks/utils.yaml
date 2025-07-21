@@ -46,6 +46,15 @@
     group: root
     mode: "0755"
 
+- name: Install custom build script
+  become: true
+  ansible.builtin.copy:
+    src: cg-build.sh
+    dest: /usr/local/bin/cg-build
+    owner: root
+    group: root
+    mode: "0755"
+
 - name: Ensure some binaries from URLs are installed
   tags: k8s
   ansible.builtin.include_tasks: "{{ role_path }}/../common/tasks/binary-install-from-url.yaml"
