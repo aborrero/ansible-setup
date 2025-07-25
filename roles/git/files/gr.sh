@@ -32,5 +32,6 @@ fi
 git_push_mr_branch "$remotes" "$current_branch"
 
 if is_remote_github "$remotes" ; then
-    gh pr create --base $orig_branch --head "$current_branch"
+    gh pr create --base $orig_branch --head aborrero:"$current_branch" \
+        --fill-first --reviewer "wolfi-dev/sustaining-team"
 fi
