@@ -102,7 +102,7 @@ run_gscc_in_background_if_required() {
         return
     fi
 
-    (sleep 2; gscc) &
+    (sleep 5; gscc >/dev/null 2>/dev/null) &
 }
 
 create_mr_branch() {
