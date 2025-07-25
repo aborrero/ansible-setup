@@ -6,11 +6,11 @@
   vars:
     binary:
       name: "atuin"
-      version: "18.4.0"
+      version: "18.7.1"
       version_command: "atuin --version"
       path: "/usr/local/bin/atuin"
-      url: "https://github.com/atuinsh/atuin/releases/download/v18.4.0/atuin-x86_64-unknown-linux-gnu.tar.gz"
-      checksum: "sha256:906a4e19ddbab01ab9ae830ca107b0fbee02d84031e1e6efc7723b5a91992b27"
+      url: "https://github.com/atuinsh/atuin/releases/download/v18.7.1/atuin-x86_64-unknown-linux-gnu.tar.gz"
+      checksum: "sha256:2860fd159a2b8b2943c48a7c700cc6be09086b18e77204b1d44d8a6e029df50c"
       unpack: true
 
 - name: Run atuin sync
