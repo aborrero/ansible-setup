@@ -17,3 +17,4 @@
       - config/nano/bats.nanorc
       - config/atuin/config.toml
       - config/bat/config
+      - config/mimeapps.list
