@@ -139,3 +139,17 @@ git_push_mr_branch() {
 
     eval git push "$git_push_args" "$mr_branch"
 }
+
+gh_rebase_fork() {
+    upstream_branch=$1
+    upstream_remote="upstream"
+    remotes="$(get_remotes | grep ^${upstream_remote})"
+
+    if ! is_remote_github "$remotes" ; then
+        # do nothing
+        return
+    fi
+
+    git fetch ${upstream_remote}
+    git rebase ${upstream_remote}/${upstream_branch}
+}

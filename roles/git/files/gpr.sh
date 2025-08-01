@@ -1,13 +1,12 @@
 #!/bin/bash
 
+# This script runs git pull --rebase, with support for stgit context and github forks
+
 set -e
 
-# This script runs git pull --rebase, with support for stgit context
+source $(dirname "${BASH_SOURCE[0]}")/arturo-git-lib.sh 2>/dev/null || source /usr/local/share/arturo-git-lib.sh
 
-if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != "true" ] ; then
-    echo "E: is this a git repo?" >&2
-    exit 1
-fi
+assert_is_inside_git_repo
 
 n_stgit_patches="$(stg series -c -A 2>/dev/null || echo 0)"
 stg pop -a 2>/dev/null || true
