@@ -29,3 +29,12 @@
     git_repos:
       - url: git@github.com:philroche/wolfi-package-status.git
         dir: cg/philroche/wolfi-package-status
+
+- name: Install malcontent wrapper script
+  become: true
+  ansible.builtin.copy:
+    src: malcontent.sh
+    dest: /usr/local/bin/mal
+    owner: root
+    group: root
+    mode: "0755"
