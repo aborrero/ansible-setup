@@ -143,9 +143,9 @@ git_push_mr_branch() {
 gh_rebase_fork() {
     upstream_branch=$1
     upstream_remote="upstream"
-    remotes="$(get_remotes | grep ^${upstream_remote})"
+    maybe_upstream_remotes="$(get_remotes | grep ^${upstream_remote} || echo unknown)"
 
-    if ! is_remote_github "$remotes" ; then
+    if ! is_remote_github "$maybe_upstream_remotes" ; then
         # do nothing
         return
     fi
