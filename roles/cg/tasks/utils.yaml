@@ -1,12 +1,11 @@
 ---
 - name: Ensure some cg.dev utils are installed
   ansible.builtin.command:
-    cmd: go install github.com/chainguard-dev/{{ item }}@latest
-    creates: /home/{{ user }}/.go/bin/{{ item }}
+    cmd: go install {{ item }}@latest
   loop:
-    - melange
-    - apko
-    - yam
+    - chainguard.dev/melange
+    - chainguard.dev/apko
+    - github.com/chainguard-dev/yam
 
 - name: Install some go utils
   ansible.builtin.command:
