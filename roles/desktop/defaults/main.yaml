@@ -182,3 +182,17 @@ xfce_xfconf_data:
     type: "string"
     value: "/usr/share/backgrounds/green_valey.jpg"
     force_array: false
+
+  # mechanical keyboard bounce keys settings to prevent keyboard chattering
+  - channel: "accessibility"
+    property: "/BounceKeys"
+    type: "bool"
+    value: "true"
+    force_array: false
+
+  # mechanical keyboard bounce keys settings to prevent keyboard chattering
+  - channel: "accessibility"
+    property: "/BounceKeys/Delay"
+    type: "int"
+    value: "50"
+    force_array: false
