@@ -22,6 +22,9 @@ alias gcas='git commit --all --signoff'
 alias gcm='git checkout main'
 alias gca='git clean -fd ; git checkout -f'
 
+# chainguard
+alias fork='cd "${PWD%-fork}$([ "${PWD}" = "${PWD%-fork}" ] && echo "-fork")"'
+
 # NOTE: consider adding something like --bind=ctrl-v:execute(nano {} < /dev/tty)
 # NOTE: but it may break fgnano and other funcs because reasons
 alias fzf='fzf --ansi --bind="tab:first+replace-query"'
