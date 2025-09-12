@@ -106,14 +106,14 @@ xfce_xfconf_data:
     value: ["17126586842.desktop"]
     force_array: true
 
-  # lower panel, launcher for browser
+  # lower panel, launcher for chrome browser
   - channel: "xfce4-panel"
     property: "/plugins/plugin-19"
     type: "string"
     value: "launcher"
     force_array: false
 
-  # lower panel, launcher for browser
+  # lower panel, launcher for chrome browser
   - channel: "xfce4-panel"
     property: "/plugins/plugin-19/items"
     type: "string"
@@ -127,11 +127,25 @@ xfce_xfconf_data:
     value: "screenshooter"
     force_array: false
 
+  # lower panel, launcher for firefox browser
+  - channel: "xfce4-panel"
+    property: "/plugins/plugin-13"
+    type: "string"
+    value: "launcher"
+    force_array: false
+
+  # lower panel, launcher for firefox browser
+  - channel: "xfce4-panel"
+    property: "/plugins/plugin-13/items"
+    type: "string"
+    value: ["17576746301.desktop"]
+    force_array: true
+
   # lower panel, setting
   - channel: "xfce4-panel"
     property: "/panels/panel-2/plugin-ids"
     type: "int"
-    value: ['15', '16', '17', '18', '19', '21']
+    value: ['15', '16', '17', '18', '19', '21', '13']
     force_array: true
 
   # action buttons for shutdown/etc
