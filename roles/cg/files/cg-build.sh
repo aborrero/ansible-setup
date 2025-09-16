@@ -3,5 +3,9 @@
 set -e
 set -o pipefail
 
-make debug/$1
-make test-debug/$1
+PKG=$1
+
+mkdir -p ${PKG}
+gh auth token > ${PKG}/.github-token
+make debug/${PKG}
+make test-debug/${PKG}
