@@ -211,15 +211,30 @@ xfce_xfconf_data:
     value: "50"
     force_array: false
 
-  # laptop lid power suspend
+  # laptop lid power suspend, on battery
   - channel: "xfce4-power-manager"
     property: "/xfce4-power-manager/lid-action-on-battery"
     type: "int"
     value: "1"
     force_array: false
 
+  # laptop lid power suspend, on ac
   - channel: "xfce4-power-manager"
     property: "/xfce4-power-manager/lid-action-on-ac"
     type: "int"
     value: "1"
+    force_array: false
+
+  # suspend after time, on ac
+  - channel: "xfce4-power-manager"
+    property: "/xfce4-power-manager/inactivity-on-ac"
+    type: "int"
+    value: "60"
+    force_array: false
+
+  # suspend after time, on battery
+  - channel: "xfce4-power-manager"
+    property: "/xfce4-power-manager/inactivity-on-battery"
+    type: "int"
+    value: "60"
     force_array: false
