@@ -214,14 +214,14 @@ xfce_xfconf_data:
   # laptop lid power suspend, on battery
   - channel: "xfce4-power-manager"
     property: "/xfce4-power-manager/lid-action-on-battery"
-    type: "int"
+    type: "uint"
     value: "1"
     force_array: false
 
   # laptop lid power suspend, on ac
   - channel: "xfce4-power-manager"
     property: "/xfce4-power-manager/lid-action-on-ac"
-    type: "int"
+    type: "uint"
     value: "1"
     force_array: false
 
