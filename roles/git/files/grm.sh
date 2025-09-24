@@ -19,6 +19,5 @@ gh_rebase_fork $PRIMARY_BRANCH
 
 if [ "$branch" != "${PRIMARY_BRANCH}" ] ; then
     git checkout "$branch"
-    run_gscc_in_background_if_required
     git rebase $PRIMARY_BRANCH
 fi
