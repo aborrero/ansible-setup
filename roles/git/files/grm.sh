@@ -12,13 +12,13 @@ assert_is_inside_git_repo
 
 branch=$(get_current_branch)
 
-run_gscc_in_background_if_required
-
 git checkout $PRIMARY_BRANCH
 gpr  # custom git pull rebase
+run_gscc_in_background_if_required
 gh_rebase_fork $PRIMARY_BRANCH
 
 if [ "$branch" != "${PRIMARY_BRANCH}" ] ; then
     git checkout "$branch"
+    run_gscc_in_background_if_required
     git rebase $PRIMARY_BRANCH
 fi
