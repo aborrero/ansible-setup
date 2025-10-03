@@ -1,0 +1,19 @@
+---
+# this task ensures proper configuration of /tmp for my laptop, basically
+# don't mount /tmp on tmpfs (RAM)
+
+- name: Mask tmp.mount systemd unit
+  become: true
+  ansible.builtin.systemd:
+   name: tmp.mount
+   masked: yes
+   state: stopped
+
+- name: Ensure /tmp directory exists
+  become: true
+  ansible.builtin.file:
+    path: /tmp
+    state: directory
+    mode: '1777'
+    owner: root
+    group: root

@@ -1,4 +1,7 @@
 ---
+- name: Include tmp tasks
+  ansible.builtin.include_tasks: tmp.yaml
+
 - name: Include email tasks
   ansible.builtin.include_tasks: email.yaml
 
