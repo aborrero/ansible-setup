@@ -21,6 +21,8 @@
         dir: cg/chainguard-dev/tw
       - url: git@cg-github.com:wolfi-dev/wolfictl.git
         dir: cg/wolfi-dev/wolfictl
+      - url: git@cg-github.com:chainguard-images/images.git
+        dir: cg/chainguard-images/images
 
 - name: Clone some public cg git repos (no gitsign)
   ansible.builtin.include_tasks: "{{ role_path }}/../git/tasks/clone.yml"
