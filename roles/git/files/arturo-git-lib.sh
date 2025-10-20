@@ -127,7 +127,7 @@ create_mr_branch() {
 git_push_mr_branch() {
     local remotes="$1"
     local mr_branch="$2"
-    local git_push_args="--force --set-upstream origin"
+    local git_push_args="--force-with-lease --set-upstream origin"
 
 
     if is_remote_gitlab "$remotes" ; then
