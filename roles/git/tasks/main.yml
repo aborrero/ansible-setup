@@ -7,12 +7,17 @@
   vars:
     packages:
       - git
-      - gh
       - git-lfs
       - pre-commit
       - git-crypt
       - git-delta
       - gitsign
+
+# see https://github.com/cli/cli/releases/
+- name: Install gh command line
+  become: true
+  ansible.builtin.apt:
+    deb: https://github.com/cli/cli/releases/download/v2.83.1/gh_2.83.1_linux_amd64.deb
 
 - name: Ensure secrets are decrypted
   ansible.builtin.command:
