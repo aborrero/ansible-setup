@@ -84,7 +84,10 @@ export PATH=${PATH}:${HOME}/.cargo/bin
 export PATH=${PATH}:/snap/bin
 
 # some cg stuff
-export TF_VAR_target_repository="localhost:5005"
+export TF_VAR_target_repository=cgr.dev/chainguard-eng/aborrero
+export TF_VAR_custom_repository=cgr.dev/chainguard-eng/aborrero
+export TF_VAR_target_custom_repository=cgr.dev/chainguard-eng/aborrero
+export TF_VAR_test_repository=cgr.dev/chainguard-eng/aborrero
 export GITHUB_TOKEN=$(gh auth token 2>/dev/null)
 export GITSIGN_CREDENTIAL_CACHE="$HOME/.cache/sigstore/gitsign/cache.sock"
 . ~/git/cg/chainguard-dev/wolfi-rc/wolfi-rc 2>/dev/null
