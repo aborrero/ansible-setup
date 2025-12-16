@@ -91,6 +91,8 @@
       ref: github.com/wagoodman/dive@latest
     - name: cosign
       ref: github.com/sigstore/cosign/v2/cmd/cosign@latest
+    - name: cue
+      ref: cuelang.org/go/cmd/cue@latest
 
 # from https://cloud.google.com/sdk/docs/install#deb
 - name: Install gcloud
