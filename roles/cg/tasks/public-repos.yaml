@@ -9,8 +9,6 @@
         dir: cg/wolfi-dev/os
       - url: git@cg-github.com:wolfi-dev/advisories.git
         dir: cg/wolfi-dev/advisories
-      - url: git@cg-github.com:aborrero/wolfi-dev_advisories.git
-        dir: cg/wolfi-dev/advisories-fork
       - url: git@github.com:aborrero/wolfi-dev_os.git
         dir: cg/wolfi-dev/os-fork
       - url: git@cg-github.com:chainguard-dev/mono.git
